@@ -88,6 +88,177 @@ function App() {
 
 /***/ }),
 
+/***/ "./src/features/ContentSlice.jsx":
+/*!***************************************!*\
+  !*** ./src/features/ContentSlice.jsx ***!
+  \***************************************/
+/*! exports provided: contentSlice, pushContent, purgeContent, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "contentSlice", function() { return contentSlice; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pushContent", function() { return pushContent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "purgeContent", function() { return purgeContent; });
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+
+const initialStateValue = [{
+  'nid': [{
+    'value': '0'
+  }],
+  'title': [{
+    'value': 'Loading...'
+  }],
+  'body': [{
+    'value': 'Loading...'
+  }]
+}];
+const contentSlice = Object(_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__["createSlice"])({
+  name: 'content',
+  initialState: {
+    value: initialStateValue
+  },
+  reducers: {
+    pushContent: (state, action) => {
+      state.value = action.payload;
+    },
+    purgeContent: state => {
+      state.value = initialStateValue;
+    }
+  }
+});
+const {
+  pushContent,
+  purgeContent
+} = contentSlice.actions;
+/* harmony default export */ __webpack_exports__["default"] = (contentSlice.reducer);
+
+/***/ }),
+
+/***/ "./src/features/ModalSlice.jsx":
+/*!*************************************!*\
+  !*** ./src/features/ModalSlice.jsx ***!
+  \*************************************/
+/*! exports provided: modalSlice, openModal, closeModal, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "modalSlice", function() { return modalSlice; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "openModal", function() { return openModal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeModal", function() { return closeModal; });
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+
+const openState = {
+  show: true
+};
+const closedState = {
+  show: false
+};
+const modalSlice = Object(_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__["createSlice"])({
+  name: 'modal',
+  initialState: {
+    value: closedState
+  },
+  reducers: {
+    openModal: state => {
+      state.value = openState;
+    },
+    closeModal: state => {
+      state.value = closedState;
+    }
+  }
+});
+const {
+  openModal,
+  closeModal
+} = modalSlice.actions;
+/* harmony default export */ __webpack_exports__["default"] = (modalSlice.reducer);
+
+/***/ }),
+
+/***/ "./src/features/SessionSlice.jsx":
+/*!***************************************!*\
+  !*** ./src/features/SessionSlice.jsx ***!
+  \***************************************/
+/*! exports provided: sessionSlice, newSession, endSession, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sessionSlice", function() { return sessionSlice; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "newSession", function() { return newSession; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "endSession", function() { return endSession; });
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+
+const initialStateValue = {};
+const sessionSlice = Object(_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__["createSlice"])({
+  name: 'session',
+  initialState: {
+    value: initialStateValue
+  },
+  reducers: {
+    newSession: (state, action) => {
+      state.value = action.payload;
+    },
+    endSession: state => {
+      state.value = initialStateValue;
+    }
+  }
+});
+const {
+  newSession,
+  endSession
+} = sessionSlice.actions;
+/* harmony default export */ __webpack_exports__["default"] = (sessionSlice.reducer);
+
+/***/ }),
+
+/***/ "./src/features/UserSlice.jsx":
+/*!************************************!*\
+  !*** ./src/features/UserSlice.jsx ***!
+  \************************************/
+/*! exports provided: userSlice, login, logout, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userSlice", function() { return userSlice; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+
+const initialStateValue = {
+  current_user: {
+    uid: 0,
+    roles: [],
+    name: ''
+  },
+  csrf_token: null,
+  logout_token: null
+};
+const userSlice = Object(_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__["createSlice"])({
+  name: 'user',
+  initialState: {
+    value: initialStateValue
+  },
+  reducers: {
+    login: (state, action) => {
+      state.value = action.payload;
+    },
+    logout: state => {
+      state.value = initialStateValue;
+    }
+  }
+});
+const {
+  login,
+  logout
+} = userSlice.actions;
+/* harmony default export */ __webpack_exports__["default"] = (userSlice.reducer);
+
+/***/ }),
+
 /***/ "./src/index.css":
 /*!***********************!*\
   !*** ./src/index.css ***!
@@ -112,28 +283,81 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.css */ "./src/index.css");
-/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_index_css__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App */ "./src/App.js");
-/* harmony import */ var _serviceWorker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./serviceWorker */ "./src/serviceWorker.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./index.css */ "./src/index.css");
+/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_index_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./App */ "./src/App.js");
+/* harmony import */ var _serviceWorker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./serviceWorker */ "./src/serviceWorker.js");
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _features_UserSlice__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./features/UserSlice */ "./src/features/UserSlice.jsx");
+/* harmony import */ var _features_ModalSlice__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./features/ModalSlice */ "./src/features/ModalSlice.jsx");
+/* harmony import */ var _features_SessionSlice__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./features/SessionSlice */ "./src/features/SessionSlice.jsx");
+/* harmony import */ var _features_ContentSlice__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./features/ContentSlice */ "./src/features/ContentSlice.jsx");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/index.js";
 
 
 
 
 
+
+
+
+
+
+
+
+const store = Object(_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_6__["configureStore"])({
+  reducer: {
+    session: _features_SessionSlice__WEBPACK_IMPORTED_MODULE_10__["default"],
+    user: _features_UserSlice__WEBPACK_IMPORTED_MODULE_8__["default"],
+    modal: _features_ModalSlice__WEBPACK_IMPORTED_MODULE_9__["default"],
+    content: _features_ContentSlice__WEBPACK_IMPORTED_MODULE_11__["default"]
+  }
+});
+const root = react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.createRoot(document.getElementById('root'));
+root.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 25,
+    columnNumber: 3
+  }
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.StrictMode, {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 26,
+    columnNumber: 5
+  }
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_7__["Provider"], {
+  store: store,
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 27,
+    columnNumber: 7
+  }
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 28,
+    columnNumber: 9
+  }
+})))));
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.StrictMode, {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 8,
+    lineNumber: 35,
     columnNumber: 3
   }
-}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_3__["default"], {
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_4__["default"], {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 9,
+    lineNumber: 36,
     columnNumber: 5
   }
 })), document.getElementById('root'));
@@ -141,7 +365,7 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEB
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-_serviceWorker__WEBPACK_IMPORTED_MODULE_4__["unregister"]();
+_serviceWorker__WEBPACK_IMPORTED_MODULE_5__["unregister"]();
 
 /***/ }),
 
