@@ -1,62 +1,21 @@
 import React from "react";
-import { Route } from "react-router-dom";
-import * as API from "./config";
-import Header from './components/Header';
-import UserControl from './components/UserControl';
-import Main from "./components/Main";
-import Footer from './components/Footer';
-import NavBar from './components/NavBar';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
-  return (
-    <>
-      <Header />
-      <NavBar />
-      <UserControl />
-      <Route exact path="/">
-        <Main route={API.FRONT}/>
-      </Route>
-      <Route exact path="/news">
-        <Main route={API.NEWS}/>
-      </Route>
-      <Route exact path="/guides">
-        <Main route={API.GUIDES}/>
-      </Route>
-      <Route exact path="/store">
-        <Main route={API.STORE}/>
-      </Route>
-      <Route exact path="/community">
-        <Main route={API.COMMUNITY}/>
-      </Route>
-      <Route exact path="/about">
-        <Main route={API.ABOUT}/>
-      </Route>
-      <Route exact path="/contact">
-        <Main route={API.CONTACT}/>
-      </Route>
-      <Route exact path="/vendors">
-        <Main route={API.VENDORS}/>
-      </Route>
-      <Route exact path="/terms">
-        <Main route={API.TERMS}/>
-      </Route>
-      <Route exact path="/privacy">
-        <Main route={API.PRIVACY}/>
-      </Route>
-      <Route exact path="/orders">
-        <Main route={API.ORDERS}/>
-      </Route>
-      <Route exact path="/search">
-        <Main route={API.SEARCH}/>
-      </Route>
-      <Route exact path="/register">
-        <Main route={API.REGISTER}/>
-      </Route>
-      <Footer />
-    </>
-  );
+    return (
+        <div className="App">
+            <header className="App-header">
+                <img src={logo} className="App-logo" alt="logo" />
+                <p>
+                    Edit <code>react-src/src/App.js</code> and save to reload.
+                </p>
+                <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
+                    Learn React
+                </a>
+            </header>
+        </div>
+    );
 }
 
 export default App;
-
