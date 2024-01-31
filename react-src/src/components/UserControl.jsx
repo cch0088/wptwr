@@ -33,18 +33,30 @@ return (
         <div id="usercontrol">
             { modal.show && <Modal children={ <LoginForm /> }/> }
             <>
-                <span className="userbutton" onClick={() => { history.push("/orders") }}>🛒 Orders</span>
-                <span className="userbutton" onClick={() => { history.push("/search") }}>🔍 Search</span>
+                <span className="userbutton" onClick={() => { history.push("/orders") }}>
+                    <span role="img" aria-label="cart">🛒</span> Orders
+                </span>
+                <span className="userbutton" onClick={() => { history.push("/search") }}>
+                    <span role="img" aria-label="find">🔍</span> Search
+                </span>
             </>
             {
                 (user.current_user.name === '') ?
                 <>
-                    <span className="userbutton" onClick={() => { history.push("/register") }}>🆕 Sign Up</span>
-                    <span className="userbutton" onClick={handleLogin}>👤 Log In</span>
+                    <span className="userbutton" onClick={() => { history.push("/register") }}>
+                        <span role="img" aria-label="new">🆕</span> Sign Up
+                    </span>
+                    <span className="userbutton" onClick={handleLogin}>
+                        <span role="img" aria-label="head">👤</span> Log In
+                    </span>
                 </> :
                 <>
-                    <span className="userbutton" onClick={() => { history.push("/account") }}>👤 Account</span>
-                    <span className="userbutton" onClick={handleLogout}>🚪 Log Out</span>
+                    <span className="userbutton" onClick={() => { history.push("/account") }}>
+                        <span role="img" aria-label="head">👤</span> Account
+                    </span>
+                    <span className="userbutton" onClick={handleLogout}>
+                        <span role="img" aria-label="door">🚪</span> Log Out
+                    </span>
                 </>
             }
         </div>
