@@ -1,4 +1,4 @@
-export const API = "https://www.travelwithreason.com";
+export const API = "https://travelwithreason.com/wp-json";
 export const SESSION = `${API}/session/token`;
 export const LOGIN = `${API}/user/login`;
 export const LOGOUT = `${API}/user/logout`;
