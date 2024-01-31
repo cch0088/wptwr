@@ -1,13 +1,19 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import Header from './components/Header';
+import UserControl from './components/UserControl';
+import Footer from './components/Footer';
+import NavBar from './components/NavBar';
+import './App.css';
 
 function App() {
     return (
-        <div className="App">
-            Hello
-        </div>
+      <>
+        <Header />
+        <NavBar />
+        <UserControl />
+        <Footer />
+      </>
     );
-}
+  }
 
 export default App;
