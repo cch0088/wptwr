@@ -17,29 +17,12 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-wptheme"
+      content="Travel with Reason"
     />
     <link rel="apple-touch-icon" href="<?php echo $TEMPLATE_PATH; ?>/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
     <link rel="manifest" href="<?php echo $TEMPLATE_PATH; ?>/manifest.json" />
-    <!--
-        If you're reading this from "view source" in your browser, it might not make sense as
-        these tokens have already been evaluated and replaced, even in this remark blurb.
-
-        Notice the use of "php echo $TEMPLATE_PATH;" and /WordPress/wp-content/themes/wptwr in the tags above.
-        Both will be replaced with the URL of the `public` folder during the build (/WordPress/wp-content/themes/wptwr) or
-        at render time (php echo $TEMPLATE_PATH;)
-        Only files inside the `public` folder can be referenced like this.
-
-        Unlike "/favicon.ico" or "favicon.ico", "/WordPress/wp-content/themes/wptwr/favicon.ico" will
-        work correctly both with client-side routing and a non-root public URL.
-        Learn how to configure a non-root public URL by running `npm run wpbuild`.
-    -->
-    <title>React WordPress Theme</title>
-<link href="/WordPress/wp-content/themes/wptwr/static/css/main.chunk.css?93d4524430fda99074dc" rel="stylesheet"></head>
+    <title>Travel with Reason</title>
+<link href="/WordPress/wp-content/themes/wptwr/static/css/main.chunk.css?afaa09a60c0d02113181" rel="stylesheet"></head>
     <body>
     <noscript>
         You need to enable JavaScript to run this app.
@@ -47,13 +30,6 @@
     <div id="root"></div>
     <!--
         This PHP file is a template.
-        If you open it directly in the browser, you will see an empty page.
-
-        You can add webfonts, meta tags, or analytics to this file.
-        The build step will place the bundled scripts into the <body> tag.
-
-        To begin the development, run `npm run wpstart` or `yarn wpstart`.
-        To create a production bundle, use `npm run wpbuild` or `yarn wpbuild`.
     -->
-    <script src="/WordPress/wp-content/themes/wptwr/static/js/bundle.js?93d4524430fda99074dc"></script><script src="/WordPress/wp-content/themes/wptwr/static/js/0.chunk.js?93d4524430fda99074dc"></script><script src="/WordPress/wp-content/themes/wptwr/static/js/main.chunk.js?93d4524430fda99074dc"></script></body>
+    <script src="/WordPress/wp-content/themes/wptwr/static/js/bundle.js?afaa09a60c0d02113181"></script><script src="/WordPress/wp-content/themes/wptwr/static/js/1.chunk.js?afaa09a60c0d02113181"></script><script src="/WordPress/wp-content/themes/wptwr/static/js/main.chunk.js?afaa09a60c0d02113181"></script></body>
 </html>
