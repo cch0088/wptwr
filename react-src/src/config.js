@@ -1,4 +1,4 @@
-export const WP_ROOT = ""; // Use blank if root is same as site
+export const WP_ROOT = "WordPress"; // Use blank if root is same as site
 
 export const API_JSON = `${WP_ROOT}/wp-json`;
 export const REACT_UI = `${WP_ROOT}`;
