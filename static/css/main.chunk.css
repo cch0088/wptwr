@@ -89,8 +89,6 @@ code {
   width: 75px;
   text-decoration: none;
   text-align: center;
-  font-size: small;
-  background: black;
 }
 
 #usercontrol > .userbutton:hover {
@@ -454,12 +452,12 @@ p {
   #usercontrol {
     top: 4px;
     right: 4px;
-    width: 200px;
+    width: 100px;
     text-align: right;
   }
 
   #usercontrol > .userbutton {
-    margin: 3px 2px 2px 3px;
+    margin: 1px 2px 2px 3px;
     text-align: left;
   }
 

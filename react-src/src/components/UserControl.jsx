@@ -32,11 +32,6 @@ function UserControl() {
 return (
         <div id="usercontrol">
             { modal.show && <Modal children={ <LoginForm /> }/> }
-            <>
-                <span className="userbutton" onClick={() => { history.push("/search") }}>
-                    <span role="img" aria-label="find">🔍</span> Search
-                </span>
-            </>
             {
                 (user.current_user.name === '') ?
                 <>
