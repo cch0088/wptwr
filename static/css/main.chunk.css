@@ -86,7 +86,7 @@ code {
   color: white;
   margin: 8px 4px 8px 4px;
   padding: 6px 8px 6px 8px;
-  width: 75px;
+  width: 90px;
   text-decoration: none;
   text-align: center;
 }
@@ -452,7 +452,7 @@ p {
   #usercontrol {
     top: 4px;
     right: 4px;
-    width: 100px;
+    width: 120px;
     text-align: right;
   }
 
