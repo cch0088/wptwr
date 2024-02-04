@@ -14,6 +14,9 @@ code {
 
 #head-nav-bar {
   background: rgba(0,0,0,0.8);
+  background-position-y: center;
+  background-blend-mode: overlay;
+  background-image: url('./backgrounds/banner.jpg');
   height: 90px;
   box-shadow: 0px 8px 8px lightgray;
 }
@@ -179,8 +182,6 @@ code {
 }
 
 #content {
-  background-image: url('./backgrounds/background1.png');
-  background-color:rgb(53, 179, 36);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -189,8 +190,6 @@ code {
 }
 
 #home-content {
-  background-image: url('./backgrounds/background1.png');
-  margin-top: 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -199,7 +198,6 @@ code {
 }
 
 #contact-content {
-  background-image: url('./backgrounds/background2.jpg');
   display: flex;
   flex-direction: column;
   align-items: center;
