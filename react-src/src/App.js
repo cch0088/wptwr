@@ -4,12 +4,12 @@ import UserControl from './components/UserControl';
 import Footer from './components/Footer';
 import NavBar from './components/NavBar';
 import './App.css';
+import Slide from "./components/Slide";
 
 function App() {
     return (
       <>
         <Header />
-        <NavBar />
         <UserControl />
         <Footer />
       </>

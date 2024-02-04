@@ -28,7 +28,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_NavBar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/NavBar */ "./src/components/NavBar.jsx");
 /* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./App.css */ "./src/App.css");
 /* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_App_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _components_Slide__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Slide */ "./src/components/Slide.jsx");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/App.js";
+
 
 
 
@@ -37,13 +39,6 @@ var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-sr
 
 function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 11,
-      columnNumber: 9
-    }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_NavBar__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -333,6 +328,52 @@ function NavBar() {
 
 /***/ }),
 
+/***/ "./src/components/Slide.jsx":
+/*!**********************************!*\
+  !*** ./src/components/Slide.jsx ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/Slide.jsx";
+
+function Slide({
+  content
+}) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "slide",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 17
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 23
+    }
+  }, "Test"))));
+}
+
+// <span dangerouslySetInnerHTML={{ __html: c.body[0].value }}/>
+/* harmony default export */ __webpack_exports__["default"] = (Slide);
+
+/***/ }),
+
 /***/ "./src/components/UserControl.jsx":
 /*!****************************************!*\
   !*** ./src/components/UserControl.jsx ***!
@@ -403,7 +444,7 @@ function UserControl() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "userbutton",
     onClick: () => {
-      history.push("/orders");
+      history.push("/search");
     },
     __self: this,
     __source: {
@@ -413,31 +454,11 @@ function UserControl() {
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     role: "img",
-    "aria-label": "cart",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 37,
-      columnNumber: 21
-    }
-  }, "\uD83D\uDED2"), " Orders"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "userbutton",
-    onClick: () => {
-      history.push("/search");
-    },
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 39,
-      columnNumber: 17
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    role: "img",
     "aria-label": "find",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 37,
       columnNumber: 21
     }
   }, "\uD83D\uDD0D"), " Search")), user.current_user.name === '' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -448,7 +469,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 43,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -457,7 +478,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 44,
       columnNumber: 25
     }
   }, "\uD83C\uDD95"), " Sign Up"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -466,7 +487,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 46,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -475,7 +496,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 47,
       columnNumber: 25
     }
   }, "\uD83D\uDC64"), " Log In")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -486,7 +507,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 51,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -495,7 +516,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55,
+      lineNumber: 52,
       columnNumber: 25
     }
   }, "\uD83D\uDC64"), " Account"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -504,7 +525,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57,
+      lineNumber: 54,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -513,7 +534,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
+      lineNumber: 55,
       columnNumber: 25
     }
   }, "\uD83D\uDEAA"), " Log Out")));
@@ -1078,14 +1099,14 @@ root.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createEle
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 25,
+    lineNumber: 26,
     columnNumber: 3
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.StrictMode, {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 26,
+    lineNumber: 27,
     columnNumber: 5
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_7__["Provider"], {
@@ -1093,14 +1114,14 @@ root.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createEle
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 27,
+    lineNumber: 28,
     columnNumber: 7
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_4__["default"], {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 28,
+    lineNumber: 29,
     columnNumber: 9
   }
 })))));

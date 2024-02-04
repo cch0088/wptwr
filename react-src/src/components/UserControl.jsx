@@ -33,9 +33,6 @@ return (
         <div id="usercontrol">
             { modal.show && <Modal children={ <LoginForm /> }/> }
             <>
-                <span className="userbutton" onClick={() => { history.push("/orders") }}>
-                    <span role="img" aria-label="cart">🛒</span> Orders
-                </span>
                 <span className="userbutton" onClick={() => { history.push("/search") }}>
                     <span role="img" aria-label="find">🔍</span> Search
                 </span>
