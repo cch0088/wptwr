@@ -1,5 +1,5 @@
-export const API_JSON = "/WordPress/wp-json";
-export const REACT_UI = "/WordPress/";
+export const API_JSON = "WordPress/wp-json";
+export const REACT_UI = "WordPress";
 
 export const F_SESSION = `${REACT_UI}/session/token`;
 export const F_LOGIN = `${REACT_UI}/user/login`;

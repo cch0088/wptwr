@@ -232,8 +232,10 @@ function Modal({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../config */ "./src/config.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/NavBar.jsx";
+
 
 
 function NavBar() {
@@ -242,7 +244,7 @@ function NavBar() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8,
+      lineNumber: 9,
       columnNumber: 5
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -250,79 +252,79 @@ function NavBar() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
+      lineNumber: 10,
       columnNumber: 9
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-    to: "/news",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 10,
-      columnNumber: 13
-    }
-  }, "News"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-    to: "/guides",
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
+    to: _config__WEBPACK_IMPORTED_MODULE_1__["F_NEWS"],
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 11,
       columnNumber: 13
     }
-  }, "Guides"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-    to: "/store",
+  }, "News"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
+    to: _config__WEBPACK_IMPORTED_MODULE_1__["F_GUIDES"],
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 12,
       columnNumber: 13
     }
-  }, "Store"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-    to: "/community",
+  }, "Guides"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
+    to: _config__WEBPACK_IMPORTED_MODULE_1__["F_STORE"],
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 13,
       columnNumber: 13
     }
-  }, "Community"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-    to: "/about",
+  }, "Store"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
+    to: _config__WEBPACK_IMPORTED_MODULE_1__["F_COMMUNITY"],
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 14,
       columnNumber: 13
     }
-  }, "About Us"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-    to: "/contact",
+  }, "Community"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
+    to: _config__WEBPACK_IMPORTED_MODULE_1__["F_ABOUT"],
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 15,
       columnNumber: 13
     }
-  }, "Contact Us"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-    to: "/vendors",
+  }, "About Us"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
+    to: _config__WEBPACK_IMPORTED_MODULE_1__["F_CONTACT"],
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 16,
       columnNumber: 13
     }
-  }, "Our Vendors"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-    to: "/terms",
+  }, "Contact Us"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
+    to: _config__WEBPACK_IMPORTED_MODULE_1__["F_VENDORS"],
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 17,
       columnNumber: 13
     }
-  }, "Terms of Use"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-    to: "/privacy",
+  }, "Our Vendors"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
+    to: _config__WEBPACK_IMPORTED_MODULE_1__["F_TERMS"],
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 18,
+      columnNumber: 13
+    }
+  }, "Terms of Use"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
+    to: _config__WEBPACK_IMPORTED_MODULE_1__["F_PRIVACY"],
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19,
       columnNumber: 13
     }
   }, "Privacy Policy")));
@@ -720,8 +722,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_ORDERS", function() { return B_ORDERS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_SEARCH", function() { return B_SEARCH; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_REGISTER", function() { return B_REGISTER; });
-const API_JSON = "/WordPress/wp-json";
-const REACT_UI = "/WordPress/";
+const API_JSON = "WordPress/wp-json";
+const REACT_UI = "WordPress";
 const F_SESSION = `${REACT_UI}/session/token`;
 const F_LOGIN = `${REACT_UI}/user/login`;
 const F_LOGOUT = `${REACT_UI}/user/logout`;
