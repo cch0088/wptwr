@@ -25,10 +25,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Header */ "./src/components/Header.jsx");
 /* harmony import */ var _components_UserControl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/UserControl */ "./src/components/UserControl.jsx");
 /* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Footer */ "./src/components/Footer.jsx");
-/* harmony import */ var _components_NavBar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/NavBar */ "./src/components/NavBar.jsx");
-/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./App.css */ "./src/App.css");
-/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_App_css__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _components_Slide__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Slide */ "./src/components/Slide.jsx");
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./App.css */ "./src/App.css");
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_App_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/App.js";
 
 
@@ -36,27 +35,33 @@ var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-sr
 
 
 
-
 function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["BrowserRouter"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12,
+      lineNumber: 10,
+      columnNumber: 7
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_UserControl__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13,
+      lineNumber: 12,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14,
+      lineNumber: 13,
       columnNumber: 9
     }
   }));
@@ -111,11 +116,9 @@ function Footer() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
-/* harmony import */ var _logo_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../logo.svg */ "./src/logo.svg");
-/* harmony import */ var _logo_svg__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_logo_svg__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _logo_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../logo.svg */ "./src/logo.svg");
+/* harmony import */ var _logo_svg__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_logo_svg__WEBPACK_IMPORTED_MODULE_1__);
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/Header.jsx";
-
 
 
 function Header() {
@@ -124,7 +127,7 @@ function Header() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
+      lineNumber: 7,
       columnNumber: 5
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -132,32 +135,24 @@ function Header() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10,
+      lineNumber: 8,
       columnNumber: 9
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-    to: "/",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 11,
-      columnNumber: 13
-    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: _logo_svg__WEBPACK_IMPORTED_MODULE_2___default.a,
+    src: _logo_svg__WEBPACK_IMPORTED_MODULE_1___default.a,
     alt: "Logo",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11,
-      columnNumber: 29
+      lineNumber: 8,
+      columnNumber: 24
     }
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "logotext",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13,
+      lineNumber: 9,
       columnNumber: 9
     }
   }, "Travel With Reason"));
@@ -213,164 +208,6 @@ function Modal({
 }
 ;
 /* harmony default export */ __webpack_exports__["default"] = (Modal);
-
-/***/ }),
-
-/***/ "./src/components/NavBar.jsx":
-/*!***********************************!*\
-  !*** ./src/components/NavBar.jsx ***!
-  \***********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../config */ "./src/config.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
-var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/NavBar.jsx";
-
-
-
-function NavBar() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "nav-container",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 9,
-      columnNumber: 5
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "navigation",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 10,
-      columnNumber: 9
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
-    to: _config__WEBPACK_IMPORTED_MODULE_1__["F_NEWS"],
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 11,
-      columnNumber: 13
-    }
-  }, "News"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
-    to: _config__WEBPACK_IMPORTED_MODULE_1__["F_GUIDES"],
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 12,
-      columnNumber: 13
-    }
-  }, "Guides"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
-    to: _config__WEBPACK_IMPORTED_MODULE_1__["F_STORE"],
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 13,
-      columnNumber: 13
-    }
-  }, "Store"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
-    to: _config__WEBPACK_IMPORTED_MODULE_1__["F_COMMUNITY"],
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 14,
-      columnNumber: 13
-    }
-  }, "Community"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
-    to: _config__WEBPACK_IMPORTED_MODULE_1__["F_ABOUT"],
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 15,
-      columnNumber: 13
-    }
-  }, "About Us"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
-    to: _config__WEBPACK_IMPORTED_MODULE_1__["F_CONTACT"],
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 16,
-      columnNumber: 13
-    }
-  }, "Contact Us"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
-    to: _config__WEBPACK_IMPORTED_MODULE_1__["F_VENDORS"],
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 17,
-      columnNumber: 13
-    }
-  }, "Our Vendors"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
-    to: _config__WEBPACK_IMPORTED_MODULE_1__["F_TERMS"],
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 18,
-      columnNumber: 13
-    }
-  }, "Terms of Use"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
-    to: _config__WEBPACK_IMPORTED_MODULE_1__["F_PRIVACY"],
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 19,
-      columnNumber: 13
-    }
-  }, "Privacy Policy")));
-}
-/* harmony default export */ __webpack_exports__["default"] = (NavBar);
-
-/***/ }),
-
-/***/ "./src/components/Slide.jsx":
-/*!**********************************!*\
-  !*** ./src/components/Slide.jsx ***!
-  \**********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/Slide.jsx";
-
-function Slide({
-  content
-}) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "slide",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 6,
-      columnNumber: 13
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 7,
-      columnNumber: 17
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 7,
-      columnNumber: 23
-    }
-  }, "Test"))));
-}
-
-// <span dangerouslySetInnerHTML={{ __html: c.body[0].value }}/>
-/* harmony default export */ __webpack_exports__["default"] = (Slide);
 
 /***/ }),
 
@@ -1062,17 +899,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
-/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./index.css */ "./src/index.css");
-/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_index_css__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./App */ "./src/App.js");
-/* harmony import */ var _serviceWorker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./serviceWorker */ "./src/serviceWorker.js");
-/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _features_UserSlice__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./features/UserSlice */ "./src/features/UserSlice.jsx");
-/* harmony import */ var _features_ModalSlice__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./features/ModalSlice */ "./src/features/ModalSlice.jsx");
-/* harmony import */ var _features_SessionSlice__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./features/SessionSlice */ "./src/features/SessionSlice.jsx");
-/* harmony import */ var _features_ContentSlice__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./features/ContentSlice */ "./src/features/ContentSlice.jsx");
+/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.css */ "./src/index.css");
+/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_index_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App */ "./src/App.js");
+/* harmony import */ var _serviceWorker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./serviceWorker */ "./src/serviceWorker.js");
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _features_UserSlice__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./features/UserSlice */ "./src/features/UserSlice.jsx");
+/* harmony import */ var _features_ModalSlice__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./features/ModalSlice */ "./src/features/ModalSlice.jsx");
+/* harmony import */ var _features_SessionSlice__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./features/SessionSlice */ "./src/features/SessionSlice.jsx");
+/* harmony import */ var _features_ContentSlice__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./features/ContentSlice */ "./src/features/ContentSlice.jsx");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/index.js";
 
 
@@ -1085,51 +921,36 @@ var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-sr
 
 
 
-
-const store = Object(_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_6__["configureStore"])({
+const store = Object(_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_5__["configureStore"])({
   reducer: {
-    session: _features_SessionSlice__WEBPACK_IMPORTED_MODULE_10__["default"],
-    user: _features_UserSlice__WEBPACK_IMPORTED_MODULE_8__["default"],
-    modal: _features_ModalSlice__WEBPACK_IMPORTED_MODULE_9__["default"],
-    content: _features_ContentSlice__WEBPACK_IMPORTED_MODULE_11__["default"]
+    session: _features_SessionSlice__WEBPACK_IMPORTED_MODULE_9__["default"],
+    user: _features_UserSlice__WEBPACK_IMPORTED_MODULE_7__["default"],
+    modal: _features_ModalSlice__WEBPACK_IMPORTED_MODULE_8__["default"],
+    content: _features_ContentSlice__WEBPACK_IMPORTED_MODULE_10__["default"]
   }
 });
 const root = react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.createRoot(document.getElementById('root'));
-root.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], {
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 26,
-    columnNumber: 3
-  }
-}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.StrictMode, {
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 27,
-    columnNumber: 5
-  }
-}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_7__["Provider"], {
+root.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_6__["Provider"], {
   store: store,
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 28,
-    columnNumber: 7
+    lineNumber: 25,
+    columnNumber: 3
   }
-}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_4__["default"], {
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_3__["default"], {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 29,
-    columnNumber: 9
+    lineNumber: 26,
+    columnNumber: 5
   }
-})))));
+})));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-_serviceWorker__WEBPACK_IMPORTED_MODULE_5__["unregister"]();
+_serviceWorker__WEBPACK_IMPORTED_MODULE_4__["unregister"]();
 
 /***/ }),
 
@@ -1260,5 +1081,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",1]]]);
+},[[0,"runtime-main",0]]]);
 //# sourceMappingURL=main.chunk.js.map

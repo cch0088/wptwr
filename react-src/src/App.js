@@ -2,18 +2,17 @@ import React from "react";
 import Header from './components/Header';
 import UserControl from './components/UserControl';
 import Footer from './components/Footer';
-import NavBar from './components/NavBar';
 import './App.css';
-import Slide from "./components/Slide";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
-    return (
-      <>
-        <Header />
-        <UserControl />
-        <Footer />
-      </>
-    );
-  }
+  return (
+    <BrowserRouter>
+      <Header />
+      <UserControl />
+      <Footer />
+    </BrowserRouter>
+  );
+}
 
 export default App;
