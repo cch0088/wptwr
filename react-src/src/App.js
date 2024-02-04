@@ -1,16 +1,21 @@
 import React from "react";
-import Header from './components/Header';
-import UserControl from './components/UserControl';
-import Footer from './components/Footer';
 import './App.css';
-import { BrowserRouter } from "react-router-dom";
+import { WP_ROOT } from "./config";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
+import Main from "./components/Main";
+import Test from "./components/Test";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
-      <UserControl />
-      <Footer />
+      <Routes>
+        <Route path={`${WP_ROOT}/`} element={<Layout />}>
+          <Route index element={<Main />} />
+          <Route path="test" element={<Test />} />
+          <Route path="*" element={<Main />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }
