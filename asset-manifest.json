@@ -9,8 +9,8 @@
     "runtime-main.js": "/WordPress/wp-content/themes/wptwr/static/js/bundle.js",
     "runtime-main.js.map": "/WordPress/wp-content/themes/wptwr/static/js/bundle.js.map",
     "index.php": "/WordPress/wp-content/themes/wptwr/index.php",
-    "static/media/App.css": "/WordPress/wp-content/themes/wptwr/static/media/background2.a5c20c64.jpg",
-    "static/media/logo.svg": "/WordPress/wp-content/themes/wptwr/static/media/logo.6ad05eed.svg"
+    "static/media/logo.svg": "/WordPress/wp-content/themes/wptwr/static/media/logo.e9286273.svg",
+    "static/media/logotext.svg": "/WordPress/wp-content/themes/wptwr/static/media/logotext.1ad91849.svg"
   },
   "entrypoints": [
     "static/js/bundle.js",
