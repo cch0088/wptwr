@@ -4,7 +4,7 @@ function Main() {
 
 return (
     <div id="home-content">
-        <div className="slide">Main</div>
+        <div className="slide">Website is under construction</div>
     </div>
     )
 }

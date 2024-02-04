@@ -4,7 +4,6 @@ import { WP_ROOT } from "./config";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Main from "./components/Main";
-import Test from "./components/Test";
 import NoPage from "./components/NoPage";
 
 function App() {
@@ -13,7 +12,6 @@ function App() {
       <Routes>
         <Route path={`${WP_ROOT}/`} element={<Layout />}>
           <Route index element={<Main />} />
-          <Route path="test" element={<Test />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
