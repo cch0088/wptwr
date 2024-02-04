@@ -1,7 +1,7 @@
 {
   "files": {
-    "static/js/1.chunk.js": "/WordPress/wp-content/themes/wptwr/static/js/1.chunk.js",
-    "static/js/1.chunk.js.map": "/WordPress/wp-content/themes/wptwr/static/js/1.chunk.js.map",
+    "static/js/0.chunk.js": "/WordPress/wp-content/themes/wptwr/static/js/0.chunk.js",
+    "static/js/0.chunk.js.map": "/WordPress/wp-content/themes/wptwr/static/js/0.chunk.js.map",
     "main.css": "/WordPress/wp-content/themes/wptwr/static/css/main.chunk.css",
     "main.js": "/WordPress/wp-content/themes/wptwr/static/js/main.chunk.js",
     "main.css.map": "/WordPress/wp-content/themes/wptwr/static/css/main.chunk.css.map",
@@ -15,7 +15,7 @@
   },
   "entrypoints": [
     "static/js/bundle.js",
-    "static/js/1.chunk.js",
+    "static/js/0.chunk.js",
     "static/css/main.chunk.css",
     "static/js/main.chunk.js"
   ]
