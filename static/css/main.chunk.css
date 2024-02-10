@@ -225,30 +225,28 @@ code {
 }
 
 .card {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px lightgray;
-  padding: 20px;
-  width: 300px;
-  background-color: white;
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  align-items: center;
 }
 
 .card-photo {
-  height: 200px;
-  width: 200px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px lightgray;
+  width: 340px;
 }
 
 .card-text {
   padding: 6px;
   border-radius: 4px;
   font-weight: bold;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.7);
   color: white;
   text-align: center;
-  margin-top:-30px;
+  width: 33%;
+  margin-top:-40px;
 }
 
 .slide {

@@ -310,8 +310,10 @@ function Main() {
       lineNumber: 9,
       columnNumber: 13
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "card-photo",
+    alt: "community",
+    src: "/WordPress/wp-content/themes/wptwr/thumbnails/community.jpg",
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -334,8 +336,10 @@ function Main() {
       lineNumber: 13,
       columnNumber: 13
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "card-photo",
+    alt: "community",
+    src: "/WordPress/wp-content/themes/wptwr/thumbnails/parks.jpg",
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -358,8 +362,10 @@ function Main() {
       lineNumber: 17,
       columnNumber: 13
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "card-photo",
+    alt: "community",
+    src: "/WordPress/wp-content/themes/wptwr/thumbnails/sports.jpg",
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -382,8 +388,10 @@ function Main() {
       lineNumber: 21,
       columnNumber: 13
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "card-photo",
+    alt: "community",
+    src: "/WordPress/wp-content/themes/wptwr/thumbnails/resorts.jpg",
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -406,8 +414,10 @@ function Main() {
       lineNumber: 25,
       columnNumber: 13
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "card-photo",
+    alt: "community",
+    src: "/WordPress/wp-content/themes/wptwr/thumbnails/venues.jpg",
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -430,8 +440,10 @@ function Main() {
       lineNumber: 29,
       columnNumber: 13
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "card-photo",
+    alt: "community",
+    src: "/WordPress/wp-content/themes/wptwr/thumbnails/guides.jpg",
     __self: this,
     __source: {
       fileName: _jsxFileName,
