@@ -1,5 +1,6 @@
 // Use forward slash (/) if root is same as site
 export const WP_ROOT = "WordPress";
+export const WP_UPLOADS = "wp-content/uploads";
 
 export const API_JSON = "wp-json";
 export const REACT_UI = `${WP_ROOT}`;
