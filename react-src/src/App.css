@@ -214,6 +214,11 @@ code {
   margin-top: 20px;
   margin-bottom: 20px;
   align-items: center;
+  text-decoration: none;
+}
+
+.card:hover > .card-text {
+  background-color: rgba(14, 120, 168, 0.7);
 }
 
 .card-photo {
