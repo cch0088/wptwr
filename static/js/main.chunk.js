@@ -117,7 +117,13 @@ function App() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _logo_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../logo.svg */ "./src/logo.svg");
+/* harmony import */ var _logo_svg__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_logo_svg__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _logotext_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../logotext.svg */ "./src/logotext.svg");
+/* harmony import */ var _logotext_svg__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_logotext_svg__WEBPACK_IMPORTED_MODULE_2__);
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/Footer.jsx";
+
+
 
 function Footer() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -125,17 +131,76 @@ function Footer() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6,
+      lineNumber: 8,
       columnNumber: 5
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "footer-row",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7,
+      lineNumber: 9,
       columnNumber: 9
     }
-  }, "\xA9 2023 Travel With Reason, LLC"));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "logo-footer",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: _logo_svg__WEBPACK_IMPORTED_MODULE_1___default.a,
+    alt: "Logo",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 35
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "logotext-footer",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: _logotext_svg__WEBPACK_IMPORTED_MODULE_2___default.a,
+    alt: "Logo Text",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 39
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "footer-about",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "footer-span",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 43
+    }
+  }, "A privacy focused travel community site.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "footer-button",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13,
+      columnNumber: 13
+    }
+  }, "Contact")));
 }
 /* harmony default export */ __webpack_exports__["default"] = (Footer);
 
@@ -342,7 +407,7 @@ function MainMenu({
     Object(_features_PageServices__WEBPACK_IMPORTED_MODULE_2__["getContent"])(route).then(object => {
       dispatch(Object(_features_ContentSlice__WEBPACK_IMPORTED_MODULE_3__["pushContent"])(object));
     });
-  }, []);
+  });
   const regex = /(<([^>]+)>)/gi;
   const menuData = content.content.rendered.replace(regex, "").split(/\s+/).filter(i => i !== "");
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1410,5 +1475,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",1]]]);
+},[[0,"runtime-main",0]]]);
 //# sourceMappingURL=main.chunk.js.map

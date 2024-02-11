@@ -42,8 +42,12 @@ code {
   position: absolute;
   top: 5px;
   left: 32px;
-  text-align: center;
 }
+
+#logo-footer img {
+  height: 60px;
+}
+
 
 #logo img {
   height: 80px;
@@ -54,9 +58,11 @@ code {
   left: 128px;
   top: 12px;
   color: white;
-  font-size: x-large;
-  font-family: cursive;
-  font-weight: bold;
+}
+
+#logotext-footer {
+  transform: scale(0.75);
+  color: white;
 }
 
 #usercontrol {
@@ -275,13 +281,40 @@ p {
 }
 
 #footer {
-  padding-top: 6px;
-  padding-bottom: 6px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: x-small;
+  position: absolute;
+  bottom: 0;
+  background-color: black;
+  color: white;
+  width: 100%;
+}
+
+#footer-button {
+  border: 1px solid;
+  border-radius: 16px;
+  font-size: small;
+  padding: 5px 20px 5px 20px;
+}
+
+.footer-row {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 80px;
+}
+
+.footer-span {
+  padding: 2px;
+  font-size: small;
+}
+
+.footer-about {
+  display: flex;
+  flex-direction: column;
+  margin: 40px;
 }
 
 #site-form {
@@ -440,14 +473,6 @@ p {
   cursor: pointer;
 }
 
-@media screen and (min-width: 750px) { .slide { width: 55%; } }
-@media screen and (min-width: 900px) { .slide { width: 60%; } }
-@media screen and (min-width: 1000px) { .slide { width: 65%; } }
-@media screen and (min-width: 1200px) { .slide { width: 70%; } }
-@media screen and (min-width: 1350px) { .slide { width: 75%; } }
-@media screen and (min-width: 1700px) { .slide { width: 80%; } }
-@media screen and (min-width: 2200px) { .slide { width: 85%; } }
-
 @media screen and (max-width: 750px) {
   #logo {
     left: 3px;
@@ -488,6 +513,13 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  #card-container {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 4px;
+    justify-content: center;
   }
 
   .navigation {
