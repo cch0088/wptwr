@@ -1,7 +1,10 @@
-export const WP_ROOT = "WordPress"; // Use blank if root is same as site
+// Use forward slash (/) if root is same as site
+export const WP_ROOT = "WordPress";
 
-export const API_JSON = `${WP_ROOT}/wp-json`;
+export const API_JSON = "wp-json";
 export const REACT_UI = `${WP_ROOT}`;
+
+export const API_PAGES = `${API_JSON}/wp/v2/pages`;
 
 export const F_SESSION = `${REACT_UI}/session/token`;
 export const F_LOGIN = `${REACT_UI}/user/login`;
@@ -37,4 +40,6 @@ export const B_ORDERS = `${API_JSON}/orders`;
 export const B_SEARCH = `${API_JSON}/search`;
 export const B_REGISTER = `${API_JSON}/register`;
 
-export const B_POSTS = `${API_JSON}/wp/v2/posts`
+export const B_POSTS = `${API_JSON}/wp/v2/posts`;
+
+export const B_MAIN_MENU = `${API_PAGES}/6`;

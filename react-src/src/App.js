@@ -10,7 +10,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={`${nav.WP_ROOT}/`} element={<Layout />}>
+        <Route path={nav.WP_ROOT} element={<Layout />}>
           <Route index element={<Main />} />
           <Route path="*" element={<NoPage />} />
         </Route>
