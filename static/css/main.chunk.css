@@ -485,6 +485,17 @@ p {
   cursor: pointer;
 }
 
+@media screen and (max-width: 1164px) {
+  .card {
+    scale: 80%;
+    margin: 0px;
+  }
+
+  #card-container {
+    grid-template-columns: auto auto;
+  }
+}
+
 @media screen and (max-width: 750px) {
   #logo {
     left: 3px;
@@ -528,11 +539,7 @@ p {
   }
 
   #card-container {
-    display: grid;
     grid-template-columns: auto;
-    grid-gap: 4px;
-    gap: 4px;
-    justify-content: center;
   }
 
   .navigation {
