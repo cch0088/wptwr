@@ -1,12 +1,12 @@
 // Use forward slash (/) if root is same as site
 export const WP_ROOT = "WordPress";
+
 export const WP_UPLOADS = "wp-content/uploads";
-
 export const API_JSON = "wp-json";
-export const REACT_UI = `${WP_ROOT}`;
-
 export const API_PAGES = `${API_JSON}/wp/v2/pages`;
+export const B_MAIN_MENU = `${API_PAGES}/6`;
 
+export const REACT_UI = `${WP_ROOT}`;
 export const F_SESSION = `${REACT_UI}/session/token`;
 export const F_LOGIN = `${REACT_UI}/user/login`;
 export const F_LOGOUT = `${REACT_UI}/user/logout`;
@@ -43,4 +43,3 @@ export const B_REGISTER = `${API_JSON}/register`;
 
 export const B_POSTS = `${API_JSON}/wp/v2/posts`;
 
-export const B_MAIN_MENU = `${API_PAGES}/6`;

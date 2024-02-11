@@ -283,15 +283,30 @@ var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-sr
 
 
 function Main() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MainMenu__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "heading-container",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 37
+    }
+  }, "EXPLORE")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MainMenu__WEBPACK_IMPORTED_MODULE_1__["default"], {
     route: _config__WEBPACK_IMPORTED_MODULE_2__["B_MAIN_MENU"],
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8,
-      columnNumber: 5
+      lineNumber: 10,
+      columnNumber: 9
     }
-  });
+  }));
 }
 /* harmony default export */ __webpack_exports__["default"] = (Main);
 
@@ -330,38 +345,25 @@ function MainMenu({
   }, []);
   const regex = /(<([^>]+)>)/gi;
   const menuData = content.content.rendered.replace(regex, "").split(/\s+/).filter(i => i !== "");
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "heading-container",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 29,
-      columnNumber: 9
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 29,
-      columnNumber: 37
-    }
-  }, "EXPLORE")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "card-container",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
-      columnNumber: 9
+      lineNumber: 28,
+      columnNumber: 5
     }
-  }, menuData.map(str => {
+  }, menuData.map((str, i) => {
     const [name, link, image] = str.split(":");
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      key: i,
+      href: link,
       className: "card",
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 33,
-        columnNumber: 25
+        lineNumber: 31,
+        columnNumber: 21
       }
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       className: "card-photo",
@@ -370,19 +372,19 @@ function MainMenu({
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 34,
-        columnNumber: 21
+        lineNumber: 32,
+        columnNumber: 17
       }
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "card-text",
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35,
-        columnNumber: 21
+        lineNumber: 33,
+        columnNumber: 17
       }
     }, name));
-  })));
+  }));
 }
 /* harmony default export */ __webpack_exports__["default"] = (MainMenu);
 
@@ -784,7 +786,7 @@ function LoginForm() {
 /*!***********************!*\
   !*** ./src/config.js ***!
   \***********************/
-/*! exports provided: WP_ROOT, WP_UPLOADS, API_JSON, REACT_UI, API_PAGES, F_SESSION, F_LOGIN, F_LOGOUT, F_FRONT, F_NEWS, F_GUIDES, F_STORE, F_COMMUNITY, F_ABOUT, F_CONTACT, F_VENDORS, F_TERMS, F_PRIVACY, F_ORDERS, F_SEARCH, F_REGISTER, B_SESSION, B_LOGIN, B_LOGOUT, B_FRONT, B_NEWS, B_GUIDES, B_STORE, B_COMMUNITY, B_ABOUT, B_CONTACT, B_VENDORS, B_TERMS, B_PRIVACY, B_ORDERS, B_SEARCH, B_REGISTER, B_POSTS, B_MAIN_MENU */
+/*! exports provided: WP_ROOT, WP_UPLOADS, API_JSON, API_PAGES, B_MAIN_MENU, REACT_UI, F_SESSION, F_LOGIN, F_LOGOUT, F_FRONT, F_NEWS, F_GUIDES, F_STORE, F_COMMUNITY, F_ABOUT, F_CONTACT, F_VENDORS, F_TERMS, F_PRIVACY, F_ORDERS, F_SEARCH, F_REGISTER, B_SESSION, B_LOGIN, B_LOGOUT, B_FRONT, B_NEWS, B_GUIDES, B_STORE, B_COMMUNITY, B_ABOUT, B_CONTACT, B_VENDORS, B_TERMS, B_PRIVACY, B_ORDERS, B_SEARCH, B_REGISTER, B_POSTS */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -792,8 +794,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WP_ROOT", function() { return WP_ROOT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WP_UPLOADS", function() { return WP_UPLOADS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "API_JSON", function() { return API_JSON; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REACT_UI", function() { return REACT_UI; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "API_PAGES", function() { return API_PAGES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_MAIN_MENU", function() { return B_MAIN_MENU; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REACT_UI", function() { return REACT_UI; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F_SESSION", function() { return F_SESSION; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F_LOGIN", function() { return F_LOGIN; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F_LOGOUT", function() { return F_LOGOUT; });
@@ -827,13 +830,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_SEARCH", function() { return B_SEARCH; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_REGISTER", function() { return B_REGISTER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_POSTS", function() { return B_POSTS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_MAIN_MENU", function() { return B_MAIN_MENU; });
 // Use forward slash (/) if root is same as site
 const WP_ROOT = "WordPress";
 const WP_UPLOADS = "wp-content/uploads";
 const API_JSON = "wp-json";
-const REACT_UI = `${WP_ROOT}`;
 const API_PAGES = `${API_JSON}/wp/v2/pages`;
+const B_MAIN_MENU = `${API_PAGES}/6`;
+const REACT_UI = `${WP_ROOT}`;
 const F_SESSION = `${REACT_UI}/session/token`;
 const F_LOGIN = `${REACT_UI}/user/login`;
 const F_LOGOUT = `${REACT_UI}/user/logout`;
@@ -867,7 +870,6 @@ const B_ORDERS = `${API_JSON}/orders`;
 const B_SEARCH = `${API_JSON}/search`;
 const B_REGISTER = `${API_JSON}/register`;
 const B_POSTS = `${API_JSON}/wp/v2/posts`;
-const B_MAIN_MENU = `${API_PAGES}/6`;
 
 /***/ }),
 
@@ -1408,5 +1410,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",0]]]);
+},[[0,"runtime-main",1]]]);
 //# sourceMappingURL=main.chunk.js.map

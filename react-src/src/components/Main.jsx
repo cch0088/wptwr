@@ -5,7 +5,10 @@ import { B_MAIN_MENU } from "../config";
 function Main() {
 
 return (
-    <MainMenu route={B_MAIN_MENU} />
+    <>
+        <div id="heading-container"><h2>EXPLORE</h2></div>
+        <MainMenu route={B_MAIN_MENU} />
+    </>
     )
 }
 export default Main;

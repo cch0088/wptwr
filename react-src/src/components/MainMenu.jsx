@@ -25,18 +25,15 @@ function MainMenu({route}) {
         .filter((i) => (i !== ""));
 
 return (
-    <>
-        <div id="heading-container"><h2>EXPLORE</h2></div>
-        <div id="card-container">
-            {menuData.map(str => {
-                const [name, link, image] = str.split(":");
-                return (<div className="card">
-                    <img className="card-photo" alt={name} src={`${WP_UPLOADS}/${image}`} />
-                    <div className="card-text">{name}</div>
-                </div>);
-            })}
-        </div>
-    </>
+    <div id="card-container">
+        {menuData.map((str, i) => {
+            const [name, link, image] = str.split(":");
+            return (<a key={i} href={link} className="card">
+                <img className="card-photo" alt={name} src={`${WP_UPLOADS}/${image}`} />
+                <div className="card-text">{name}</div>
+            </a>);
+        })}
+    </div>
     )
 }
 export default MainMenu;
