@@ -200,12 +200,8 @@ code {
   border-radius: 16px;
 }
 
-#content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 50vh;
-  overflow-y: scroll;
+#content-wrap {
+	min-height: calc(100vh - 174px);
 }
 
 #heading-container {
@@ -301,11 +297,10 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  bottom: 0;
   background-color: black;
   color: white;
   width: 100%;
+  height: 84px;
 }
 
 #footer-button {

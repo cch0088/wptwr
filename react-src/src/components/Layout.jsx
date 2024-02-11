@@ -9,7 +9,9 @@ return (
         <>
             <Header />
             <UserControl />
-            <Outlet />
+            <div id="content-wrap">
+                <Outlet />
+            </div>
             <Footer />
         </>
     )
