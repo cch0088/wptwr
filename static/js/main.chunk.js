@@ -192,8 +192,9 @@ function Footer() {
       lineNumber: 12,
       columnNumber: 43
     }
-  }, "A privacy focused travel community site.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "footer-button",
+  }, "A privacy focused travel community site.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    className: "footer-button",
+    href: "contact-page",
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -1483,5 +1484,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",1]]]);
+},[[0,"runtime-main",0]]]);
 //# sourceMappingURL=main.chunk.js.map

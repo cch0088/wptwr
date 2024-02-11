@@ -304,11 +304,17 @@ p {
   height: 84px;
 }
 
-#footer-button {
+.footer-button {
   border: 1px solid;
   border-radius: 16px;
   font-size: small;
   padding: 5px 20px 5px 20px;
+  text-decoration: none;
+  color: white;
+}
+
+.footer-button:hover {
+  background-color: #4F8A7C;
 }
 
 .footer-row {
