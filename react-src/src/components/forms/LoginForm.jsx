@@ -1,58 +1,79 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { login } from '../../features/UserSlice';
-import { newSession } from '../../features/SessionSlice';
-import { loginService, sessionTokenService } from '../../features/UserServices';
-import { closeModal } from '../../features/ModalSlice';
+import { useMutation, gql } from '@apollo/client';
 
 function LoginForm() {
 
+    const LOG_IN = gql`
+      mutation logIn($login: String!, $password: String!) {
+        loginWithCookies(input: {
+          login: $login
+          password: $password
+        }) {
+          status
+        }
+      }
+    `;
+    
+    const GET_USER = gql`
+      query getUser {
+        viewer {
+          id
+          databaseId
+          firstName
+          lastName
+          email
+          capabilities
+        }
+      }
+    `;
+
     const dispatch = useDispatch();
 
-    const [error, setError] = useState(null);
-    const [username, setUserName] = useState("");
-    const [password, setPassword] = useState("");
+    const [logIn, { loading, error }] = useMutation(LOG_IN, {
+        refetchQueries: [
+          { query: GET_USER }
+        ],
+      });
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const errorMessage = error?.message || '';
+
+    const isEmailValid =
+        !errorMessage.includes('empty_email') &&
+        !errorMessage.includes('empty_username') &&
+        !errorMessage.includes('invalid_email') &&
+        !errorMessage.includes('invalid_username');
+
+    const isPasswordValid =
+        !errorMessage.includes('empty_password') &&
+        !errorMessage.includes('incorrect_password');
 
     function handleLogin(e) {
         e.preventDefault();
 
-        if (username.length > 0 && password.length > 0) {
-            sessionTokenService().then(token => {
-                if (token.csrf_token) {
-                    dispatch(newSession(token));
-                    loginService(username, password, token.csrf_token)
-                    .then(user => {
-                        if (user.current_user) {
-                            dispatch(login(user));
-                            dispatch(closeModal());
-                        }
-                        else {
-                            setError(user.message);
-                        }
-                    });
-                }
-                else {
-                    setError(token.message);
-                }
-            });
-        } else {
-            setError("Missing username or password!");
+        logIn({
+        variables: {
+            login: username,
+            password,
         }
+        }).catch(error => {
+            console.error(error);
+        });
     }
 
 return (<form id="site-form">
         <div className="title-label">SIGN IN</div>
-        
-        {(error) ? <div className='error-label'>{error}</div> : null}
         
         <div className="label-login">Username</div>
         
         <input className="field-login" 
             type="text"
             name="username"
-            onChange={(e) => { setUserName(e.target.value); }}
             value={username}
+            onChange={(e) => { setUsername(e.target.value); }}
         />
 
         <div className="label-login">Password</div>
@@ -60,8 +81,8 @@ return (<form id="site-form">
         <input className="field-login"
             type="password"
             name="password"
-            onChange={(e) => { setPassword(e.target.value); }}
             value={password}
+            onChange={(e) => { setPassword(e.target.value); }}
         />
 
         <a className="link-label" href="/forgot">Forgot Password</a>
