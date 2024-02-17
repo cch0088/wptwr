@@ -1,9 +1,9 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
-import { NEXT_PUBLIC_WORDPRESS_API_URL } from "../config";
+import { GRAPHQL_URI } from "../config";
 
 const link = createHttpLink({
-  uri: NEXT_PUBLIC_WORDPRESS_API_URL,
-  credentials: 'include',
+  uri: GRAPHQL_URI,
+  credentials: 'include'
 });
 
 export const client = new ApolloClient({

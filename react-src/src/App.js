@@ -7,7 +7,7 @@ import Main from "./components/Main";
 import NoPage from "./components/NoPage";
 import { ApolloProvider } from "@apollo/client";
 import { client } from "./lib/apolloClient";
-import { AuthProvider } from "./hooks/useAuth.tsx";
+import { AuthProvider } from "./hooks/useAuth";
 
 function App() {
   return (

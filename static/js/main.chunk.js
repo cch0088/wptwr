@@ -30,8 +30,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Main */ "./src/components/Main.jsx");
 /* harmony import */ var _components_NoPage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/NoPage */ "./src/components/NoPage.jsx");
 /* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
-/* harmony import */ var _lib_apolloClient__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./lib/apolloClient */ "./src/lib/apolloClient.jsx");
-/* harmony import */ var _hooks_useAuth_tsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./hooks/useAuth.tsx */ "./src/hooks/useAuth.tsx");
+/* harmony import */ var _lib_apolloClient__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./lib/apolloClient */ "./src/lib/apolloClient.tsx");
+/* harmony import */ var _hooks_useAuth__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./hooks/useAuth */ "./src/hooks/useAuth.tsx");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/App.js";
 
 
@@ -52,7 +52,7 @@ function App() {
       lineNumber: 14,
       columnNumber: 5
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_hooks_useAuth_tsx__WEBPACK_IMPORTED_MODULE_9__["AuthProvider"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_hooks_useAuth__WEBPACK_IMPORTED_MODULE_9__["AuthProvider"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -887,13 +887,13 @@ function LoginForm() {
 /*!***********************!*\
   !*** ./src/config.js ***!
   \***********************/
-/*! exports provided: WP_ROOT, NEXT_PUBLIC_WORDPRESS_API_URL, WP_UPLOADS, API_JSON, API_PAGES, B_MAIN_MENU, REACT_UI, F_SESSION, F_LOGIN, F_LOGOUT, F_FRONT, F_NEWS, F_GUIDES, F_STORE, F_COMMUNITY, F_ABOUT, F_CONTACT, F_VENDORS, F_TERMS, F_PRIVACY, F_ORDERS, F_SEARCH, F_REGISTER, B_SESSION, B_LOGIN, B_LOGOUT, B_FRONT, B_NEWS, B_GUIDES, B_STORE, B_COMMUNITY, B_ABOUT, B_CONTACT, B_VENDORS, B_TERMS, B_PRIVACY, B_ORDERS, B_SEARCH, B_REGISTER, B_POSTS */
+/*! exports provided: WP_ROOT, GRAPHQL_URI, WP_UPLOADS, API_JSON, API_PAGES, B_MAIN_MENU, REACT_UI, F_SESSION, F_LOGIN, F_LOGOUT, F_FRONT, F_NEWS, F_GUIDES, F_STORE, F_COMMUNITY, F_ABOUT, F_CONTACT, F_VENDORS, F_TERMS, F_PRIVACY, F_ORDERS, F_SEARCH, F_REGISTER, B_SESSION, B_LOGIN, B_LOGOUT, B_FRONT, B_NEWS, B_GUIDES, B_STORE, B_COMMUNITY, B_ABOUT, B_CONTACT, B_VENDORS, B_TERMS, B_PRIVACY, B_ORDERS, B_SEARCH, B_REGISTER, B_POSTS */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WP_ROOT", function() { return WP_ROOT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NEXT_PUBLIC_WORDPRESS_API_URL", function() { return NEXT_PUBLIC_WORDPRESS_API_URL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GRAPHQL_URI", function() { return GRAPHQL_URI; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WP_UPLOADS", function() { return WP_UPLOADS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "API_JSON", function() { return API_JSON; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "API_PAGES", function() { return API_PAGES; });
@@ -934,7 +934,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_POSTS", function() { return B_POSTS; });
 // Use forward slash (/) if root is same as site
 const WP_ROOT = "WordPress";
-const NEXT_PUBLIC_WORDPRESS_API_URL = "https://localhost/WordPress/graphql";
+const GRAPHQL_URI = `${WP_ROOT}/graphql`;
 const WP_UPLOADS = "wp-content/uploads";
 const API_JSON = "wp-json";
 const API_PAGES = `${API_JSON}/wp/v2/pages`;
@@ -1442,9 +1442,9 @@ _serviceWorker__WEBPACK_IMPORTED_MODULE_4__["unregister"]();
 
 /***/ }),
 
-/***/ "./src/lib/apolloClient.jsx":
+/***/ "./src/lib/apolloClient.tsx":
 /*!**********************************!*\
-  !*** ./src/lib/apolloClient.jsx ***!
+  !*** ./src/lib/apolloClient.tsx ***!
   \**********************************/
 /*! exports provided: client */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -1457,7 +1457,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const link = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_0__["createHttpLink"])({
-  uri: _config__WEBPACK_IMPORTED_MODULE_1__["NEXT_PUBLIC_WORDPRESS_API_URL"],
+  uri: _config__WEBPACK_IMPORTED_MODULE_1__["GRAPHQL_URI"],
   credentials: 'include'
 });
 const client = new _apollo_client__WEBPACK_IMPORTED_MODULE_0__["ApolloClient"]({

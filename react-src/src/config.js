@@ -1,7 +1,7 @@
 // Use forward slash (/) if root is same as site
 export const WP_ROOT = "WordPress";
 
-export const NEXT_PUBLIC_WORDPRESS_API_URL = "https://localhost/WordPress/graphql";
+export const GRAPHQL_URI = `${WP_ROOT}/graphql`;
 
 export const WP_UPLOADS = "wp-content/uploads";
 export const API_JSON = "wp-json";
