@@ -393,7 +393,7 @@ function Main() {
       lineNumber: 9,
       columnNumber: 37
     }
-  }, "EXPLORE")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MainMenu__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, "Find your next destination...")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MainMenu__WEBPACK_IMPORTED_MODULE_1__["default"], {
     route: _config__WEBPACK_IMPORTED_MODULE_2__["B_MAIN_MENU"],
     __self: this,
     __source: {
@@ -1378,5 +1378,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",0]]]);
+},[[0,"runtime-main",1]]]);
 //# sourceMappingURL=main.chunk.js.map
