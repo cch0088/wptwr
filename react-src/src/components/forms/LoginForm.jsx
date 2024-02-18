@@ -36,6 +36,8 @@ function LoginForm() {
             })
             .then((_status) => dispatch(closeModal()))
             .catch((_error) => setError('Invalid username or password!'));
+        } else {
+            setError('Missing username or password.');
         }
     }
 
