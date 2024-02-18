@@ -5,6 +5,7 @@ import Modal from './Modal';
 import LoginForm from './forms/LoginForm';
 import useAuth, { GET_USER } from '../hooks/useAuth';
 import { gql, useMutation } from '@apollo/client';
+import { UI_ACCOUNT, UI_REGISTER } from '../config';
 
 function UserControl() {
 
@@ -29,22 +30,33 @@ return (
         <div id="usercontrol">
             { modal.show && <Modal children={ <LoginForm /> }/> }
             {
-                (!loggedIn && !loading) ?
+                (!loggedIn && !loading) &&
                 <>
-                    <a className="userbutton" href="signup">
+                    <a className="userbutton" href={UI_REGISTER}>
                         <span role="img" aria-label="new">🆕</span> Sign Up
                     </a>
-                    <a className="userbutton" onClick={() => { dispatch(openModal()) }}>
+                    <u className="userbutton" onClick={() => { dispatch(openModal()) }}>
                         <span role="img" aria-label="head">👤</span> Log In
-                    </a>
-                </> :
+                    </u>
+                </>
+            }
+            {
+                (loggedIn && !loading) &&
                 <>
-                    <a className="userbutton" href="account">
+                    <a className="userbutton" href={UI_ACCOUNT}>
                         <span role="img" aria-label="head">👤</span> Account
                     </a>
-                    <a className="userbutton" onClick={() => { logOut() }}>
+                    <u className="userbutton" onClick={() => { logOut() }}>
                         <span role="img" aria-label="door">🚪</span> Log Out
-                    </a>
+                    </u>
+                </>
+            }
+            {
+                (loading) &&
+                <>
+                    <u className="userbutton">
+                        <span role="img" aria-label="hourglass">⏳</span> Loading...
+                    </u>
                 </>
             }
         </div>

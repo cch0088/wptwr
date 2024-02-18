@@ -588,7 +588,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _forms_LoginForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./forms/LoginForm */ "./src/components/forms/LoginForm.jsx");
 /* harmony import */ var _hooks_useAuth__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../hooks/useAuth */ "./src/hooks/useAuth.tsx");
 /* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../config */ "./src/config.js");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/UserControl.jsx";
+
 
 
 
@@ -618,7 +620,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 30,
       columnNumber: 9
     }
   }, modal.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -626,23 +628,23 @@ function UserControl() {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30,
+        lineNumber: 31,
         columnNumber: 47
       }
     }),
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
+      lineNumber: 31,
       columnNumber: 29
     }
-  }), !loggedIn && !loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  }), !loggedIn && !loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "userbutton",
-    href: "signup",
+    href: _config__WEBPACK_IMPORTED_MODULE_7__["UI_REGISTER"],
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 35,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -651,10 +653,10 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 36,
       columnNumber: 25
     }
-  }, "\uD83C\uDD95"), " Sign Up"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  }, "\uD83C\uDD95"), " Sign Up"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("u", {
     className: "userbutton",
     onClick: () => {
       dispatch(Object(_features_ModalSlice__WEBPACK_IMPORTED_MODULE_2__["openModal"])());
@@ -662,25 +664,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
-      columnNumber: 21
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    role: "img",
-    "aria-label": "head",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
       lineNumber: 38,
-      columnNumber: 25
-    }
-  }, "\uD83D\uDC64"), " Log In")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    className: "userbutton",
-    href: "account",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 42,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -689,10 +673,28 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
+      lineNumber: 39,
       columnNumber: 25
     }
-  }, "\uD83D\uDC64"), " Account"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  }, "\uD83D\uDC64"), " Log In")), loggedIn && !loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    className: "userbutton",
+    href: _config__WEBPACK_IMPORTED_MODULE_7__["UI_ACCOUNT"],
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    role: "img",
+    "aria-label": "head",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47,
+      columnNumber: 25
+    }
+  }, "\uD83D\uDC64"), " Account"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("u", {
     className: "userbutton",
     onClick: () => {
       logOut();
@@ -700,7 +702,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 49,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -709,10 +711,27 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 50,
       columnNumber: 25
     }
-  }, "\uD83D\uDEAA"), " Log Out")));
+  }, "\uD83D\uDEAA"), " Log Out")), loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("u", {
+    className: "userbutton",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    role: "img",
+    "aria-label": "hourglass",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58,
+      columnNumber: 25
+    }
+  }, "\u23F3"), " Loading...")));
 }
 /* harmony default export */ __webpack_exports__["default"] = (UserControl);
 
@@ -733,7 +752,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
 /* harmony import */ var _hooks_useAuth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../hooks/useAuth */ "./src/hooks/useAuth.tsx");
 /* harmony import */ var _features_ModalSlice__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../features/ModalSlice */ "./src/features/ModalSlice.jsx");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../config */ "./src/config.js");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/forms/LoginForm.jsx";
+
 
 
 
@@ -769,7 +790,7 @@ function LoginForm() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 42,
       columnNumber: 9
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -777,7 +798,7 @@ function LoginForm() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
+      lineNumber: 43,
       columnNumber: 9
     }
   }, "SIGN IN"), error ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -785,7 +806,7 @@ function LoginForm() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
+      lineNumber: 45,
       columnNumber: 20
     }
   }, error) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -793,7 +814,7 @@ function LoginForm() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 47,
       columnNumber: 9
     }
   }, "Username"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -807,7 +828,7 @@ function LoginForm() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 49,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -815,7 +836,7 @@ function LoginForm() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55,
+      lineNumber: 56,
       columnNumber: 9
     }
   }, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -829,16 +850,16 @@ function LoginForm() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57,
+      lineNumber: 58,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "link-label",
-    href: "/forgot",
+    href: _config__WEBPACK_IMPORTED_MODULE_5__["UI_FORGOT"],
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64,
+      lineNumber: 65,
       columnNumber: 9
     }
   }, "Forgot Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -852,16 +873,16 @@ function LoginForm() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 67,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "link-label",
-    href: "/register",
+    href: _config__WEBPACK_IMPORTED_MODULE_5__["UI_REGISTER"],
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73,
+      lineNumber: 74,
       columnNumber: 9
     }
   }, "Create Account"));
@@ -874,7 +895,7 @@ function LoginForm() {
 /*!***********************!*\
   !*** ./src/config.js ***!
   \***********************/
-/*! exports provided: WP_ROOT, GRAPHQL_URI, WP_UPLOADS, API_JSON, API_PAGES, B_MAIN_MENU, REACT_UI, F_SESSION, F_LOGIN, F_LOGOUT, F_FRONT, F_NEWS, F_GUIDES, F_STORE, F_COMMUNITY, F_ABOUT, F_CONTACT, F_VENDORS, F_TERMS, F_PRIVACY, F_ORDERS, F_SEARCH, F_REGISTER, B_SESSION, B_LOGIN, B_LOGOUT, B_FRONT, B_NEWS, B_GUIDES, B_STORE, B_COMMUNITY, B_ABOUT, B_CONTACT, B_VENDORS, B_TERMS, B_PRIVACY, B_ORDERS, B_SEARCH, B_REGISTER, B_POSTS */
+/*! exports provided: WP_ROOT, GRAPHQL_URI, WP_UPLOADS, API_JSON, API_PAGES, B_MAIN_MENU, UI_REGISTER, UI_FORGOT, UI_ACCOUNT, B_POSTS */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -885,39 +906,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "API_JSON", function() { return API_JSON; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "API_PAGES", function() { return API_PAGES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_MAIN_MENU", function() { return B_MAIN_MENU; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REACT_UI", function() { return REACT_UI; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F_SESSION", function() { return F_SESSION; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F_LOGIN", function() { return F_LOGIN; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F_LOGOUT", function() { return F_LOGOUT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F_FRONT", function() { return F_FRONT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F_NEWS", function() { return F_NEWS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F_GUIDES", function() { return F_GUIDES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F_STORE", function() { return F_STORE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F_COMMUNITY", function() { return F_COMMUNITY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F_ABOUT", function() { return F_ABOUT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F_CONTACT", function() { return F_CONTACT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F_VENDORS", function() { return F_VENDORS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F_TERMS", function() { return F_TERMS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F_PRIVACY", function() { return F_PRIVACY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F_ORDERS", function() { return F_ORDERS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F_SEARCH", function() { return F_SEARCH; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F_REGISTER", function() { return F_REGISTER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_SESSION", function() { return B_SESSION; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_LOGIN", function() { return B_LOGIN; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_LOGOUT", function() { return B_LOGOUT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_FRONT", function() { return B_FRONT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_NEWS", function() { return B_NEWS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_GUIDES", function() { return B_GUIDES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_STORE", function() { return B_STORE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_COMMUNITY", function() { return B_COMMUNITY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_ABOUT", function() { return B_ABOUT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_CONTACT", function() { return B_CONTACT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_VENDORS", function() { return B_VENDORS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_TERMS", function() { return B_TERMS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_PRIVACY", function() { return B_PRIVACY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_ORDERS", function() { return B_ORDERS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_SEARCH", function() { return B_SEARCH; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_REGISTER", function() { return B_REGISTER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_REGISTER", function() { return UI_REGISTER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_FORGOT", function() { return UI_FORGOT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_ACCOUNT", function() { return UI_ACCOUNT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_POSTS", function() { return B_POSTS; });
 // Use forward slash (/) if root is same as site
 const WP_ROOT = "WordPress";
@@ -926,39 +917,9 @@ const WP_UPLOADS = "wp-content/uploads";
 const API_JSON = "wp-json";
 const API_PAGES = `${API_JSON}/wp/v2/pages`;
 const B_MAIN_MENU = `${API_PAGES}/6`;
-const REACT_UI = `${WP_ROOT}`;
-const F_SESSION = `${REACT_UI}/session/token`;
-const F_LOGIN = `${REACT_UI}/user/login`;
-const F_LOGOUT = `${REACT_UI}/user/logout`;
-const F_FRONT = `${REACT_UI}/frontpage`;
-const F_NEWS = `${REACT_UI}/news`;
-const F_GUIDES = `${REACT_UI}/guides`;
-const F_STORE = `${REACT_UI}/store`;
-const F_COMMUNITY = `${REACT_UI}/community`;
-const F_ABOUT = `${REACT_UI}/about`;
-const F_CONTACT = `${REACT_UI}/contact`;
-const F_VENDORS = `${REACT_UI}/vendors`;
-const F_TERMS = `${REACT_UI}/terms`;
-const F_PRIVACY = `${REACT_UI}/privacy`;
-const F_ORDERS = `${REACT_UI}/orders`;
-const F_SEARCH = `${REACT_UI}/search`;
-const F_REGISTER = `${REACT_UI}/register`;
-const B_SESSION = `${API_JSON}/session/token`;
-const B_LOGIN = `${API_JSON}/user/login`;
-const B_LOGOUT = `${API_JSON}/user/logout`;
-const B_FRONT = `${API_JSON}/frontpage`;
-const B_NEWS = `${API_JSON}/news`;
-const B_GUIDES = `${API_JSON}/guides`;
-const B_STORE = `${API_JSON}/store`;
-const B_COMMUNITY = `${API_JSON}/community`;
-const B_ABOUT = `${API_JSON}/about`;
-const B_CONTACT = `${API_JSON}/contact`;
-const B_VENDORS = `${API_JSON}/vendors`;
-const B_TERMS = `${API_JSON}/terms`;
-const B_PRIVACY = `${API_JSON}/privacy`;
-const B_ORDERS = `${API_JSON}/orders`;
-const B_SEARCH = `${API_JSON}/search`;
-const B_REGISTER = `${API_JSON}/register`;
+const UI_REGISTER = "register";
+const UI_FORGOT = "forgot";
+const UI_ACCOUNT = "account";
 const B_POSTS = `${API_JSON}/wp/v2/posts`;
 
 /***/ }),
@@ -1417,5 +1378,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",1]]]);
+},[[0,"runtime-main",0]]]);
 //# sourceMappingURL=main.chunk.js.map
