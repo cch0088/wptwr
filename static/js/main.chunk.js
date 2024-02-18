@@ -582,13 +582,12 @@ function NoPage() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _features_ModalSlice__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../features/ModalSlice */ "./src/features/ModalSlice.jsx");
-/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Modal */ "./src/components/Modal.jsx");
-/* harmony import */ var _forms_LoginForm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./forms/LoginForm */ "./src/components/forms/LoginForm.jsx");
-/* harmony import */ var _hooks_useAuth__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../hooks/useAuth */ "./src/hooks/useAuth.tsx");
-/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _features_ModalSlice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../features/ModalSlice */ "./src/features/ModalSlice.jsx");
+/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Modal */ "./src/components/Modal.jsx");
+/* harmony import */ var _forms_LoginForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./forms/LoginForm */ "./src/components/forms/LoginForm.jsx");
+/* harmony import */ var _hooks_useAuth__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../hooks/useAuth */ "./src/hooks/useAuth.tsx");
+/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/UserControl.jsx";
 
 
@@ -597,23 +596,21 @@ var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-sr
 
 
 
-
 function UserControl() {
-  const modal = Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["useSelector"])(state => state.modal.value);
-  const history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["useNavigate"])();
-  const dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["useDispatch"])();
+  const modal = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(state => state.modal.value);
+  const dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useDispatch"])();
   const {
     loggedIn,
     loading
-  } = Object(_hooks_useAuth__WEBPACK_IMPORTED_MODULE_6__["default"])();
-  const LOG_OUT = _apollo_client__WEBPACK_IMPORTED_MODULE_7__["gql"]`
+  } = Object(_hooks_useAuth__WEBPACK_IMPORTED_MODULE_5__["default"])();
+  const LOG_OUT = _apollo_client__WEBPACK_IMPORTED_MODULE_6__["gql"]`
         mutation logOut {
             logout(input: {})
             { status }
         }`;
-  const [logOut] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_7__["useMutation"])(LOG_OUT, {
+  const [logOut] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_6__["useMutation"])(LOG_OUT, {
     refetchQueries: [{
-      query: _hooks_useAuth__WEBPACK_IMPORTED_MODULE_6__["GET_USER"]
+      query: _hooks_useAuth__WEBPACK_IMPORTED_MODULE_5__["GET_USER"]
     }]
   });
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -621,33 +618,31 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 29,
       columnNumber: 9
     }
-  }, modal.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    children: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_LoginForm__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, modal.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    children: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_LoginForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 32,
+        lineNumber: 30,
         columnNumber: 47
       }
     }),
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
+      lineNumber: 30,
       columnNumber: 29
     }
-  }), !loggedIn && !loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }), !loggedIn && !loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "userbutton",
-    onClick: () => {
-      history.push("/register");
-    },
+    href: "signup",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36,
+      lineNumber: 34,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -656,18 +651,18 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
+      lineNumber: 35,
+      columnNumber: 25
+    }
+  }, "\uD83C\uDD95"), " Sign Up"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    className: "userbutton",
+    onClick: () => {
+      dispatch(Object(_features_ModalSlice__WEBPACK_IMPORTED_MODULE_2__["openModal"])());
+    },
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
       lineNumber: 37,
-      columnNumber: 25
-    }
-  }, "\uD83C\uDD95"), " Sign Up"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "userbutton",
-    onClick: () => {
-      dispatch(Object(_features_ModalSlice__WEBPACK_IMPORTED_MODULE_3__["openModal"])());
-    },
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 39,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -676,18 +671,16 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 38,
       columnNumber: 25
     }
-  }, "\uD83D\uDC64"), " Log In")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, "\uD83D\uDC64"), " Log In")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "userbutton",
-    onClick: () => {
-      history.push("/account");
-    },
+    href: "account",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
+      lineNumber: 42,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -696,10 +689,10 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 43,
       columnNumber: 25
     }
-  }, "\uD83D\uDC64"), " Account"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, "\uD83D\uDC64"), " Account"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "userbutton",
     onClick: () => {
       logOut();
@@ -707,7 +700,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 45,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -716,7 +709,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 46,
       columnNumber: 25
     }
   }, "\uD83D\uDEAA"), " Log Out")));
@@ -768,7 +761,7 @@ function LoginForm() {
           login: username,
           password
         }
-      }).then(status => dispatch(Object(_features_ModalSlice__WEBPACK_IMPORTED_MODULE_4__["closeModal"])())).catch(error => setError('Invalid username or password!'));
+      }).then(_status => dispatch(Object(_features_ModalSlice__WEBPACK_IMPORTED_MODULE_4__["closeModal"])())).catch(_error => setError('Invalid username or password!'));
     }
   }
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -1424,5 +1417,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",0]]]);
+},[[0,"runtime-main",1]]]);
 //# sourceMappingURL=main.chunk.js.map

@@ -33,8 +33,8 @@ function LoginForm() {
                 password,
             }
             })
-            .then(status => dispatch(closeModal()))
-            .catch(error => setError('Invalid username or password!'));
+            .then((_status) => dispatch(closeModal()))
+            .catch((_error) => setError('Invalid username or password!'));
         }
     }
 
