@@ -10,7 +10,7 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Travel with Reason"
+      content="Travel with Reason LLC"
     />
     <link rel="apple-touch-icon" href="<?php echo $TEMPLATE_PATH; ?>/logo192.png" />
     <link rel="manifest" href="<?php echo $TEMPLATE_PATH; ?>/manifest.json" />
