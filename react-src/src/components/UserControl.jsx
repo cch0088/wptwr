@@ -5,7 +5,7 @@ import Modal from './Modal';
 import LoginForm from './forms/LoginForm';
 import useAuth, { GET_USER } from '../hooks/useAuth';
 import { gql, useMutation } from '@apollo/client';
-import { UI_ACCOUNT, UI_REGISTER } from '../config';
+import { UI_ACCOUNT } from '../config';
 import RegisterForm from './forms/RegisterForm';
 import ConfirmForm from './forms/ConfirmForm';
 import ResetByEmailForm from './forms/ResetByEmailForm';

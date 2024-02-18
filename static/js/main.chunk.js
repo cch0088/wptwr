@@ -591,7 +591,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../config */ "./src/config.js");
 /* harmony import */ var _forms_RegisterForm__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./forms/RegisterForm */ "./src/components/forms/RegisterForm.jsx");
 /* harmony import */ var _forms_ConfirmForm__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./forms/ConfirmForm */ "./src/components/forms/ConfirmForm.jsx");
+/* harmony import */ var _forms_ResetByEmailForm__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./forms/ResetByEmailForm */ "./src/components/forms/ResetByEmailForm.jsx");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/UserControl.jsx";
+
 
 
 
@@ -629,27 +631,11 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 39,
       columnNumber: 9
     }
   }, form === 0 && modal.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
     children: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_ConfirmForm__WEBPACK_IMPORTED_MODULE_9__["default"], {
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 39,
-        columnNumber: 61
-      }
-    }),
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 39,
-      columnNumber: 43
-    }
-  }), form === 1 && modal.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    children: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_LoginForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      setForm: setForm,
       __self: this,
       __source: {
         fileName: _jsxFileName,
@@ -663,8 +649,8 @@ function UserControl() {
       lineNumber: 40,
       columnNumber: 43
     }
-  }), form === 2 && modal.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    children: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_RegisterForm__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }), form === 1 && modal.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    children: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_LoginForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
       setForm: setForm,
       __self: this,
       __source: {
@@ -679,6 +665,38 @@ function UserControl() {
       lineNumber: 41,
       columnNumber: 43
     }
+  }), form === 2 && modal.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    children: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_RegisterForm__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      setForm: setForm,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 42,
+        columnNumber: 61
+      }
+    }),
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 42,
+      columnNumber: 43
+    }
+  }), form === 3 && modal.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    children: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_ResetByEmailForm__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      setForm: setForm,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 43,
+        columnNumber: 61
+      }
+    }),
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43,
+      columnNumber: 43
+    }
   }), !loggedIn && !loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "userbutton",
     onClick: () => {
@@ -687,7 +705,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 47,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -696,7 +714,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 48,
       columnNumber: 25
     }
   }, "\uD83C\uDD95"), " Sign Up"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -707,7 +725,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 50,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -716,7 +734,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 51,
       columnNumber: 25
     }
   }, "\uD83D\uDC64"), " Log In")), loggedIn && !loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -725,7 +743,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56,
+      lineNumber: 58,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -734,7 +752,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57,
+      lineNumber: 59,
       columnNumber: 25
     }
   }, "\uD83D\uDC64"), " Account"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -745,7 +763,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59,
+      lineNumber: 61,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -754,7 +772,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 60,
+      lineNumber: 62,
       columnNumber: 25
     }
   }, "\uD83D\uDEAA"), " Log Out")), loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -762,7 +780,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67,
+      lineNumber: 69,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -771,7 +789,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68,
+      lineNumber: 70,
       columnNumber: 25
     }
   }, "\u23F3"), " Loading...")));
@@ -1159,7 +1177,7 @@ function RegisterForm({
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     className: "button",
     type: "submit",
-    name: "login",
+    name: "register",
     value: "Sign Up",
     onClick: e => {
       handleSubmit(e);
@@ -1173,6 +1191,119 @@ function RegisterForm({
   }));
 }
 /* harmony default export */ __webpack_exports__["default"] = (RegisterForm);
+
+/***/ }),
+
+/***/ "./src/components/forms/ResetByEmailForm.jsx":
+/*!***************************************************!*\
+  !*** ./src/components/forms/ResetByEmailForm.jsx ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_password_strength_bar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-password-strength-bar */ "./node_modules/react-password-strength-bar/dist/index.js");
+/* harmony import */ var react_password_strength_bar__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_password_strength_bar__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
+var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/forms/ResetByEmailForm.jsx";
+
+
+
+function ResetByEmailForm({
+  setForm
+}) {
+  const [error, setError] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const [email, setEmail] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
+  const SEND_PASSWORD_RESET_EMAIL = _apollo_client__WEBPACK_IMPORTED_MODULE_2__["gql"]`
+        mutation sendPasswordResetEmail($username: String!) {
+        sendPasswordResetEmail(
+            input: { username: $username }
+        ) { user { databaseId } } }`;
+  const [sendPasswordResetEmail] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(SEND_PASSWORD_RESET_EMAIL);
+  const validateEmail = email => {
+    const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return regex.test(email);
+  };
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (validateEmail(email)) {
+      sendPasswordResetEmail({
+        variables: {
+          username: email
+        }
+      }).then(_status => setForm(0)).catch(_error => setError('E-mail could not be sent.'));
+    } else if (!validateEmail(email)) {
+      setError('Invalid e-mail provided.');
+    } else {
+      setError('Check that all fields are filled.');
+    }
+  }
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    id: "site-form",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "title-label",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44,
+      columnNumber: 9
+    }
+  }, "PASSWORD RESET"), error ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "error-label",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46,
+      columnNumber: 20
+    }
+  }, error) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "label-login",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48,
+      columnNumber: 9
+    }
+  }, "E-mail"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "field-login",
+    type: "email",
+    name: "email",
+    value: email,
+    onChange: e => {
+      setEmail(e.target.value);
+    },
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50,
+      columnNumber: 9
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "button",
+    type: "submit",
+    name: "send",
+    value: "Request Reset",
+    onClick: e => {
+      handleSubmit(e);
+    },
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57,
+      columnNumber: 9
+    }
+  }));
+}
+/* harmony default export */ __webpack_exports__["default"] = (ResetByEmailForm);
 
 /***/ }),
 
