@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import PasswordStrengthBar from 'react-password-strength-bar';
-import { useDispatch } from 'react-redux';
 import { useMutation, gql } from '@apollo/client';
-import { closeModal } from '../../features/ModalSlice';
 
-function RegisterForm() {
-
-    const dispatch = useDispatch();
+function RegisterForm({setForm}) {
 
     const [error, setError] = useState(null);
     const [username, setUsername] = useState('');
@@ -30,10 +26,15 @@ function RegisterForm() {
 
     const [register] = useMutation(REGISTER_USER);
 
+    const validateEmail = (email) => {
+        const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return regex.test(email);
+    }
+
     function handleSubmit(e) {
         e.preventDefault();
 
-        if (username.length > 0 && password.length > 0 && email.length > 0) {
+        if (username.length > 0 && password.length > 0 && validateEmail(email)) {
             register({
             variables: {
                 username,
@@ -41,24 +42,13 @@ function RegisterForm() {
                 password
             }
             })
-            .then((_status) => confirmRegistration())
-            .catch((_error) => setError('Error registering. Email or username already taken or incorrect.'));
+            .then((_status) => setForm(0))
+            .catch((_error) => setError('Username or e-mail already taken.'));
+        } else if (!validateEmail(email)) {
+            setError('Invalid e-mail provided.');
         } else {
-            setError('Check that all fields are filled.')
+            setError('Check that all fields are filled.');
         }
-    }
-
-    function confirmRegistration() {
-        return (<div id="site-form">
-            <div className="label-login">Check your e-mail to confirm registration.</div>
-
-            <input className="button"
-                type="button"
-                name="ok"
-                value="OK"
-                onClick={() => { dispatch(closeModal()) }}
-        />
-        </div>)
     }
 
 return (<form id="site-form">
@@ -78,7 +68,7 @@ return (<form id="site-form">
         <div className="label-login">E-mail</div>
         
         <input className="field-login" 
-            type="text"
+            type="email"
             name="email"
             value={email}
             onChange={(e) => { setEmail(e.target.value); }}
@@ -94,6 +84,7 @@ return (<form id="site-form">
         />
 
         <PasswordStrengthBar
+            className="password-bar"
             password={password}
             scoreWords={[
                 'Weak',
@@ -107,8 +98,8 @@ return (<form id="site-form">
 
         <input className="button"
             type="submit"
-            name="login"
-            value="Sign In"
+            name="register"
+            value="Sign Up"
             onClick={(e) => { handleSubmit(e); }}
         />
     </form>)

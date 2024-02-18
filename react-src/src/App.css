@@ -356,6 +356,7 @@ p {
 }
 
 .link-label {
+  cursor: pointer;
   text-decoration: none;
   color: antiquewhite;
   padding: 2px;
@@ -396,6 +397,10 @@ p {
   text-align: center;
   font-size: medium;
   font-weight: bold;
+}
+
+.password-bar {
+  width: 80%;
 }
 
 .button {

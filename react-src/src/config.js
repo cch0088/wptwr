@@ -8,9 +8,7 @@ export const API_JSON = "wp-json";
 export const API_PAGES = `${API_JSON}/wp/v2/pages`;
 export const B_MAIN_MENU = `${API_PAGES}/6`;
 
-export const UI_REGISTER = "register";
-export const UI_FORGOT = "forgot";
-export const UI_ACCOUNT = "account";
+export const UI_ACCOUNT = "wp-admin";
 
 export const B_POSTS = `${API_JSON}/wp/v2/posts`;
 

@@ -3,9 +3,8 @@ import { useDispatch } from 'react-redux';
 import { useMutation, gql } from '@apollo/client';
 import { GET_USER } from '../../hooks/useAuth';
 import { closeModal } from '../../features/ModalSlice';
-import { UI_FORGOT, UI_REGISTER } from '../../config';
 
-function LoginForm() {
+function LoginForm({setForm}) {
 
     const dispatch = useDispatch();
 
@@ -63,8 +62,8 @@ return (<form id="site-form">
             value={password}
             onChange={(e) => { setPassword(e.target.value); }}
         />
-
-        <a className="link-label" href={UI_FORGOT}>Forgot Password</a>
+        
+        <span className="link-label" onClick={() => { setForm(3) }}>Forgot Password</span>
 
         <input className="button"
             type="submit"
@@ -73,7 +72,7 @@ return (<form id="site-form">
             onClick={(e) => { handleLogin(e); }}
         />
 
-        <a className="link-label" href={UI_REGISTER}>Create Account</a>
+        <span className="link-label" onClick={() => { setForm(2) }}>Create Account</span>
     </form>)
 }
 
