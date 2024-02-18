@@ -40,7 +40,7 @@ function ResetByEmailForm({setForm}) {
         }
     }
 
-return (<form id="site-form">
+    return (<form id="site-form">
         <div className="title-label">PASSWORD RESET</div>
 
         {(error) ? <div className='error-label'>{error}</div> : null}
