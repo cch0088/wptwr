@@ -1,71 +1,47 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useMutation, gql } from '@apollo/client';
+import { GET_USER } from '../../hooks/useAuth';
+import { closeModal } from '../../features/ModalSlice';
 
 function LoginForm() {
 
-    const LOG_IN = gql`
-      mutation logIn($login: String!, $password: String!) {
-        loginWithCookies(input: {
-          login: $login
-          password: $password
-        }) {
-          status
-        }
-      }
-    `;
-    
-    const GET_USER = gql`
-      query getUser {
-        viewer {
-          id
-          databaseId
-          firstName
-          lastName
-          email
-          capabilities
-        }
-      }
-    `;
-
     const dispatch = useDispatch();
 
-    const [logIn, { loading, error }] = useMutation(LOG_IN, {
-        refetchQueries: [
-          { query: GET_USER }
-        ],
-      });
-
+    const [error, setError] = useState(null);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const errorMessage = error?.message || '';
+    const LOG_IN = gql`
+        mutation logIn($login: String!, $password: String!) {
+        loginWithCookies(input: { login: $login password: $password })
+        { status } }`;
 
-    const isEmailValid =
-        !errorMessage.includes('empty_email') &&
-        !errorMessage.includes('empty_username') &&
-        !errorMessage.includes('invalid_email') &&
-        !errorMessage.includes('invalid_username');
-
-    const isPasswordValid =
-        !errorMessage.includes('empty_password') &&
-        !errorMessage.includes('incorrect_password');
+    const [logIn] = useMutation(LOG_IN, {
+        refetchQueries: [
+        { query: GET_USER }
+        ],
+    });
 
     function handleLogin(e) {
         e.preventDefault();
 
-        logIn({
-        variables: {
-            login: username,
-            password,
+        if (username.length > 0 && password.length > 0) {
+            logIn({
+            variables: {
+                login: username,
+                password,
+            }
+            })
+            .then(status => dispatch(closeModal()))
+            .catch(error => setError('Invalid username or password!'));
         }
-        }).catch(error => {
-            console.error(error);
-        });
     }
 
 return (<form id="site-form">
         <div className="title-label">SIGN IN</div>
+
+        {(error) ? <div className='error-label'>{error}</div> : null}
         
         <div className="label-login">Username</div>
         

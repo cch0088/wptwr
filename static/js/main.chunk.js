@@ -437,7 +437,7 @@ function MainMenu({
     Object(_features_PageServices__WEBPACK_IMPORTED_MODULE_2__["getContent"])(route).then(object => {
       dispatch(Object(_features_ContentSlice__WEBPACK_IMPORTED_MODULE_3__["pushContent"])(object));
     });
-  }, []);
+  }, [dispatch, route]);
   const regex = /(<([^>]+)>)/gi;
   const menuData = content.content.rendered.replace(regex, "").split(/\s+/).filter(i => i !== "");
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -585,11 +585,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _features_ModalSlice__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../features/ModalSlice */ "./src/features/ModalSlice.jsx");
-/* harmony import */ var _features_UserSlice__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../features/UserSlice */ "./src/features/UserSlice.jsx");
-/* harmony import */ var _features_UserServices__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../features/UserServices */ "./src/features/UserServices.jsx");
-/* harmony import */ var _features_SessionSlice__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../features/SessionSlice */ "./src/features/SessionSlice.jsx");
-/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Modal */ "./src/components/Modal.jsx");
-/* harmony import */ var _forms_LoginForm__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./forms/LoginForm */ "./src/components/forms/LoginForm.jsx");
+/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Modal */ "./src/components/Modal.jsx");
+/* harmony import */ var _forms_LoginForm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./forms/LoginForm */ "./src/components/forms/LoginForm.jsx");
+/* harmony import */ var _hooks_useAuth__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../hooks/useAuth */ "./src/hooks/useAuth.tsx");
+/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/UserControl.jsx";
 
 
@@ -599,46 +598,48 @@ var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-sr
 
 
 
-
 function UserControl() {
-  const user = Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["useSelector"])(state => state.user.value);
   const modal = Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["useSelector"])(state => state.modal.value);
   const history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["useNavigate"])();
   const dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["useDispatch"])();
-  function handleLogout() {
-    Object(_features_UserServices__WEBPACK_IMPORTED_MODULE_5__["logoutService"])(user.logout_token, user.csrf_token).then(resp => {
-      console.log(resp.message);
-      dispatch(Object(_features_UserSlice__WEBPACK_IMPORTED_MODULE_4__["logout"])());
-      dispatch(Object(_features_SessionSlice__WEBPACK_IMPORTED_MODULE_6__["endSession"])());
-    });
-  }
-  function handleLogin() {
-    dispatch(Object(_features_ModalSlice__WEBPACK_IMPORTED_MODULE_3__["openModal"])());
-  }
+  const {
+    loggedIn,
+    loading
+  } = Object(_hooks_useAuth__WEBPACK_IMPORTED_MODULE_6__["default"])();
+  const LOG_OUT = _apollo_client__WEBPACK_IMPORTED_MODULE_7__["gql"]`
+        mutation logOut {
+            logout(input: {})
+            { status }
+        }`;
+  const [logOut] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_7__["useMutation"])(LOG_OUT, {
+    refetchQueries: [{
+      query: _hooks_useAuth__WEBPACK_IMPORTED_MODULE_6__["GET_USER"]
+    }]
+  });
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "usercontrol",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33,
+      lineNumber: 31,
       columnNumber: 9
     }
-  }, modal.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    children: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_LoginForm__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }, modal.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    children: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_LoginForm__WEBPACK_IMPORTED_MODULE_5__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 34,
+        lineNumber: 32,
         columnNumber: 47
       }
     }),
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 32,
       columnNumber: 29
     }
-  }), user.current_user.name === '' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }), !loggedIn && !loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "userbutton",
     onClick: () => {
       history.push("/register");
@@ -646,7 +647,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 36,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -655,16 +656,18 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
+      lineNumber: 37,
       columnNumber: 25
     }
   }, "\uD83C\uDD95"), " Sign Up"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "userbutton",
-    onClick: handleLogin,
+    onClick: () => {
+      dispatch(Object(_features_ModalSlice__WEBPACK_IMPORTED_MODULE_3__["openModal"])());
+    },
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 39,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -673,7 +676,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
+      lineNumber: 40,
       columnNumber: 25
     }
   }, "\uD83D\uDC64"), " Log In")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -684,7 +687,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 44,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -693,16 +696,18 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 45,
       columnNumber: 25
     }
   }, "\uD83D\uDC64"), " Account"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "userbutton",
-    onClick: handleLogout,
+    onClick: () => {
+      logOut();
+    },
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 47,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -711,7 +716,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 48,
       columnNumber: 25
     }
   }, "\uD83D\uDEAA"), " Log Out")));
@@ -733,64 +738,45 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
+/* harmony import */ var _hooks_useAuth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../hooks/useAuth */ "./src/hooks/useAuth.tsx");
+/* harmony import */ var _features_ModalSlice__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../features/ModalSlice */ "./src/features/ModalSlice.jsx");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/forms/LoginForm.jsx";
 
 
 
+
+
 function LoginForm() {
-  const LOG_IN = _apollo_client__WEBPACK_IMPORTED_MODULE_2__["gql"]`
-      mutation logIn($login: String!, $password: String!) {
-        loginWithCookies(input: {
-          login: $login
-          password: $password
-        }) {
-          status
-        }
-      }
-    `;
-  const GET_USER = _apollo_client__WEBPACK_IMPORTED_MODULE_2__["gql"]`
-      query getUser {
-        viewer {
-          id
-          databaseId
-          firstName
-          lastName
-          email
-          capabilities
-        }
-      }
-    `;
   const dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useDispatch"])();
-  const [logIn, {
-    loading,
-    error
-  }] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(LOG_IN, {
-    refetchQueries: [{
-      query: GET_USER
-    }]
-  });
+  const [error, setError] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
   const [username, setUsername] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   const [password, setPassword] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
-  const errorMessage = (error === null || error === void 0 ? void 0 : error.message) || '';
-  const isEmailValid = !errorMessage.includes('empty_email') && !errorMessage.includes('empty_username') && !errorMessage.includes('invalid_email') && !errorMessage.includes('invalid_username');
-  const isPasswordValid = !errorMessage.includes('empty_password') && !errorMessage.includes('incorrect_password');
+  const LOG_IN = _apollo_client__WEBPACK_IMPORTED_MODULE_2__["gql"]`
+        mutation logIn($login: String!, $password: String!) {
+        loginWithCookies(input: { login: $login password: $password })
+        { status } }`;
+  const [logIn] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(LOG_IN, {
+    refetchQueries: [{
+      query: _hooks_useAuth__WEBPACK_IMPORTED_MODULE_3__["GET_USER"]
+    }]
+  });
   function handleLogin(e) {
     e.preventDefault();
-    logIn({
-      variables: {
-        login: username,
-        password
-      }
-    }).catch(error => {
-      console.error(error);
-    });
+    if (username.length > 0 && password.length > 0) {
+      logIn({
+        variables: {
+          login: username,
+          password
+        }
+      }).then(status => dispatch(Object(_features_ModalSlice__WEBPACK_IMPORTED_MODULE_4__["closeModal"])())).catch(error => setError('Invalid username or password!'));
+    }
   }
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     id: "site-form",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67,
+      lineNumber: 41,
       columnNumber: 9
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -798,15 +784,23 @@ function LoginForm() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68,
+      lineNumber: 42,
       columnNumber: 9
     }
-  }, "SIGN IN"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "SIGN IN"), error ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "error-label",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44,
+      columnNumber: 20
+    }
+  }, error) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "label-login",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70,
+      lineNumber: 46,
       columnNumber: 9
     }
   }, "Username"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -820,7 +814,7 @@ function LoginForm() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72,
+      lineNumber: 48,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -828,7 +822,7 @@ function LoginForm() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79,
+      lineNumber: 55,
       columnNumber: 9
     }
   }, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -842,7 +836,7 @@ function LoginForm() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81,
+      lineNumber: 57,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -851,7 +845,7 @@ function LoginForm() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 88,
+      lineNumber: 64,
       columnNumber: 9
     }
   }, "Forgot Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -865,7 +859,7 @@ function LoginForm() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90,
+      lineNumber: 66,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -874,7 +868,7 @@ function LoginForm() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 97,
+      lineNumber: 73,
       columnNumber: 9
     }
   }, "Create Account"));
@@ -934,7 +928,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_POSTS", function() { return B_POSTS; });
 // Use forward slash (/) if root is same as site
 const WP_ROOT = "WordPress";
-const GRAPHQL_URI = `${WP_ROOT}/graphql`;
+const GRAPHQL_URI = "graphql";
 const WP_UPLOADS = "wp-content/uploads";
 const API_JSON = "wp-json";
 const API_PAGES = `${API_JSON}/wp/v2/pages`;
@@ -1127,175 +1121,6 @@ async function getContent(fromUrl) {
 
 /***/ }),
 
-/***/ "./src/features/SessionSlice.jsx":
-/*!***************************************!*\
-  !*** ./src/features/SessionSlice.jsx ***!
-  \***************************************/
-/*! exports provided: sessionSlice, newSession, endSession, default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sessionSlice", function() { return sessionSlice; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "newSession", function() { return newSession; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "endSession", function() { return endSession; });
-/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
-
-const initialStateValue = {};
-const sessionSlice = Object(_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__["createSlice"])({
-  name: 'session',
-  initialState: {
-    value: initialStateValue
-  },
-  reducers: {
-    newSession: (state, action) => {
-      state.value = action.payload;
-    },
-    endSession: state => {
-      state.value = initialStateValue;
-    }
-  }
-});
-const {
-  newSession,
-  endSession
-} = sessionSlice.actions;
-/* harmony default export */ __webpack_exports__["default"] = (sessionSlice.reducer);
-
-/***/ }),
-
-/***/ "./src/features/UserServices.jsx":
-/*!***************************************!*\
-  !*** ./src/features/UserServices.jsx ***!
-  \***************************************/
-/*! exports provided: default, loginService, logoutService, sessionTokenService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loginService", function() { return loginService; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logoutService", function() { return logoutService; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sessionTokenService", function() { return sessionTokenService; });
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../config */ "./src/config.js");
-
-
-
-function UserServices() {}
-/* harmony default export */ __webpack_exports__["default"] = (UserServices);
-async function loginService(username, password, csrf_token) {
-  const options = {
-    method: 'POST',
-    mode: 'cors',
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-CSRF-Token': csrf_token
-    },
-    body: JSON.stringify({
-      'name': username,
-      'pass': password
-    })
-  };
-  const params = '?' + new URLSearchParams({
-    '_format': 'json'
-  });
-  try {
-    const response = await fetch(_config__WEBPACK_IMPORTED_MODULE_0__["B_LOGIN"] + params, options);
-    const data = await response.json();
-    return data;
-  } catch {
-    return {
-      "message": "There was a problem with your request."
-    };
-  }
-}
-;
-async function logoutService(logout_token, csrf_token) {
-  const options = {
-    method: 'POST',
-    mode: 'cors',
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-CSRF-Token': csrf_token
-    }
-  };
-  const params = '?' + new URLSearchParams({
-    '_format': 'json',
-    'token': logout_token
-  });
-  try {
-    const response = await fetch(_config__WEBPACK_IMPORTED_MODULE_0__["B_LOGOUT"] + params, options);
-    const data = await response.json();
-    return data;
-  } catch {
-    return {
-      "message": "Logged out."
-    };
-  }
-}
-;
-async function sessionTokenService() {
-  try {
-    const response = await fetch(_config__WEBPACK_IMPORTED_MODULE_0__["B_SESSION"]);
-    const data = await response.text();
-    return {
-      "csrf_token": data
-    };
-  } catch {
-    return {
-      "message": "There was a problem with your session."
-    };
-  }
-}
-
-/***/ }),
-
-/***/ "./src/features/UserSlice.jsx":
-/*!************************************!*\
-  !*** ./src/features/UserSlice.jsx ***!
-  \************************************/
-/*! exports provided: userSlice, login, logout, default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userSlice", function() { return userSlice; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
-/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
-
-const initialStateValue = {
-  current_user: {
-    uid: 0,
-    roles: [],
-    name: ''
-  },
-  csrf_token: null,
-  logout_token: null
-};
-const userSlice = Object(_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__["createSlice"])({
-  name: 'user',
-  initialState: {
-    value: initialStateValue
-  },
-  reducers: {
-    login: (state, action) => {
-      state.value = action.payload;
-    },
-    logout: state => {
-      state.value = initialStateValue;
-    }
-  }
-});
-const {
-  login,
-  logout
-} = userSlice.actions;
-/* harmony default export */ __webpack_exports__["default"] = (userSlice.reducer);
-
-/***/ }),
-
 /***/ "./src/hooks/useAuth.tsx":
 /*!*******************************!*\
   !*** ./src/hooks/useAuth.tsx ***!
@@ -1393,13 +1218,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _serviceWorker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./serviceWorker */ "./src/serviceWorker.js");
 /* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _features_UserSlice__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./features/UserSlice */ "./src/features/UserSlice.jsx");
-/* harmony import */ var _features_ModalSlice__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./features/ModalSlice */ "./src/features/ModalSlice.jsx");
-/* harmony import */ var _features_SessionSlice__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./features/SessionSlice */ "./src/features/SessionSlice.jsx");
-/* harmony import */ var _features_ContentSlice__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./features/ContentSlice */ "./src/features/ContentSlice.jsx");
+/* harmony import */ var _features_ModalSlice__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./features/ModalSlice */ "./src/features/ModalSlice.jsx");
+/* harmony import */ var _features_ContentSlice__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./features/ContentSlice */ "./src/features/ContentSlice.jsx");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/index.js";
-
-
 
 
 
@@ -1411,10 +1232,8 @@ var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-sr
 
 const store = Object(_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_5__["configureStore"])({
   reducer: {
-    session: _features_SessionSlice__WEBPACK_IMPORTED_MODULE_9__["default"],
-    user: _features_UserSlice__WEBPACK_IMPORTED_MODULE_7__["default"],
-    modal: _features_ModalSlice__WEBPACK_IMPORTED_MODULE_8__["default"],
-    content: _features_ContentSlice__WEBPACK_IMPORTED_MODULE_10__["default"]
+    modal: _features_ModalSlice__WEBPACK_IMPORTED_MODULE_7__["default"],
+    content: _features_ContentSlice__WEBPACK_IMPORTED_MODULE_8__["default"]
   }
 });
 const root = react_dom_client__WEBPACK_IMPORTED_MODULE_1___default.a.createRoot(document.getElementById('root'));
@@ -1423,14 +1242,14 @@ root.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createEle
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 25,
+    lineNumber: 21,
     columnNumber: 3
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_3__["default"], {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 26,
+    lineNumber: 22,
     columnNumber: 5
   }
 })));

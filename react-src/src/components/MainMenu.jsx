@@ -13,7 +13,7 @@ function MainMenu({route}) {
         getContent(route).then(object => {
             dispatch(pushContent(object));
         });
-    },[]);
+    },[dispatch, route]);
     
     const regex = /(<([^>]+)>)/gi;
 

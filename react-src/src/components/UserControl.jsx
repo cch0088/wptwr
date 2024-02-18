@@ -2,43 +2,41 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { openModal } from '../features/ModalSlice';
-import { logout } from '../features/UserSlice';
-import { logoutService } from '../features/UserServices';
-import { endSession } from '../features/SessionSlice';
 import Modal from './Modal';
 import LoginForm from './forms/LoginForm';
+import useAuth, { GET_USER } from '../hooks/useAuth';
+import { gql, useMutation } from '@apollo/client';
 
 function UserControl() {
 
-    const user = useSelector(state => state.user.value);
     const modal = useSelector(state => state.modal.value);
 
     const history = useNavigate();
     const dispatch = useDispatch();
+    const {loggedIn, loading} = useAuth();
 
-    function handleLogout() {
-        logoutService(user.logout_token, user.csrf_token)
-        .then(resp => {
-            console.log(resp.message);
-            dispatch(logout());
-            dispatch(endSession());
-        });
-    }
+    const LOG_OUT = gql`
+        mutation logOut {
+            logout(input: {})
+            { status }
+        }`;
 
-    function handleLogin() {
-        dispatch(openModal());
-    }
+    const [logOut] = useMutation(LOG_OUT, {
+        refetchQueries: [
+            { query: GET_USER }
+        ],
+    });
 
 return (
         <div id="usercontrol">
             { modal.show && <Modal children={ <LoginForm /> }/> }
             {
-                (user.current_user.name === '') ?
+                (!loggedIn && !loading) ?
                 <>
                     <span className="userbutton" onClick={() => { history.push("/register") }}>
                         <span role="img" aria-label="new">🆕</span> Sign Up
                     </span>
-                    <span className="userbutton" onClick={handleLogin}>
+                    <span className="userbutton" onClick={() => { dispatch(openModal()) }}>
                         <span role="img" aria-label="head">👤</span> Log In
                     </span>
                 </> :
@@ -46,7 +44,7 @@ return (
                     <span className="userbutton" onClick={() => { history.push("/account") }}>
                         <span role="img" aria-label="head">👤</span> Account
                     </span>
-                    <span className="userbutton" onClick={handleLogout}>
+                    <span className="userbutton" onClick={() => { logOut() }}>
                         <span role="img" aria-label="door">🚪</span> Log Out
                     </span>
                 </>
