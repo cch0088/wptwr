@@ -432,21 +432,21 @@ function MainMenu({
   route
 }) {
   const dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useDispatch"])();
-  const content = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(state => state.content.value);
+  const menu = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(state => state.content.value);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     Object(_features_PageServices__WEBPACK_IMPORTED_MODULE_2__["getContent"])(route).then(object => {
       dispatch(Object(_features_ContentSlice__WEBPACK_IMPORTED_MODULE_3__["pushContent"])(object));
     });
   }, [dispatch, route]);
   const regex = /(<([^>]+)>)/gi;
-  const menuData = content.content.rendered.replace(regex, "").split(/\s+/).filter(i => i !== "");
+  const menuData = menu[0].content.rendered.replace(regex, "").split(/\s+/).filter(i => i !== "");
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "card-container",
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 28,
-      columnNumber: 5
+      columnNumber: 9
     }
   }, menuData.map((str, i) => {
     const [name, link, image] = str.split(":");
@@ -458,7 +458,7 @@ function MainMenu({
       __source: {
         fileName: _jsxFileName,
         lineNumber: 31,
-        columnNumber: 21
+        columnNumber: 25
       }
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       className: "card-photo",
@@ -468,7 +468,7 @@ function MainMenu({
       __source: {
         fileName: _jsxFileName,
         lineNumber: 32,
-        columnNumber: 17
+        columnNumber: 21
       }
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "card-text",
@@ -476,7 +476,7 @@ function MainMenu({
       __source: {
         fileName: _jsxFileName,
         lineNumber: 33,
-        columnNumber: 17
+        columnNumber: 21
       }
     }, name));
   }));
@@ -1531,7 +1531,7 @@ const GRAPHQL_URI = "graphql";
 const WP_UPLOADS = "wp-content/uploads";
 const API_JSON = "wp-json";
 const API_PAGES = `${API_JSON}/wp/v2/pages`;
-const B_MAIN_MENU = `${API_PAGES}/6`;
+const B_MAIN_MENU = `${API_PAGES}/?slug=main-menu`;
 const UI_ACCOUNT = "wp-admin";
 const B_POSTS = `${API_JSON}/wp/v2/posts`;
 
@@ -1551,7 +1551,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "purgeContent", function() { return purgeContent; });
 /* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
 
-const initialStateValue = {
+const initialStateValue = [{
   "id": 0,
   "date": null,
   "date_gmt": null,
@@ -1594,9 +1594,13 @@ const initialStateValue = {
     "version-history": [],
     "predecessor-version": [],
     "wp:attachment": [],
-    "curies": []
+    "curies": [{
+      "name": "wp",
+      "href": "https://api.w.org/{rel}",
+      "templated": true
+    }]
   }
-};
+}];
 const contentSlice = Object(_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__["createSlice"])({
   name: 'content',
   initialState: {
@@ -1991,5 +1995,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",0]]]);
+},[[0,"runtime-main",1]]]);
 //# sourceMappingURL=main.chunk.js.map

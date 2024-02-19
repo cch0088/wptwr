@@ -7,7 +7,7 @@ import { WP_UPLOADS } from "../config";
 function MainMenu({route}) {
 
     const dispatch = useDispatch();
-    const content = useSelector(state => state.content.value);
+    const menu = useSelector(state => state.content.value);
     
     useEffect(() => {
         getContent(route).then(object => {
@@ -17,23 +17,24 @@ function MainMenu({route}) {
     
     const regex = /(<([^>]+)>)/gi;
 
-    const menuData = content
+    const menuData = menu[0]
         .content
         .rendered
         .replace(regex, "")
         .split(/\s+/)
         .filter((i) => (i !== ""));
-
-return (
-    <div id="card-container">
-        {menuData.map((str, i) => {
-            const [name, link, image] = str.split(":");
-            return (<a key={i} href={link} className="card">
-                <img className="card-photo" alt={name} src={`${WP_UPLOADS}/${image}`} />
-                <div className="card-text">{name}</div>
-            </a>);
-        })}
-    </div>
+    
+    return (
+        <div id="card-container">
+            {menuData.map((str, i) => {
+                const [name, link, image] = str.split(":");
+                return (<a key={i} href={link} className="card">
+                    <img className="card-photo" alt={name} src={`${WP_UPLOADS}/${image}`} />
+                    <div className="card-text">{name}</div>
+                </a>);
+            })}
+        </div>
     )
 }
+
 export default MainMenu;

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialStateValue = {
+const initialStateValue = [{
     "id": 0,
     "date": null,
     "date_gmt": null,
@@ -43,9 +43,13 @@ const initialStateValue = {
         "version-history": [],
         "predecessor-version": [],
         "wp:attachment": [],
-        "curies": []
+        "curies": [{
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+        }]
     }
-};
+}];
 
 export const contentSlice = createSlice({
     name: 'content',
