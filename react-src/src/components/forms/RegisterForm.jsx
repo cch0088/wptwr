@@ -5,7 +5,7 @@ import { validateEmail } from '../../lib/validation';
 
 function RegisterForm({setForm}) {
 
-    const [error, setError] = useState(null);
+    const [message, setMessage] = useState(null);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
@@ -39,18 +39,18 @@ function RegisterForm({setForm}) {
             }
             })
             .then((_status) => setForm(0))
-            .catch((_error) => setError('Username or e-mail already taken.'));
+            .catch((_error) => setMessage('Username or e-mail already taken.'));
         } else if (!validateEmail(email)) {
-            setError('Invalid e-mail provided.');
+            setMessage('Invalid e-mail provided.');
         } else {
-            setError('Check that all fields are filled.');
+            setMessage('Check that all fields are filled.');
         }
     }
 
 return (<form id="site-form">
         <div className="title-label">SIGN UP</div>
 
-        {(error) ? <div className='error-label'>{error}</div> : null}
+        {(message) ? <div className='error-label'>{message}</div> : null}
 
         <div className="label-login">Username</div>
 

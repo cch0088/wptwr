@@ -202,7 +202,7 @@ code {
 }
 
 #content-wrap {
-	min-height: calc(100vh - 215px);
+	min-height: calc(100vh - 214px);
   margin: 20px;
 }
 

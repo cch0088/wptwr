@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import PasswordStrengthBar from 'react-password-strength-bar';
 import { useMutation, gql } from '@apollo/client';
-import { validatePassword } from '../../lib/validation';
+import { getRoot, validatePassword } from '../../lib/validation';
+import { useNavigate } from 'react-router-dom';
+import { WP_ROOT } from '../../config';
 
 function PasswordForm({pkey, login}) {
+    const navigate = useNavigate();
 
-    const [error, setError] = useState(null);
+    const [message, setMessage] = useState(null);
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
 
@@ -41,20 +44,21 @@ function PasswordForm({pkey, login}) {
                   password,
                 },
               })
-            .catch((_error) => setError('Error resetting password.'));
+            .then((_status) => navigate(getRoot(WP_ROOT)))
+            .catch((_error) => setMessage('Error resetting password.'));
         } else if (!validatePassword(password, passwordConfirm)) {
-            setError('Passwords do not match.');
+            setMessage('Passwords do not match.');
         } else {
-            setError('Check that all fields are filled.');
+            setMessage('Check that all fields are filled.');
         }
     }
 
     return (<form id="site-form">
         <div className="title-label">PASSWORD RESET</div>
 
-        {(error) ? <div className='error-label'>{error}</div> : null}
+        {(message) ? <div className='error-label'>{message}</div> : null}
 
-        <div className="label-login">Changing password for {login}</div>
+        <div className="label-login">New password for {login}</div>
 
         <div className="label-login">Password</div>
 
@@ -70,7 +74,7 @@ function PasswordForm({pkey, login}) {
         <input className="field-login"
             type="password"
             name="password"
-            value={password}
+            value={passwordConfirm}
             onChange={(e) => { setPasswordConfirm(e.target.value); }}
         />
 
@@ -93,6 +97,8 @@ function PasswordForm({pkey, login}) {
             value="Reset"
             onClick={(e) => { handleSubmit(e); }}
         />
+
+        <span className="link-label" onClick={() => { navigate(getRoot(WP_ROOT)) }}>Cancel</span>
     </form>)
 }
 

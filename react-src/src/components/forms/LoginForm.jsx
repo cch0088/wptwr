@@ -8,7 +8,7 @@ function LoginForm({setForm}) {
 
     const dispatch = useDispatch();
 
-    const [error, setError] = useState(null);
+    const [message, setMessage] = useState(null);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -34,16 +34,16 @@ function LoginForm({setForm}) {
             }
             })
             .then((_status) => dispatch(closeModal()))
-            .catch((_error) => setError('Invalid username or password!'));
+            .catch((_error) => setMessage('Invalid username or password!'));
         } else {
-            setError('Missing username or password.');
+            setMessage('Missing username or password.');
         }
     }
 
 return (<form id="site-form">
         <div className="title-label">SIGN IN</div>
 
-        {(error) ? <div className='error-label'>{error}</div> : null}
+        {(message) ? <div className='error-label'>{message}</div> : null}
 
         <div className="label-login">Username</div>
 

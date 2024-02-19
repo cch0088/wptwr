@@ -8,7 +8,7 @@ function Modal({children})
     const dispatch = useDispatch();
 
     const handleClose = (e) => {
-        if (e.target.className === 'modal-bg') { dispatch(closeModal()); }
+        if (e.target.className === "modal-bg") { dispatch(closeModal()); }
     };
 
     return (
