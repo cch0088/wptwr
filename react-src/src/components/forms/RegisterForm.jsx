@@ -25,7 +25,7 @@ function RegisterForm({setForm}) {
             ) { user { databaseId } }
         }`;
 
-    const [register, { loading, error, data }] = useMutation(REGISTER_USER);
+    const [register, { data, loading, error }] = useMutation(REGISTER_USER);
 
     function handleSubmit(e) {
         e.preventDefault();
