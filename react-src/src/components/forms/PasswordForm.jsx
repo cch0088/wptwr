@@ -58,9 +58,9 @@ function PasswordForm({setForm, key}) {
         <div className="title-label">PASSWORD RESET</div>
 
         {(error) ? <div className='error-label'>{error}</div> : null}
-        
+
         <div className="label-login">Username</div>
-        
+
         <input className="field-login" 
             type="text"
             name="username"

@@ -1,14 +1,13 @@
 // Use forward slash (/) if root is same as site
 export const WP_ROOT = "WordPress";
+
+// GraphQL defaults
 export const GRAPHQL_URI = "graphql";
 
+// WordPress defaults
 export const WP_UPLOADS = "wp-content/uploads";
-export const API_JSON = "wp-json";
+export const API_PAGES = "wp-json/wp/v2/pages/?slug=";
+export const API_POSTS = "wp-json/wp/v2/posts/?slug=";
 
-export const API_PAGES = `${API_JSON}/wp/v2/pages`;
-export const B_MAIN_MENU = `${API_PAGES}/?slug=main-menu`;
-
+// User accounts page
 export const UI_ACCOUNT = "wp-admin";
-
-export const B_POSTS = `${API_JSON}/wp/v2/posts`;
-

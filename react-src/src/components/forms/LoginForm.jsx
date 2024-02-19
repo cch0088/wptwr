@@ -44,10 +44,10 @@ return (<form id="site-form">
         <div className="title-label">SIGN IN</div>
 
         {(error) ? <div className='error-label'>{error}</div> : null}
-        
+
         <div className="label-login">Username</div>
-        
-        <input className="field-login" 
+
+        <input className="field-login"
             type="text"
             name="username"
             value={username}
@@ -62,7 +62,7 @@ return (<form id="site-form">
             value={password}
             onChange={(e) => { setPassword(e.target.value); }}
         />
-        
+
         <span className="link-label" onClick={() => { setForm(3) }}>Forgot Password</span>
 
         <input className="button"

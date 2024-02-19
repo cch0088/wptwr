@@ -12,8 +12,8 @@ function Modal({children})
     };
 
     return (
-        <div className='modal-bg' onClick={(e) => handleClose(e)}>
-            <section className='modal-main'>
+        <div className="modal-bg" onClick={(e) => handleClose(e)}>
+            <section className="modal-main">
                 {children}
             </section>
         </div>);

@@ -17,7 +17,8 @@ function ResetByEmailForm({setForm}) {
     );
 
     const validateEmail = (email) => {
-        const regex = /^(([^<>()[]\\.,;:\s@"]+(\.[^<>()[]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        // eslint-disable-next-line
+        const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return regex.test(email);
     }
 
@@ -45,7 +46,7 @@ function ResetByEmailForm({setForm}) {
         {(error) ? <div className='error-label'>{error}</div> : null}
 
         <div className="label-login">E-mail</div>
-        
+
         <input className="field-login" 
             type="email"
             name="email"

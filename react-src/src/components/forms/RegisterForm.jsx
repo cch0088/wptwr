@@ -27,7 +27,8 @@ function RegisterForm({setForm}) {
     const [register] = useMutation(REGISTER_USER);
 
     const validateEmail = (email) => {
-        const regex = /^(([^<>()[]\\.,;:\s@"]+(\.[^<>()[]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        // eslint-disable-next-line
+        const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return regex.test(email);
     }
 
@@ -55,9 +56,9 @@ return (<form id="site-form">
         <div className="title-label">SIGN UP</div>
 
         {(error) ? <div className='error-label'>{error}</div> : null}
-        
+
         <div className="label-login">Username</div>
-        
+
         <input className="field-login" 
             type="text"
             name="username"
@@ -66,7 +67,7 @@ return (<form id="site-form">
         />
 
         <div className="label-login">E-mail</div>
-        
+
         <input className="field-login" 
             type="email"
             name="email"

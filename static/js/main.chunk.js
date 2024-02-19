@@ -378,28 +378,29 @@ var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-sr
 
 
 function Main() {
+  const menuRoute = _config__WEBPACK_IMPORTED_MODULE_2__["API_PAGES"] + "main-menu";
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "heading-container",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
-      columnNumber: 9
+      lineNumber: 10,
+      columnNumber: 13
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
-      columnNumber: 37
+      lineNumber: 10,
+      columnNumber: 41
     }
   }, "Find your next destination...")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MainMenu__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    route: _config__WEBPACK_IMPORTED_MODULE_2__["B_MAIN_MENU"],
+    route: menuRoute,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10,
-      columnNumber: 9
+      lineNumber: 11,
+      columnNumber: 13
     }
   }));
 }
@@ -439,7 +440,7 @@ function MainMenu({
     });
   }, [dispatch, route]);
   const regex = /(<([^>]+)>)/gi;
-  const menuData = menu[0].content.rendered.replace(regex, "").split(/\s+/).filter(i => i !== "");
+  const menuData = menu[0].content.rendered.replace(regex, '').split(/\s+/).filter(i => i !== '');
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "card-container",
     __self: this,
@@ -449,7 +450,7 @@ function MainMenu({
       columnNumber: 9
     }
   }, menuData.map((str, i) => {
-    const [name, link, image] = str.split(":");
+    const [name, link, image] = str.split(':');
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       key: i,
       href: link,
@@ -1258,7 +1259,8 @@ function RegisterForm({
         }`;
   const [register] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(REGISTER_USER);
   const validateEmail = email => {
-    const regex = /^(([^<>()[]\\.,;:\s@"]+(\.[^<>()[]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    // eslint-disable-next-line
+    const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return regex.test(email);
   };
   function handleSubmit(e) {
@@ -1282,7 +1284,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 55,
       columnNumber: 9
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1290,7 +1292,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55,
+      lineNumber: 56,
       columnNumber: 9
     }
   }, "SIGN UP"), error ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1298,7 +1300,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57,
+      lineNumber: 58,
       columnNumber: 20
     }
   }, error) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1306,7 +1308,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59,
+      lineNumber: 60,
       columnNumber: 9
     }
   }, "Username"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1320,7 +1322,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61,
+      lineNumber: 62,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1328,7 +1330,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68,
+      lineNumber: 69,
       columnNumber: 9
     }
   }, "E-mail"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1342,7 +1344,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70,
+      lineNumber: 71,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1350,7 +1352,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77,
+      lineNumber: 78,
       columnNumber: 9
     }
   }, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1364,7 +1366,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79,
+      lineNumber: 80,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_password_strength_bar__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -1375,7 +1377,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86,
+      lineNumber: 87,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1389,7 +1391,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 99,
+      lineNumber: 100,
       columnNumber: 9
     }
   }));
@@ -1425,7 +1427,8 @@ function ResetByEmailForm({
         ) { user { databaseId } } }`;
   const [sendPasswordResetEmail] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_1__["useMutation"])(SEND_PASSWORD_RESET_EMAIL);
   const validateEmail = email => {
-    const regex = /^(([^<>()[]\\.,;:\s@"]+(\.[^<>()[]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    // eslint-disable-next-line
+    const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return regex.test(email);
   };
   function handleSubmit(e) {
@@ -1447,7 +1450,7 @@ function ResetByEmailForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
+      lineNumber: 43,
       columnNumber: 13
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1455,7 +1458,7 @@ function ResetByEmailForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
+      lineNumber: 44,
       columnNumber: 9
     }
   }, "PASSWORD RESET"), error ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1463,7 +1466,7 @@ function ResetByEmailForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 46,
       columnNumber: 20
     }
   }, error) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1471,7 +1474,7 @@ function ResetByEmailForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 48,
       columnNumber: 9
     }
   }, "E-mail"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1485,7 +1488,7 @@ function ResetByEmailForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 50,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1499,7 +1502,7 @@ function ResetByEmailForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56,
+      lineNumber: 57,
       columnNumber: 9
     }
   }));
@@ -1512,7 +1515,7 @@ function ResetByEmailForm({
 /*!***********************!*\
   !*** ./src/config.js ***!
   \***********************/
-/*! exports provided: WP_ROOT, GRAPHQL_URI, WP_UPLOADS, API_JSON, API_PAGES, B_MAIN_MENU, UI_ACCOUNT, B_POSTS */
+/*! exports provided: WP_ROOT, GRAPHQL_URI, WP_UPLOADS, API_PAGES, API_POSTS, UI_ACCOUNT */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1520,20 +1523,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WP_ROOT", function() { return WP_ROOT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GRAPHQL_URI", function() { return GRAPHQL_URI; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WP_UPLOADS", function() { return WP_UPLOADS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "API_JSON", function() { return API_JSON; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "API_PAGES", function() { return API_PAGES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_MAIN_MENU", function() { return B_MAIN_MENU; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "API_POSTS", function() { return API_POSTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_ACCOUNT", function() { return UI_ACCOUNT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B_POSTS", function() { return B_POSTS; });
 // Use forward slash (/) if root is same as site
 const WP_ROOT = "WordPress";
+
+// GraphQL defaults
 const GRAPHQL_URI = "graphql";
+
+// WordPress defaults
 const WP_UPLOADS = "wp-content/uploads";
-const API_JSON = "wp-json";
-const API_PAGES = `${API_JSON}/wp/v2/pages`;
-const B_MAIN_MENU = `${API_PAGES}/?slug=main-menu`;
+const API_PAGES = "wp-json/wp/v2/pages/?slug=";
+const API_POSTS = "wp-json/wp/v2/posts/?slug=";
+
+// User accounts page
 const UI_ACCOUNT = "wp-admin";
-const B_POSTS = `${API_JSON}/wp/v2/posts`;
 
 /***/ }),
 
@@ -1995,5 +2000,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",1]]]);
+},[[0,"runtime-main",0]]]);
 //# sourceMappingURL=main.chunk.js.map
