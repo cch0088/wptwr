@@ -202,7 +202,8 @@ code {
 }
 
 #content-wrap {
-	min-height: calc(100vh - 194px);
+	min-height: calc(100vh - 215px);
+  margin: 20px;
 }
 
 #heading-container {
@@ -258,7 +259,6 @@ code {
 }
 
 .slide {
-  margin: 20px;
   border-radius: 16px;
   box-shadow: 0px 4px 8px lightgray;
   padding: 20px;
@@ -458,10 +458,6 @@ code {
     margin-top: 0px;
     text-align: center;
     width: auto;
-  }
-
-  #home-content {
-    margin-top: auto;
   }
 
   #footer {

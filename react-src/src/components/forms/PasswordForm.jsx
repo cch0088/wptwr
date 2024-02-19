@@ -3,10 +3,9 @@ import PasswordStrengthBar from 'react-password-strength-bar';
 import { useMutation, gql } from '@apollo/client';
 import { validatePassword } from '../../lib/validation';
 
-function PasswordForm({setForm, key}) {
+function PasswordForm({pkey, login}) {
 
     const [error, setError] = useState(null);
-    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
 
@@ -34,15 +33,14 @@ function PasswordForm({setForm, key}) {
     function handleSubmit(e) {
         e.preventDefault();
 
-        if (password.length > 0 && username.length > 0 && validatePassword(password, passwordConfirm)) {
+        if (password.length > 0 && validatePassword(password, passwordConfirm)) {
             resetPassword({
                 variables: {
-                  key,
-                  login: username,
+                  key: pkey,
+                  login,
                   password,
                 },
               })
-            .then((_status) => setForm(0))
             .catch((_error) => setError('Error resetting password.'));
         } else if (!validatePassword(password, passwordConfirm)) {
             setError('Passwords do not match.');
@@ -56,14 +54,7 @@ function PasswordForm({setForm, key}) {
 
         {(error) ? <div className='error-label'>{error}</div> : null}
 
-        <div className="label-login">Username</div>
-
-        <input className="field-login" 
-            type="text"
-            name="username"
-            value={username}
-            onChange={(e) => { setUsername(e.target.value); }}
-        />
+        <div className="label-login">Changing password for {login}</div>
 
         <div className="label-login">Password</div>
 
@@ -99,7 +90,7 @@ function PasswordForm({setForm, key}) {
         <input className="button"
             type="submit"
             name="reset"
-            value="Reset Password"
+            value="Reset"
             onClick={(e) => { handleSubmit(e); }}
         />
     </form>)

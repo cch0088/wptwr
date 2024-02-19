@@ -9,7 +9,6 @@ import { UI_ACCOUNT } from '../config';
 import RegisterForm from './forms/RegisterForm';
 import ConfirmForm from './forms/ConfirmForm';
 import ResetByEmailForm from './forms/ResetByEmailForm';
-import PasswordForm from './forms/PasswordForm';
 
 function UserControl() {
 
@@ -42,7 +41,6 @@ return (
             { form === 1 && modal.show && <Modal children={ <LoginForm setForm={setForm} /> }/> }
             { form === 2 && modal.show && <Modal children={ <RegisterForm setForm={setForm} /> }/> }
             { form === 3 && modal.show && <Modal children={ <ResetByEmailForm setForm={setForm} /> }/> }
-            { form === 4 && modal.show && <Modal children={ <PasswordForm setForm={setForm} key={'keyfromemail'} /> }/> }
             {
                 (!loggedIn && !loading) &&
                 <>
