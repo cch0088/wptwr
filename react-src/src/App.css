@@ -187,7 +187,7 @@ code {
 }
 
 #content-wrap {
-	min-height: calc(100vh - 174px);
+	min-height: calc(100vh - 194px);
 }
 
 #heading-container {
@@ -242,39 +242,12 @@ code {
 }
 
 .slide {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px;
   border-radius: 16px;
   box-shadow: 0px 4px 8px lightgray;
   padding: 20px;
-  width: 80%;
   background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.slide img {
-  width: 100%;
-}
-
-p {
-  font-size: x-large;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-#builder-frame-large {
-  width: 50%;
-}
-
-#builder-frame-large img {
-  margin-top: 30px;
-  width: 100%;
-}
-
-#builder-frame-small {
-  width: 30%;
+  text-align: center;
 }
 
 #footer {
@@ -336,10 +309,6 @@ p {
   display: inline-flex;
   align-items: baseline;
   padding: 2px;
-}
-
-#site-form img {
-  width: 100%;
 }
 
 .label {
@@ -410,75 +379,6 @@ p {
   height: 40px;
   font-weight: bold;
   font-size: large;
-}
-
-.checkbox {
-  width: 50px;
-  height: 25px;
-}
-
-.checkbox-text {
-  margin: 5px;
-  display: flex;
-  align-items: center;
-}
-
-.box-style {
-  display: inline-block;
-  width: 30px;
-  padding: 12px;
-  margin: 0 6px 6px;
-  color: black;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 30px;
-  background: white;
-}
-
-.div-box {
-  border: 2px solid rgb(0, 0, 0);
-  background-color: rgb(214, 249, 249);
-  padding: 10px;
-  width: 280px;
-  margin: 4px;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
-
-.div-table {
-  margin-top: 10px;
-  border: 2px solid rgb(0, 0, 0);
-  background-color: rgb(214, 249, 249);
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
-
-.div-table-cell {
-  padding: 4px;
-  margin: 2px;
-  width: 180px;
-  text-align: center;
-}
-
-.div-table-heading-title {
-  background-color: lightblue;
-  font-weight: bold;
-  display: flex;
-  flex-direction: row;
-}
-
-.div-table-heading {
-  display: flex;
-  flex-direction: row;
-}
-
-.div-table-heading:hover {
-  background-color: lightblue;
-  font-weight: bold;
-  cursor: pointer;
 }
 
 @media screen and (max-width: 1164px) {
