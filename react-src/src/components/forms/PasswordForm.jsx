@@ -31,7 +31,7 @@ function PasswordForm({pkey, login}) {
             }
         }`;
 
-    const [resetPassword] = useMutation(RESET_PASSWORD);
+    const [resetPassword, { data, loading, error }] = useMutation(RESET_PASSWORD);
 
     function handleSubmit(e) {
         e.preventDefault();

@@ -17,7 +17,7 @@ function LoginForm({setForm}) {
         loginWithCookies(input: { login: $login password: $password })
         { status } }`;
 
-    const [logIn] = useMutation(LOG_IN, {
+    const [logIn, { loading, error }] = useMutation(LOG_IN, {
         refetchQueries: [
         { query: GET_USER }
         ],

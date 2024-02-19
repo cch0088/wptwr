@@ -971,7 +971,10 @@ function LoginForm({
         mutation logIn($login: String!, $password: String!) {
         loginWithCookies(input: { login: $login password: $password })
         { status } }`;
-  const [logIn] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(LOG_IN, {
+  const [logIn, {
+    loading,
+    error
+  }] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(LOG_IN, {
     refetchQueries: [{
       query: _hooks_useAuth__WEBPACK_IMPORTED_MODULE_3__["GET_USER"]
     }]
@@ -1149,7 +1152,11 @@ function PasswordForm({
             }
             }
         }`;
-  const [resetPassword] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(RESET_PASSWORD);
+  const [resetPassword, {
+    data,
+    loading,
+    error
+  }] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(RESET_PASSWORD);
   function handleSubmit(e) {
     e.preventDefault();
     if (password.length > 0 && Object(_lib_validation__WEBPACK_IMPORTED_MODULE_3__["validatePassword"])(password, passwordConfirm)) {
@@ -1325,7 +1332,11 @@ function RegisterForm({
                 }
             ) { user { databaseId } }
         }`;
-  const [register] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(REGISTER_USER);
+  const [register, {
+    loading,
+    error,
+    data
+  }] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(REGISTER_USER);
   function handleSubmit(e) {
     e.preventDefault();
     if (username.length > 0 && password.length > 0 && Object(_lib_validation__WEBPACK_IMPORTED_MODULE_3__["validateEmail"])(email)) {
@@ -1483,14 +1494,18 @@ var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-sr
 function ResetByEmailForm({
   setForm
 }) {
-  const [error, setError] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const [message, setMessage] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
   const [email, setEmail] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   const SEND_PASSWORD_RESET_EMAIL = _apollo_client__WEBPACK_IMPORTED_MODULE_1__["gql"]`
         mutation sendPasswordResetEmail($username: String!) {
         sendPasswordResetEmail(
             input: { username: $username }
         ) { user { databaseId } } }`;
-  const [sendPasswordResetEmail] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_1__["useMutation"])(SEND_PASSWORD_RESET_EMAIL);
+  const [sendPasswordResetEmail, {
+    loading,
+    error,
+    data
+  }] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_1__["useMutation"])(SEND_PASSWORD_RESET_EMAIL);
   function handleSubmit(e) {
     e.preventDefault();
     if (Object(_lib_validation__WEBPACK_IMPORTED_MODULE_2__["validateEmail"])(email)) {
@@ -1498,11 +1513,11 @@ function ResetByEmailForm({
         variables: {
           username: email
         }
-      }).then(_status => setForm(0)).catch(_error => setError('E-mail could not be sent.'));
+      }).then(_status => setForm(0)).catch(_error => setMessage('E-mail could not be sent.'));
     } else if (!Object(_lib_validation__WEBPACK_IMPORTED_MODULE_2__["validateEmail"])(email)) {
-      setError('Invalid e-mail provided.');
+      setMessage('Invalid e-mail provided.');
     } else {
-      setError('Check that all fields are filled.');
+      setMessage('Check that all fields are filled.');
     }
   }
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -1521,15 +1536,15 @@ function ResetByEmailForm({
       lineNumber: 39,
       columnNumber: 9
     }
-  }, "PASSWORD RESET"), error ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "PASSWORD RESET"), message ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "error-label",
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 41,
-      columnNumber: 20
+      columnNumber: 22
     }
-  }, error) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, message) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "label-login",
     __self: this,
     __source: {

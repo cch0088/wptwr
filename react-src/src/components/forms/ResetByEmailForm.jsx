@@ -4,7 +4,7 @@ import { validateEmail } from '../../lib/validation';
 
 function ResetByEmailForm({setForm}) {
 
-    const [error, setError] = useState(null);
+    const [message, setMessage] = useState(null);
     const [email, setEmail] = useState('');
 
     const SEND_PASSWORD_RESET_EMAIL = gql`
@@ -13,7 +13,7 @@ function ResetByEmailForm({setForm}) {
             input: { username: $username }
         ) { user { databaseId } } }`;
 
-    const [sendPasswordResetEmail] = useMutation(
+    const [sendPasswordResetEmail, { loading, error, data }] = useMutation(
         SEND_PASSWORD_RESET_EMAIL
     );
 
@@ -27,18 +27,18 @@ function ResetByEmailForm({setForm}) {
                 }
             })
             .then((_status) => setForm(0))
-            .catch((_error) => setError('E-mail could not be sent.'));
+            .catch((_error) => setMessage('E-mail could not be sent.'));
         } else if (!validateEmail(email)) {
-            setError('Invalid e-mail provided.');
+            setMessage('Invalid e-mail provided.');
         } else {
-            setError('Check that all fields are filled.');
+            setMessage('Check that all fields are filled.');
         }
     }
 
     return (<form id="site-form">
         <div className="title-label">PASSWORD RESET</div>
 
-        {(error) ? <div className='error-label'>{error}</div> : null}
+        {(message) ? <div className='error-label'>{message}</div> : null}
 
         <div className="label-login">E-mail</div>
 
