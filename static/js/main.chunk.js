@@ -263,17 +263,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _logo_svg__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_logo_svg__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _logotext_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../logotext.svg */ "./src/logotext.svg");
 /* harmony import */ var _logotext_svg__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_logotext_svg__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var _lib_validation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../lib/validation */ "./src/lib/validation.jsx");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../config */ "./src/config.js");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/Header.jsx";
 
 
 
+
+
+
 function Header() {
+  const navigate = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["useNavigate"])();
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "head-nav-bar",
+    onClick: () => {
+      navigate(Object(_lib_validation__WEBPACK_IMPORTED_MODULE_4__["getRoot"])(_config__WEBPACK_IMPORTED_MODULE_5__["WP_ROOT"]));
+    },
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8,
+      lineNumber: 12,
       columnNumber: 5
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -281,7 +291,7 @@ function Header() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
+      lineNumber: 13,
       columnNumber: 9
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -290,7 +300,7 @@ function Header() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
+      lineNumber: 13,
       columnNumber: 24
     }
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -298,7 +308,7 @@ function Header() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10,
+      lineNumber: 14,
       columnNumber: 9
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -307,7 +317,7 @@ function Header() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10,
+      lineNumber: 14,
       columnNumber: 28
     }
   })));
