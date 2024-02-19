@@ -7,7 +7,7 @@ function ConfirmForm() {
     const dispatch = useDispatch();
 
     return (<form id="site-form">
-    <div className="label-login">Check your e-mail.</div>
+    <div className="label-login">Please check your e-mail for next steps.</div>
 
     <input className="button"
         type="button"

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PasswordStrengthBar from 'react-password-strength-bar';
 import { useMutation, gql } from '@apollo/client';
+import { validatePassword } from '../../lib/validation';
 
 function PasswordForm({setForm, key}) {
 
@@ -29,10 +30,6 @@ function PasswordForm({setForm, key}) {
         }`;
 
     const [resetPassword] = useMutation(RESET_PASSWORD);
-
-    const validatePassword = (password1, password2) => {
-        return password1 === password2;
-    }
 
     function handleSubmit(e) {
         e.preventDefault();

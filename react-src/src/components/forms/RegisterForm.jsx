@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PasswordStrengthBar from 'react-password-strength-bar';
 import { useMutation, gql } from '@apollo/client';
+import { validateEmail } from '../../lib/validation';
 
 function RegisterForm({setForm}) {
 
@@ -25,12 +26,6 @@ function RegisterForm({setForm}) {
         }`;
 
     const [register] = useMutation(REGISTER_USER);
-
-    const validateEmail = (email) => {
-        // eslint-disable-next-line
-        const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return regex.test(email);
-    }
 
     function handleSubmit(e) {
         e.preventDefault();
