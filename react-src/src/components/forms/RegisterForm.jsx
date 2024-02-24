@@ -8,6 +8,7 @@ function RegisterForm({setForm}) {
     const [message, setMessage] = useState(null);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [isHuman, setIsHuman] = useState(false);
     const [email, setEmail] = useState('');
 
     const REGISTER_USER = gql`
@@ -30,7 +31,7 @@ function RegisterForm({setForm}) {
     function handleSubmit(e) {
         e.preventDefault();
 
-        if (username.length > 0 && password.length > 0 && validateEmail(email)) {
+        if (isHuman && username.length > 0 && password.length > 0 && validateEmail(email)) {
             register({
             variables: {
                 username,
@@ -92,10 +93,20 @@ return (<form id="site-form">
             shortScoreWord='Weak'
         />
 
+        <div className="label-login">I'm not a bot</div>
+
+        <input className="human-check"
+            type="checkbox"
+            name="human"
+            value="human"
+            onChange={(e) => setIsHuman(e.target.checked)}
+        />
+
         <input className="button"
             type="submit"
             name="register"
             value="Sign Up"
+            disabled={!isHuman}
             onClick={(e) => { handleSubmit(e); }}
         />
     </form>)
