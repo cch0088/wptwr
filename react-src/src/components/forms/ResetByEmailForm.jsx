@@ -13,7 +13,7 @@ function ResetByEmailForm({setForm}) {
             input: { username: $username }
         ) { user { databaseId } } }`;
 
-    const [sendPasswordResetEmail, { loading, error, data }] = useMutation(
+    const [sendPasswordResetEmail, { loading }] = useMutation(
         SEND_PASSWORD_RESET_EMAIL
     );
 
@@ -54,6 +54,7 @@ function ResetByEmailForm({setForm}) {
             name="send"
             value="Request Reset"
             onClick={(e) => { handleSubmit(e); }}
+            disabled={loading}
         />
     </form>)
 }

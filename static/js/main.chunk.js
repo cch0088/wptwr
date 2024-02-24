@@ -972,8 +972,7 @@ function LoginForm({
         loginWithCookies(input: { login: $login password: $password })
         { status } }`;
   const [logIn, {
-    loading,
-    error
+    loading
   }] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(LOG_IN, {
     refetchQueries: [{
       query: _hooks_useAuth__WEBPACK_IMPORTED_MODULE_3__["GET_USER"]
@@ -1079,6 +1078,7 @@ function LoginForm({
     onClick: e => {
       handleLogin(e);
     },
+    disabled: loading,
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -1093,7 +1093,7 @@ function LoginForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75,
+      lineNumber: 76,
       columnNumber: 9
     }
   }, "Create Account"));
@@ -1153,9 +1153,7 @@ function PasswordForm({
             }
         }`;
   const [resetPassword, {
-    data,
-    loading,
-    error
+    loading
   }] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(RESET_PASSWORD);
   function handleSubmit(e) {
     e.preventDefault();
@@ -1268,6 +1266,7 @@ function PasswordForm({
     onClick: e => {
       handleSubmit(e);
     },
+    disabled: loading,
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -1282,7 +1281,7 @@ function PasswordForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 101,
+      lineNumber: 102,
       columnNumber: 9
     }
   }, "Cancel"));
@@ -1334,9 +1333,7 @@ function RegisterForm({
             ) { user { databaseId } }
         }`;
   const [register, {
-    data,
-    loading,
-    error
+    loading
   }] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(REGISTER_USER);
   function handleSubmit(e) {
     e.preventDefault();
@@ -1480,7 +1477,7 @@ function RegisterForm({
     type: "submit",
     name: "register",
     value: "Sign Up",
-    disabled: !isHuman,
+    disabled: !isHuman && loading,
     onClick: e => {
       handleSubmit(e);
     },
@@ -1524,9 +1521,7 @@ function ResetByEmailForm({
             input: { username: $username }
         ) { user { databaseId } } }`;
   const [sendPasswordResetEmail, {
-    loading,
-    error,
-    data
+    loading
   }] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_1__["useMutation"])(SEND_PASSWORD_RESET_EMAIL);
   function handleSubmit(e) {
     e.preventDefault();
@@ -1596,6 +1591,7 @@ function ResetByEmailForm({
     onClick: e => {
       handleSubmit(e);
     },
+    disabled: loading,
     __self: this,
     __source: {
       fileName: _jsxFileName,

@@ -31,7 +31,7 @@ function PasswordForm({pkey, login}) {
             }
         }`;
 
-    const [resetPassword, { data, loading, error }] = useMutation(RESET_PASSWORD);
+    const [resetPassword, { loading }] = useMutation(RESET_PASSWORD);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -96,6 +96,7 @@ function PasswordForm({pkey, login}) {
             name="reset"
             value="Reset"
             onClick={(e) => { handleSubmit(e); }}
+            disabled={loading}
         />
 
         <span className="link-label" onClick={() => { navigate(getRoot(WP_ROOT)) }}>Cancel</span>

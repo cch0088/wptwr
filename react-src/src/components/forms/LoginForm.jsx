@@ -17,7 +17,7 @@ function LoginForm({setForm}) {
         loginWithCookies(input: { login: $login password: $password })
         { status } }`;
 
-    const [logIn, { loading, error }] = useMutation(LOG_IN, {
+    const [logIn, { loading }] = useMutation(LOG_IN, {
         refetchQueries: [
         { query: GET_USER }
         ],
@@ -70,6 +70,7 @@ return (<form id="site-form">
             name="login"
             value="Sign In"
             onClick={(e) => { handleLogin(e); }}
+            disabled={loading}
         />
 
         <span className="link-label" onClick={() => { setForm(2) }}>Create Account</span>

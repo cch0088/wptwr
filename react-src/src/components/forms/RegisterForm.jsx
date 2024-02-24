@@ -26,7 +26,7 @@ function RegisterForm({setForm}) {
             ) { user { databaseId } }
         }`;
 
-    const [register, { data, loading, error }] = useMutation(REGISTER_USER);
+    const [register, { loading }] = useMutation(REGISTER_USER);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -106,7 +106,7 @@ return (<form id="site-form">
             type="submit"
             name="register"
             value="Sign Up"
-            disabled={!isHuman}
+            disabled={!isHuman && loading}
             onClick={(e) => { handleSubmit(e); }}
         />
     </form>)
