@@ -6,11 +6,13 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import modalReducer from './features/ModalSlice';
 import contentReducer from './features/ContentSlice';
+import forumReducer from './features/ForumSlice';
 
 const store = configureStore({
   reducer: {
     modal: modalReducer,
-    content: contentReducer
+    content: contentReducer,
+    forum: forumReducer
   }
 });
 
