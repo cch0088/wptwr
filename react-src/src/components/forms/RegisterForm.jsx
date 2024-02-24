@@ -106,7 +106,7 @@ return (<form id="site-form">
             type="submit"
             name="register"
             value="Sign Up"
-            disabled={!isHuman && loading}
+            disabled={!isHuman || loading}
             onClick={(e) => { handleSubmit(e); }}
         />
     </form>)

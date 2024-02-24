@@ -6,6 +6,7 @@ function ResetByEmailForm({setForm}) {
 
     const [message, setMessage] = useState(null);
     const [email, setEmail] = useState('');
+    const [isHuman, setIsHuman] = useState(false);
 
     const SEND_PASSWORD_RESET_EMAIL = gql`
         mutation sendPasswordResetEmail($username: String!) {
@@ -49,12 +50,21 @@ function ResetByEmailForm({setForm}) {
             onChange={(e) => { setEmail(e.target.value); }}
         />
 
+        <div className="label-login">I'm not a bot</div>
+
+        <input className="human-check"
+            type="checkbox"
+            name="human"
+            value="human"
+            onChange={(e) => setIsHuman(e.target.checked)}
+        />
+
         <input className="button"
             type="submit"
             name="send"
-            value="Request Reset"
+            value="Request"
             onClick={(e) => { handleSubmit(e); }}
-            disabled={loading}
+            disabled={!isHuman || loading}
         />
     </form>)
 }

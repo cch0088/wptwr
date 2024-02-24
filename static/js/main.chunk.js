@@ -1477,7 +1477,7 @@ function RegisterForm({
     type: "submit",
     name: "register",
     value: "Sign Up",
-    disabled: !isHuman && loading,
+    disabled: !isHuman || loading,
     onClick: e => {
       handleSubmit(e);
     },
@@ -1515,6 +1515,7 @@ function ResetByEmailForm({
 }) {
   const [message, setMessage] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
   const [email, setEmail] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
+  const [isHuman, setIsHuman] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
   const SEND_PASSWORD_RESET_EMAIL = _apollo_client__WEBPACK_IMPORTED_MODULE_1__["gql"]`
         mutation sendPasswordResetEmail($username: String!) {
         sendPasswordResetEmail(
@@ -1542,7 +1543,7 @@ function ResetByEmailForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 39,
       columnNumber: 13
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1550,7 +1551,7 @@ function ResetByEmailForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
+      lineNumber: 40,
       columnNumber: 9
     }
   }, "PASSWORD RESET"), message ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1558,7 +1559,7 @@ function ResetByEmailForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 42,
       columnNumber: 22
     }
   }, message) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1566,7 +1567,7 @@ function ResetByEmailForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
+      lineNumber: 44,
       columnNumber: 9
     }
   }, "E-mail"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1580,22 +1581,42 @@ function ResetByEmailForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 46,
+      columnNumber: 9
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "label-login",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53,
+      columnNumber: 9
+    }
+  }, "I'm not a bot"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "human-check",
+    type: "checkbox",
+    name: "human",
+    value: "human",
+    onChange: e => setIsHuman(e.target.checked),
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     className: "button",
     type: "submit",
     name: "send",
-    value: "Request Reset",
+    value: "Request",
     onClick: e => {
       handleSubmit(e);
     },
-    disabled: loading,
+    disabled: !isHuman || loading,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52,
+      lineNumber: 62,
       columnNumber: 9
     }
   }));
