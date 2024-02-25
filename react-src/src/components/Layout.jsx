@@ -7,12 +7,18 @@ import Footer from "./Footer";
 const Layout = () => {
 return (
         <>
-            <Header />
-            <UserControl />
+            <div id="head-wrap">
+                <div id="head-container">
+                    <Header />
+                    <UserControl />
+                </div>
+            </div>
             <div id="content-wrap">
                 <Outlet />
             </div>
-            <Footer />
+            <div id="footer-wrap">
+                <Footer />
+            </div>
         </>
     )
 };

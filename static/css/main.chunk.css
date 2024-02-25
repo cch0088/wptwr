@@ -12,15 +12,22 @@ code {
     monospace;
 }
 
-#head-nav-bar {
-  cursor: pointer;
+#head-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   background: rgba(0,0,0,0.8);
   background-position-y: center;
   background-blend-mode: overlay;
   background-image: url(/WordPress/wp-content/themes/wptwr/static/media/banner.94cfa30c.jpg);
   height: 90px;
-  box-shadow: 0px 8px 8px lightgrey;
   z-index: 2;
+}
+
+#head-container {
+  display: grid;
+  grid-template-columns: 240px auto;
+  width: 60%;
 }
 
 .modal-bg {
@@ -43,23 +50,27 @@ code {
 }
 
 #logo {
-  position: absolute;
+  position: relative;
   top: 5px;
-  left: 32px;
 }
 
 #logo-footer img {
   height: 60px;
 }
 
+#branding {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  width: 220px;
+}
 
 #logo img {
   height: 80px;
 }
 
 #logotext {
-  position: absolute;
-  left: 128px;
+  position: relative;
   top: 12px;
   color: white;
 }
@@ -70,9 +81,8 @@ code {
 }
 
 #usercontrol {
-  position: absolute;
-  top: 2px;
-  right: 42px;
+  margin-top: 4px;
+  justify-self: end;
 }
 
 #usercontrol > .userbutton {
@@ -166,7 +176,7 @@ code {
   height: 20px;
 }
 
-#footer {
+#footer-wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -343,6 +353,10 @@ code {
 }
 
 @media screen and (max-width: 1164px) {
+  #branding {
+    scale: 90%;
+  }
+  
   .forum-list-container {
     width: 100%;
   }
@@ -355,48 +369,16 @@ code {
   #card-container {
     grid-template-columns: auto auto;
   }
+
+  #head-container {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 750px) {
-  #logo {
-    left: 3px;
-  }
-
-  #logo img {
-    height: 60px;
-    margin-top: 2px;
-  }
-
-  #logotext {
-    position: absolute;
-    left: 70px;
-    top: 5px;
-    width: 70px;
-  }
-
-  #head-nav-bar {
-    height: 77px;
-  }
-
-  #usercontrol {
-    top: 4px;
-    right: 4px;
-    width: 120px;
-    text-align: right;
-  }
-
   #usercontrol > .userbutton {
     margin: 1px 2px 2px 3px;
     text-align: left;
-  }
-
-  #nav-container {
-    margin-top: 20px;
-    margin-left: -42px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 
   #card-container {

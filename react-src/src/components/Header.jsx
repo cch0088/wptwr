@@ -9,7 +9,7 @@ function Header() {
     const navigate = useNavigate();
 
 return (
-    <div id="head-nav-bar" onClick={() => { navigate(getRoot(WP_ROOT)) }}>
+    <div id="branding" onClick={() => { navigate(getRoot(WP_ROOT)) }}>
         <div id="logo"><img src={logo} alt="Logo" /></div>
         <div id="logotext"><img src={logotext} alt="Logo Text" /></div>
     </div>
