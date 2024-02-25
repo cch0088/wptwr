@@ -351,6 +351,12 @@ code {
   font-size: xx-large;
 }
 
+@media screen and (max-width: 1600px) {
+  #head-container {
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 1164px) {
   #branding {
     scale: 90%;
@@ -368,15 +374,17 @@ code {
   #card-container {
     grid-template-columns: auto auto;
   }
-
-  #head-container {
-    width: 100%;
-  }
 }
 
 @media screen and (max-width: 750px) {
+  #usercontrol {
+    width: 120px;
+  }
+
   #usercontrol > .userbutton {
-    margin: 8px 2px 2px 3px;
+    position: relative;
+    top: 10px;
+    margin: 0 0 4px 0;
     text-align: left;
   }
 
