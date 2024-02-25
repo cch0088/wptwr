@@ -297,15 +297,45 @@ code {
   width: 24px;
 }
 
+.forum-list-container {
+  margin: 4px 32px 10px 32px;
+}
+
+.forum-section {
+  margin-bottom: 24px;
+}
+
 .forum-category {
-  font-size: large;
+  font-size: x-large;
+  margin-bottom: 12px;
 }
 
 .forum-topic {
-  border-radius: 16px;
+  border-radius: 8px;
   background-color: white;
-  padding: 10px;
-  margin: 10px;
+  padding: 12px;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.forum-topic-name {
+  margin-bottom: 2px;
+}
+
+.forum-topic-name > a {
+  text-decoration: none;
+  color: black;
+}
+
+.forum-topic-description {
+  font-size: small;
+  color: #646464;
+}
+
+.bubble {
+  margin: 0 16px 0 4px;
+  font-size: xx-large;
 }
 
 @media screen and (max-width: 1164px) {
@@ -323,7 +353,7 @@ code {
   #logo {
     left: 3px;
   }
-  
+
   #logo img {
     height: 60px;
     margin-top: 2px;
@@ -374,12 +404,12 @@ code {
   #footer {
     height: 300px;
   }
-  
+
   .footer-row {
     flex-direction: column;
     height: 250px;
   }
-  
+
   .footer-about {
     margin-top: 10px;
     margin-bottom: 30px;

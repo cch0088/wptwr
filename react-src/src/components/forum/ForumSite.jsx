@@ -38,10 +38,10 @@ function ForumSite() {
     })
 
     return (
-        <>
+        <div className="forum-list-container">
             {heading.map((header) => {
                 return (
-                    <div key={header.id}>
+                    <div className="forum-section" key={header.id}>
                         <div className="forum-category">{header.name}</div>
                         {topic.filter((item) => item.parent === header.id)
                             .map((i) => {
@@ -49,15 +49,18 @@ function ForumSite() {
                                     <div key={i.id}
                                         className="forum-topic"
                                     >
-                                        <div><a href={i.link}>{i.name}</a></div>
-                                        <div>{i.description}</div>
+                                        <span className="bubble" role="img" aria-label="topic">🗨️</span>
+                                        <div className="forum-topic-node">
+                                            <div className="forum-topic-name"><a href={i.link}>{i.name}</a></div>
+                                            <div className="forum-topic-description">{i.description}</div>
+                                        </div>
                                     </div>
                                 );
                         })}
                     </div>
                 );
             })}
-        </>
+        </div>
     )
 }
 export default ForumSite;
