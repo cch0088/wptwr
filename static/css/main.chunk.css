@@ -81,7 +81,6 @@ code {
 }
 
 #usercontrol {
-  margin-top: 4px;
   justify-self: end;
 }
 
@@ -356,7 +355,7 @@ code {
   #branding {
     scale: 90%;
   }
-  
+
   .forum-list-container {
     width: 100%;
   }
@@ -377,7 +376,7 @@ code {
 
 @media screen and (max-width: 750px) {
   #usercontrol > .userbutton {
-    margin: 1px 2px 2px 3px;
+    margin: 8px 2px 2px 3px;
     text-align: left;
   }
 
@@ -385,13 +384,7 @@ code {
     grid-template-columns: auto;
   }
 
-  .navigation {
-    margin-top: 0px;
-    text-align: center;
-    width: auto;
-  }
-
-  #footer {
+  #footer-wrap {
     height: 300px;
   }
 
