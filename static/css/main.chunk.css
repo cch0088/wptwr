@@ -297,6 +297,10 @@ code {
   width: 24px;
 }
 
+.forum-category {
+  font-size: large;
+}
+
 @media screen and (max-width: 1164px) {
   .card {
     scale: 80%;

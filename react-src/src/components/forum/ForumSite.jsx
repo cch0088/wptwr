@@ -16,10 +16,19 @@ function ForumSite() {
         });
     },[dispatch, route]);
 
+    console.log(categories.find((x) => x.parent === 2));
+    console.log(categories.find((x) => x.id === 2));
+
     return (
         <>
-            {categories.map(x => x.name)}
+            {categories.map((item) => {
+                return (
+                    (item.parent === 0) ?
+                    <div key={item.id} className="forum-category">{item.name}</div>
+                    : null
+                );
+            })}
         </>
-        )
+    )
 }
 export default ForumSite;

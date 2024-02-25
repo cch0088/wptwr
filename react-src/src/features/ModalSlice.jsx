@@ -12,7 +12,7 @@ export const modalSlice = createSlice({
        },
        closeModal: (state) => {
         state.value = closedState;
-       } 
+       }
     }
 });
 
