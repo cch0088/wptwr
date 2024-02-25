@@ -427,7 +427,14 @@ var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-sr
 
 function Main() {
   const menuRoute = _config__WEBPACK_IMPORTED_MODULE_2__["API_PAGES"] + "main-menu";
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "heading-container",
     __self: this,
     __source: {
