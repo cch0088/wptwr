@@ -301,6 +301,13 @@ code {
   font-size: large;
 }
 
+.forum-topic {
+  border-radius: 16px;
+  background-color: white;
+  padding: 10px;
+  margin: 10px;
+}
+
 @media screen and (max-width: 1164px) {
   .card {
     scale: 80%;

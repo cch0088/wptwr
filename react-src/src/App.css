@@ -299,6 +299,13 @@ code {
   font-size: large;
 }
 
+.forum-topic {
+  border-radius: 16px;
+  background-color: white;
+  padding: 10px;
+  margin: 10px;
+}
+
 @media screen and (max-width: 1164px) {
   .card {
     scale: 80%;
@@ -365,12 +372,12 @@ code {
   #footer {
     height: 300px;
   }
-  
+
   .footer-row {
     flex-direction: column;
     height: 250px;
   }
-  
+
   .footer-about {
     margin-top: 10px;
     margin-bottom: 30px;

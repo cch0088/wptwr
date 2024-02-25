@@ -16,16 +16,45 @@ function ForumSite() {
         });
     },[dispatch, route]);
 
-    console.log(categories.find((x) => x.parent === 2));
-    console.log(categories.find((x) => x.id === 2));
+    const heading = [];
+    const topic = [];
+
+    categories.forEach(item => {
+        if (item.parent > 0) {
+            topic.push({
+                id: item.id,
+                name: item.name,
+                description: item.description,
+                link: item.link,
+                parent: item.parent
+            })
+        }
+        else {
+            heading.push({
+                id: item.id,
+                name: item.name
+            })
+        }
+    })
 
     return (
         <>
-            {categories.map((item) => {
+            {heading.map((header) => {
                 return (
-                    (item.parent === 0) ?
-                    <div key={item.id} className="forum-category">{item.name}</div>
-                    : null
+                    <div key={header.id}>
+                        <div className="forum-category">{header.name}</div>
+                        {topic.filter((item) => item.parent === header.id)
+                            .map((i) => {
+                                return (
+                                    <div key={i.id}
+                                        className="forum-topic"
+                                    >
+                                        <div><a href={i.link}>{i.name}</a></div>
+                                        <div>{i.description}</div>
+                                    </div>
+                                );
+                        })}
+                    </div>
                 );
             })}
         </>

@@ -1673,19 +1673,75 @@ function ForumSite() {
       dispatch(Object(_features_ForumSlice__WEBPACK_IMPORTED_MODULE_4__["pushForumContent"])(object));
     });
   }, [dispatch, route]);
-  console.log(categories.find(x => x.parent === 2));
-  console.log(categories.find(x => x.id === 2));
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, categories.map(item => {
-    return item.parent === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      key: item.id,
+  const heading = [];
+  const topic = [];
+  categories.forEach(item => {
+    if (item.parent > 0) {
+      topic.push({
+        id: item.id,
+        name: item.name,
+        description: item.description,
+        link: item.link,
+        parent: item.parent
+      });
+    } else {
+      heading.push({
+        id: item.id,
+        name: item.name
+      });
+    }
+  });
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, heading.map(header => {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      key: header.id,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 44,
+        columnNumber: 21
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "forum-category",
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27,
-        columnNumber: 21
+        lineNumber: 45,
+        columnNumber: 25
       }
-    }, item.name) : null;
+    }, header.name), topic.filter(item => item.parent === header.id).map(i => {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        key: i.id,
+        className: "forum-topic",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 49,
+          columnNumber: 37
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 52,
+          columnNumber: 41
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: i.link,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 52,
+          columnNumber: 46
+        }
+      }, i.name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 53,
+          columnNumber: 41
+        }
+      }, i.description));
+    }));
   }));
 }
 /* harmony default export */ __webpack_exports__["default"] = (ForumSite);
