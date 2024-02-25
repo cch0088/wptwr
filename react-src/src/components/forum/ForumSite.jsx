@@ -32,7 +32,7 @@ function ForumSite() {
         else {
             heading.push({
                 id: item.id,
-                name: item.name
+                name: item.description
             })
         }
     })
