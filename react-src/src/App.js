@@ -22,7 +22,7 @@ function App() {
             <Route path={nav.WP_ROOT} element={<Layout />}>
               <Route index element={<Main />} />
               <Route path="set-password" element={<PasswordReset currentUrl={currentUrl} />} />
-              <Route path="category" element={<ForumSite />} />
+              <Route path="forum" element={<ForumSite />} />
               <Route path="*" element={<NoPage />} />
             </Route>
           </Routes>
