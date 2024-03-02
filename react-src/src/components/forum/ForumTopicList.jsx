@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
+import { getDateFromString } from '../../lib/validation';
 
 function ForumTopicList({categoryId}) {
 
@@ -31,8 +32,6 @@ function ForumTopicList({categoryId}) {
         !loading && setTopics(data.posts.edges);
     },[loading, data])
 
-    console.log(topics.map(x => x.node));
-
     return (
         <div className="forum-list-container">
             <div className="forum-section">
@@ -46,7 +45,7 @@ function ForumTopicList({categoryId}) {
                         <div className="forum-topic-node">
                             <div className="forum-topic-name">{topic.node.title}</div>
                             <div className="forum-topic-description">
-                                {topic.node.author.node.name} ... {topic.node.date}
+                                By {topic.node.author.node.name} on {getDateFromString(topic.node.date)}
                             </div>
                         </div>
                     </div>

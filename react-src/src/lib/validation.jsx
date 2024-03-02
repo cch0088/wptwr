@@ -15,3 +15,14 @@ export const getRoot = (wp_root_const) => {
         return wp_root_const;
     }
 }
+
+export const getDateFromString = (date) => {
+    const formatted = Intl.DateTimeFormat("en-US", {
+        year: "numeric",
+        day: "2-digit",
+        month: "long",
+        hour: "2-digit",
+        minute: "2-digit"
+      }).format(new Date(date));
+    return formatted;
+}

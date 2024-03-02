@@ -1836,7 +1836,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
+/* harmony import */ var _lib_validation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib/validation */ "./src/lib/validation.jsx");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/forum/ForumTopicList.jsx";
+
 
 
 function ForumTopicList({
@@ -1873,13 +1875,12 @@ function ForumTopicList({
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     !loading && setTopics(data.posts.edges);
   }, [loading, data]);
-  console.log(topics.map(x => x.node));
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "forum-list-container",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
+      lineNumber: 36,
       columnNumber: 9
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1887,7 +1888,7 @@ function ForumTopicList({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 37,
       columnNumber: 13
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1895,7 +1896,7 @@ function ForumTopicList({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
+      lineNumber: 38,
       columnNumber: 17
     }
   }, "General Discussion Forum"), topics.map(topic => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1905,7 +1906,7 @@ function ForumTopicList({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 40,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -1915,7 +1916,7 @@ function ForumTopicList({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 44,
       columnNumber: 25
     }
   }, "\uD83D\uDDE8\uFE0F"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1923,7 +1924,7 @@ function ForumTopicList({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 45,
       columnNumber: 25
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1931,7 +1932,7 @@ function ForumTopicList({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 46,
       columnNumber: 29
     }
   }, topic.node.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1939,10 +1940,10 @@ function ForumTopicList({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 47,
       columnNumber: 29
     }
-  }, topic.node.author.node.name, " ... ", topic.node.date))))));
+  }, "By ", topic.node.author.node.name, " on ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_2__["getDateFromString"])(topic.node.date)))))));
 }
 /* harmony default export */ __webpack_exports__["default"] = (ForumTopicList);
 
@@ -2363,7 +2364,7 @@ const client = new _apollo_client__WEBPACK_IMPORTED_MODULE_0__["ApolloClient"]({
 /*!********************************!*\
   !*** ./src/lib/validation.jsx ***!
   \********************************/
-/*! exports provided: validateEmail, validatePassword, getRoot */
+/*! exports provided: validateEmail, validatePassword, getRoot, getDateFromString */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2371,6 +2372,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "validateEmail", function() { return validateEmail; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "validatePassword", function() { return validatePassword; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getRoot", function() { return getRoot; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDateFromString", function() { return getDateFromString; });
 const validateEmail = email => {
   // eslint-disable-next-line
   const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -2385,6 +2387,16 @@ const getRoot = wp_root_const => {
   } else {
     return wp_root_const;
   }
+};
+const getDateFromString = date => {
+  const formatted = Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    day: "2-digit",
+    month: "long",
+    hour: "2-digit",
+    minute: "2-digit"
+  }).format(new Date(date));
+  return formatted;
 };
 
 /***/ }),
