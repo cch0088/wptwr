@@ -323,6 +323,7 @@ code {
 }
 
 .forum-topic {
+  cursor: pointer;
   border-radius: 8px;
   background-color: white;
   padding: 12px;

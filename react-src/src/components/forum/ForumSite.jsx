@@ -47,11 +47,13 @@ function ForumSite() {
                             .map((i) => {
                                 return (
                                     <div key={i.id}
+                                        id={i.id}
                                         className="forum-topic"
+                                        onClick={(e) => console.log(e.target.id)}
                                     >
                                         <span className="bubble" role="img" aria-label="topic">🗨️</span>
                                         <div className="forum-topic-node">
-                                            <div className="forum-topic-name"><a href={i.link}>{i.name}</a></div>
+                                            <div className="forum-topic-name">{i.name}</div>
                                             <div className="forum-topic-description">{i.description}</div>
                                         </div>
                                     </div>
