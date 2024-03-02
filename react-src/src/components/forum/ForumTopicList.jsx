@@ -12,16 +12,14 @@ function ForumTopicList({categoryId}) {
             )
         {
             posts(where: {categoryId: $categoryId}) {
-                edges {
-                    node {
+                nodes {
+                    categories { nodes { name } }
+                    postId
                     title
-                    author {
-                        node {
-                            name
-                        }
-                    }
-                        date
-                    }
+                    date
+                    author { node { name } }
+                    isSticky
+                    editingLockedBy { node { name } }
                 }
             }
         }`;
@@ -29,7 +27,7 @@ function ForumTopicList({categoryId}) {
     const { loading, data } = useQuery(TOPIC_LIST, { variables: { categoryId: 12 } });
 
     useEffect(() => {
-        !loading && setTopics(data.posts.edges);
+        !loading && setTopics(data.posts.nodes);
     },[loading, data])
 
     return (
@@ -37,15 +35,15 @@ function ForumTopicList({categoryId}) {
             <div className="forum-section">
                 <div className="forum-category">General Discussion Forum</div>
                 {topics.map((topic) => (
-                    <div key={topic.node.title}
-                        id={topic.node.title}
+                    <div key={topic.postId}
+                        id={topic.postId}
                         className="forum-topic"
                     >
                         <span className="bubble" role="img" aria-label="topic">🗨️</span>
                         <div className="forum-topic-node">
-                            <div className="forum-topic-name">{topic.node.title}</div>
+                            <div className="forum-topic-name">{topic.title}</div>
                             <div className="forum-topic-description">
-                                By {topic.node.author.node.name} on {getDateFromString(topic.node.date)}
+                                By {topic.author.node.name} on {getDateFromString(topic.date)}
                             </div>
                         </div>
                     </div>

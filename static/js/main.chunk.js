@@ -1851,16 +1851,14 @@ function ForumTopicList({
             )
         {
             posts(where: {categoryId: $categoryId}) {
-                edges {
-                    node {
+                nodes {
+                    categories { nodes { name } }
+                    postId
                     title
-                    author {
-                        node {
-                            name
-                        }
-                    }
-                        date
-                    }
+                    date
+                    author { node { name } }
+                    isSticky
+                    editingLockedBy { node { name } }
                 }
             }
         }`;
@@ -1873,14 +1871,14 @@ function ForumTopicList({
     }
   });
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
-    !loading && setTopics(data.posts.edges);
+    !loading && setTopics(data.posts.nodes);
   }, [loading, data]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "forum-list-container",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36,
+      lineNumber: 34,
       columnNumber: 9
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1888,7 +1886,7 @@ function ForumTopicList({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
+      lineNumber: 35,
       columnNumber: 13
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1896,17 +1894,17 @@ function ForumTopicList({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 36,
       columnNumber: 17
     }
   }, "General Discussion Forum"), topics.map(topic => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    key: topic.node.title,
-    id: topic.node.title,
+    key: topic.postId,
+    id: topic.postId,
     className: "forum-topic",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 38,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -1916,7 +1914,7 @@ function ForumTopicList({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
+      lineNumber: 42,
       columnNumber: 25
     }
   }, "\uD83D\uDDE8\uFE0F"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1924,7 +1922,7 @@ function ForumTopicList({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 43,
       columnNumber: 25
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1932,18 +1930,18 @@ function ForumTopicList({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 44,
       columnNumber: 29
     }
-  }, topic.node.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, topic.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "forum-topic-description",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 45,
       columnNumber: 29
     }
-  }, "By ", topic.node.author.node.name, " on ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_2__["getDateFromString"])(topic.node.date)))))));
+  }, "By ", topic.author.node.name, " on ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_2__["getDateFromString"])(topic.date)))))));
 }
 /* harmony default export */ __webpack_exports__["default"] = (ForumTopicList);
 
