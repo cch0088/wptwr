@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 
-function ForumTopicList({categoryId}) {
+function ForumTopicList({currentUrl}) {
 
     const [message, setMessage] = useState(null);
 
@@ -25,9 +25,12 @@ function ForumTopicList({categoryId}) {
             }
         }`;
 
-    const { loading, error, data } = useQuery(TOPIC_LIST, {variables: {categoryId}});
+    const { loading, error, data } = useQuery(TOPIC_LIST, { variables: { categoryId: 12 } });
 
+    console.log(currentUrl);
     console.log(data);
+    console.log(loading);
+    console.log(error);
 
 return (<div>Hello</div>)
 }
