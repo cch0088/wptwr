@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './App.css';
 import * as nav from "./config";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -15,6 +15,8 @@ import { AuthProvider } from "./hooks/useAuth";
 function App() {
   const currentUrl = window.location.href;
 
+  const [categoryId, setCategoryId] = useState(1);
+
   return (
     <ApolloProvider client={client}>
       <AuthProvider>
@@ -23,8 +25,8 @@ function App() {
             <Route path={nav.WP_ROOT} element={<Layout />}>
               <Route index element={<Main />} />
               <Route path="set-password" element={<PasswordReset currentUrl={currentUrl} />} />
-              <Route path="forum" element={<ForumSite />} />
-              <Route path="forum/*" element={<ForumTopicList currentUrl={currentUrl} />} />
+              <Route path="forum" element={<ForumSite setCategoryId={setCategoryId} />} />
+              <Route path="forum/threads" element={<ForumTopicList categoryId={categoryId} />} />
               <Route path="*" element={<NoPage />} />
             </Route>
           </Routes>

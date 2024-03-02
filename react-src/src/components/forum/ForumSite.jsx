@@ -5,7 +5,7 @@ import { getContent } from "../../features/PageServices";
 import { pushForumContent } from "../../features/ForumSlice";
 import { useNavigate } from "react-router-dom";
 
-function ForumSite() {
+function ForumSite({setCategoryId}) {
     const route = API_CATEGORIES;
 
     const dispatch = useDispatch();
@@ -40,6 +40,11 @@ function ForumSite() {
         }
     })
 
+    const handleNavigation = (id) => {
+        setCategoryId(Number(id));
+        navigate("threads");
+    };
+
     return (
         <div className="forum-list-container">
             {heading.map((header) => {
@@ -52,7 +57,7 @@ function ForumSite() {
                                     <div key={i.id}
                                         id={i.id}
                                         className="forum-topic"
-                                        onClick={(e) => navigate(e.target.id)}
+                                        onClick={(e) => handleNavigation(e.target.id)}
                                     >
                                         <span className="bubble" role="img" aria-label="topic">🗨️</span>
                                         <div className="forum-topic-node">
