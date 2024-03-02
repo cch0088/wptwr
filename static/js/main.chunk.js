@@ -1842,7 +1842,7 @@ var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-sr
 function ForumTopicList({
   categoryId
 }) {
-  const [message, setMessage] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
+  const [topics, setTopics] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
   const TOPIC_LIST = _apollo_client__WEBPACK_IMPORTED_MODULE_1__["gql"]`
         query getPostsByCategory(
                 $categoryId: Int = 1
@@ -1864,24 +1864,85 @@ function ForumTopicList({
         }`;
   const {
     loading,
-    error,
     data
   } = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_1__["useQuery"])(TOPIC_LIST, {
     variables: {
-      categoryId
+      categoryId: 12
     }
   });
-  console.log(data);
-  console.log(loading);
-  console.log(error);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    !loading && setTopics(data.posts.edges);
+  }, [loading, data]);
+  console.log(topics.map(x => x.node));
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "forum-list-container",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 37,
       columnNumber: 9
     }
-  }, "Hello");
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "forum-section",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "forum-category",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39,
+      columnNumber: 17
+    }
+  }, "General Discussion Forum"), topics.map(topic => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    key: topic.node.title,
+    id: topic.node.title,
+    className: "forum-topic",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "bubble",
+    role: "img",
+    "aria-label": "topic",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45,
+      columnNumber: 25
+    }
+  }, "\uD83D\uDDE8\uFE0F"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "forum-topic-node",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46,
+      columnNumber: 25
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "forum-topic-name",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47,
+      columnNumber: 29
+    }
+  }, topic.node.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "forum-topic-description",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48,
+      columnNumber: 29
+    }
+  }, topic.node.author.node.name, " ... ", topic.node.date))))));
 }
 /* harmony default export */ __webpack_exports__["default"] = (ForumTopicList);
 

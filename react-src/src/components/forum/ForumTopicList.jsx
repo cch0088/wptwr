@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 
 function ForumTopicList({categoryId}) {
 
-    const [message, setMessage] = useState(null);
+    const [topics, setTopics] = useState([]);
 
     const TOPIC_LIST = gql`
         query getPostsByCategory(
@@ -25,13 +25,35 @@ function ForumTopicList({categoryId}) {
             }
         }`;
 
-    const { loading, error, data } = useQuery(TOPIC_LIST, { variables: { categoryId } });
+    const { loading, data } = useQuery(TOPIC_LIST, { variables: { categoryId: 12 } });
 
-    console.log(data);
-    console.log(loading);
-    console.log(error);
+    useEffect(() => {
+        !loading && setTopics(data.posts.edges);
+    },[loading, data])
 
-return (<div>Hello</div>)
+    console.log(topics.map(x => x.node));
+
+    return (
+        <div className="forum-list-container">
+            <div className="forum-section">
+                <div className="forum-category">General Discussion Forum</div>
+                {topics.map((topic) => (
+                    <div key={topic.node.title}
+                        id={topic.node.title}
+                        className="forum-topic"
+                    >
+                        <span className="bubble" role="img" aria-label="topic">🗨️</span>
+                        <div className="forum-topic-node">
+                            <div className="forum-topic-name">{topic.node.title}</div>
+                            <div className="forum-topic-description">
+                                {topic.node.author.node.name} ... {topic.node.date}
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
 }
 
 export default ForumTopicList;

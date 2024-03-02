@@ -71,6 +71,6 @@ function ForumSite({setCategoryId}) {
                 );
             })}
         </div>
-    )
+    );
 }
 export default ForumSite;
