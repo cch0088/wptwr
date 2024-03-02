@@ -3,12 +3,15 @@ import { API_CATEGORIES } from "../../config";
 import { useDispatch, useSelector } from "react-redux";
 import { getContent } from "../../features/PageServices";
 import { pushForumContent } from "../../features/ForumSlice";
+import { useNavigate } from "react-router-dom";
 
 function ForumSite() {
     const route = API_CATEGORIES;
 
     const dispatch = useDispatch();
     const categories = useSelector(state => state.forum.value);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         getContent(route).then(object => {
@@ -49,7 +52,7 @@ function ForumSite() {
                                     <div key={i.id}
                                         id={i.id}
                                         className="forum-topic"
-                                        onClick={(e) => console.log(e.target.id)}
+                                        onClick={(e) => navigate(e.target.id)}
                                     >
                                         <span className="bubble" role="img" aria-label="topic">🗨️</span>
                                         <div className="forum-topic-node">
