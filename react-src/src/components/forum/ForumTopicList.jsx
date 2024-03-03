@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { getDateFromString } from '../../lib/validation';
+import { useSelector } from 'react-redux';
 
-function ForumTopicList({categoryId, categoryName}) {
+function ForumTopicList() {
+
+    const category = useSelector(state => state.category.value);
 
     const [topics, setTopics] = useState([]);
-    const [heading, setHeading] = useState(categoryName);
+    const [heading, setHeading] = useState(category.categoryName);
 
     const TOPIC_LIST = gql`
         query getPostsByCategory(
@@ -24,7 +27,8 @@ function ForumTopicList({categoryId, categoryName}) {
             }
         }`;
 
-    const { loading, error, data } = useQuery(TOPIC_LIST, { variables: { categoryId } });
+    const { loading, error, data } = useQuery(TOPIC_LIST,
+        { variables: { categoryId: category.categoryId } });
 
     useEffect(() => {
         if (loading) {
@@ -42,7 +46,7 @@ function ForumTopicList({categoryId, categoryName}) {
     return (
         <div className="forum-list-container">
             <div className="forum-section">
-                <div className="forum-category">{categoryName}</div>
+                <div className="forum-category">{category.categoryName}</div>
                 <div>{heading}</div>
                 {topics.map((topic) => (
                     <div key={topic.postId}

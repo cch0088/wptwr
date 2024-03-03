@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getContent } from "../../features/PageServices";
 import { pushForumContent } from "../../features/ForumSlice";
 import { useNavigate } from "react-router-dom";
+import { setCategory } from "../../features/CategorySlice";
 
-function ForumSite({setCategoryId, setCategoryName}) {
+function ForumSite() {
     const route = API_CATEGORIES;
 
     const dispatch = useDispatch();
@@ -40,9 +41,8 @@ function ForumSite({setCategoryId, setCategoryName}) {
         }
     })
 
-    const handleNavigation = (id, name) => {
-        setCategoryId(Number(id));
-        setCategoryName(name);
+    const handleNavigation = (categoryId, categoryName) => {
+        dispatch(setCategory({categoryId, categoryName}));
         navigate("threads");
     };
 
