@@ -56,9 +56,8 @@ function ForumSite({setCategoryId, setCategoryName}) {
                             .map((i) => {
                                 return (
                                     <div key={i.id}
-                                        id={i.id}
                                         className="forum-topic"
-                                        onClick={(e) => handleNavigation(e.target.id, i.name)}
+                                        onClick={(e) => handleNavigation(i.id, i.name)}
                                     >
                                         <span className="bubble" role="img" aria-label="topic">🗨️</span>
                                         <div className="forum-topic-node">

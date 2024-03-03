@@ -1778,9 +1778,8 @@ function ForumSite({
     }, header.name), topic.filter(item => item.parent === header.id).map(i => {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         key: i.id,
-        id: i.id,
         className: "forum-topic",
-        onClick: e => handleNavigation(e.target.id, i.name),
+        onClick: e => handleNavigation(i.id, i.name),
         __self: this,
         __source: {
           fileName: _jsxFileName,
@@ -1794,7 +1793,7 @@ function ForumSite({
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63,
+          lineNumber: 62,
           columnNumber: 41
         }
       }, "\uD83D\uDDE8\uFE0F"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1802,7 +1801,7 @@ function ForumSite({
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64,
+          lineNumber: 63,
           columnNumber: 41
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1810,7 +1809,7 @@ function ForumSite({
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 65,
+          lineNumber: 64,
           columnNumber: 45
         }
       }, i.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1818,7 +1817,7 @@ function ForumSite({
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66,
+          lineNumber: 65,
           columnNumber: 45
         }
       }, i.description)));
@@ -2560,5 +2559,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",1]]]);
+},[[0,"runtime-main",0]]]);
 //# sourceMappingURL=main.chunk.js.map
