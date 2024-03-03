@@ -67,7 +67,8 @@ function ForumSite() {
                                         </div>
                                     </div>
                                 );
-                        })}
+                            }
+                        )}
                     </div>
                 );
             })}

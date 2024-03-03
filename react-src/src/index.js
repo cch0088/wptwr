@@ -8,13 +8,15 @@ import modalReducer from './features/ModalSlice';
 import contentReducer from './features/ContentSlice';
 import forumReducer from './features/ForumSlice';
 import categoryReducer from './features/CategorySlice';
+import postReducer from './features/PostSlice';
 
 const store = configureStore({
   reducer: {
     modal: modalReducer,
     content: contentReducer,
     forum: forumReducer,
-    category: categoryReducer
+    category: categoryReducer,
+    post: postReducer
   }
 });
 

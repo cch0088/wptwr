@@ -3,9 +3,9 @@ import { useQuery, gql } from '@apollo/client';
 import { getDateFromString } from '../../lib/validation';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { UI_FORUM } from '../../config';
+import { UI_FORUM, UI_FORUM_POST } from '../../config';
 
-function ForumTopicList() {
+function ForumTopicList({setPostId}) {
 
     const category = useSelector(state => state.category.value);
     const navigate = useNavigate();
@@ -46,6 +46,11 @@ function ForumTopicList() {
         }
     },[loading, error, data, navigate])
 
+    const handleNavigation = (postId) => {
+        setPostId(postId);
+        navigate(UI_FORUM_POST);
+    }
+
     return (
         <div className="forum-list-container">
             <div className="forum-section">
@@ -55,6 +60,7 @@ function ForumTopicList() {
                     <div key={topic.postId}
                         id={topic.postId}
                         className="forum-topic"
+                        onClick={(e) => handleNavigation(topic.postId)}
                     >
                         <span className="bubble" role="img" aria-label="topic">🗨️</span>
                         <div className="forum-topic-node">

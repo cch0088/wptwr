@@ -35,7 +35,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
 /* harmony import */ var _lib_apolloClient__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./lib/apolloClient */ "./src/lib/apolloClient.tsx");
 /* harmony import */ var _hooks_useAuth__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./hooks/useAuth */ "./src/hooks/useAuth.tsx");
+/* harmony import */ var _components_forum_ForumPost__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/forum/ForumPost */ "./src/components/forum/ForumPost.jsx");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/App.js";
+
 
 
 
@@ -51,33 +53,34 @@ var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-sr
 
 function App() {
   const currentUrl = window.location.href;
+  const [postId, setPostId] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_apollo_client__WEBPACK_IMPORTED_MODULE_10__["ApolloProvider"], {
     client: _lib_apolloClient__WEBPACK_IMPORTED_MODULE_11__["client"],
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19,
+      lineNumber: 22,
       columnNumber: 5
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_hooks_useAuth__WEBPACK_IMPORTED_MODULE_12__["AuthProvider"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
+      lineNumber: 23,
       columnNumber: 7
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["BrowserRouter"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 24,
       columnNumber: 9
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Routes"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22,
+      lineNumber: 25,
       columnNumber: 11
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
@@ -86,14 +89,14 @@ function App() {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23,
+        lineNumber: 26,
         columnNumber: 48
       }
     }),
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
+      lineNumber: 26,
       columnNumber: 13
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
@@ -102,57 +105,8 @@ function App() {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 24,
-        columnNumber: 37
-      }
-    }),
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 24,
-      columnNumber: 15
-    }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-    path: "set-password",
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PasswordReset__WEBPACK_IMPORTED_MODULE_7__["default"], {
-      currentUrl: currentUrl,
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 25,
-        columnNumber: 51
-      }
-    }),
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 25,
-      columnNumber: 15
-    }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-    path: _config__WEBPACK_IMPORTED_MODULE_2__["UI_FORUM"],
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forum_ForumSite__WEBPACK_IMPORTED_MODULE_8__["default"], {
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 26,
-        columnNumber: 51
-      }
-    }),
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 26,
-      columnNumber: 15
-    }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-    path: _config__WEBPACK_IMPORTED_MODULE_2__["UI_FORUM_THREADS"],
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forum_ForumTopicList__WEBPACK_IMPORTED_MODULE_9__["default"], {
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
         lineNumber: 27,
-        columnNumber: 59
+        columnNumber: 37
       }
     }),
     __self: this,
@@ -162,19 +116,86 @@ function App() {
       columnNumber: 15
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-    path: "*",
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_NoPage__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    path: "set-password",
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PasswordReset__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      currentUrl: currentUrl,
       __self: this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 28,
-        columnNumber: 40
+        columnNumber: 51
       }
     }),
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 28,
+      columnNumber: 15
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    path: _config__WEBPACK_IMPORTED_MODULE_2__["UI_FORUM"],
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forum_ForumSite__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 29,
+        columnNumber: 51
+      }
+    }),
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29,
+      columnNumber: 15
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    path: _config__WEBPACK_IMPORTED_MODULE_2__["UI_FORUM_THREADS"],
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forum_ForumTopicList__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      setPostId: setPostId,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 30,
+        columnNumber: 59
+      }
+    }),
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30,
+      columnNumber: 15
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    path: _config__WEBPACK_IMPORTED_MODULE_2__["UI_FORUM_POST"],
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forum_ForumPost__WEBPACK_IMPORTED_MODULE_13__["default"], {
+      postId: postId,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 31,
+        columnNumber: 56
+      }
+    }),
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 31,
+      columnNumber: 15
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    path: "*",
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_NoPage__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 32,
+        columnNumber: 40
+      }
+    }),
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 32,
       columnNumber: 15
     }
   }))))));
@@ -1684,6 +1705,53 @@ function ResetByEmailForm({
 
 /***/ }),
 
+/***/ "./src/components/forum/ForumPost.jsx":
+/*!********************************************!*\
+  !*** ./src/components/forum/ForumPost.jsx ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../config */ "./src/config.js");
+/* harmony import */ var _features_PostSlice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../features/PostSlice */ "./src/features/PostSlice.jsx");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _features_PageServices__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../features/PageServices */ "./src/features/PageServices.jsx");
+var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/forum/ForumPost.jsx";
+
+
+
+
+
+function ForumPost({
+  postId
+}) {
+  const dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useDispatch"])();
+  const route = _config__WEBPACK_IMPORTED_MODULE_1__["API_POSTS"] + postId;
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    Object(_features_PageServices__WEBPACK_IMPORTED_MODULE_4__["getContent"])(route).then(object => {
+      dispatch(Object(_features_PostSlice__WEBPACK_IMPORTED_MODULE_2__["pushForumPostContent"])(object));
+      console.log(postId);
+      console.log(object);
+    });
+  }, [dispatch, route]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "forum-list-container",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 9
+    }
+  }, "Test");
+}
+/* harmony default export */ __webpack_exports__["default"] = (ForumPost);
+
+/***/ }),
+
 /***/ "./src/components/forum/ForumSite.jsx":
 /*!********************************************!*\
   !*** ./src/components/forum/ForumSite.jsx ***!
@@ -1847,7 +1915,9 @@ var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-sr
 
 
 
-function ForumTopicList() {
+function ForumTopicList({
+  setPostId
+}) {
   const category = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useSelector"])(state => state.category.value);
   const navigate = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["useNavigate"])();
   const [topics, setTopics] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
@@ -1889,12 +1959,16 @@ function ForumTopicList() {
       setHeading('Nothing to show here. Feel free to add a topic.');
     }
   }, [loading, error, data, navigate]);
+  const handleNavigation = postId => {
+    setPostId(postId);
+    navigate(_config__WEBPACK_IMPORTED_MODULE_5__["UI_FORUM_POST"]);
+  };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "forum-list-container",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 55,
       columnNumber: 9
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1902,7 +1976,7 @@ function ForumTopicList() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51,
+      lineNumber: 56,
       columnNumber: 13
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1910,24 +1984,25 @@ function ForumTopicList() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52,
+      lineNumber: 57,
       columnNumber: 17
     }
   }, category.categoryName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53,
+      lineNumber: 58,
       columnNumber: 17
     }
   }, heading), topics.map(topic => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     key: topic.postId,
     id: topic.postId,
     className: "forum-topic",
+    onClick: e => handleNavigation(topic.postId),
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55,
+      lineNumber: 60,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -1937,7 +2012,7 @@ function ForumTopicList() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59,
+      lineNumber: 65,
       columnNumber: 25
     }
   }, "\uD83D\uDDE8\uFE0F"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1945,7 +2020,7 @@ function ForumTopicList() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 60,
+      lineNumber: 66,
       columnNumber: 25
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1953,7 +2028,7 @@ function ForumTopicList() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61,
+      lineNumber: 67,
       columnNumber: 29
     }
   }, topic.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1961,7 +2036,7 @@ function ForumTopicList() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62,
+      lineNumber: 68,
       columnNumber: 29
     }
   }, "By ", topic.author.node.name, " on ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_2__["getDateFromString"])(topic.date)))))), !error && !loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1969,7 +2044,7 @@ function ForumTopicList() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69,
+      lineNumber: 75,
       columnNumber: 36
     }
   }, "New topic"));
@@ -1982,7 +2057,7 @@ function ForumTopicList() {
 /*!***********************!*\
   !*** ./src/config.js ***!
   \***********************/
-/*! exports provided: WP_ROOT, GRAPHQL_URI, WP_UPLOADS, API_PAGES, API_POSTS, API_CATEGORIES, UI_ACCOUNT, UI_FORUM, UI_FORUM_THREADS */
+/*! exports provided: WP_ROOT, GRAPHQL_URI, WP_UPLOADS, API_PAGES, API_POSTS, API_CATEGORIES, UI_ACCOUNT, UI_FORUM, UI_FORUM_THREADS, UI_FORUM_POST */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1996,6 +2071,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_ACCOUNT", function() { return UI_ACCOUNT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_FORUM", function() { return UI_FORUM; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_FORUM_THREADS", function() { return UI_FORUM_THREADS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_FORUM_POST", function() { return UI_FORUM_POST; });
 /* harmony import */ var _lib_validation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/validation */ "./src/lib/validation.jsx");
 
 
@@ -2008,7 +2084,7 @@ const GRAPHQL_URI = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot
 // WordPress defaults
 const WP_UPLOADS = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "wp-content/uploads";
 const API_PAGES = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "wp-json/wp/v2/pages/?slug=";
-const API_POSTS = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "wp-json/wp/v2/posts/?slug=";
+const API_POSTS = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "wp-json/wp/v2/posts/";
 const API_CATEGORIES = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "wp-json/wp/v2/categories";
 
 // User accounts page
@@ -2017,6 +2093,7 @@ const UI_ACCOUNT = "wp-admin";
 // Forum pages
 const UI_FORUM = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "forum";
 const UI_FORUM_THREADS = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "forum/threads";
+const UI_FORUM_POST = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "forum/threads/post";
 
 /***/ }),
 
@@ -2281,6 +2358,91 @@ async function getContent(fromUrl) {
 
 /***/ }),
 
+/***/ "./src/features/PostSlice.jsx":
+/*!************************************!*\
+  !*** ./src/features/PostSlice.jsx ***!
+  \************************************/
+/*! exports provided: postSlice, pushForumPostContent, purgeForumPostContent, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postSlice", function() { return postSlice; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pushForumPostContent", function() { return pushForumPostContent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "purgeForumPostContent", function() { return purgeForumPostContent; });
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+
+const initialStateValue = {
+  "id": 0,
+  "date": null,
+  "date_gmt": null,
+  "guid": {
+    "rendered": null
+  },
+  "modified": null,
+  "modified_gmt": null,
+  "slug": null,
+  "status": "publish",
+  "type": "post",
+  "link": null,
+  "title": {
+    "rendered": null
+  },
+  "content": {
+    "rendered": null,
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": null,
+    "protected": false
+  },
+  "author": 0,
+  "featured_media": 0,
+  "comment_status": null,
+  "ping_status": null,
+  "sticky": false,
+  "template": "",
+  "format": "standard",
+  "meta": {
+    "footnotes": ""
+  },
+  "categories": [],
+  "tags": [],
+  "_links": {
+    "self": [],
+    "collection": [],
+    "about": [],
+    "author": [],
+    "replies": [],
+    "version-history": [],
+    "predecessor-version": [],
+    "wp:attachment": [],
+    "wp:term": [],
+    "curies": []
+  }
+};
+const postSlice = Object(_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__["createSlice"])({
+  name: 'postContent',
+  initialState: {
+    value: initialStateValue
+  },
+  reducers: {
+    pushForumPostContent: (state, action) => {
+      state.value = action.payload;
+    },
+    purgeForumPostContent: state => {
+      state.value = initialStateValue;
+    }
+  }
+});
+const {
+  pushForumPostContent,
+  purgeForumPostContent
+} = postSlice.actions;
+/* harmony default export */ __webpack_exports__["default"] = (postSlice.reducer);
+
+/***/ }),
+
 /***/ "./src/hooks/useAuth.tsx":
 /*!*******************************!*\
   !*** ./src/hooks/useAuth.tsx ***!
@@ -2369,7 +2531,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _features_ContentSlice__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./features/ContentSlice */ "./src/features/ContentSlice.jsx");
 /* harmony import */ var _features_ForumSlice__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./features/ForumSlice */ "./src/features/ForumSlice.jsx");
 /* harmony import */ var _features_CategorySlice__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./features/CategorySlice */ "./src/features/CategorySlice.jsx");
+/* harmony import */ var _features_PostSlice__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./features/PostSlice */ "./src/features/PostSlice.jsx");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/index.js";
+
 
 
 
@@ -2385,7 +2549,8 @@ const store = Object(_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__["configureSto
     modal: _features_ModalSlice__WEBPACK_IMPORTED_MODULE_6__["default"],
     content: _features_ContentSlice__WEBPACK_IMPORTED_MODULE_7__["default"],
     forum: _features_ForumSlice__WEBPACK_IMPORTED_MODULE_8__["default"],
-    category: _features_CategorySlice__WEBPACK_IMPORTED_MODULE_9__["default"]
+    category: _features_CategorySlice__WEBPACK_IMPORTED_MODULE_9__["default"],
+    post: _features_PostSlice__WEBPACK_IMPORTED_MODULE_10__["default"]
   }
 });
 const root = react_dom_client__WEBPACK_IMPORTED_MODULE_1___default.a.createRoot(document.getElementById('root'));
@@ -2394,14 +2559,14 @@ root.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createEle
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 24,
+    lineNumber: 26,
     columnNumber: 3
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_2__["default"], {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 25,
+    lineNumber: 27,
     columnNumber: 5
   }
 })));
