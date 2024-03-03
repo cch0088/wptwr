@@ -1998,10 +1998,10 @@ const WP_ROOT = "WordPress";
 const GRAPHQL_URI = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "graphql";
 
 // WordPress defaults
-const WP_UPLOADS = "wp-content/uploads";
-const API_PAGES = "wp-json/wp/v2/pages/?slug=";
-const API_POSTS = "wp-json/wp/v2/posts/?slug=";
-const API_CATEGORIES = "wp-json/wp/v2/categories";
+const WP_UPLOADS = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "wp-content/uploads";
+const API_PAGES = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "wp-json/wp/v2/pages/?slug=";
+const API_POSTS = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "wp-json/wp/v2/posts/?slug=";
+const API_CATEGORIES = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "wp-json/wp/v2/categories";
 
 // User accounts page
 const UI_ACCOUNT = "wp-admin";
@@ -2605,5 +2605,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",0]]]);
+},[[0,"runtime-main",1]]]);
 //# sourceMappingURL=main.chunk.js.map

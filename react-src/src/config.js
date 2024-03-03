@@ -7,10 +7,10 @@ export const WP_ROOT = "WordPress";
 export const GRAPHQL_URI = getRoot(WP_ROOT) + "graphql";
 
 // WordPress defaults
-export const WP_UPLOADS = "wp-content/uploads";
-export const API_PAGES = "wp-json/wp/v2/pages/?slug=";
-export const API_POSTS = "wp-json/wp/v2/posts/?slug=";
-export const API_CATEGORIES = "wp-json/wp/v2/categories";
+export const WP_UPLOADS = getRoot(WP_ROOT) + "wp-content/uploads";
+export const API_PAGES = getRoot(WP_ROOT) + "wp-json/wp/v2/pages/?slug=";
+export const API_POSTS = getRoot(WP_ROOT) + "wp-json/wp/v2/posts/?slug=";
+export const API_CATEGORIES = getRoot(WP_ROOT) + "wp-json/wp/v2/categories";
 
 // User accounts page
 export const UI_ACCOUNT = "wp-admin";
