@@ -31,7 +31,7 @@ function ForumTopicList({categoryId, categoryName}) {
             setHeading('Loading...');
             setTopics([]);
         } else if (error) {
-            setHeading(error.message);
+            setHeading('There was a problem with your request. Nothing to show here...');
             setTopics([]);
         } else {
             setHeading(null);
@@ -43,7 +43,7 @@ function ForumTopicList({categoryId, categoryName}) {
         <div className="forum-list-container">
             <div className="forum-section">
                 <div className="forum-category">{categoryName}</div>
-                {heading && <div>{heading}</div>}
+                <div>{heading}</div>
                 {topics.map((topic) => (
                     <div key={topic.postId}
                         id={topic.postId}

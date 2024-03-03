@@ -1881,7 +1881,7 @@ function ForumTopicList({
       setHeading('Loading...');
       setTopics([]);
     } else if (error) {
-      setHeading(error.message);
+      setHeading('There was a problem with your request. Nothing to show here...');
       setTopics([]);
     } else {
       setHeading(null);
@@ -1912,12 +1912,12 @@ function ForumTopicList({
       lineNumber: 45,
       columnNumber: 17
     }
-  }, categoryName), heading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, categoryName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 46,
-      columnNumber: 29
+      columnNumber: 17
     }
   }, heading), topics.map(topic => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     key: topic.postId,
