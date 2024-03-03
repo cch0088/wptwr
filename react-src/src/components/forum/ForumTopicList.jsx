@@ -59,6 +59,7 @@ function ForumTopicList({categoryId, categoryName}) {
                     </div>
                 ))}
             </div>
+            {!error && <button className="forum-button">New topic</button>}
         </div>
     );
 }

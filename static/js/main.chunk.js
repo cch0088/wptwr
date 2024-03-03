@@ -1963,7 +1963,15 @@ function ForumTopicList({
       lineNumber: 55,
       columnNumber: 29
     }
-  }, "By ", topic.author.node.name, " on ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_2__["getDateFromString"])(topic.date)))))));
+  }, "By ", topic.author.node.name, " on ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_2__["getDateFromString"])(topic.date)))))), !error && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "forum-button",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62,
+      columnNumber: 24
+    }
+  }, "New topic"));
 }
 /* harmony default export */ __webpack_exports__["default"] = (ForumTopicList);
 
@@ -2559,5 +2567,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",0]]]);
+},[[0,"runtime-main",1]]]);
 //# sourceMappingURL=main.chunk.js.map

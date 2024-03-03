@@ -306,6 +306,13 @@ code {
   font-size: large;
 }
 
+.forum-button {
+  width: 140px;
+  height: 40px;
+  font-weight: bold;
+  font-size: large;
+}
+
 .human-check {
   height: 24px;
   width: 24px;
