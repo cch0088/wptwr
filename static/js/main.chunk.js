@@ -130,13 +130,13 @@ function App() {
       columnNumber: 15
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-    path: "forum",
+    path: _config__WEBPACK_IMPORTED_MODULE_2__["UI_FORUM"],
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forum_ForumSite__WEBPACK_IMPORTED_MODULE_8__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 26,
-        columnNumber: 44
+        columnNumber: 51
       }
     }),
     __self: this,
@@ -146,13 +146,13 @@ function App() {
       columnNumber: 15
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-    path: "forum/threads",
+    path: _config__WEBPACK_IMPORTED_MODULE_2__["UI_FORUM_THREADS"],
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forum_ForumTopicList__WEBPACK_IMPORTED_MODULE_9__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 27,
-        columnNumber: 52
+        columnNumber: 59
       }
     }),
     __self: this,
@@ -1709,6 +1709,7 @@ var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-sr
 
 
 
+
 function ForumSite() {
   const route = _config__WEBPACK_IMPORTED_MODULE_1__["API_CATEGORIES"];
   const dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["useDispatch"])();
@@ -1742,14 +1743,14 @@ function ForumSite() {
       categoryId,
       categoryName
     }));
-    navigate("threads");
+    navigate(_config__WEBPACK_IMPORTED_MODULE_1__["UI_FORUM_THREADS"]);
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "forum-list-container",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 51,
       columnNumber: 9
     }
   }, heading.map(header => {
@@ -1759,7 +1760,7 @@ function ForumSite() {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 53,
+        lineNumber: 54,
         columnNumber: 21
       }
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1767,7 +1768,7 @@ function ForumSite() {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 54,
+        lineNumber: 55,
         columnNumber: 25
       }
     }, header.name), topic.filter(item => item.parent === header.id).map(i => {
@@ -1778,7 +1779,7 @@ function ForumSite() {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 58,
+          lineNumber: 59,
           columnNumber: 37
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -1788,7 +1789,7 @@ function ForumSite() {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 62,
+          lineNumber: 63,
           columnNumber: 41
         }
       }, "\uD83D\uDDE8\uFE0F"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1796,7 +1797,7 @@ function ForumSite() {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63,
+          lineNumber: 64,
           columnNumber: 41
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1804,7 +1805,7 @@ function ForumSite() {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64,
+          lineNumber: 65,
           columnNumber: 45
         }
       }, i.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1812,7 +1813,7 @@ function ForumSite() {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 65,
+          lineNumber: 66,
           columnNumber: 45
         }
       }, i.description)));
@@ -1837,13 +1838,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
 /* harmony import */ var _lib_validation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib/validation */ "./src/lib/validation.jsx");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../config */ "./src/config.js");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/forum/ForumTopicList.jsx";
+
+
 
 
 
 
 function ForumTopicList() {
   const category = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useSelector"])(state => state.category.value);
+  const navigate = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["useNavigate"])();
   const [topics, setTopics] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
   const [heading, setHeading] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(category.categoryName);
   const TOPIC_LIST = _apollo_client__WEBPACK_IMPORTED_MODULE_1__["gql"]`
@@ -1875,20 +1881,20 @@ function ForumTopicList() {
     if (loading) {
       setHeading('Loading...');
     } else if (error) {
-      setHeading('Nothing to show here. There was a problem with your request.');
+      navigate(_config__WEBPACK_IMPORTED_MODULE_5__["UI_FORUM"]);
     } else if (data.posts.nodes[0]) {
       setHeading(null);
       setTopics(data.posts.nodes);
     } else {
       setHeading('Nothing to show here. Feel free to add a topic.');
     }
-  }, [loading, error, data]);
+  }, [loading, error, data, navigate]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "forum-list-container",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 50,
       columnNumber: 9
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1896,7 +1902,7 @@ function ForumTopicList() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 51,
       columnNumber: 13
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1904,14 +1910,14 @@ function ForumTopicList() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 52,
       columnNumber: 17
     }
   }, category.categoryName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 53,
       columnNumber: 17
     }
   }, heading), topics.map(topic => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1921,7 +1927,7 @@ function ForumTopicList() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52,
+      lineNumber: 55,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -1931,7 +1937,7 @@ function ForumTopicList() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56,
+      lineNumber: 59,
       columnNumber: 25
     }
   }, "\uD83D\uDDE8\uFE0F"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1939,7 +1945,7 @@ function ForumTopicList() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57,
+      lineNumber: 60,
       columnNumber: 25
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1947,7 +1953,7 @@ function ForumTopicList() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
+      lineNumber: 61,
       columnNumber: 29
     }
   }, topic.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1955,16 +1961,16 @@ function ForumTopicList() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59,
+      lineNumber: 62,
       columnNumber: 29
     }
-  }, "By ", topic.author.node.name, " on ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_2__["getDateFromString"])(topic.date)))))), !error && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }, "By ", topic.author.node.name, " on ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_2__["getDateFromString"])(topic.date)))))), !error && !loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "forum-button",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
-      columnNumber: 24
+      lineNumber: 69,
+      columnNumber: 36
     }
   }, "New topic"));
 }
@@ -1976,7 +1982,7 @@ function ForumTopicList() {
 /*!***********************!*\
   !*** ./src/config.js ***!
   \***********************/
-/*! exports provided: WP_ROOT, GRAPHQL_URI, WP_UPLOADS, API_PAGES, API_POSTS, API_CATEGORIES, UI_ACCOUNT */
+/*! exports provided: WP_ROOT, GRAPHQL_URI, WP_UPLOADS, API_PAGES, API_POSTS, API_CATEGORIES, UI_ACCOUNT, UI_FORUM, UI_FORUM_THREADS */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1988,6 +1994,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "API_POSTS", function() { return API_POSTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "API_CATEGORIES", function() { return API_CATEGORIES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_ACCOUNT", function() { return UI_ACCOUNT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_FORUM", function() { return UI_FORUM; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_FORUM_THREADS", function() { return UI_FORUM_THREADS; });
 /* harmony import */ var _lib_validation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/validation */ "./src/lib/validation.jsx");
 
 
@@ -2005,6 +2013,10 @@ const API_CATEGORIES = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getR
 
 // User accounts page
 const UI_ACCOUNT = "wp-admin";
+
+// Forum pages
+const UI_FORUM = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "forum";
+const UI_FORUM_THREADS = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "forum/threads";
 
 /***/ }),
 

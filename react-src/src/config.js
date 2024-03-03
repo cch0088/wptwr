@@ -14,3 +14,7 @@ export const API_CATEGORIES = getRoot(WP_ROOT) + "wp-json/wp/v2/categories";
 
 // User accounts page
 export const UI_ACCOUNT = "wp-admin";
+
+// Forum pages
+export const UI_FORUM = getRoot(WP_ROOT) + "forum";
+export const UI_FORUM_THREADS = getRoot(WP_ROOT) + "forum/threads";

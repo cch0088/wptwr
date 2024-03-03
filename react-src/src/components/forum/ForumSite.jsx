@@ -5,6 +5,7 @@ import { getContent } from "../../features/PageServices";
 import { pushForumContent } from "../../features/ForumSlice";
 import { useNavigate } from "react-router-dom";
 import { setCategory } from "../../features/CategorySlice";
+import { UI_FORUM_THREADS } from "../../config";
 
 function ForumSite() {
     const route = API_CATEGORIES;
@@ -43,7 +44,7 @@ function ForumSite() {
 
     const handleNavigation = (categoryId, categoryName) => {
         dispatch(setCategory({categoryId, categoryName}));
-        navigate("threads");
+        navigate(UI_FORUM_THREADS);
     };
 
     return (

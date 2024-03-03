@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { getDateFromString } from '../../lib/validation';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { UI_FORUM } from '../../config';
 
 function ForumTopicList() {
 
     const category = useSelector(state => state.category.value);
+    const navigate = useNavigate();
 
     const [topics, setTopics] = useState([]);
     const [heading, setHeading] = useState(category.categoryName);
@@ -34,14 +37,14 @@ function ForumTopicList() {
         if (loading) {
             setHeading('Loading...');
         } else if (error) {
-            setHeading('Nothing to show here. There was a problem with your request.');
+            navigate(UI_FORUM);
         } else if (data.posts.nodes[0]) {
             setHeading(null);
             setTopics(data.posts.nodes);
         } else {
             setHeading('Nothing to show here. Feel free to add a topic.');
         }
-    },[loading, error, data])
+    },[loading, error, data, navigate])
 
     return (
         <div className="forum-list-container">
@@ -63,7 +66,7 @@ function ForumTopicList() {
                     </div>
                 ))}
             </div>
-            {!error && <button className="forum-button">New topic</button>}
+            {!error && !loading && <button className="forum-button">New topic</button>}
         </div>
     );
 }
