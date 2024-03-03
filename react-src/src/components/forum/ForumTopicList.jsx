@@ -33,9 +33,11 @@ function ForumTopicList({categoryId, categoryName}) {
         } else if (error) {
             setHeading('There was a problem with your request. Nothing to show here...');
             setTopics([]);
-        } else {
+        } else if (data.posts.nodes[0]) {
             setHeading(null);
             setTopics(data.posts.nodes);
+        } else {
+            setHeading('Nothing to show here. Feel free to add a topic.');
         }
     },[loading, error, data])
 
