@@ -32,7 +32,6 @@ function ForumTopicList({categoryId, categoryName}) {
             setTopics([]);
         } else if (error) {
             setHeading('There was a problem with your request. Nothing to show here...');
-            setTopics([]);
         } else if (data.posts.nodes[0]) {
             setHeading(null);
             setTopics(data.posts.nodes);
