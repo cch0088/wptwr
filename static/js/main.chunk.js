@@ -1720,7 +1720,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _features_PostSlice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../features/PostSlice */ "./src/features/PostSlice.jsx");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _features_PageServices__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../features/PageServices */ "./src/features/PageServices.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/forum/ForumPost.jsx";
+
 
 
 
@@ -1730,23 +1732,57 @@ function ForumPost({
   postId
 }) {
   const dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useDispatch"])();
+  const navigate = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["useNavigate"])();
   const route = _config__WEBPACK_IMPORTED_MODULE_1__["API_POSTS"] + postId;
+  const post = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useSelector"])(state => state.post.value);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
-    Object(_features_PageServices__WEBPACK_IMPORTED_MODULE_4__["getContent"])(route).then(object => {
-      dispatch(Object(_features_PostSlice__WEBPACK_IMPORTED_MODULE_2__["pushForumPostContent"])(object));
-      console.log(postId);
-      console.log(object);
-    });
-  }, [dispatch, route]);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    if (postId) {
+      Object(_features_PageServices__WEBPACK_IMPORTED_MODULE_4__["getContent"])(route).then(object => {
+        dispatch(Object(_features_PostSlice__WEBPACK_IMPORTED_MODULE_2__["pushForumPostContent"])(object));
+      });
+    } else {
+      navigate(_config__WEBPACK_IMPORTED_MODULE_1__["UI_FORUM"]);
+    }
+  }, [dispatch, route, postId, navigate]);
+  const renderHTML = content => {
+    return {
+      __html: content
+    };
+  };
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, postId && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "forum-list-container",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
-      columnNumber: 9
+      lineNumber: 32,
+      columnNumber: 14
     }
-  }, "Test");
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "forum-section",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33,
+      columnNumber: 17
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "forum-category",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34,
+      columnNumber: 21
+    }
+  }, post.title.rendered), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "forum-post",
+    dangerouslySetInnerHTML: renderHTML(post.content.rendered),
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35,
+      columnNumber: 21
+    }
+  }))));
 }
 /* harmony default export */ __webpack_exports__["default"] = (ForumPost);
 
@@ -2386,14 +2422,14 @@ const initialStateValue = {
   "type": "post",
   "link": null,
   "title": {
-    "rendered": null
+    "rendered": "Loading..."
   },
   "content": {
-    "rendered": null,
+    "rendered": "",
     "protected": false
   },
   "excerpt": {
-    "rendered": null,
+    "rendered": "",
     "protected": false
   },
   "author": 0,

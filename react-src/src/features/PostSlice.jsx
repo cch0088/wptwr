@@ -14,14 +14,14 @@ const initialStateValue = {
     "type": "post",
     "link": null,
     "title": {
-        "rendered": null
+        "rendered": "Loading..."
     },
     "content": {
-        "rendered": null,
+        "rendered": "",
         "protected": false
     },
     "excerpt": {
-        "rendered": null,
+        "rendered": "",
         "protected": false
     },
     "author": 0,
