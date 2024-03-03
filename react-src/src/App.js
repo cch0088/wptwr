@@ -15,7 +15,8 @@ import { AuthProvider } from "./hooks/useAuth";
 function App() {
   const currentUrl = window.location.href;
 
-  const [categoryId, setCategoryId] = useState(1);
+  const [categoryId, setCategoryId] = useState();
+  const [categoryName, setCategoryName] = useState();
 
   return (
     <ApolloProvider client={client}>
@@ -25,8 +26,18 @@ function App() {
             <Route path={nav.WP_ROOT} element={<Layout />}>
               <Route index element={<Main />} />
               <Route path="set-password" element={<PasswordReset currentUrl={currentUrl} />} />
-              <Route path="forum" element={<ForumSite setCategoryId={setCategoryId} />} />
-              <Route path="forum/threads" element={<ForumTopicList categoryId={categoryId} />} />
+              <Route path="forum" element={
+                <ForumSite
+                  setCategoryId={setCategoryId}
+                  setCategoryName={setCategoryName}
+                />}
+              />
+              <Route path="forum/threads" element={
+                <ForumTopicList
+                  categoryId={categoryId}
+                  categoryName={categoryName}
+                />}
+              />
               <Route path="*" element={<NoPage />} />
             </Route>
           </Routes>

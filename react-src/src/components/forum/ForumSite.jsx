@@ -5,7 +5,7 @@ import { getContent } from "../../features/PageServices";
 import { pushForumContent } from "../../features/ForumSlice";
 import { useNavigate } from "react-router-dom";
 
-function ForumSite({setCategoryId}) {
+function ForumSite({setCategoryId, setCategoryName}) {
     const route = API_CATEGORIES;
 
     const dispatch = useDispatch();
@@ -40,8 +40,9 @@ function ForumSite({setCategoryId}) {
         }
     })
 
-    const handleNavigation = (id) => {
+    const handleNavigation = (id, name) => {
         setCategoryId(Number(id));
+        setCategoryName(name);
         navigate("threads");
     };
 
@@ -57,7 +58,7 @@ function ForumSite({setCategoryId}) {
                                     <div key={i.id}
                                         id={i.id}
                                         className="forum-topic"
-                                        onClick={(e) => handleNavigation(e.target.id)}
+                                        onClick={(e) => handleNavigation(e.target.id, i.name)}
                                     >
                                         <span className="bubble" role="img" aria-label="topic">🗨️</span>
                                         <div className="forum-topic-node">

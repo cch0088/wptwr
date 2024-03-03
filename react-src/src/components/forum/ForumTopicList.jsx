@@ -2,18 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { getDateFromString } from '../../lib/validation';
 
-function ForumTopicList({categoryId}) {
+function ForumTopicList({categoryId, categoryName}) {
 
     const [topics, setTopics] = useState([]);
+    const [heading, setHeading] = useState(categoryName);
 
     const TOPIC_LIST = gql`
         query getPostsByCategory(
-                $categoryId: Int = 1
+                $categoryId: Int!
             )
         {
             posts(where: {categoryId: $categoryId}) {
                 nodes {
-                    categories { nodes { name } }
                     postId
                     title
                     date
@@ -24,16 +24,26 @@ function ForumTopicList({categoryId}) {
             }
         }`;
 
-    const { loading, data } = useQuery(TOPIC_LIST, { variables: { categoryId: 12 } });
+    const { loading, error, data } = useQuery(TOPIC_LIST, { variables: { categoryId } });
 
     useEffect(() => {
-        !loading && setTopics(data.posts.nodes);
-    },[loading, data])
+        if (loading) {
+            setHeading('Loading...');
+            setTopics([]);
+        } else if (error) {
+            setHeading(error.message);
+            setTopics([]);
+        } else {
+            setHeading(null);
+            setTopics(data.posts.nodes);
+        }
+    },[loading, error, data])
 
     return (
         <div className="forum-list-container">
             <div className="forum-section">
-                <div className="forum-category">General Discussion Forum</div>
+                <div className="forum-category">{categoryName}</div>
+                {heading && <div>{heading}</div>}
                 {topics.map((topic) => (
                     <div key={topic.postId}
                         id={topic.postId}
