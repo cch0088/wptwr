@@ -30,7 +30,7 @@ function ForumTopicList({categoryId, categoryName}) {
         if (loading) {
             setHeading('Loading...');
         } else if (error) {
-            setHeading('There was a problem with your request. Nothing to show here...');
+            setHeading('Nothing to show here. There was a problem with your request.');
         } else if (data.posts.nodes[0]) {
             setHeading(null);
             setTopics(data.posts.nodes);

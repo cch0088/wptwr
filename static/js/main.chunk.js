@@ -1880,7 +1880,7 @@ function ForumTopicList({
     if (loading) {
       setHeading('Loading...');
     } else if (error) {
-      setHeading('There was a problem with your request. Nothing to show here...');
+      setHeading('Nothing to show here. There was a problem with your request.');
     } else if (data.posts.nodes[0]) {
       setHeading(null);
       setTopics(data.posts.nodes);
@@ -2567,5 +2567,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",1]]]);
+},[[0,"runtime-main",0]]]);
 //# sourceMappingURL=main.chunk.js.map
