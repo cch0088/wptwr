@@ -29,7 +29,6 @@ function ForumTopicList({categoryId, categoryName}) {
     useEffect(() => {
         if (loading) {
             setHeading('Loading...');
-            setTopics([]);
         } else if (error) {
             setHeading('There was a problem with your request. Nothing to show here...');
         } else if (data.posts.nodes[0]) {
