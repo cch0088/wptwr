@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialStateValue = {
+const initialStateValue = [{
   "id": 0,
   "name": null,
   "url": null,
@@ -13,7 +13,7 @@ const initialStateValue = {
     "self": [],
     "collection": []
   }
-};
+}];
 
 export const userSlice = createSlice({
     name: 'userDetails',

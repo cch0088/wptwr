@@ -1722,7 +1722,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _features_PageServices__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../features/PageServices */ "./src/features/PageServices.jsx");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var _lib_validation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../lib/validation */ "./src/lib/validation.jsx");
+/* harmony import */ var _features_UserSlice__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../features/UserSlice */ "./src/features/UserSlice.jsx");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/forum/ForumPost.jsx";
+
 
 
 
@@ -1735,17 +1737,23 @@ function ForumPost({
 }) {
   const dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useDispatch"])();
   const navigate = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["useNavigate"])();
-  const route = _config__WEBPACK_IMPORTED_MODULE_1__["API_POSTS"] + postId;
+  const posts = _config__WEBPACK_IMPORTED_MODULE_1__["API_POSTS"] + postId;
+  const users = _config__WEBPACK_IMPORTED_MODULE_1__["API_USERS"];
   const post = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useSelector"])(state => state.post.value);
+  const user = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useSelector"])(state => state.user.value);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     if (postId) {
-      Object(_features_PageServices__WEBPACK_IMPORTED_MODULE_4__["getContent"])(route).then(object => {
+      Object(_features_PageServices__WEBPACK_IMPORTED_MODULE_4__["getContent"])(posts).then(object => {
         dispatch(Object(_features_PostSlice__WEBPACK_IMPORTED_MODULE_2__["pushForumPostContent"])(object));
+      });
+      Object(_features_PageServices__WEBPACK_IMPORTED_MODULE_4__["getContent"])(users).then(object => {
+        dispatch(Object(_features_UserSlice__WEBPACK_IMPORTED_MODULE_7__["pushUserDetails"])(object));
       });
     } else {
       navigate(_config__WEBPACK_IMPORTED_MODULE_1__["UI_FORUM"]);
     }
-  }, [dispatch, route, postId, navigate]);
+  }, [dispatch, posts, users, postId, navigate]);
+  const userObj = user.find(x => x.id === post.author);
   const renderHTML = content => {
     return {
       __html: content
@@ -1756,7 +1764,7 @@ function ForumPost({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33,
+      lineNumber: 41,
       columnNumber: 14
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1764,7 +1772,7 @@ function ForumPost({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 42,
       columnNumber: 17
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1772,7 +1780,7 @@ function ForumPost({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 43,
       columnNumber: 21
     }
   }, post.title.rendered), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1780,22 +1788,22 @@ function ForumPost({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36,
+      lineNumber: 44,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
+      lineNumber: 45,
       columnNumber: 25
     }
-  }, post.author, " on ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_6__["getDateFromString"])(post.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, userObj && userObj.name, " on ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_6__["getDateFromString"])(post.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     dangerouslySetInnerHTML: renderHTML(post.content.rendered),
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 46,
       columnNumber: 25
     }
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1803,7 +1811,7 @@ function ForumPost({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 49,
       columnNumber: 17
     }
   }, "Add reply")));
@@ -2519,7 +2527,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "purgeUserDetails", function() { return purgeUserDetails; });
 /* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
 
-const initialStateValue = {
+const initialStateValue = [{
   "id": 0,
   "name": null,
   "url": null,
@@ -2532,7 +2540,7 @@ const initialStateValue = {
     "self": [],
     "collection": []
   }
-};
+}];
 const userSlice = Object(_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__["createSlice"])({
   name: 'userDetails',
   initialState: {
@@ -2897,5 +2905,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",1]]]);
+},[[0,"runtime-main",0]]]);
 //# sourceMappingURL=main.chunk.js.map
