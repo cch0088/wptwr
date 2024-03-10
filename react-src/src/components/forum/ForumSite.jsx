@@ -58,7 +58,7 @@ function ForumSite() {
                                 return (
                                     <div key={i.id}
                                         className="forum-topic"
-                                        onClick={(e) => handleNavigation(i.id, i.name)}
+                                        onClick={() => handleNavigation(i.id, i.name)}
                                     >
                                         <span className="bubble" role="img" aria-label="topic">🗨️</span>
                                         <div className="forum-topic-node">

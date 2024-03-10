@@ -1718,7 +1718,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
 /* harmony import */ var _lib_validation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib/validation */ "./src/lib/validation.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../config */ "./src/config.js");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/forum/ForumPost.jsx";
+
+
 
 
 
@@ -1758,86 +1762,107 @@ function ForumPost({
       __html: content
     };
   };
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, !loading && !error && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  const navigate = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["useNavigate"])();
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    if (error) {
+      navigate(_config__WEBPACK_IMPORTED_MODULE_4__["UI_FORUM"]);
+    }
+  }, [error, navigate]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "forum-list-container",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
-      columnNumber: 14
+      lineNumber: 45,
+      columnNumber: 13
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "forum-section",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
-      columnNumber: 17
+      lineNumber: 47,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48,
+      columnNumber: 25
+    }
+  }, "Loading...")), !loading && !error && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "forum-section",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53,
+      columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "forum-category",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
-      columnNumber: 21
+      lineNumber: 54,
+      columnNumber: 25
     }
   }, data.posts.nodes[0].title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "forum-post",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
-      columnNumber: 21
+      lineNumber: 55,
+      columnNumber: 25
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "forum-post-info",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
-      columnNumber: 25
+      lineNumber: 56,
+      columnNumber: 29
     }
   }, data.posts.nodes[0].author.node.name, " on ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_2__["getDateFromString"])(data.posts.nodes[0].date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     dangerouslySetInnerHTML: renderHTML(data.posts.nodes[0].content),
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
-      columnNumber: 25
+      lineNumber: 57,
+      columnNumber: 29
     }
-  })), data.posts.nodes[0].comments.edges.map(x => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    key: x.node.databaseId,
+  })), data.posts.nodes[0].comments.edges.map(post => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    key: post.node.databaseId,
     className: "forum-post",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
-      columnNumber: 25
+      lineNumber: 60,
+      columnNumber: 29
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "forum-post-info",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
-      columnNumber: 29
+      lineNumber: 61,
+      columnNumber: 33
     }
-  }, x.node.author.node.name, " on ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_2__["getDateFromString"])(x.node.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    dangerouslySetInnerHTML: renderHTML(x.node.content),
+  }, post.node.author.node.name, " on ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_2__["getDateFromString"])(post.node.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    dangerouslySetInnerHTML: renderHTML(post.node.content),
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
-      columnNumber: 29
+      lineNumber: 62,
+      columnNumber: 33
     }
   })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "forum-button",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51,
-      columnNumber: 17
+      lineNumber: 66,
+      columnNumber: 21
     }
   }, "Add reply")));
 }
@@ -1936,7 +1961,7 @@ function ForumSite() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         key: i.id,
         className: "forum-topic",
-        onClick: e => handleNavigation(i.id, i.name),
+        onClick: () => handleNavigation(i.id, i.name),
         __self: this,
         __source: {
           fileName: _jsxFileName,
@@ -2091,7 +2116,7 @@ function ForumTopicList({
     key: topic.postId,
     id: topic.postId,
     className: "forum-topic",
-    onClick: e => handleNavigation(topic.postId),
+    onClick: () => handleNavigation(topic.postId),
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -2842,5 +2867,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",0]]]);
+},[[0,"runtime-main",1]]]);
 //# sourceMappingURL=main.chunk.js.map

@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { gql, useQuery } from "@apollo/client";
 import { getDateFromString } from "../../lib/validation";
+import { useNavigate } from "react-router-dom";
+import { UI_FORUM } from "../../config";
 
 function ForumPost({postId}) {
 
@@ -31,27 +33,40 @@ function ForumPost({postId}) {
         return { __html: content };
     };
 
-    return (
-        <>
-        {!loading && !error &&
-            (<div className="forum-list-container">
-                <div className="forum-section">
-                    <div className="forum-category">{data.posts.nodes[0].title}</div>
-                    <div className="forum-post">
-                        <div className="forum-post-info">{data.posts.nodes[0].author.node.name} on {getDateFromString(data.posts.nodes[0].date)}</div>
-                        <div dangerouslySetInnerHTML={renderHTML(data.posts.nodes[0].content)} />
-                    </div>
-                    {data.posts.nodes[0].comments.edges.map((x) => (
-                        <div key={x.node.databaseId} className="forum-post">
-                            <div className="forum-post-info">{x.node.author.node.name} on {getDateFromString(x.node.date)}</div>
-                            <div dangerouslySetInnerHTML={renderHTML(x.node.content)} />
-                        </div>
-                    ))}
-                </div>
-                <button className="forum-button">Add reply</button>
-            </div>)
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (error) {
+            navigate(UI_FORUM);
         }
-        </>
+    },[error, navigate])
+
+    return (
+            <div className="forum-list-container">
+                {loading && (
+                    <div className="forum-section">
+                        <div>Loading...</div>
+                    </div>
+                )}
+                {!loading && !error && (
+                <>
+                    <div className="forum-section">
+                        <div className="forum-category">{data.posts.nodes[0].title}</div>
+                        <div className="forum-post">
+                            <div className="forum-post-info">{data.posts.nodes[0].author.node.name} on {getDateFromString(data.posts.nodes[0].date)}</div>
+                            <div dangerouslySetInnerHTML={renderHTML(data.posts.nodes[0].content)} />
+                        </div>
+                        {data.posts.nodes[0].comments.edges.map((post) => (
+                            <div key={post.node.databaseId} className="forum-post">
+                                <div className="forum-post-info">{post.node.author.node.name} on {getDateFromString(post.node.date)}</div>
+                                <div dangerouslySetInnerHTML={renderHTML(post.node.content)} />
+                            </div>
+                        ))}
+                    </div>
+                    <button className="forum-button">Add reply</button>
+                </>
+                )}
+            </div>
     );
 }
 

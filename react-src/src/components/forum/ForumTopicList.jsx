@@ -60,7 +60,7 @@ function ForumTopicList({setPostId}) {
                     <div key={topic.postId}
                         id={topic.postId}
                         className="forum-topic"
-                        onClick={(e) => handleNavigation(topic.postId)}
+                        onClick={() => handleNavigation(topic.postId)}
                     >
                         <span className="bubble" role="img" aria-label="topic">🗨️</span>
                         <div className="forum-topic-node">
