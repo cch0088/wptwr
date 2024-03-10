@@ -7,12 +7,16 @@ import { Provider } from 'react-redux';
 import modalReducer from './features/ModalSlice';
 import contentReducer from './features/ContentSlice';
 import forumReducer from './features/ForumSlice';
+import categoryReducer from './features/CategorySlice';
+import userReducer from './features/UserSlice';
 
 const store = configureStore({
   reducer: {
     modal: modalReducer,
     content: contentReducer,
-    forum: forumReducer
+    forum: forumReducer,
+    category: categoryReducer,
+    user: userReducer
   }
 });
 

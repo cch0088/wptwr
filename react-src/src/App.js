@@ -11,12 +11,12 @@ import ForumTopicList from "./components/forum/ForumTopicList";
 import { ApolloProvider } from "@apollo/client";
 import { client } from "./lib/apolloClient";
 import { AuthProvider } from "./hooks/useAuth";
+import ForumPost from "./components/forum/ForumPost";
 
 function App() {
   const currentUrl = window.location.href;
 
-  const [categoryId, setCategoryId] = useState();
-  const [categoryName, setCategoryName] = useState();
+  const [postId, setPostId] = useState();
 
   return (
     <ApolloProvider client={client}>
@@ -26,18 +26,9 @@ function App() {
             <Route path={nav.WP_ROOT} element={<Layout />}>
               <Route index element={<Main />} />
               <Route path="set-password" element={<PasswordReset currentUrl={currentUrl} />} />
-              <Route path="forum" element={
-                <ForumSite
-                  setCategoryId={setCategoryId}
-                  setCategoryName={setCategoryName}
-                />}
-              />
-              <Route path="forum/threads" element={
-                <ForumTopicList
-                  categoryId={categoryId}
-                  categoryName={categoryName}
-                />}
-              />
+              <Route path={nav.UI_FORUM} element={<ForumSite />} />
+              <Route path={nav.UI_FORUM_THREADS} element={<ForumTopicList setPostId={setPostId} />} />
+              <Route path={nav.UI_FORUM_POST} element={<ForumPost postId={postId} />} />
               <Route path="*" element={<NoPage />} />
             </Route>
           </Routes>

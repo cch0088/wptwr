@@ -4,8 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getContent } from "../../features/PageServices";
 import { pushForumContent } from "../../features/ForumSlice";
 import { useNavigate } from "react-router-dom";
+import { setCategory } from "../../features/CategorySlice";
+import { UI_FORUM_THREADS } from "../../config";
 
-function ForumSite({setCategoryId, setCategoryName}) {
+function ForumSite() {
     const route = API_CATEGORIES;
 
     const dispatch = useDispatch();
@@ -40,10 +42,9 @@ function ForumSite({setCategoryId, setCategoryName}) {
         }
     })
 
-    const handleNavigation = (id, name) => {
-        setCategoryId(Number(id));
-        setCategoryName(name);
-        navigate("threads");
+    const handleNavigation = (categoryId, categoryName) => {
+        dispatch(setCategory({categoryId, categoryName}));
+        navigate(UI_FORUM_THREADS);
     };
 
     return (
@@ -57,7 +58,7 @@ function ForumSite({setCategoryId, setCategoryName}) {
                                 return (
                                     <div key={i.id}
                                         className="forum-topic"
-                                        onClick={(e) => handleNavigation(i.id, i.name)}
+                                        onClick={() => handleNavigation(i.id, i.name)}
                                     >
                                         <span className="bubble" role="img" aria-label="topic">🗨️</span>
                                         <div className="forum-topic-node">
@@ -66,7 +67,8 @@ function ForumSite({setCategoryId, setCategoryName}) {
                                         </div>
                                     </div>
                                 );
-                        })}
+                            }
+                        )}
                     </div>
                 );
             })}
