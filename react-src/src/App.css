@@ -347,6 +347,10 @@ code {
   box-shadow: 0px 4px 8px lightgray;
 }
 
+.forum-post-info {
+  font-size: small;
+}
+
 .forum-topic-name {
   margin-bottom: 2px;
 }

@@ -1737,23 +1737,23 @@ function ForumPost({
 }) {
   const dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useDispatch"])();
   const navigate = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["useNavigate"])();
-  const posts = _config__WEBPACK_IMPORTED_MODULE_1__["API_POSTS"] + postId;
-  const users = _config__WEBPACK_IMPORTED_MODULE_1__["API_USERS"];
+  const postRoute = _config__WEBPACK_IMPORTED_MODULE_1__["API_POSTS"] + postId;
+  const userListRoute = _config__WEBPACK_IMPORTED_MODULE_1__["API_USERS"];
   const post = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useSelector"])(state => state.post.value);
-  const user = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useSelector"])(state => state.user.value);
+  const users = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useSelector"])(state => state.user.value);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     if (postId) {
-      Object(_features_PageServices__WEBPACK_IMPORTED_MODULE_4__["getContent"])(posts).then(object => {
+      Object(_features_PageServices__WEBPACK_IMPORTED_MODULE_4__["getContent"])(postRoute).then(object => {
         dispatch(Object(_features_PostSlice__WEBPACK_IMPORTED_MODULE_2__["pushForumPostContent"])(object));
       });
-      Object(_features_PageServices__WEBPACK_IMPORTED_MODULE_4__["getContent"])(users).then(object => {
+      Object(_features_PageServices__WEBPACK_IMPORTED_MODULE_4__["getContent"])(userListRoute).then(object => {
         dispatch(Object(_features_UserSlice__WEBPACK_IMPORTED_MODULE_7__["pushUserDetails"])(object));
       });
     } else {
       navigate(_config__WEBPACK_IMPORTED_MODULE_1__["UI_FORUM"]);
     }
-  }, [dispatch, posts, users, postId, navigate]);
-  const userObj = user.find(x => x.id === post.author);
+  }, [dispatch, postRoute, userListRoute, postId, navigate]);
+  const postUserObj = users.find(user => user.id === post.author);
   const renderHTML = content => {
     return {
       __html: content
@@ -1792,13 +1792,14 @@ function ForumPost({
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "forum-post-info",
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 45,
       columnNumber: 25
     }
-  }, userObj && userObj.name, " on ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_6__["getDateFromString"])(post.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, postUserObj && postUserObj.name, " on ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_6__["getDateFromString"])(post.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     dangerouslySetInnerHTML: renderHTML(post.content.rendered),
     __self: this,
     __source: {

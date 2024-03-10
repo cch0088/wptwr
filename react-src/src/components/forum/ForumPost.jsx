@@ -11,25 +11,25 @@ function ForumPost({postId}) {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const posts = API_POSTS + postId;
-    const users = API_USERS;
+    const postRoute = API_POSTS + postId;
+    const userListRoute = API_USERS;
     const post = useSelector(state => state.post.value);
-    const user = useSelector(state => state.user.value);
+    const users = useSelector(state => state.user.value);
 
     useEffect(() => {
         if (postId) {
-            getContent(posts).then(object => {
+            getContent(postRoute).then(object => {
                 dispatch(pushForumPostContent(object));
             });
-            getContent(users).then(object => {
+            getContent(userListRoute).then(object => {
                 dispatch(pushUserDetails(object));
             });
         } else {
             navigate(UI_FORUM);
         }
-    },[dispatch, posts, users, postId, navigate]);
+    },[dispatch, postRoute, userListRoute, postId, navigate]);
 
-    const userObj = user.find((x) => x.id === post.author);
+    const postUserObj = users.find((user) => user.id === post.author);
 
     const renderHTML = (content) => {
         return { __html: content };
@@ -42,7 +42,7 @@ function ForumPost({postId}) {
                 <div className="forum-section">
                     <div className="forum-category">{post.title.rendered}</div>
                     <div className="forum-post">
-                        <div>{(userObj && userObj.name)} on {getDateFromString(post.date)}</div>
+                        <div className="forum-post-info">{(postUserObj && postUserObj.name)} on {getDateFromString(post.date)}</div>
                         <div dangerouslySetInnerHTML={renderHTML(post.content.rendered)} />
                     </div>
                 </div>
