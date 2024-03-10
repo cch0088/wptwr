@@ -15,7 +15,7 @@ const initialStateValue = {
   }
 };
 
-export const forumSlice = createSlice({
+export const userSlice = createSlice({
     name: 'userDetails',
     initialState: { value: initialStateValue },
     reducers: {

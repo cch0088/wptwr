@@ -2505,6 +2505,56 @@ const {
 
 /***/ }),
 
+/***/ "./src/features/UserSlice.jsx":
+/*!************************************!*\
+  !*** ./src/features/UserSlice.jsx ***!
+  \************************************/
+/*! exports provided: userSlice, pushUserDetails, purgeUserDetails, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userSlice", function() { return userSlice; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pushUserDetails", function() { return pushUserDetails; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "purgeUserDetails", function() { return purgeUserDetails; });
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+
+const initialStateValue = {
+  "id": 0,
+  "name": null,
+  "url": null,
+  "description": null,
+  "link": null,
+  "slug": null,
+  "avatar_urls": {},
+  "meta": [],
+  "_links": {
+    "self": [],
+    "collection": []
+  }
+};
+const userSlice = Object(_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__["createSlice"])({
+  name: 'userDetails',
+  initialState: {
+    value: initialStateValue
+  },
+  reducers: {
+    pushUserDetails: (state, action) => {
+      state.value = action.payload;
+    },
+    purgeUserDetails: state => {
+      state.value = initialStateValue;
+    }
+  }
+});
+const {
+  pushUserDetails,
+  purgeUserDetails
+} = userSlice.actions;
+/* harmony default export */ __webpack_exports__["default"] = (userSlice.reducer);
+
+/***/ }),
+
 /***/ "./src/hooks/useAuth.tsx":
 /*!*******************************!*\
   !*** ./src/hooks/useAuth.tsx ***!
@@ -2594,7 +2644,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _features_ForumSlice__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./features/ForumSlice */ "./src/features/ForumSlice.jsx");
 /* harmony import */ var _features_CategorySlice__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./features/CategorySlice */ "./src/features/CategorySlice.jsx");
 /* harmony import */ var _features_PostSlice__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./features/PostSlice */ "./src/features/PostSlice.jsx");
+/* harmony import */ var _features_UserSlice__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./features/UserSlice */ "./src/features/UserSlice.jsx");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/index.js";
+
 
 
 
@@ -2612,7 +2664,8 @@ const store = Object(_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__["configureSto
     content: _features_ContentSlice__WEBPACK_IMPORTED_MODULE_7__["default"],
     forum: _features_ForumSlice__WEBPACK_IMPORTED_MODULE_8__["default"],
     category: _features_CategorySlice__WEBPACK_IMPORTED_MODULE_9__["default"],
-    post: _features_PostSlice__WEBPACK_IMPORTED_MODULE_10__["default"]
+    post: _features_PostSlice__WEBPACK_IMPORTED_MODULE_10__["default"],
+    user: _features_UserSlice__WEBPACK_IMPORTED_MODULE_11__["default"]
   }
 });
 const root = react_dom_client__WEBPACK_IMPORTED_MODULE_1___default.a.createRoot(document.getElementById('root'));
@@ -2621,14 +2674,14 @@ root.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createEle
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 26,
+    lineNumber: 28,
     columnNumber: 3
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_2__["default"], {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 27,
+    lineNumber: 29,
     columnNumber: 5
   }
 })));
@@ -2844,5 +2897,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",0]]]);
+},[[0,"runtime-main",1]]]);
 //# sourceMappingURL=main.chunk.js.map
