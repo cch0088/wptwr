@@ -342,6 +342,13 @@ code {
   box-shadow: 0px 4px 8px lightgray;
 }
 
+.forum-post {
+  border-radius: 8px;
+  padding: 12px;
+  background-color: white;
+  box-shadow: 0px 4px 8px lightgray;
+}
+
 .forum-topic-name {
   margin-bottom: 2px;
 }

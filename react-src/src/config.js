@@ -10,6 +10,7 @@ export const GRAPHQL_URI = getRoot(WP_ROOT) + "graphql";
 export const WP_UPLOADS = getRoot(WP_ROOT) + "wp-content/uploads";
 export const API_PAGES = getRoot(WP_ROOT) + "wp-json/wp/v2/pages/?slug=";
 export const API_POSTS = getRoot(WP_ROOT) + "wp-json/wp/v2/posts/";
+export const API_USERS = getRoot(WP_ROOT) + "wp-json/wp/v2/users/";
 export const API_CATEGORIES = getRoot(WP_ROOT) + "wp-json/wp/v2/categories";
 
 // User accounts page
