@@ -8,7 +8,6 @@ import modalReducer from './features/ModalSlice';
 import contentReducer from './features/ContentSlice';
 import forumReducer from './features/ForumSlice';
 import categoryReducer from './features/CategorySlice';
-import postReducer from './features/PostSlice';
 import userReducer from './features/UserSlice';
 
 const store = configureStore({
@@ -17,7 +16,6 @@ const store = configureStore({
     content: contentReducer,
     forum: forumReducer,
     category: categoryReducer,
-    post: postReducer,
     user: userReducer
   }
 });
