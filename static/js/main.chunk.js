@@ -1754,8 +1754,19 @@ function ForumPost({
                     author { node {
                         name
                         avatar { url } } } } } } } } }`;
+  const FORUM_REPLY = _apollo_client__WEBPACK_IMPORTED_MODULE_3__["gql"]`
+        mutation AddReply($commentOn: Int!, $content: String!) {
+            createComment(input: {
+                    content: $content,
+                    commentOn: $commentOn
+            })
+            {
+                clientMutationId
+                success
+            }
+        }`;
   const [replyOpen, setReplyOpen] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0);
-  const [value, setValue] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
+  const [content, setContent] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   const {
     loading,
     error,
@@ -1765,26 +1776,32 @@ function ForumPost({
       postId
     }
   });
+  const [sendReply] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(FORUM_REPLY);
   const renderHTML = content => {
     return {
       __html: content
     };
   };
   const navigate = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["useNavigate"])();
+  const submitReply = () => {
+    sendReply({
+      variables: {
+        commentOn: postId,
+        content
+      }
+    }).then(setReplyOpen(0));
+  };
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     if (error) {
       navigate(_config__WEBPACK_IMPORTED_MODULE_6__["UI_FORUM"]);
     }
   }, [error, navigate]);
-  const submitReply = () => {
-    setReplyOpen(0);
-  };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "forum-list-container",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 73,
       columnNumber: 13
     }
   }, loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1792,14 +1809,14 @@ function ForumPost({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56,
+      lineNumber: 75,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57,
+      lineNumber: 76,
       columnNumber: 25
     }
   }, "Loading...")), !loading && !error && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1807,7 +1824,7 @@ function ForumPost({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62,
+      lineNumber: 81,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1815,7 +1832,7 @@ function ForumPost({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63,
+      lineNumber: 82,
       columnNumber: 25
     }
   }, data.posts.nodes[0].title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1823,7 +1840,7 @@ function ForumPost({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64,
+      lineNumber: 83,
       columnNumber: 25
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1831,7 +1848,7 @@ function ForumPost({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
+      lineNumber: 84,
       columnNumber: 29
     }
   }, data.posts.nodes[0].author.node.name, " on ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_4__["getDateFromString"])(data.posts.nodes[0].date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1839,7 +1856,7 @@ function ForumPost({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 85,
       columnNumber: 29
     }
   })), data.posts.nodes[0].comments.edges.map(post => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1848,7 +1865,7 @@ function ForumPost({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69,
+      lineNumber: 88,
       columnNumber: 29
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1856,7 +1873,7 @@ function ForumPost({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70,
+      lineNumber: 89,
       columnNumber: 33
     }
   }, post.node.author.node.name, " on ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_4__["getDateFromString"])(post.node.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1864,7 +1881,7 @@ function ForumPost({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
+      lineNumber: 90,
       columnNumber: 33
     }
   })))), replyOpen === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1873,7 +1890,7 @@ function ForumPost({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77,
+      lineNumber: 96,
       columnNumber: 27
     }
   }, "Add reply") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1881,17 +1898,17 @@ function ForumPost({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80,
+      lineNumber: 99,
       columnNumber: 29
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_quill__WEBPACK_IMPORTED_MODULE_1___default.a, {
     theme: "snow",
-    value: value,
-    onChange: setValue,
+    value: content,
+    onChange: setContent,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81,
+      lineNumber: 100,
       columnNumber: 33
     }
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1900,7 +1917,7 @@ function ForumPost({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 87,
+      lineNumber: 106,
       columnNumber: 29
     }
   }, "Add reply"))));
@@ -2906,5 +2923,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",1]]]);
+},[[0,"runtime-main",0]]]);
 //# sourceMappingURL=main.chunk.js.map

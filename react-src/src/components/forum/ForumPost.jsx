@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { gql, useQuery } from "@apollo/client";
+import { gql, useMutation, useQuery } from "@apollo/client";
 import { getDateFromString } from "../../lib/validation";
 import { useNavigate } from "react-router-dom";
 import { UI_FORUM } from "../../config";
@@ -28,11 +28,25 @@ function ForumPost({postId}) {
                         name
                         avatar { url } } } } } } } } }`;
 
+    const FORUM_REPLY = gql`
+        mutation AddReply($commentOn: Int!, $content: String!) {
+            createComment(input: {
+                    content: $content,
+                    commentOn: $commentOn
+            })
+            {
+                clientMutationId
+                success
+            }
+        }`;
+
     const [replyOpen, setReplyOpen] = useState(0);
-    const [value, setValue] = useState('');
+    const [content, setContent] = useState('');
 
     const { loading, error, data } = useQuery(FORUM_POST,
         { variables: { postId } });
+    
+    const [sendReply] = useMutation(FORUM_REPLY);
 
     const renderHTML = (content) => {
         return { __html: content };
@@ -40,15 +54,20 @@ function ForumPost({postId}) {
 
     const navigate = useNavigate();
 
+    const submitReply = () => {
+        sendReply({
+            variables: {
+                commentOn: postId,
+                content,
+            }
+        }).then(setReplyOpen(0));
+    }
+
     useEffect(() => {
         if (error) {
             navigate(UI_FORUM);
         }
     },[error, navigate])
-
-    const submitReply = () => {
-        setReplyOpen(0);
-    }
 
     return (
             <div className="forum-list-container">
@@ -80,8 +99,8 @@ function ForumPost({postId}) {
                             <div id="text-editor-container">
                                 <ReactQuill
                                     theme="snow"
-                                    value={value}
-                                    onChange={setValue}
+                                    value={content}
+                                    onChange={setContent}
                                 />
                             </div>
                             <button className="forum-button" onClick={() => submitReply()}>Add reply</button>
