@@ -1,4 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import { gql, useQuery } from "@apollo/client";
 import { getDateFromString } from "../../lib/validation";
 import { useNavigate } from "react-router-dom";
@@ -25,7 +27,10 @@ function ForumPost({postId}) {
                     author { node {
                         name
                         avatar { url } } } } } } } } }`;
-    
+
+    const [replyOpen, setReplyOpen] = useState(0);
+    const [value, setValue] = useState('');
+
     const { loading, error, data } = useQuery(FORUM_POST,
         { variables: { postId } });
 
@@ -40,6 +45,10 @@ function ForumPost({postId}) {
             navigate(UI_FORUM);
         }
     },[error, navigate])
+
+    const submitReply = () => {
+        setReplyOpen(0);
+    }
 
     return (
             <div className="forum-list-container">
@@ -63,7 +72,21 @@ function ForumPost({postId}) {
                             </div>
                         ))}
                     </div>
-                    <button className="forum-button">Add reply</button>
+                    {
+                        replyOpen === 0
+                        ? <button className="forum-button" onClick={() => setReplyOpen(1)}>Add reply</button>
+                        :
+                        <>
+                            <div id="text-editor-container">
+                                <ReactQuill
+                                    theme="snow"
+                                    value={value}
+                                    onChange={setValue}
+                                />
+                            </div>
+                            <button className="forum-button" onClick={() => submitReply()}>Add reply</button>
+                        </>
+                    }
                 </>
                 )}
             </div>
