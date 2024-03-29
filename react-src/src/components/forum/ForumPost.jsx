@@ -40,7 +40,7 @@ function ForumPost({postId}) {
             }
         }`;
 
-    const [replyOpen, setReplyOpen] = useState(0);
+    const [replyOpen, setReplyOpen] = useState(false);
     const [content, setContent] = useState('');
 
     const { loading: postLoading, error, data } = useQuery(FORUM_POST,
@@ -60,7 +60,14 @@ function ForumPost({postId}) {
                 commentOn: postId,
                 content,
             }
-        }).then(setReplyOpen(0));
+        })
+        .then(
+            appendPost(content)
+        );
+    }
+
+    const appendPost = (content) => {
+        setReplyOpen(false);
     }
 
     useEffect(() => {
@@ -92,8 +99,8 @@ function ForumPost({postId}) {
                         ))}
                     </div>
                     {
-                        replyOpen === 0
-                        ? <button className="forum-button" onClick={() => setReplyOpen(1)}>Add reply</button>
+                        !replyOpen
+                        ? <button className="forum-button" onClick={() => setReplyOpen(true)}>Add reply</button>
                         :
                         <>
                             <div id="text-editor-container">
@@ -103,7 +110,7 @@ function ForumPost({postId}) {
                                     onChange={setContent}
                                 />
                             </div>
-                            <button className="forum-button" disabled={replyLoading} onClick={() => submitReply()}>Add reply</button>
+                            <button className="forum-button" disabled={replyLoading} onClick={() => submitReply()}>Send reply</button>
                         </>
                     }
                 </>
