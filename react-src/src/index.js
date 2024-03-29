@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import modalReducer from './features/ModalSlice';
 import contentReducer from './features/ContentSlice';
 import forumReducer from './features/ForumSlice';
+import forumTopicReducer from './features/ForumTopicSlice'
 import categoryReducer from './features/CategorySlice';
 import userReducer from './features/UserSlice';
 
@@ -15,6 +16,7 @@ const store = configureStore({
     modal: modalReducer,
     content: contentReducer,
     forum: forumReducer,
+    forumTopic: forumTopicReducer,
     category: categoryReducer,
     user: userReducer
   }
