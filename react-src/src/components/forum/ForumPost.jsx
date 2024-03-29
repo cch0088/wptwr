@@ -42,6 +42,7 @@ function ForumPost({postId}) {
 
     const [replyOpen, setReplyOpen] = useState(false);
     const [content, setContent] = useState('');
+    const [newPost, setNewPost] = useState();
 
     const { loading: postLoading, error, data } = useQuery(FORUM_POST,
         { variables: { postId } });
@@ -67,6 +68,11 @@ function ForumPost({postId}) {
     }
 
     const appendPost = (content) => {
+        setNewPost({
+            author: "new",
+            date: "just now",
+            content
+        });
         setReplyOpen(false);
     }
 
@@ -97,10 +103,16 @@ function ForumPost({postId}) {
                                 <div dangerouslySetInnerHTML={renderHTML(post.node.content)} />
                             </div>
                         ))}
+                        {newPost && 
+                            <div className="forum-post">
+                                <div className="forum-post-info">{newPost.author} on {newPost.date}</div>
+                                <div dangerouslySetInnerHTML={renderHTML(newPost.content)} />
+                            </div>
+                        }
                     </div>
                     {
                         !replyOpen
-                        ? <button className="forum-button" onClick={() => setReplyOpen(true)}>Add reply</button>
+                        ? <button className="forum-button" disabled={newPost} onClick={() => setReplyOpen(true)}>Add reply</button>
                         :
                         <>
                             <div id="text-editor-container">
