@@ -100,8 +100,6 @@ function ForumPost({postId}) {
         setReplyOpen(false);
     }
 
-    console.log(topic);
-
     useEffect(() => {
         if (error) {
             navigate(UI_FORUM);
