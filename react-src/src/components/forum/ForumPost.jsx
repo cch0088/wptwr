@@ -46,7 +46,7 @@ function ForumPost({postId}) {
 
     const { loading: postLoading, error, data } = useQuery(FORUM_POST,
         { variables: { postId } });
-    
+
     const [sendReply, { loading: replyLoading }] = useMutation(FORUM_REPLY);
 
     const renderHTML = (content) => {
