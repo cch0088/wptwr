@@ -2501,43 +2501,6 @@ const {
 
 /***/ }),
 
-/***/ "./src/features/ForumTopicSlice.jsx":
-/*!******************************************!*\
-  !*** ./src/features/ForumTopicSlice.jsx ***!
-  \******************************************/
-/*! exports provided: forumTopicSlice, pushForumTopicContent, purgeForumTopicContent, default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "forumTopicSlice", function() { return forumTopicSlice; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pushForumTopicContent", function() { return pushForumTopicContent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "purgeForumTopicContent", function() { return purgeForumTopicContent; });
-/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
-
-const initialStateValue = [];
-const forumTopicSlice = Object(_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__["createSlice"])({
-  name: 'forumTopic',
-  initialState: {
-    value: initialStateValue
-  },
-  reducers: {
-    pushForumTopicContent: (state, action) => {
-      state.value = action.payload;
-    },
-    purgeForumTopicContent: state => {
-      state.value = initialStateValue;
-    }
-  }
-});
-const {
-  pushForumTopicContent,
-  purgeForumTopicContent
-} = forumTopicSlice.actions;
-/* harmony default export */ __webpack_exports__["default"] = (forumTopicSlice.reducer);
-
-/***/ }),
-
 /***/ "./src/features/ModalSlice.jsx":
 /*!*************************************!*\
   !*** ./src/features/ModalSlice.jsx ***!
@@ -2744,11 +2707,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _features_ModalSlice__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./features/ModalSlice */ "./src/features/ModalSlice.jsx");
 /* harmony import */ var _features_ContentSlice__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./features/ContentSlice */ "./src/features/ContentSlice.jsx");
 /* harmony import */ var _features_ForumSlice__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./features/ForumSlice */ "./src/features/ForumSlice.jsx");
-/* harmony import */ var _features_ForumTopicSlice__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./features/ForumTopicSlice */ "./src/features/ForumTopicSlice.jsx");
-/* harmony import */ var _features_CategorySlice__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./features/CategorySlice */ "./src/features/CategorySlice.jsx");
-/* harmony import */ var _features_UserSlice__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./features/UserSlice */ "./src/features/UserSlice.jsx");
+/* harmony import */ var _features_CategorySlice__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./features/CategorySlice */ "./src/features/CategorySlice.jsx");
+/* harmony import */ var _features_UserSlice__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./features/UserSlice */ "./src/features/UserSlice.jsx");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/index.js";
-
 
 
 
@@ -2765,9 +2726,8 @@ const store = Object(_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__["configureSto
     modal: _features_ModalSlice__WEBPACK_IMPORTED_MODULE_6__["default"],
     content: _features_ContentSlice__WEBPACK_IMPORTED_MODULE_7__["default"],
     forum: _features_ForumSlice__WEBPACK_IMPORTED_MODULE_8__["default"],
-    forumTopic: _features_ForumTopicSlice__WEBPACK_IMPORTED_MODULE_9__["default"],
-    category: _features_CategorySlice__WEBPACK_IMPORTED_MODULE_10__["default"],
-    user: _features_UserSlice__WEBPACK_IMPORTED_MODULE_11__["default"]
+    category: _features_CategorySlice__WEBPACK_IMPORTED_MODULE_9__["default"],
+    user: _features_UserSlice__WEBPACK_IMPORTED_MODULE_10__["default"]
   }
 });
 const root = react_dom_client__WEBPACK_IMPORTED_MODULE_1___default.a.createRoot(document.getElementById('root'));
@@ -2776,14 +2736,14 @@ root.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createEle
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 28,
+    lineNumber: 26,
     columnNumber: 3
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_2__["default"], {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 29,
+    lineNumber: 27,
     columnNumber: 5
   }
 })));
@@ -2999,5 +2959,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",1]]]);
+},[[0,"runtime-main",0]]]);
 //# sourceMappingURL=main.chunk.js.map
