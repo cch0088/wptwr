@@ -42,7 +42,7 @@ function ForumPost({postId}) {
 
     const [replyOpen, setReplyOpen] = useState(false);
     const [content, setContent] = useState('');
-    const [newPost, setNewPost] = useState();
+    const [topic, setTopic] = useState();
 
     const { loading: postLoading, error, data } = useQuery(FORUM_POST,
         { variables: { postId } });
@@ -68,19 +68,47 @@ function ForumPost({postId}) {
     }
 
     const appendPost = (content) => {
-        setNewPost({
-            author: "new",
-            date: "just now",
-            content
-        });
+        const newPost = {
+            __typename: "PostToCommentConnectionEdge",
+            node: {
+                __typename: "Comment",
+                databaseId: 0,
+                content,
+                date: "2024-03-29 19:40:37",
+                author: {
+                __typename: "CommentToCommenterConnectionEdge",
+                    node: {
+                    __typename: "User",
+                    name: "username",
+                    avatar: {
+                        __typename: "Avatar",
+                        url: "https://secure.gravatar.com/avatar/ca73d1432f9b2bf71ce39ecea5756c11?s=96&d=mm&r=g"
+                        }
+                    }
+                }
+            }
+        }
+
+        const comments = {
+            edges: [
+                ...topic.comments.edges,
+                newPost
+            ]
+        }
+
+        setTopic({...topic, comments});
         setReplyOpen(false);
     }
+
+    console.log(topic);
 
     useEffect(() => {
         if (error) {
             navigate(UI_FORUM);
+        } else {
+            data && setTopic(data.posts.nodes[0]);
         }
-    },[error, navigate])
+    },[error, navigate, data])
 
     return (
             <div className="forum-list-container">
@@ -89,30 +117,24 @@ function ForumPost({postId}) {
                         <div>Loading...</div>
                     </div>
                 )}
-                {!postLoading && !error && (
+                {topic && !error && (
                 <>
                     <div className="forum-section">
-                        <div className="forum-category">{data.posts.nodes[0].title}</div>
+                        <div className="forum-category">{topic.title}</div>
                         <div className="forum-post">
-                            <div className="forum-post-info">{data.posts.nodes[0].author.node.name} on {getDateFromString(data.posts.nodes[0].date)}</div>
-                            <div dangerouslySetInnerHTML={renderHTML(data.posts.nodes[0].content)} />
+                            <div className="forum-post-info">{topic.author.node.name} on {getDateFromString(topic.date)}</div>
+                            <div dangerouslySetInnerHTML={renderHTML(topic.content)} />
                         </div>
-                        {data.posts.nodes[0].comments.edges.map((post) => (
+                        {topic.comments.edges.map((post) => (
                             <div key={post.node.databaseId} className="forum-post">
                                 <div className="forum-post-info">{post.node.author.node.name} on {getDateFromString(post.node.date)}</div>
                                 <div dangerouslySetInnerHTML={renderHTML(post.node.content)} />
                             </div>
                         ))}
-                        {newPost && 
-                            <div className="forum-post">
-                                <div className="forum-post-info">{newPost.author} on {newPost.date}</div>
-                                <div dangerouslySetInnerHTML={renderHTML(newPost.content)} />
-                            </div>
-                        }
                     </div>
                     {
                         !replyOpen
-                        ? <button className="forum-button" disabled={newPost} onClick={() => setReplyOpen(true)}>Add reply</button>
+                        ? <button className="forum-button" onClick={() => setReplyOpen(true)}>Add reply</button>
                         :
                         <>
                             <div id="text-editor-container">
