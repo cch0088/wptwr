@@ -6,7 +6,7 @@ import { getDateFromString } from "../../lib/validation";
 import { useNavigate } from "react-router-dom";
 import { UI_FORUM } from "../../config";
 
-function ForumPost({postId}) {
+function ForumTopic({postId}) {
 
     const FORUM_POST = gql`
         query getPostById($postId: Int!) {
@@ -151,4 +151,4 @@ function ForumPost({postId}) {
     );
 }
 
-export default ForumPost;
+export default ForumTopic;

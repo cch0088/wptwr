@@ -19,4 +19,4 @@ export const UI_ACCOUNT = "wp-admin";
 // Forum pages
 export const UI_FORUM = getRoot(WP_ROOT) + "forum";
 export const UI_FORUM_THREADS = getRoot(WP_ROOT) + "forum/threads";
-export const UI_FORUM_POST = getRoot(WP_ROOT) + "forum/threads/post";
+export const UI_FORUM_TOPIC = getRoot(WP_ROOT) + "forum/threads/post";

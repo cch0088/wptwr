@@ -3,7 +3,7 @@ import { useQuery, gql } from '@apollo/client';
 import { getDateFromString } from '../../lib/validation';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { UI_FORUM, UI_FORUM_POST } from '../../config';
+import { UI_FORUM, UI_FORUM_TOPIC } from '../../config';
 
 function ForumTopicList({setPostId}) {
 
@@ -48,7 +48,7 @@ function ForumTopicList({setPostId}) {
 
     const handleNavigation = (postId) => {
         setPostId(postId);
-        navigate(UI_FORUM_POST);
+        navigate(UI_FORUM_TOPIC);
     }
 
     return (
