@@ -43,10 +43,10 @@ function ForumPost({postId}) {
     const [replyOpen, setReplyOpen] = useState(0);
     const [content, setContent] = useState('');
 
-    const { loading, error, data } = useQuery(FORUM_POST,
+    const { loading: postLoading, error, data } = useQuery(FORUM_POST,
         { variables: { postId } });
     
-    const [sendReply] = useMutation(FORUM_REPLY);
+    const [sendReply, { loading: replyLoading }] = useMutation(FORUM_REPLY);
 
     const renderHTML = (content) => {
         return { __html: content };
@@ -71,12 +71,12 @@ function ForumPost({postId}) {
 
     return (
             <div className="forum-list-container">
-                {loading && (
+                {postLoading && (
                     <div className="forum-section">
                         <div>Loading...</div>
                     </div>
                 )}
-                {!loading && !error && (
+                {!postLoading && !error && (
                 <>
                     <div className="forum-section">
                         <div className="forum-category">{data.posts.nodes[0].title}</div>
@@ -103,7 +103,7 @@ function ForumPost({postId}) {
                                     onChange={setContent}
                                 />
                             </div>
-                            <button className="forum-button" onClick={() => submitReply()}>Add reply</button>
+                            <button className="forum-button" disabled={replyLoading} onClick={() => submitReply()}>Add reply</button>
                         </>
                     }
                 </>

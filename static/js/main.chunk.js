@@ -1768,7 +1768,7 @@ function ForumPost({
   const [replyOpen, setReplyOpen] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0);
   const [content, setContent] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   const {
-    loading,
+    loading: postLoading,
     error,
     data
   } = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(FORUM_POST, {
@@ -1776,7 +1776,9 @@ function ForumPost({
       postId
     }
   });
-  const [sendReply] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(FORUM_REPLY);
+  const [sendReply, {
+    loading: replyLoading
+  }] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(FORUM_REPLY);
   const renderHTML = content => {
     return {
       __html: content
@@ -1804,7 +1806,7 @@ function ForumPost({
       lineNumber: 73,
       columnNumber: 13
     }
-  }, loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, postLoading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "forum-section",
     __self: this,
     __source: {
@@ -1819,7 +1821,7 @@ function ForumPost({
       lineNumber: 76,
       columnNumber: 25
     }
-  }, "Loading...")), !loading && !error && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Loading...")), !postLoading && !error && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "forum-section",
     __self: this,
     __source: {
@@ -1913,6 +1915,7 @@ function ForumPost({
     }
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "forum-button",
+    disabled: replyLoading,
     onClick: () => submitReply(),
     __self: this,
     __source: {
@@ -2923,5 +2926,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",0]]]);
+},[[0,"runtime-main",1]]]);
 //# sourceMappingURL=main.chunk.js.map
