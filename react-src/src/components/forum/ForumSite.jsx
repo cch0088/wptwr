@@ -41,7 +41,14 @@ function ForumSite() {
     })
 
     const handleNavigation = (categoryId, categoryName) => {
-        dispatch(setCategory({categoryId, categoryName}));
+        getContent(`${route}/${categoryId}`)
+        .then(object => {
+            dispatch(
+            setCategory({
+                categoryId,
+                categoryName,
+                categorySlug: object.slug
+            }))});
         navigate(UI_FORUM_THREADS);
     };
 

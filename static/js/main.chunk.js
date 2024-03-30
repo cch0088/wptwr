@@ -1840,10 +1840,13 @@ function ForumSite() {
     }
   });
   const handleNavigation = (categoryId, categoryName) => {
-    dispatch(Object(_features_CategorySlice__WEBPACK_IMPORTED_MODULE_6__["setCategory"])({
-      categoryId,
-      categoryName
-    }));
+    Object(_features_PageServices__WEBPACK_IMPORTED_MODULE_3__["getContent"])(`${route}/${categoryId}`).then(object => {
+      dispatch(Object(_features_CategorySlice__WEBPACK_IMPORTED_MODULE_6__["setCategory"])({
+        categoryId,
+        categoryName,
+        categorySlug: object.slug
+      }));
+    });
     navigate(_config__WEBPACK_IMPORTED_MODULE_1__["UI_FORUM_THREADS"]);
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ForumListContainer__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -1853,7 +1856,7 @@ function ForumSite() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 56,
       columnNumber: 9
     }
   });
@@ -2172,8 +2175,6 @@ function ForumTopicList() {
   const handleNavigation = postId => {
     navigate(`${_config__WEBPACK_IMPORTED_MODULE_4__["UI_FORUM_TOPIC"]}/:${postId}`);
   };
-  console.log(data);
-  console.log(category.categoryName);
   const handleNewTopic = () => {
     addNewTopic({
       variables: {
@@ -2181,7 +2182,7 @@ function ForumTopicList() {
         title,
         content
       }
-    }).catch(_er => console.log(_er));
+    });
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ForumTopicListContainer__WEBPACK_IMPORTED_MODULE_6__["default"], {
     category: category,
@@ -2200,7 +2201,7 @@ function ForumTopicList() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57,
+      lineNumber: 53,
       columnNumber: 9
     }
   });

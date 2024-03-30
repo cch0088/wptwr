@@ -39,9 +39,6 @@ function ForumTopicList() {
         navigate(`${UI_FORUM_TOPIC}/:${postId}`);
     }
 
-    console.log(data);
-    console.log(category.categoryName);
-
     const handleNewTopic = () => {
         addNewTopic({
             variables: {
@@ -49,8 +46,7 @@ function ForumTopicList() {
                 title,
                 content
             }
-        })
-        .catch(_er => console.log(_er));
+        });
     }
 
     return (
