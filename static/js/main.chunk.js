@@ -2166,7 +2166,7 @@ function ForumTopicList({
 }) {
   const category = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useSelector"])(state => state.category.value);
   const navigate = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["useNavigate"])();
-  const [topics, setTopics] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const [topic, setTopic] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
   const [heading, setHeading] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(category.categoryName);
   const TOPIC_LIST = _apollo_client__WEBPACK_IMPORTED_MODULE_1__["gql"]`
         query getPostsByCategory(
@@ -2200,7 +2200,7 @@ function ForumTopicList({
       navigate(_config__WEBPACK_IMPORTED_MODULE_5__["UI_FORUM"]);
     } else if (data.posts.nodes[0]) {
       setHeading(null);
-      setTopics(data.posts.nodes);
+      setTopic(data.posts.nodes);
     } else {
       setHeading('Nothing to show here. Feel free to add a topic.');
     }
@@ -2212,7 +2212,7 @@ function ForumTopicList({
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ForumTopicListContainer__WEBPACK_IMPORTED_MODULE_6__["default"], {
     category: category,
     heading: heading,
-    topics: topics,
+    topic: topic,
     handleNavigation: handleNavigation,
     getDateFromString: _lib_validation__WEBPACK_IMPORTED_MODULE_2__["getDateFromString"],
     error: error,
@@ -2245,7 +2245,7 @@ var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-sr
 const ForumTopicListContainer = ({
   category,
   heading,
-  topics,
+  topic,
   handleNavigation,
   getDateFromString,
   error,
@@ -2281,7 +2281,7 @@ const ForumTopicListContainer = ({
     lineNumber: 16,
     columnNumber: 13
   }
-}, heading), topics.map(topic => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+}, heading), topic.map(topic => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   key: topic.postId,
   id: topic.postId,
   className: "forum-topic",

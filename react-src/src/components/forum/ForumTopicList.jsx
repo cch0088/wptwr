@@ -11,7 +11,7 @@ function ForumTopicList({setPostId}) {
     const category = useSelector(state => state.category.value);
     const navigate = useNavigate();
 
-    const [topics, setTopics] = useState([]);
+    const [topic, setTopic] = useState([]);
     const [heading, setHeading] = useState(category.categoryName);
 
     const TOPIC_LIST = gql`
@@ -41,7 +41,7 @@ function ForumTopicList({setPostId}) {
             navigate(UI_FORUM);
         } else if (data.posts.nodes[0]) {
             setHeading(null);
-            setTopics(data.posts.nodes);
+            setTopic(data.posts.nodes);
         } else {
             setHeading('Nothing to show here. Feel free to add a topic.');
         }
@@ -56,7 +56,7 @@ function ForumTopicList({setPostId}) {
         <ForumTopicListContainer
             category={category}
             heading={heading}
-            topics={topics}
+            topic={topic}
             handleNavigation={handleNavigation}
             getDateFromString={getDateFromString}
             error={error}

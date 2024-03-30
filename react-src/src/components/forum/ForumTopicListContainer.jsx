@@ -3,7 +3,7 @@ import React from "react";
 const ForumTopicListContainer = ({
     category,
     heading,
-    topics,
+    topic,
     handleNavigation,
     getDateFromString,
     error,
@@ -14,7 +14,7 @@ const ForumTopicListContainer = ({
         <div className="forum-section">
             <div className="forum-category">{category.categoryName}</div>
             <div>{heading}</div>
-            {topics.map((topic) => (
+            {topic.map((topic) => (
                 <div key={topic.postId}
                     id={topic.postId}
                     className="forum-topic"
