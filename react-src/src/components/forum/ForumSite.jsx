@@ -32,7 +32,7 @@ function ForumSite() {
                 parent: item.parent
             })
         }
-        else {
+        else if (item.slug !== "all") {
             headings.push({
                 id: item.id,
                 name: item.description

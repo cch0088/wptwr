@@ -1832,7 +1832,7 @@ function ForumSite() {
         link: item.link,
         parent: item.parent
       });
-    } else {
+    } else if (item.slug !== "all") {
       headings.push({
         id: item.id,
         name: item.description
@@ -3207,5 +3207,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",1]]]);
+},[[0,"runtime-main",0]]]);
 //# sourceMappingURL=main.chunk.js.map
