@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { UI_FORUM, UI_FORUM_TOPIC } from '../../config';
-import { TOPIC_LIST } from '../../gql';
+import { FORUM_NEW_TOPIC, TOPIC_LIST } from '../../gql';
 import ForumTopicListContainer from './ForumTopicListContainer';
 
 function ForumTopicList() {
@@ -12,7 +12,12 @@ function ForumTopicList() {
     const category = useSelector(state => state.category.value);
 
     const [topic, setTopic] = useState([]);
+    const [title, setTitle] = useState('');
     const [heading, setHeading] = useState(category.categoryName);
+    const [content, setContent] = useState('');
+
+    const [newTopicOpen, setNewTopicOpen] = useState(false);
+    const [addNewTopic] = useMutation(FORUM_NEW_TOPIC);
 
     const { loading, error, data } = useQuery(TOPIC_LIST,
         { variables: { categoryId: category.categoryId } });
@@ -34,14 +39,32 @@ function ForumTopicList() {
         navigate(`${UI_FORUM_TOPIC}/:${postId}`);
     }
 
+    const handleNewTopic = () => {
+        addNewTopic({
+            variables: {
+                id: category.categoryId,
+                content,
+                title
+            }
+        })
+        .catch(_er => console.log(_er));
+    }
+
     return (
         <ForumTopicListContainer
             category={category}
             error={error}
-            handleNavigation={handleNavigation}
             heading={heading}
             topic={topic}
             loading={loading}
+            newTopicOpen={newTopicOpen}
+            content={content}
+            title={title}
+            setTitle={setTitle}
+            handleNavigation={handleNavigation}
+            handleNewTopic={handleNewTopic}
+            setNewTopicOpen={setNewTopicOpen}
+            setContent={setContent}
         />
     );
 }

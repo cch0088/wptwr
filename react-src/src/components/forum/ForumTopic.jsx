@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import { useNavigate, useParams } from "react-router-dom";
-import { FORUM_POST, FORUM_REPLY } from "../../gql";
+import { FORUM_GET_POSTS, FORUM_REPLY } from "../../gql";
 import { UI_FORUM } from "../../config";
 import ForumTopicContainer from "./ForumTopicContainer";
 
@@ -11,9 +11,10 @@ function ForumTopic() {
 
     const [replyOpen, setReplyOpen] = useState(false);
     const [content, setContent] = useState('');
+    const [title, setTitle] = useState('');
     const [topic, setTopic] = useState();
 
-    const { loading: postLoading, error, data } = useQuery(FORUM_POST, { variables: { postId } });
+    const { loading: postLoading, error, data } = useQuery(FORUM_GET_POSTS, { variables: { postId } });
     const [sendReply, { loading: replyLoading }] = useMutation(FORUM_REPLY);
 
     const renderHTML = (content) => {
@@ -47,6 +48,8 @@ function ForumTopic() {
             replyOpen={replyOpen}
             content={content}
             replyLoading={replyLoading}
+            title={title}
+            setTitle={setTitle}
             setReplyOpen={setReplyOpen}
             setContent={setContent}
             submitReply={submitReply}

@@ -293,6 +293,20 @@ code {
   font-weight: bold;
 }
 
+#new-topic-container {
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+.new-topic-title {
+  padding: 6px;
+  font-size: medium;
+  font-weight: bold;
+  width: -webkit-fill-available;
+  width: fill-available;
+  width: -moz-available;
+}
+
 .password-bar {
   width: 80%;
 }

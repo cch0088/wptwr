@@ -56,7 +56,26 @@ query getPostsByCategory(
     }
 }`;
 
-export const FORUM_POST = gql`
+export const FORUM_NEW_TOPIC = gql`
+    mutation newPost($id: Int!, $content: String!, $title: String!) {
+        createPost(
+        input: {
+            clientMutationId: "CreatePost",
+            categories: {nodes: {id: $id}},
+            title: $title,
+            content: $content
+        }
+        ) {
+        post {
+                id
+                title
+                date
+            }
+        }
+    }
+`;
+
+export const FORUM_GET_POSTS = gql`
 query getPostById($postId: Int!) {
     posts(where: {id: $postId}) {
     nodes {
