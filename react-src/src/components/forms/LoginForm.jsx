@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useMutation, gql } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import { GET_USER } from '../../hooks/useAuth';
 import { closeModal } from '../../features/ModalSlice';
+import { LOG_IN } from '../../gql';
 
 function LoginForm({setForm}) {
 
@@ -11,11 +12,6 @@ function LoginForm({setForm}) {
     const [message, setMessage] = useState(null);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-
-    const LOG_IN = gql`
-        mutation logIn($login: String!, $password: String!) {
-        loginWithCookies(input: { login: $login password: $password })
-        { status } }`;
 
     const [logIn, { loading }] = useMutation(LOG_IN, {
         refetchQueries: [

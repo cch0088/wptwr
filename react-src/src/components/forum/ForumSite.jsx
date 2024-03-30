@@ -6,14 +6,15 @@ import { pushForumContent } from "../../features/ForumSlice";
 import { useNavigate } from "react-router-dom";
 import { setCategory } from "../../features/CategorySlice";
 import { UI_FORUM_THREADS } from "../../config";
+import ForumListContainer from "./ForumListContainer";
 
 function ForumSite() {
     const route = API_CATEGORIES;
-
-    const dispatch = useDispatch();
     const categories = useSelector(state => state.forum.value);
-
+    const dispatch = useDispatch();
     const navigate = useNavigate();
+    const headings = [];
+    const topics = [];
 
     useEffect(() => {
         getContent(route).then(object => {
@@ -21,12 +22,9 @@ function ForumSite() {
         });
     },[dispatch, route]);
 
-    const heading = [];
-    const topic = [];
-
     categories.forEach(item => {
         if (item.parent > 0) {
-            topic.push({
+            topics.push({
                 id: item.id,
                 name: item.name,
                 description: item.description,
@@ -35,7 +33,7 @@ function ForumSite() {
             })
         }
         else {
-            heading.push({
+            headings.push({
                 id: item.id,
                 name: item.description
             })
@@ -48,31 +46,11 @@ function ForumSite() {
     };
 
     return (
-        <div className="forum-list-container">
-            {heading.map((header) => {
-                return (
-                    <div className="forum-section" key={header.id}>
-                        <div className="forum-category">{header.name}</div>
-                        {topic.filter((item) => item.parent === header.id)
-                            .map((i) => {
-                                return (
-                                    <div key={i.id}
-                                        className="forum-topic"
-                                        onClick={() => handleNavigation(i.id, i.name)}
-                                    >
-                                        <span className="bubble" role="img" aria-label="topic">🗨️</span>
-                                        <div className="forum-topic-node">
-                                            <div className="forum-topic-name">{i.name}</div>
-                                            <div className="forum-topic-description">{i.description}</div>
-                                        </div>
-                                    </div>
-                                );
-                            }
-                        )}
-                    </div>
-                );
-            })}
-        </div>
+        <ForumListContainer
+            handleNavigation={handleNavigation}
+            headings={headings}
+            topics={topics}
+        />
     );
 }
 export default ForumSite;

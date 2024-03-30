@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useMutation, gql } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import { validateEmail } from '../../lib/validation';
+import { SEND_PASSWORD_RESET_EMAIL } from '../../gql';
 
 function ResetByEmailForm({setForm}) {
 
@@ -8,15 +9,7 @@ function ResetByEmailForm({setForm}) {
     const [email, setEmail] = useState('');
     const [isHuman, setIsHuman] = useState(false);
 
-    const SEND_PASSWORD_RESET_EMAIL = gql`
-        mutation sendPasswordResetEmail($username: String!) {
-        sendPasswordResetEmail(
-            input: { username: $username }
-        ) { user { databaseId } } }`;
-
-    const [sendPasswordResetEmail, { loading }] = useMutation(
-        SEND_PASSWORD_RESET_EMAIL
-    );
+    const [sendPasswordResetEmail, { loading }] = useMutation(SEND_PASSWORD_RESET_EMAIL);
 
     function handleSubmit(e) {
         e.preventDefault();

@@ -425,5 +425,15 @@ code {
   }
 }
 
+#text-editor-container {
+  background-color: white;
+  margin-bottom: 24px;
+}
+
+.ql-editor {
+  min-height: 200px;
+  max-height: 400px;
+}
+
 
 /*# sourceMappingURL=main.chunk.css.map*/
