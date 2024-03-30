@@ -26,6 +26,7 @@ function App() {
               <Route path="set-password" element={<PasswordReset currentUrl={currentUrl} />} />
               <Route exact path={nav.UI_FORUM} element={<ForumSite />} />
               <Route exact path={nav.UI_FORUM_THREADS} element={<ForumTopicList />} />
+              <Route exact path={nav.UI_FORUM_TOPIC} element={<ForumTopicList />} />
               <Route path={`${nav.UI_FORUM_TOPIC}/:fromUrlPostId`} element={<ForumTopic />} />
               <Route path="*" element={<NoPage />} />
             </Route>
