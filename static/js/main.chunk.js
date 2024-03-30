@@ -2724,7 +2724,7 @@ query getPostById($postId: Int!) {
                 name
                 avatar { url } } } } } } } } }`;
 const FORUM_REPLY = _apollo_client__WEBPACK_IMPORTED_MODULE_0__["gql"]`
-mutation AddReply($commentOn: Int!, $content: String!) {
+mutation setReply($commentOn: Int!, $content: String!) {
     createComment(input: {
             content: $content,
             commentOn: $commentOn
@@ -3076,5 +3076,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",0]]]);
+},[[0,"runtime-main",1]]]);
 //# sourceMappingURL=main.chunk.js.map

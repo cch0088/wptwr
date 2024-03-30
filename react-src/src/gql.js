@@ -77,7 +77,7 @@ query getPostById($postId: Int!) {
                 avatar { url } } } } } } } } }`;
 
 export const FORUM_REPLY = gql`
-mutation AddReply($commentOn: Int!, $content: String!) {
+mutation setReply($commentOn: Int!, $content: String!) {
     createComment(input: {
             content: $content,
             commentOn: $commentOn
