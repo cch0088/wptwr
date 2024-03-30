@@ -10,20 +10,17 @@ import ForumListContainer from "./ForumListContainer";
 
 function ForumSite() {
     const route = API_CATEGORIES;
-
-    const dispatch = useDispatch();
     const categories = useSelector(state => state.forum.value);
-
+    const dispatch = useDispatch();
     const navigate = useNavigate();
+    const headings = [];
+    const topics = [];
 
     useEffect(() => {
         getContent(route).then(object => {
             dispatch(pushForumContent(object));
         });
     },[dispatch, route]);
-
-    const headings = [];
-    const topics = [];
 
     categories.forEach(item => {
         if (item.parent > 0) {

@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
 import { useMutation, useQuery } from "@apollo/client";
-import { getDateFromString } from "../../lib/validation";
 import { useNavigate, useParams } from "react-router-dom";
 import { FORUM_POST, FORUM_REPLY } from "../../gql";
 import { UI_FORUM } from "../../config";
+import ForumTopicContainer from "./ForumTopicContainer";
 
 function ForumTopic() {
     const { fromUrlPostId } = useParams();
@@ -15,9 +13,7 @@ function ForumTopic() {
     const [content, setContent] = useState('');
     const [topic, setTopic] = useState();
 
-    const { loading: postLoading, error, data } = useQuery(FORUM_POST,
-        { variables: { postId } });
-
+    const { loading: postLoading, error, data } = useQuery(FORUM_POST, { variables: { postId } });
     const [sendReply, { loading: replyLoading }] = useMutation(FORUM_REPLY);
 
     const renderHTML = (content) => {
@@ -44,45 +40,18 @@ function ForumTopic() {
     },[error, navigate, data])
 
     return (
-            <div className="forum-list-container">
-                {postLoading && (
-                    <div className="forum-section">
-                        <div>Loading...</div>
-                    </div>
-                )}
-                {topic && !error && (
-                <>
-                    <div className="forum-section">
-                        <div className="forum-category">{topic.title}</div>
-                        <div className="forum-post">
-                            <div className="forum-post-info">{topic.author.node.name} on {getDateFromString(topic.date)}</div>
-                            <div dangerouslySetInnerHTML={renderHTML(topic.content)} />
-                        </div>
-                        {topic.comments.edges.map((post) => (
-                            <div key={post.node.databaseId} className="forum-post">
-                                <div className="forum-post-info">{post.node.author.node.name} on {getDateFromString(post.node.date)}</div>
-                                <div dangerouslySetInnerHTML={renderHTML(post.node.content)} />
-                            </div>
-                        ))}
-                    </div>
-                    {
-                        !replyOpen
-                        ? <button className="forum-button" onClick={() => setReplyOpen(true)}>Add reply</button>
-                        :
-                        <>
-                            <div id="text-editor-container">
-                                <ReactQuill
-                                    theme="snow"
-                                    value={content}
-                                    onChange={setContent}
-                                />
-                            </div>
-                            <button className="forum-button" disabled={replyLoading} onClick={() => submitReply()}>Send reply</button>
-                        </>
-                    }
-                </>
-                )}
-            </div>
+        <ForumTopicContainer
+            postLoading={postLoading}
+            topic={topic}
+            error={error}
+            replyOpen={replyOpen}
+            content={content}
+            replyLoading={replyLoading}
+            setReplyOpen={setReplyOpen}
+            setContent={setContent}
+            submitReply={submitReply}
+            renderHTML={renderHTML}
+        />
     );
 }
 

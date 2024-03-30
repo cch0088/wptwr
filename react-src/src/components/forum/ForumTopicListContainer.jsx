@@ -1,11 +1,11 @@
 import React from "react";
+import { getDateFromString } from '../../lib/validation';
 
 const ForumTopicListContainer = ({
     category,
     heading,
     topic,
     handleNavigation,
-    getDateFromString,
     error,
     loading
 }) =>

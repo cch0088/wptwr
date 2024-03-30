@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { getDateFromString } from '../../lib/validation';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { UI_FORUM, UI_FORUM_TOPIC } from '../../config';
@@ -38,11 +37,10 @@ function ForumTopicList() {
     return (
         <ForumTopicListContainer
             category={category}
+            error={error}
+            handleNavigation={handleNavigation}
             heading={heading}
             topic={topic}
-            handleNavigation={handleNavigation}
-            getDateFromString={getDateFromString}
-            error={error}
             loading={loading}
         />
     );
