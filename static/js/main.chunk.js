@@ -1033,7 +1033,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
 /* harmony import */ var _hooks_useAuth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../hooks/useAuth */ "./src/hooks/useAuth.tsx");
 /* harmony import */ var _features_ModalSlice__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../features/ModalSlice */ "./src/features/ModalSlice.jsx");
+/* harmony import */ var _gql__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../gql */ "./src/gql.js");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/forms/LoginForm.jsx";
+
 
 
 
@@ -1046,13 +1048,9 @@ function LoginForm({
   const [message, setMessage] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
   const [username, setUsername] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   const [password, setPassword] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
-  const LOG_IN = _apollo_client__WEBPACK_IMPORTED_MODULE_2__["gql"]`
-        mutation logIn($login: String!, $password: String!) {
-        loginWithCookies(input: { login: $login password: $password })
-        { status } }`;
   const [logIn, {
     loading
-  }] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(LOG_IN, {
+  }] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(_gql__WEBPACK_IMPORTED_MODULE_5__["LOG_IN"], {
     refetchQueries: [{
       query: _hooks_useAuth__WEBPACK_IMPORTED_MODULE_3__["GET_USER"]
     }]
@@ -1075,7 +1073,7 @@ function LoginForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
+      lineNumber: 39,
       columnNumber: 9
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1083,7 +1081,7 @@ function LoginForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
+      lineNumber: 40,
       columnNumber: 9
     }
   }, "SIGN IN"), message ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1091,7 +1089,7 @@ function LoginForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 42,
       columnNumber: 22
     }
   }, message) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1099,7 +1097,7 @@ function LoginForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 44,
       columnNumber: 9
     }
   }, "Username"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1113,7 +1111,7 @@ function LoginForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 46,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1121,7 +1119,7 @@ function LoginForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57,
+      lineNumber: 53,
       columnNumber: 9
     }
   }, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1135,7 +1133,7 @@ function LoginForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59,
+      lineNumber: 55,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -1146,7 +1144,7 @@ function LoginForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 62,
       columnNumber: 9
     }
   }, "Forgot Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1161,7 +1159,7 @@ function LoginForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68,
+      lineNumber: 64,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -1172,7 +1170,7 @@ function LoginForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76,
+      lineNumber: 72,
       columnNumber: 9
     }
   }, "Create Account"));
@@ -1198,7 +1196,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_validation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib/validation */ "./src/lib/validation.jsx");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../config */ "./src/config.js");
+/* harmony import */ var _gql__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../gql */ "./src/gql.js");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/forms/PasswordForm.jsx";
+
 
 
 
@@ -1213,27 +1213,9 @@ function PasswordForm({
   const [message, setMessage] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
   const [password, setPassword] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   const [passwordConfirm, setPasswordConfirm] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
-  const RESET_PASSWORD = _apollo_client__WEBPACK_IMPORTED_MODULE_2__["gql"]`
-        mutation resetUserPassword(
-            $key: String!
-            $login: String!
-            $password: String!
-        ) {
-            resetUserPassword(
-            input: {
-                key: $key
-                login: $login
-                password: $password
-            }
-            ) {
-            user {
-                databaseId
-            }
-            }
-        }`;
   const [resetPassword, {
     loading
-  }] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(RESET_PASSWORD);
+  }] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(_gql__WEBPACK_IMPORTED_MODULE_6__["RESET_PASSWORD"]);
   function handleSubmit(e) {
     e.preventDefault();
     if (password.length > 0 && Object(_lib_validation__WEBPACK_IMPORTED_MODULE_3__["validatePassword"])(password, passwordConfirm)) {
@@ -1255,7 +1237,7 @@ function PasswordForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56,
+      lineNumber: 38,
       columnNumber: 13
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1263,7 +1245,7 @@ function PasswordForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57,
+      lineNumber: 39,
       columnNumber: 9
     }
   }, "PASSWORD RESET"), message ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1271,7 +1253,7 @@ function PasswordForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59,
+      lineNumber: 41,
       columnNumber: 22
     }
   }, message) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1279,7 +1261,7 @@ function PasswordForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61,
+      lineNumber: 43,
       columnNumber: 9
     }
   }, "New password for ", login), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1287,7 +1269,7 @@ function PasswordForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63,
+      lineNumber: 45,
       columnNumber: 9
     }
   }, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1301,7 +1283,7 @@ function PasswordForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
+      lineNumber: 47,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1309,7 +1291,7 @@ function PasswordForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72,
+      lineNumber: 54,
       columnNumber: 9
     }
   }, "Confirm Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1323,7 +1305,7 @@ function PasswordForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74,
+      lineNumber: 56,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_password_strength_bar__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -1334,7 +1316,7 @@ function PasswordForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81,
+      lineNumber: 63,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1349,7 +1331,7 @@ function PasswordForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 94,
+      lineNumber: 76,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -1360,7 +1342,7 @@ function PasswordForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 102,
+      lineNumber: 84,
       columnNumber: 9
     }
   }, "Cancel"));
@@ -1384,7 +1366,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_password_strength_bar__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_password_strength_bar__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
 /* harmony import */ var _lib_validation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib/validation */ "./src/lib/validation.jsx");
+/* harmony import */ var _gql__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../gql */ "./src/gql.js");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/forms/RegisterForm.jsx";
+
 
 
 
@@ -1397,23 +1381,9 @@ function RegisterForm({
   const [password, setPassword] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   const [isHuman, setIsHuman] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
   const [email, setEmail] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
-  const REGISTER_USER = _apollo_client__WEBPACK_IMPORTED_MODULE_2__["gql"]`
-        mutation registerUser(
-            $username: String!
-            $email: String!
-            $password: String!
-        ) {
-            registerUser(
-                input: {
-                username: $username
-                email: $email
-                password: $password
-                }
-            ) { user { databaseId } }
-        }`;
   const [register, {
     loading
-  }] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(REGISTER_USER);
+  }] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(_gql__WEBPACK_IMPORTED_MODULE_4__["REGISTER_USER"]);
   function handleSubmit(e) {
     e.preventDefault();
     if (isHuman && username.length > 0 && password.length > 0 && Object(_lib_validation__WEBPACK_IMPORTED_MODULE_3__["validateEmail"])(email)) {
@@ -1435,7 +1405,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51,
+      lineNumber: 37,
       columnNumber: 9
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1443,7 +1413,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52,
+      lineNumber: 38,
       columnNumber: 9
     }
   }, "SIGN UP"), message ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1451,7 +1421,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 40,
       columnNumber: 22
     }
   }, message) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1459,7 +1429,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56,
+      lineNumber: 42,
       columnNumber: 9
     }
   }, "Username"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1473,7 +1443,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
+      lineNumber: 44,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1481,7 +1451,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
+      lineNumber: 51,
       columnNumber: 9
     }
   }, "E-mail"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1495,7 +1465,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67,
+      lineNumber: 53,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1503,7 +1473,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74,
+      lineNumber: 60,
       columnNumber: 9
     }
   }, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1517,7 +1487,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76,
+      lineNumber: 62,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_password_strength_bar__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -1528,7 +1498,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83,
+      lineNumber: 69,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1536,7 +1506,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 96,
+      lineNumber: 82,
       columnNumber: 9
     }
   }, "I'm not a bot"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1548,7 +1518,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 98,
+      lineNumber: 84,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1563,7 +1533,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 105,
+      lineNumber: 91,
       columnNumber: 9
     }
   }));
@@ -1585,7 +1555,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
 /* harmony import */ var _lib_validation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib/validation */ "./src/lib/validation.jsx");
+/* harmony import */ var _gql__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../gql */ "./src/gql.js");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/forms/ResetByEmailForm.jsx";
+
 
 
 
@@ -1595,14 +1567,9 @@ function ResetByEmailForm({
   const [message, setMessage] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
   const [email, setEmail] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   const [isHuman, setIsHuman] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
-  const SEND_PASSWORD_RESET_EMAIL = _apollo_client__WEBPACK_IMPORTED_MODULE_1__["gql"]`
-        mutation sendPasswordResetEmail($username: String!) {
-        sendPasswordResetEmail(
-            input: { username: $username }
-        ) { user { databaseId } } }`;
   const [sendPasswordResetEmail, {
     loading
-  }] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_1__["useMutation"])(SEND_PASSWORD_RESET_EMAIL);
+  }] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_1__["useMutation"])(_gql__WEBPACK_IMPORTED_MODULE_3__["SEND_PASSWORD_RESET_EMAIL"]);
   function handleSubmit(e) {
     e.preventDefault();
     if (Object(_lib_validation__WEBPACK_IMPORTED_MODULE_2__["validateEmail"])(email)) {
@@ -1622,7 +1589,7 @@ function ResetByEmailForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
+      lineNumber: 32,
       columnNumber: 13
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1630,7 +1597,7 @@ function ResetByEmailForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 33,
       columnNumber: 9
     }
   }, "PASSWORD RESET"), message ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1638,7 +1605,7 @@ function ResetByEmailForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
+      lineNumber: 35,
       columnNumber: 22
     }
   }, message) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1646,7 +1613,7 @@ function ResetByEmailForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
+      lineNumber: 37,
       columnNumber: 9
     }
   }, "E-mail"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1660,7 +1627,7 @@ function ResetByEmailForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 39,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1668,7 +1635,7 @@ function ResetByEmailForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53,
+      lineNumber: 46,
       columnNumber: 9
     }
   }, "I'm not a bot"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1680,7 +1647,7 @@ function ResetByEmailForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55,
+      lineNumber: 48,
       columnNumber: 9
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1695,7 +1662,7 @@ function ResetByEmailForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62,
+      lineNumber: 55,
       columnNumber: 9
     }
   }));
@@ -1726,7 +1693,7 @@ const ForumListContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 6,
+    lineNumber: 10,
     columnNumber: 9
   }
 }, headings.map(header => {
@@ -1736,7 +1703,7 @@ const ForumListContainer = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
+      lineNumber: 13,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1744,7 +1711,7 @@ const ForumListContainer = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10,
+      lineNumber: 14,
       columnNumber: 25
     }
   }, header.name), topics.filter(item => item.parent === header.id).map(i => {
@@ -1755,7 +1722,7 @@ const ForumListContainer = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 14,
+        lineNumber: 18,
         columnNumber: 37
       }
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -1765,7 +1732,7 @@ const ForumListContainer = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 18,
+        lineNumber: 22,
         columnNumber: 41
       }
     }, "\uD83D\uDDE8\uFE0F"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1773,7 +1740,7 @@ const ForumListContainer = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 19,
+        lineNumber: 23,
         columnNumber: 41
       }
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1781,7 +1748,7 @@ const ForumListContainer = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20,
+        lineNumber: 24,
         columnNumber: 45
       }
     }, i.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1789,7 +1756,7 @@ const ForumListContainer = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 21,
+        lineNumber: 25,
         columnNumber: 45
       }
     }, i.description)));
@@ -2095,8 +2062,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../config */ "./src/config.js");
-/* harmony import */ var _ForumTopicListContainer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ForumTopicListContainer */ "./src/components/forum/ForumTopicListContainer.jsx");
+/* harmony import */ var _gql__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../gql */ "./src/gql.js");
+/* harmony import */ var _ForumTopicListContainer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ForumTopicListContainer */ "./src/components/forum/ForumTopicListContainer.jsx");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/forum/ForumTopicList.jsx";
+
 
 
 
@@ -2109,27 +2078,11 @@ function ForumTopicList() {
   const category = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useSelector"])(state => state.category.value);
   const [topic, setTopic] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
   const [heading, setHeading] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(category.categoryName);
-  const TOPIC_LIST = _apollo_client__WEBPACK_IMPORTED_MODULE_1__["gql"]`
-        query getPostsByCategory(
-                $categoryId: Int!
-            )
-        {
-            posts(where: {categoryId: $categoryId}) {
-                nodes {
-                    postId
-                    title
-                    date
-                    author { node { name } }
-                    isSticky
-                    editingLockedBy { node { name } }
-                }
-            }
-        }`;
   const {
     loading,
     error,
     data
-  } = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_1__["useQuery"])(TOPIC_LIST, {
+  } = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_1__["useQuery"])(_gql__WEBPACK_IMPORTED_MODULE_6__["TOPIC_LIST"], {
     variables: {
       categoryId: category.categoryId
     }
@@ -2149,7 +2102,7 @@ function ForumTopicList() {
   const handleNavigation = postId => {
     navigate(`${_config__WEBPACK_IMPORTED_MODULE_5__["UI_FORUM_TOPIC"]}/:${postId}`);
   };
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ForumTopicListContainer__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ForumTopicListContainer__WEBPACK_IMPORTED_MODULE_7__["default"], {
     category: category,
     heading: heading,
     topic: topic,
@@ -2160,7 +2113,7 @@ function ForumTopicList() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55,
+      lineNumber: 39,
       columnNumber: 9
     }
   });
@@ -2640,15 +2593,71 @@ const {
 /*!********************!*\
   !*** ./src/gql.js ***!
   \********************/
-/*! exports provided: FORUM_POST, FORUM_REPLY */
+/*! exports provided: LOG_IN, REGISTER_USER, RESET_PASSWORD, SEND_PASSWORD_RESET_EMAIL, TOPIC_LIST, FORUM_POST, FORUM_REPLY */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOG_IN", function() { return LOG_IN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REGISTER_USER", function() { return REGISTER_USER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RESET_PASSWORD", function() { return RESET_PASSWORD; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEND_PASSWORD_RESET_EMAIL", function() { return SEND_PASSWORD_RESET_EMAIL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TOPIC_LIST", function() { return TOPIC_LIST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FORUM_POST", function() { return FORUM_POST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FORUM_REPLY", function() { return FORUM_REPLY; });
 /* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
 
+const LOG_IN = _apollo_client__WEBPACK_IMPORTED_MODULE_0__["gql"]`
+    mutation logIn($login: String!, $password: String!) {
+    loginWithCookies(input: { login: $login password: $password })
+    { status } }`;
+const REGISTER_USER = _apollo_client__WEBPACK_IMPORTED_MODULE_0__["gql"]`
+    mutation registerUser(
+        $username: String!
+        $email: String!
+        $password: String!
+    ) {
+        registerUser(
+            input: {
+            username: $username
+            email: $email
+            password: $password
+            }
+        ) { user { databaseId } }
+    }`;
+const RESET_PASSWORD = _apollo_client__WEBPACK_IMPORTED_MODULE_0__["gql"]`
+    mutation resetUserPassword(
+        $key: String!
+        $login: String!
+        $password: String!) {
+        resetUserPassword(
+            input: {
+                key: $key
+                login: $login
+                password: $password
+            }) {
+            user { databaseId } } }`;
+const SEND_PASSWORD_RESET_EMAIL = _apollo_client__WEBPACK_IMPORTED_MODULE_0__["gql"]`
+    mutation sendPasswordResetEmail($username: String!) {
+    sendPasswordResetEmail(
+        input: { username: $username }
+    ) { user { databaseId } } }`;
+const TOPIC_LIST = _apollo_client__WEBPACK_IMPORTED_MODULE_0__["gql"]`
+query getPostsByCategory(
+        $categoryId: Int!
+    )
+{
+    posts(where: {categoryId: $categoryId}) {
+        nodes {
+            postId
+            title
+            date
+            author { node { name } }
+            isSticky
+            editingLockedBy { node { name } }
+        }
+    }
+}`;
 const FORUM_POST = _apollo_client__WEBPACK_IMPORTED_MODULE_0__["gql"]`
 query getPostById($postId: Int!) {
     posts(where: {id: $postId}) {
@@ -3021,5 +3030,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",1]]]);
+},[[0,"runtime-main",0]]]);
 //# sourceMappingURL=main.chunk.js.map

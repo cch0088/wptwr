@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import PasswordStrengthBar from 'react-password-strength-bar';
-import { useMutation, gql } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import { validateEmail } from '../../lib/validation';
+import { REGISTER_USER } from '../../gql';
 
 function RegisterForm({setForm}) {
 
@@ -10,21 +11,6 @@ function RegisterForm({setForm}) {
     const [password, setPassword] = useState('');
     const [isHuman, setIsHuman] = useState(false);
     const [email, setEmail] = useState('');
-
-    const REGISTER_USER = gql`
-        mutation registerUser(
-            $username: String!
-            $email: String!
-            $password: String!
-        ) {
-            registerUser(
-                input: {
-                username: $username
-                email: $email
-                password: $password
-                }
-            ) { user { databaseId } }
-        }`;
 
     const [register, { loading }] = useMutation(REGISTER_USER);
 

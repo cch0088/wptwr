@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import PasswordStrengthBar from 'react-password-strength-bar';
-import { useMutation, gql } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import { getRoot, validatePassword } from '../../lib/validation';
 import { useNavigate } from 'react-router-dom';
 import { WP_ROOT } from '../../config';
+import { RESET_PASSWORD } from '../../gql';
 
 function PasswordForm({pkey, login}) {
     const navigate = useNavigate();
@@ -11,25 +12,6 @@ function PasswordForm({pkey, login}) {
     const [message, setMessage] = useState(null);
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
-
-    const RESET_PASSWORD = gql`
-        mutation resetUserPassword(
-            $key: String!
-            $login: String!
-            $password: String!
-        ) {
-            resetUserPassword(
-            input: {
-                key: $key
-                login: $login
-                password: $password
-            }
-            ) {
-            user {
-                databaseId
-            }
-            }
-        }`;
 
     const [resetPassword, { loading }] = useMutation(RESET_PASSWORD);
 

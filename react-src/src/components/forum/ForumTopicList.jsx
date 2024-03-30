@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useQuery, gql } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { getDateFromString } from '../../lib/validation';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { UI_FORUM, UI_FORUM_TOPIC } from '../../config';
+import { TOPIC_LIST } from '../../gql';
 import ForumTopicListContainer from './ForumTopicListContainer';
 
 function ForumTopicList() {
@@ -13,23 +14,6 @@ function ForumTopicList() {
 
     const [topic, setTopic] = useState([]);
     const [heading, setHeading] = useState(category.categoryName);
-
-    const TOPIC_LIST = gql`
-        query getPostsByCategory(
-                $categoryId: Int!
-            )
-        {
-            posts(where: {categoryId: $categoryId}) {
-                nodes {
-                    postId
-                    title
-                    date
-                    author { node { name } }
-                    isSticky
-                    editingLockedBy { node { name } }
-                }
-            }
-        }`;
 
     const { loading, error, data } = useQuery(TOPIC_LIST,
         { variables: { categoryId: category.categoryId } });

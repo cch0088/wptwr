@@ -1,6 +1,10 @@
 import React from "react";
 
-const ForumListContainer = ({topics, headings, handleNavigation}) =>
+const ForumListContainer = ({
+    topics,
+    headings,
+    handleNavigation
+}) =>
 (
     topics && headings && (
         <div className="forum-list-container">
