@@ -57,20 +57,15 @@ query getPostsByCategory(
 }`;
 
 export const FORUM_NEW_TOPIC = gql`
-    mutation newPost($id: Int!, $content: String!, $title: String!) {
+    mutation newPost($slug: String = "sub-general") {
         createPost(
-        input: {
-            clientMutationId: "CreatePost",
-            categories: {nodes: {id: $id}},
-            title: $title,
-            content: $content
-        }
+        input: {clientMutationId: "CreatePost", title: "fsdasdf", content: "asdf", categories: {nodes: {slug: $slug}}, status: PUBLISH}
         ) {
         post {
-                id
-                title
-                date
-            }
+            id
+            title
+            date
+        }
         }
     }
 `;
