@@ -2172,12 +2172,14 @@ function ForumTopicList() {
   const handleNavigation = postId => {
     navigate(`${_config__WEBPACK_IMPORTED_MODULE_4__["UI_FORUM_TOPIC"]}/:${postId}`);
   };
+  console.log(data);
+  console.log(category.categoryName);
   const handleNewTopic = () => {
     addNewTopic({
       variables: {
-        id: category.categoryId,
-        content,
-        title
+        slug: category.categorySlug,
+        title,
+        content
       }
     }).catch(_er => console.log(_er));
   };
@@ -2198,7 +2200,7 @@ function ForumTopicList() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 57,
       columnNumber: 9
     }
   });
@@ -2443,7 +2445,8 @@ __webpack_require__.r(__webpack_exports__);
 
 const closedState = {
   categoryId: null,
-  categoryName: null
+  categoryName: null,
+  categorySlug: null
 };
 const categorySlice = Object(_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__["createSlice"])({
   name: 'category',
@@ -2809,18 +2812,28 @@ query getPostsByCategory(
     }
 }`;
 const FORUM_NEW_TOPIC = _apollo_client__WEBPACK_IMPORTED_MODULE_0__["gql"]`
-    mutation newPost($slug: String = "sub-general") {
+    mutation newPost($slug: String!, $title: String!, $content: String!) {
         createPost(
-        input: {clientMutationId: "CreatePost", title: "fsdasdf", content: "asdf", categories: {nodes: {slug: $slug}}, status: PUBLISH}
-        ) {
+        input: {
+            clientMutationId: "CreatePost",
+            title: $title,
+            content: $content,
+            categories: {
+                nodes: {slug: $slug}
+            },
+            status: PUBLISH
+        } ) {
         post {
             id
             title
             date
-        }
-        }
-    }
-`;
+            author {
+                node {
+                    name
+                }
+            }
+        } }
+}`;
 const FORUM_GET_POSTS = _apollo_client__WEBPACK_IMPORTED_MODULE_0__["gql"]`
 query getPostById($postId: Int!) {
     posts(where: {id: $postId}) {
