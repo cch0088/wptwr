@@ -1,46 +1,15 @@
 import React, { useEffect, useState } from "react";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { gql, useMutation, useQuery } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { getDateFromString } from "../../lib/validation";
 import { useNavigate, useParams } from "react-router-dom";
+import { FORUM_POST, FORUM_REPLY } from "../../gql";
 import { UI_FORUM } from "../../config";
 
 function ForumTopic() {
     const { fromUrlPostId } = useParams();
     const postId = Number(fromUrlPostId.replace(':', ''));
-
-    const FORUM_POST = gql`
-        query getPostById($postId: Int!) {
-            posts(where: {id: $postId}) {
-            nodes {
-                databaseId
-                title
-                content
-                author { node {
-                    name
-                    avatar { url } } }
-                date
-                comments(where: {orderby: COMMENT_DATE, order: ASC}) {
-                edges { node {
-                    databaseId
-                    content
-                    date
-                    author { node {
-                        name
-                        avatar { url } } } } } } } } }`;
-
-    const FORUM_REPLY = gql`
-        mutation AddReply($commentOn: Int!, $content: String!) {
-            createComment(input: {
-                    content: $content,
-                    commentOn: $commentOn
-            })
-            {
-                clientMutationId
-                success
-            }
-        }`;
 
     const [replyOpen, setReplyOpen] = useState(false);
     const [content, setContent] = useState('');
