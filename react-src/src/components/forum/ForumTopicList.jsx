@@ -6,10 +6,10 @@ import { useNavigate } from 'react-router-dom';
 import { UI_FORUM, UI_FORUM_TOPIC } from '../../config';
 import ForumTopicListContainer from './ForumTopicListContainer';
 
-function ForumTopicList({setPostId}) {
+function ForumTopicList() {
 
-    const category = useSelector(state => state.category.value);
     const navigate = useNavigate();
+    const category = useSelector(state => state.category.value);
 
     const [topic, setTopic] = useState([]);
     const [heading, setHeading] = useState(category.categoryName);
@@ -48,8 +48,7 @@ function ForumTopicList({setPostId}) {
     },[loading, error, data, navigate])
 
     const handleNavigation = (postId) => {
-        setPostId(postId);
-        navigate(UI_FORUM_TOPIC);
+        navigate(`${UI_FORUM_TOPIC}/:${postId}`);
     }
 
     return (

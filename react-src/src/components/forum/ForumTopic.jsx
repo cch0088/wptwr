@@ -3,10 +3,12 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { gql, useMutation, useQuery } from "@apollo/client";
 import { getDateFromString } from "../../lib/validation";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { UI_FORUM } from "../../config";
 
-function ForumTopic({postId}) {
+function ForumTopic() {
+    const { fromUrlPostId } = useParams();
+    const postId = Number(fromUrlPostId.replace(':', ''));
 
     const FORUM_POST = gql`
         query getPostById($postId: Int!) {
@@ -61,43 +63,7 @@ function ForumTopic({postId}) {
                 commentOn: postId,
                 content,
             }
-        })
-        .then(
-            appendPost(content)
-        );
-    }
-
-    const appendPost = (content) => {
-        const newPost = {
-            __typename: "PostToCommentConnectionEdge",
-            node: {
-                __typename: "Comment",
-                databaseId: 0,
-                content,
-                date: "2024-03-29 19:40:37",
-                author: {
-                __typename: "CommentToCommenterConnectionEdge",
-                    node: {
-                    __typename: "User",
-                    name: "username",
-                    avatar: {
-                        __typename: "Avatar",
-                        url: "https://secure.gravatar.com/avatar/ca73d1432f9b2bf71ce39ecea5756c11?s=96&d=mm&r=g"
-                        }
-                    }
-                }
-            }
-        }
-
-        const comments = {
-            edges: [
-                ...topic.comments.edges,
-                newPost
-            ]
-        }
-
-        setTopic({...topic, comments});
-        setReplyOpen(false);
+        }).then(navigate(0));
     }
 
     useEffect(() => {
