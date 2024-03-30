@@ -22,12 +22,12 @@ function ForumSite() {
         });
     },[dispatch, route]);
 
-    const heading = [];
-    const topic = [];
+    const headings = [];
+    const topics = [];
 
     categories.forEach(item => {
         if (item.parent > 0) {
-            topic.push({
+            topics.push({
                 id: item.id,
                 name: item.name,
                 description: item.description,
@@ -36,7 +36,7 @@ function ForumSite() {
             })
         }
         else {
-            heading.push({
+            headings.push({
                 id: item.id,
                 name: item.description
             })
@@ -51,8 +51,8 @@ function ForumSite() {
     return (
         <ForumListContainer
             handleNavigation={handleNavigation}
-            heading={heading}
-            topic={topic}
+            headings={headings}
+            topics={topics}
         />
     );
 }

@@ -1,14 +1,14 @@
 import React from "react";
 
-const ForumListContainer = ({topic, heading, handleNavigation}) =>
+const ForumListContainer = ({topics, headings, handleNavigation}) =>
 (
-    topic && heading && (
+    topics && headings && (
         <div className="forum-list-container">
-            {heading.map((header) => {
+            {headings.map((header) => {
                 return (
                     <div className="forum-section" key={header.id}>
                         <div className="forum-category">{header.name}</div>
-                        {topic.filter((item) => item.parent === header.id)
+                        {topics.filter((item) => item.parent === header.id)
                             .map((i) => {
                                 return (
                                     <div key={i.id}

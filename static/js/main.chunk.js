@@ -1719,10 +1719,10 @@ __webpack_require__.r(__webpack_exports__);
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/forum/ForumListContainer.jsx";
 
 const ForumListContainer = ({
-  topic,
-  heading,
+  topics,
+  headings,
   handleNavigation
-}) => topic && heading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+}) => topics && headings && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   className: "forum-list-container",
   __self: undefined,
   __source: {
@@ -1730,7 +1730,7 @@ const ForumListContainer = ({
     lineNumber: 6,
     columnNumber: 9
   }
-}, heading.map(header => {
+}, headings.map(header => {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "forum-section",
     key: header.id,
@@ -1748,7 +1748,7 @@ const ForumListContainer = ({
       lineNumber: 10,
       columnNumber: 25
     }
-  }, header.name), topic.filter(item => item.parent === header.id).map(i => {
+  }, header.name), topics.filter(item => item.parent === header.id).map(i => {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: i.id,
       className: "forum-topic",
@@ -1838,11 +1838,11 @@ function ForumSite() {
       dispatch(Object(_features_ForumSlice__WEBPACK_IMPORTED_MODULE_4__["pushForumContent"])(object));
     });
   }, [dispatch, route]);
-  const heading = [];
-  const topic = [];
+  const headings = [];
+  const topics = [];
   categories.forEach(item => {
     if (item.parent > 0) {
-      topic.push({
+      topics.push({
         id: item.id,
         name: item.name,
         description: item.description,
@@ -1850,7 +1850,7 @@ function ForumSite() {
         parent: item.parent
       });
     } else {
-      heading.push({
+      headings.push({
         id: item.id,
         name: item.description
       });
@@ -1865,8 +1865,8 @@ function ForumSite() {
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ForumListContainer__WEBPACK_IMPORTED_MODULE_7__["default"], {
     handleNavigation: handleNavigation,
-    heading: heading,
-    topic: topic,
+    headings: headings,
+    topics: topics,
     __self: this,
     __source: {
       fileName: _jsxFileName,
