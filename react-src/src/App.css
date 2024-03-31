@@ -456,3 +456,7 @@ code {
   min-height: 200px;
   max-height: 400px;
 }
+
+.ql-container {
+  font-size: medium;
+}
