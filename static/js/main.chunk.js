@@ -2164,7 +2164,8 @@ function ForumTopicList() {
     } else {
       setHeading('Nothing to show here. Feel free to add a topic.');
     }
-  }, [loading, error, data, navigate, categoryId, dispatch, route]);
+    // eslint-disable-next-line
+  }, [loading, categoryId]);
   const handleNavigation = postId => {
     navigate(`${_config__WEBPACK_IMPORTED_MODULE_4__["UI_FORUM_TOPIC"]}/:${postId}`);
   };

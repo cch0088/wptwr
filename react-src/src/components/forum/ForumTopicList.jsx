@@ -15,7 +15,6 @@ function ForumTopicList() {
     const dispatch = useDispatch();
 
     const route = API_CATEGORIES;
-
     const category = useSelector(state => state.category.value);
 
     const navigate = useNavigate();
@@ -34,10 +33,10 @@ function ForumTopicList() {
         getContent(`${route}/${categoryId}`)
         .then(object => {
             dispatch(
-            setCategory({
-                categoryId: object.id,
-                categoryName: object.name,
-                categorySlug: object.slug
+                setCategory({
+                    categoryId: object.id,
+                    categoryName: object.name,
+                    categorySlug: object.slug
             }))});
         if (loading) {
             setHeading('Loading...');
@@ -49,7 +48,8 @@ function ForumTopicList() {
         } else {
             setHeading('Nothing to show here. Feel free to add a topic.');
         }
-    },[loading, error, data, navigate, categoryId, dispatch, route])
+        // eslint-disable-next-line
+    },[loading, categoryId])
 
     const handleNavigation = (postId) => {
         navigate(`${UI_FORUM_TOPIC}/:${postId}`);
