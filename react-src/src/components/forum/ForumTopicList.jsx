@@ -7,8 +7,11 @@ import { FORUM_NEW_TOPIC, TOPIC_LIST } from '../../gql';
 import ForumTopicListContainer from './ForumTopicListContainer';
 import { setCategory } from '../../features/CategorySlice';
 import { getContent } from '../../features/PageServices';
+import useAuth from '../../hooks/useAuth';
 
 function ForumTopicList() {
+    const { loggedIn } = useAuth();
+
     const { fromUrlCategoryId } = useParams();
     const categoryId = Number(fromUrlCategoryId.replace(':', ''));
 
@@ -76,6 +79,7 @@ function ForumTopicList() {
             content={content}
             title={title}
             newTopicLoading={newTopicLoading}
+            newTopicDisabled={!loggedIn}
             setTitle={setTitle}
             handleNavigation={handleNavigation}
             handleNewTopic={handleNewTopic}

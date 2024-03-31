@@ -39,9 +39,14 @@ const ForumTopicContainer = ({
             </div>
             {
                 !replyOpen
-                ? <button disabled={replyDisabled} className="forum-button" onClick={() => setReplyOpen(true)}>Add reply</button>
-                :
-                <>
+                ? <>
+                    {
+                        replyDisabled
+                        ? <div>You must be logged in to post a reply.</div>
+                        : <button className="forum-button" onClick={() => setReplyOpen(true)}>Add reply</button>
+                    }
+                </>
+                : <>
                     <div id="text-editor-container">
                         <ReactQuill
                             theme="snow"
@@ -53,6 +58,7 @@ const ForumTopicContainer = ({
                         replyLoading
                         || content === "<p><br></p>"
                         || !content
+                        || replyDisabled
                     } onClick={() => submitReply()}>Send reply</button>
                 </>
             }

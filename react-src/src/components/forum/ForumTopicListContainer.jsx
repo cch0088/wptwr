@@ -17,7 +17,8 @@ const ForumTopicListContainer = ({
     setContent,
     title,
     setTitle,
-    newTopicLoading
+    newTopicLoading,
+    newTopicDisabled
 }) =>
 (
     <div className="forum-list-container">
@@ -42,7 +43,13 @@ const ForumTopicListContainer = ({
         </div>
         {!error && !loading &&
         (!newTopicOpen
-        ? <button onClick={() => setNewTopicOpen(true)} className="forum-button">New topic</button>
+        ? <>
+        {
+            newTopicDisabled
+            ? <div>You must be logged in to create a new topic.</div>
+            : <button onClick={() => setNewTopicOpen(true)} className="forum-button">New topic</button>
+        }
+        </>
         : <>
             <div id="new-topic-container">
             <input className="new-topic-title"
@@ -64,6 +71,7 @@ const ForumTopicListContainer = ({
                 || content === "<p><br></p>"
                 || !content
                 || !title
+                || newTopicDisabled
             } onClick={() => handleNewTopic()} className="forum-button">Add topic</button>
         </>
         )}
