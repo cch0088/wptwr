@@ -5,7 +5,6 @@ import Modal from './Modal';
 import LoginForm from './forms/LoginForm';
 import useAuth, { GET_USER } from '../hooks/useAuth';
 import { useMutation } from '@apollo/client';
-import { UI_ACCOUNT } from '../config';
 import RegisterForm from './forms/RegisterForm';
 import ConfirmForm from './forms/ConfirmForm';
 import ResetByEmailForm from './forms/ResetByEmailForm';
@@ -50,9 +49,9 @@ return (
             {
                 (loggedIn && !loading) &&
                 <>
-                    <a className="userbutton" href={UI_ACCOUNT}>
+                    {/* <a className="userbutton" href={UI_ACCOUNT}>
                         <span role="img" aria-label="head">👤</span> Account
-                    </a>
+                    </a> */}
                     <span className="userbutton" onClick={() => { logOut() }}>
                         <span role="img" aria-label="door">🚪</span> Log Out
                     </span>
