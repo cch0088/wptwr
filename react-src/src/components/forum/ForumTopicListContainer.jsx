@@ -16,7 +16,8 @@ const ForumTopicListContainer = ({
     content,
     setContent,
     title,
-    setTitle
+    setTitle,
+    newTopicLoading
 }) =>
 (
     <div className="forum-list-container">
@@ -58,7 +59,12 @@ const ForumTopicListContainer = ({
                     onChange={setContent}
                 />
             </div>
-            <button onClick={() => handleNewTopic()} className="forum-button">Add topic</button>
+            <button disabled={
+                newTopicLoading
+                || content === "<p><br></p>"
+                || !content
+                || !title
+            } onClick={() => handleNewTopic()} className="forum-button">Add topic</button>
         </>
         )}
     </div>

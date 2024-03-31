@@ -75,6 +75,7 @@ function ForumTopicList() {
             newTopicOpen={newTopicOpen}
             content={content}
             title={title}
+            newTopicLoading={newTopicLoading}
             setTitle={setTitle}
             handleNavigation={handleNavigation}
             handleNewTopic={handleNewTopic}

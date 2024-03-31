@@ -48,7 +48,11 @@ const ForumTopicContainer = ({
                             onChange={setContent}
                         />
                     </div>
-                    <button className="forum-button" disabled={replyLoading} onClick={() => submitReply()}>Send reply</button>
+                    <button className="forum-button" disabled={
+                        replyLoading
+                        || content === "<p><br></p>"
+                        || !content
+                    } onClick={() => submitReply()}>Send reply</button>
                 </>
             }
         </>
