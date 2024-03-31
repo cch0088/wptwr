@@ -364,6 +364,17 @@ code {
   margin-bottom: 12px;
 }
 
+.forum-post-owner {
+  margin-bottom: 5px;
+  display: flex;
+}
+
+.forum-post-owner > img {
+  height: 36px;
+  width: 36px;
+  margin-right: 10px;
+}
+
 .forum-post-info {
   font-size: small;
 }

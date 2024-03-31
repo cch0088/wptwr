@@ -2038,7 +2038,7 @@ const ForumTopicContainer = ({
     lineNumber: 34,
     columnNumber: 21
   }
-}, Object(_lib_validation__WEBPACK_IMPORTED_MODULE_3__["getDateFromString"])(topic.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+}, "Post #1 on ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_3__["getDateFromString"])(topic.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   dangerouslySetInnerHTML: renderHTML(topic.content),
   __self: undefined,
   __source: {
@@ -2046,7 +2046,7 @@ const ForumTopicContainer = ({
     lineNumber: 35,
     columnNumber: 21
   }
-})), topic.comments.edges.map(post => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+})), topic.comments.edges.map((post, count) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   key: post.node.databaseId,
   className: "forum-post",
   __self: undefined,
@@ -2080,7 +2080,7 @@ const ForumTopicContainer = ({
     lineNumber: 43,
     columnNumber: 25
   }
-}, Object(_lib_validation__WEBPACK_IMPORTED_MODULE_3__["getDateFromString"])(post.node.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+}, "Post #", count + 2, " on ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_3__["getDateFromString"])(post.node.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   dangerouslySetInnerHTML: renderHTML(post.node.content),
   __self: undefined,
   __source: {
