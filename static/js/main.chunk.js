@@ -756,7 +756,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _forms_RegisterForm__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./forms/RegisterForm */ "./src/components/forms/RegisterForm.jsx");
 /* harmony import */ var _forms_ConfirmForm__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./forms/ConfirmForm */ "./src/components/forms/ConfirmForm.jsx");
 /* harmony import */ var _forms_ResetByEmailForm__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./forms/ResetByEmailForm */ "./src/components/forms/ResetByEmailForm.jsx");
+/* harmony import */ var _gql__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../gql */ "./src/gql.js");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/UserControl.jsx";
+
 
 
 
@@ -776,12 +778,7 @@ function UserControl() {
     loggedIn,
     loading
   } = Object(_hooks_useAuth__WEBPACK_IMPORTED_MODULE_5__["default"])();
-  const LOG_OUT = _apollo_client__WEBPACK_IMPORTED_MODULE_6__["gql"]`
-        mutation logOut {
-            logout(input: {})
-            { status }
-        }`;
-  const [logOut] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_6__["useMutation"])(LOG_OUT, {
+  const [logOut] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_6__["useMutation"])(_gql__WEBPACK_IMPORTED_MODULE_11__["LOG_OUT"], {
     refetchQueries: [{
       query: _hooks_useAuth__WEBPACK_IMPORTED_MODULE_5__["GET_USER"]
     }]
@@ -795,7 +792,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
+      lineNumber: 34,
       columnNumber: 9
     }
   }, form === 0 && modal.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -803,14 +800,14 @@ function UserControl() {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40,
+        lineNumber: 35,
         columnNumber: 61
       }
     }),
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 35,
       columnNumber: 43
     }
   }), form === 1 && modal.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -819,14 +816,14 @@ function UserControl() {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41,
+        lineNumber: 36,
         columnNumber: 61
       }
     }),
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 36,
       columnNumber: 43
     }
   }), form === 2 && modal.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -835,14 +832,14 @@ function UserControl() {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 42,
+        lineNumber: 37,
         columnNumber: 61
       }
     }),
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
+      lineNumber: 37,
       columnNumber: 43
     }
   }), form === 3 && modal.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -851,14 +848,14 @@ function UserControl() {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 43,
+        lineNumber: 38,
         columnNumber: 61
       }
     }),
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
+      lineNumber: 38,
       columnNumber: 43
     }
   }), !loggedIn && !loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -869,7 +866,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 42,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -878,7 +875,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 43,
       columnNumber: 25
     }
   }, "\uD83C\uDD95"), " Sign Up"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -889,7 +886,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 45,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -898,7 +895,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51,
+      lineNumber: 46,
       columnNumber: 25
     }
   }, "\uD83D\uDC64"), " Log In")), loggedIn && !loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -907,7 +904,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
+      lineNumber: 53,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -916,7 +913,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59,
+      lineNumber: 54,
       columnNumber: 25
     }
   }, "\uD83D\uDC64"), " Account"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -927,7 +924,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61,
+      lineNumber: 56,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -936,7 +933,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62,
+      lineNumber: 57,
       columnNumber: 25
     }
   }, "\uD83D\uDEAA"), " Log Out")), loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -944,7 +941,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69,
+      lineNumber: 64,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -953,7 +950,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70,
+      lineNumber: 65,
       columnNumber: 25
     }
   }, "\u23F3"), " Loading...")));
@@ -2743,12 +2740,13 @@ const {
 /*!********************!*\
   !*** ./src/gql.js ***!
   \********************/
-/*! exports provided: LOG_IN, REGISTER_USER, RESET_PASSWORD, SEND_PASSWORD_RESET_EMAIL, TOPIC_LIST, FORUM_NEW_TOPIC, FORUM_GET_POSTS, FORUM_REPLY */
+/*! exports provided: LOG_IN, LOG_OUT, REGISTER_USER, RESET_PASSWORD, SEND_PASSWORD_RESET_EMAIL, TOPIC_LIST, FORUM_NEW_TOPIC, FORUM_GET_POSTS, FORUM_REPLY */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOG_IN", function() { return LOG_IN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOG_OUT", function() { return LOG_OUT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REGISTER_USER", function() { return REGISTER_USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RESET_PASSWORD", function() { return RESET_PASSWORD; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEND_PASSWORD_RESET_EMAIL", function() { return SEND_PASSWORD_RESET_EMAIL; });
@@ -2762,6 +2760,11 @@ const LOG_IN = _apollo_client__WEBPACK_IMPORTED_MODULE_0__["gql"]`
     mutation logIn($login: String!, $password: String!) {
     loginWithCookies(input: { login: $login password: $password })
     { status } }`;
+const LOG_OUT = _apollo_client__WEBPACK_IMPORTED_MODULE_0__["gql"]`
+    mutation logOut {
+        logout(input: {})
+        { status }
+    }`;
 const REGISTER_USER = _apollo_client__WEBPACK_IMPORTED_MODULE_0__["gql"]`
     mutation registerUser(
         $username: String!

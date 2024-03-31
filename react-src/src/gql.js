@@ -5,6 +5,12 @@ export const LOG_IN = gql`
     loginWithCookies(input: { login: $login password: $password })
     { status } }`;
 
+export const LOG_OUT = gql`
+    mutation logOut {
+        logout(input: {})
+        { status }
+    }`;
+
 export const REGISTER_USER = gql`
     mutation registerUser(
         $username: String!
