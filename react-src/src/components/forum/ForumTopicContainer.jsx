@@ -10,6 +10,7 @@ const ForumTopicContainer = ({
     replyOpen,
     setReplyOpen,
     replyLoading,
+    replyDisabled,
     submitReply,
     renderHTML,
     setContent,
@@ -26,21 +27,34 @@ const ForumTopicContainer = ({
             <div className="forum-section">
                 <div className="forum-category">{topic.title}</div>
                 <div className="forum-post">
-                    <div className="forum-post-info">{topic.author.node.name} on {getDateFromString(topic.date)}</div>
+                    <div className="forum-post-owner">
+                        <img alt="avatar" src={topic.author.node.avatar.url} />
+                        {topic.author.node.name}
+                    </div>
+                    <div className="forum-post-info">Post #1 on {getDateFromString(topic.date)}</div>
                     <div dangerouslySetInnerHTML={renderHTML(topic.content)} />
                 </div>
-                {topic.comments.edges.map((post) => (
+                {topic.comments.edges.map((post, count) => (
                     <div key={post.node.databaseId} className="forum-post">
-                        <div className="forum-post-info">{post.node.author.node.name} on {getDateFromString(post.node.date)}</div>
+                        <div className="forum-post-owner">
+                            <img alt="avatar" src={post.node.author.node.avatar.url} />
+                            {post.node.author.node.name}
+                        </div>
+                        <div className="forum-post-info">Post #{count + 2} on {getDateFromString(post.node.date)}</div>
                         <div dangerouslySetInnerHTML={renderHTML(post.node.content)} />
                     </div>
                 ))}
             </div>
             {
                 !replyOpen
-                ? <button className="forum-button" onClick={() => setReplyOpen(true)}>Add reply</button>
-                :
-                <>
+                ? <>
+                    {
+                        replyDisabled
+                        ? <div>You must be logged in to post a reply.</div>
+                        : <button className="forum-button" onClick={() => setReplyOpen(true)}>Add reply</button>
+                    }
+                </>
+                : <>
                     <div id="text-editor-container">
                         <ReactQuill
                             theme="snow"
@@ -48,7 +62,12 @@ const ForumTopicContainer = ({
                             onChange={setContent}
                         />
                     </div>
-                    <button className="forum-button" disabled={replyLoading} onClick={() => submitReply()}>Send reply</button>
+                    <button className="forum-button" disabled={
+                        replyLoading
+                        || content === "<p><br></p>"
+                        || !content
+                        || replyDisabled
+                    } onClick={() => submitReply()}>Send reply</button>
                 </>
             }
         </>

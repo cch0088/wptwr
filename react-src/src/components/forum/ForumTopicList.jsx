@@ -1,26 +1,49 @@
 import React, { useEffect, useState } from 'react';
-import { useQuery } from '@apollo/client';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { UI_FORUM, UI_FORUM_TOPIC } from '../../config';
-import { TOPIC_LIST } from '../../gql';
+import { useMutation, useQuery } from '@apollo/client';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
+import { API_CATEGORIES, UI_FORUM, UI_FORUM_TOPIC } from '../../config';
+import { FORUM_NEW_TOPIC, TOPIC_LIST } from '../../gql';
 import ForumTopicListContainer from './ForumTopicListContainer';
+import { setCategory } from '../../features/CategorySlice';
+import { getContent } from '../../features/PageServices';
+import useAuth from '../../hooks/useAuth';
 
 function ForumTopicList() {
+    const { loggedIn } = useAuth();
 
-    const navigate = useNavigate();
+    const { fromUrlCategoryId } = useParams();
+    const categoryId = Number(fromUrlCategoryId.replace(':', ''));
+
+    const dispatch = useDispatch();
+
+    const route = API_CATEGORIES;
     const category = useSelector(state => state.category.value);
 
-    const [topic, setTopic] = useState([]);
-    const [heading, setHeading] = useState(category.categoryName);
+    const navigate = useNavigate();
 
-    const { loading, error, data } = useQuery(TOPIC_LIST,
-        { variables: { categoryId: category.categoryId } });
+    const [topic, setTopic] = useState([]);
+    const [title, setTitle] = useState('');
+    const [heading, setHeading] = useState(category.categoryName);
+    const [content, setContent] = useState('');
+
+    const [newTopicOpen, setNewTopicOpen] = useState(false);
+    const [addNewTopic, { loading: newTopicLoading } ] = useMutation(FORUM_NEW_TOPIC);
+
+    const { loading, error, data } = useQuery(TOPIC_LIST, { variables: { categoryId } });
 
     useEffect(() => {
+        getContent(`${route}/${categoryId}`)
+        .then(object => {
+            dispatch(
+                setCategory({
+                    categoryId: object.id,
+                    categoryName: object.name,
+                    categorySlug: object.slug
+            }))});
         if (loading) {
             setHeading('Loading...');
-        } else if (error) {
+        } else if (error || categoryId < 1) {
             navigate(UI_FORUM);
         } else if (data.posts.nodes[0]) {
             setHeading(null);
@@ -28,20 +51,40 @@ function ForumTopicList() {
         } else {
             setHeading('Nothing to show here. Feel free to add a topic.');
         }
-    },[loading, error, data, navigate])
+        // eslint-disable-next-line
+    },[loading, categoryId])
 
     const handleNavigation = (postId) => {
         navigate(`${UI_FORUM_TOPIC}/:${postId}`);
+    }
+
+    const handleNewTopic = () => {
+        addNewTopic({
+            variables: {
+                slug: category.categorySlug,
+                title,
+                content
+            }
+        }).then(!newTopicLoading && navigate(0));
     }
 
     return (
         <ForumTopicListContainer
             category={category}
             error={error}
-            handleNavigation={handleNavigation}
             heading={heading}
             topic={topic}
             loading={loading}
+            newTopicOpen={newTopicOpen}
+            content={content}
+            title={title}
+            newTopicLoading={newTopicLoading}
+            newTopicDisabled={!loggedIn}
+            setTitle={setTitle}
+            handleNavigation={handleNavigation}
+            handleNewTopic={handleNewTopic}
+            setNewTopicOpen={setNewTopicOpen}
+            setContent={setContent}
         />
     );
 }

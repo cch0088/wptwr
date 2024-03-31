@@ -4,11 +4,12 @@ import { openModal } from '../features/ModalSlice';
 import Modal from './Modal';
 import LoginForm from './forms/LoginForm';
 import useAuth, { GET_USER } from '../hooks/useAuth';
-import { gql, useMutation } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import { UI_ACCOUNT } from '../config';
 import RegisterForm from './forms/RegisterForm';
 import ConfirmForm from './forms/ConfirmForm';
 import ResetByEmailForm from './forms/ResetByEmailForm';
+import { LOG_OUT } from '../gql';
 
 function UserControl() {
 
@@ -17,12 +18,6 @@ function UserControl() {
 
     const dispatch = useDispatch();
     const {loggedIn, loading} = useAuth();
-
-    const LOG_OUT = gql`
-        mutation logOut {
-            logout(input: {})
-            { status }
-        }`;
 
     const [logOut] = useMutation(LOG_OUT, {
         refetchQueries: [

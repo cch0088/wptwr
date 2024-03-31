@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const closedState = { categoryId: null, categoryName: null };
+const closedState = { categoryId: null, categoryName: null, categorySlug: null };
 
 export const categorySlice = createSlice({
     name: 'category',

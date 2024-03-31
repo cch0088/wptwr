@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import { useNavigate, useParams } from "react-router-dom";
-import { FORUM_POST, FORUM_REPLY } from "../../gql";
+import { FORUM_GET_POSTS, FORUM_REPLY } from "../../gql";
 import { UI_FORUM } from "../../config";
 import ForumTopicContainer from "./ForumTopicContainer";
+import useAuth from "../../hooks/useAuth";
 
 function ForumTopic() {
+    const { loggedIn } = useAuth();
+
     const { fromUrlPostId } = useParams();
     const postId = Number(fromUrlPostId.replace(':', ''));
 
     const [replyOpen, setReplyOpen] = useState(false);
     const [content, setContent] = useState('');
+    const [title, setTitle] = useState('');
     const [topic, setTopic] = useState();
 
-    const { loading: postLoading, error, data } = useQuery(FORUM_POST, { variables: { postId } });
+    const { loading: postLoading, error, data } = useQuery(FORUM_GET_POSTS, { variables: { postId } });
     const [sendReply, { loading: replyLoading }] = useMutation(FORUM_REPLY);
 
     const renderHTML = (content) => {
@@ -28,7 +32,7 @@ function ForumTopic() {
                 commentOn: postId,
                 content,
             }
-        }).then(navigate(0));
+        }).then(!replyLoading && navigate(0));
     }
 
     useEffect(() => {
@@ -37,7 +41,8 @@ function ForumTopic() {
         } else {
             data && setTopic(data.posts.nodes[0]);
         }
-    },[error, navigate, data])
+        // eslint-disable-next-line
+    },[error, data])
 
     return (
         <ForumTopicContainer
@@ -47,9 +52,12 @@ function ForumTopic() {
             replyOpen={replyOpen}
             content={content}
             replyLoading={replyLoading}
+            title={title}
+            setTitle={setTitle}
             setReplyOpen={setReplyOpen}
             setContent={setContent}
             submitReply={submitReply}
+            replyDisabled={!loggedIn}
             renderHTML={renderHTML}
         />
     );

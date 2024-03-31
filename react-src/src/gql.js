@@ -5,6 +5,12 @@ export const LOG_IN = gql`
     loginWithCookies(input: { login: $login password: $password })
     { status } }`;
 
+export const LOG_OUT = gql`
+    mutation logOut {
+        logout(input: {})
+        { status }
+    }`;
+
 export const REGISTER_USER = gql`
     mutation registerUser(
         $username: String!
@@ -56,7 +62,31 @@ query getPostsByCategory(
     }
 }`;
 
-export const FORUM_POST = gql`
+export const FORUM_NEW_TOPIC = gql`
+    mutation newPost($slug: String!, $title: String!, $content: String!) {
+        createPost(
+        input: {
+            clientMutationId: "CreatePost",
+            title: $title,
+            content: $content,
+            categories: {
+                nodes: {slug: $slug}
+            },
+            status: PUBLISH
+        } ) {
+        post {
+            id
+            title
+            date
+            author {
+                node {
+                    name
+                }
+            }
+        } }
+}`;
+
+export const FORUM_GET_POSTS = gql`
 query getPostById($postId: Int!) {
     posts(where: {id: $postId}) {
     nodes {
