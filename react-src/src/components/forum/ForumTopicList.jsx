@@ -26,7 +26,7 @@ function ForumTopicList() {
     const [content, setContent] = useState('');
 
     const [newTopicOpen, setNewTopicOpen] = useState(false);
-    const [addNewTopic] = useMutation(FORUM_NEW_TOPIC);
+    const [addNewTopic, { loading: newTopicLoading } ] = useMutation(FORUM_NEW_TOPIC);
 
     const { loading, error, data } = useQuery(TOPIC_LIST, { variables: { categoryId } });
 
@@ -41,7 +41,7 @@ function ForumTopicList() {
             }))});
         if (loading) {
             setHeading('Loading...');
-        } else if (error) {
+        } else if (error || categoryId < 1) {
             navigate(UI_FORUM);
         } else if (data.posts.nodes[0]) {
             setHeading(null);
@@ -62,7 +62,7 @@ function ForumTopicList() {
                 title,
                 content
             }
-        });
+        }).then(!newTopicLoading && navigate(0));
     }
 
     return (

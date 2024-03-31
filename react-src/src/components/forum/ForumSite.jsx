@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getContent } from "../../features/PageServices";
 import { pushForumContent } from "../../features/ForumSlice";
 import { useNavigate } from "react-router-dom";
-import { setCategory } from "../../features/CategorySlice";
 import { UI_FORUM_THREADS } from "../../config";
 import ForumListContainer from "./ForumListContainer";
 
@@ -41,12 +40,7 @@ function ForumSite() {
         }
     })
 
-    const handleNavigation = (categoryId, categoryName, categorySlug) => {
-        setCategory({
-            categoryId,
-            categoryName,
-            categorySlug
-        });
+    const handleNavigation = (categoryId) => {
         navigate(`${UI_FORUM_THREADS}/:${categoryId}`);
     };
 

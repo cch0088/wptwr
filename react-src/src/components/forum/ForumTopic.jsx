@@ -29,7 +29,7 @@ function ForumTopic() {
                 commentOn: postId,
                 content,
             }
-        }).then(navigate(0));
+        }).then(!replyLoading && navigate(0));
     }
 
     useEffect(() => {

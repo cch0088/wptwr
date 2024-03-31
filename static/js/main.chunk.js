@@ -1717,7 +1717,7 @@ const ForumListContainer = ({
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: i.id,
       className: "forum-topic",
-      onClick: () => handleNavigation(i.id, i.name, i.slug),
+      onClick: () => handleNavigation(i.id),
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
@@ -1781,10 +1781,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _features_PageServices__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../features/PageServices */ "./src/features/PageServices.jsx");
 /* harmony import */ var _features_ForumSlice__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../features/ForumSlice */ "./src/features/ForumSlice.jsx");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
-/* harmony import */ var _features_CategorySlice__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../features/CategorySlice */ "./src/features/CategorySlice.jsx");
-/* harmony import */ var _ForumListContainer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ForumListContainer */ "./src/components/forum/ForumListContainer.jsx");
+/* harmony import */ var _ForumListContainer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ForumListContainer */ "./src/components/forum/ForumListContainer.jsx");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/forum/ForumSite.jsx";
-
 
 
 
@@ -1822,22 +1820,17 @@ function ForumSite() {
       });
     }
   });
-  const handleNavigation = (categoryId, categoryName, categorySlug) => {
-    Object(_features_CategorySlice__WEBPACK_IMPORTED_MODULE_6__["setCategory"])({
-      categoryId,
-      categoryName,
-      categorySlug
-    });
+  const handleNavigation = categoryId => {
     navigate(`${_config__WEBPACK_IMPORTED_MODULE_1__["UI_FORUM_THREADS"]}/:${categoryId}`);
   };
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ForumListContainer__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ForumListContainer__WEBPACK_IMPORTED_MODULE_6__["default"], {
     handleNavigation: handleNavigation,
     headings: headings,
     topics: topics,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 48,
       columnNumber: 9
     }
   });
@@ -1902,7 +1895,7 @@ function ForumTopic() {
         commentOn: postId,
         content
       }
-    }).then(navigate(0));
+    }).then(!replyLoading && navigate(0));
   };
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     if (error) {
@@ -2141,7 +2134,9 @@ function ForumTopicList() {
   const [heading, setHeading] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(category.categoryName);
   const [content, setContent] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   const [newTopicOpen, setNewTopicOpen] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
-  const [addNewTopic] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_1__["useMutation"])(_gql__WEBPACK_IMPORTED_MODULE_5__["FORUM_NEW_TOPIC"]);
+  const [addNewTopic, {
+    loading: newTopicLoading
+  }] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_1__["useMutation"])(_gql__WEBPACK_IMPORTED_MODULE_5__["FORUM_NEW_TOPIC"]);
   const {
     loading,
     error,
@@ -2161,7 +2156,7 @@ function ForumTopicList() {
     });
     if (loading) {
       setHeading('Loading...');
-    } else if (error) {
+    } else if (error || categoryId < 1) {
       navigate(_config__WEBPACK_IMPORTED_MODULE_4__["UI_FORUM"]);
     } else if (data.posts.nodes[0]) {
       setHeading(null);
@@ -2180,7 +2175,7 @@ function ForumTopicList() {
         title,
         content
       }
-    });
+    }).then(!newTopicLoading && navigate(0));
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ForumTopicListContainer__WEBPACK_IMPORTED_MODULE_6__["default"], {
     category: category,
@@ -3205,5 +3200,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",0]]]);
+},[[0,"runtime-main",1]]]);
 //# sourceMappingURL=main.chunk.js.map
