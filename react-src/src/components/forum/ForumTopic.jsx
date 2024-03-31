@@ -4,8 +4,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import { FORUM_GET_POSTS, FORUM_REPLY } from "../../gql";
 import { UI_FORUM } from "../../config";
 import ForumTopicContainer from "./ForumTopicContainer";
+import useAuth from "../../hooks/useAuth";
 
 function ForumTopic() {
+    const { loggedIn } = useAuth();
+
     const { fromUrlPostId } = useParams();
     const postId = Number(fromUrlPostId.replace(':', ''));
 
@@ -38,7 +41,8 @@ function ForumTopic() {
         } else {
             data && setTopic(data.posts.nodes[0]);
         }
-    },[error, navigate, data])
+        // eslint-disable-next-line
+    },[error, data])
 
     return (
         <ForumTopicContainer
@@ -53,6 +57,7 @@ function ForumTopic() {
             setReplyOpen={setReplyOpen}
             setContent={setContent}
             submitReply={submitReply}
+            replyDisabled={!loggedIn}
             renderHTML={renderHTML}
         />
     );

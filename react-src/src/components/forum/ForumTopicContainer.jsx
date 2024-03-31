@@ -10,6 +10,7 @@ const ForumTopicContainer = ({
     replyOpen,
     setReplyOpen,
     replyLoading,
+    replyDisabled,
     submitReply,
     renderHTML,
     setContent,
@@ -38,7 +39,7 @@ const ForumTopicContainer = ({
             </div>
             {
                 !replyOpen
-                ? <button className="forum-button" onClick={() => setReplyOpen(true)}>Add reply</button>
+                ? <button disabled={replyDisabled} className="forum-button" onClick={() => setReplyOpen(true)}>Add reply</button>
                 :
                 <>
                     <div id="text-editor-container">
