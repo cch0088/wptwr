@@ -27,6 +27,7 @@ function ForumSite() {
             topics.push({
                 id: item.id,
                 name: item.name,
+                slug: item.slug,
                 description: item.description,
                 link: item.link,
                 parent: item.parent
@@ -40,16 +41,13 @@ function ForumSite() {
         }
     })
 
-    const handleNavigation = (categoryId, categoryName) => {
-        getContent(`${route}/${categoryId}`)
-        .then(object => {
-            dispatch(
-            setCategory({
-                categoryId,
-                categoryName,
-                categorySlug: object.slug
-            }))});
-        navigate(UI_FORUM_THREADS);
+    const handleNavigation = (categoryId, categoryName, categorySlug) => {
+        setCategory({
+            categoryId,
+            categoryName,
+            categorySlug
+        });
+        navigate(`${UI_FORUM_THREADS}/:${categoryId}`);
     };
 
     return (
