@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PasswordStrengthBar from 'react-password-strength-bar';
 import { useMutation } from '@apollo/client';
-import { validateEmail } from '../../lib/validation';
+import { validateEmail, validatePassword } from '../../lib/validation';
 import { REGISTER_USER } from '../../gql';
 
 function RegisterForm({setForm}) {
@@ -9,6 +9,7 @@ function RegisterForm({setForm}) {
     const [message, setMessage] = useState(null);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [passwordConfirm, setPasswordConfirm] = useState('');
     const [isHuman, setIsHuman] = useState(false);
     const [email, setEmail] = useState('');
 
@@ -27,6 +28,8 @@ function RegisterForm({setForm}) {
             })
             .then((_status) => setForm(0))
             .catch((_error) => setMessage('Username or e-mail already taken.'));
+        } else if (!validatePassword(password, passwordConfirm)) {
+            setMessage('Passwords do not match.');
         } else if (!validateEmail(email)) {
             setMessage('Invalid e-mail provided.');
         } else {
@@ -77,6 +80,15 @@ return (<form id="site-form">
                 'Excellent'
             ]}
             shortScoreWord='Weak'
+        />
+
+        <div className="label-login">Confirm Password</div>
+
+        <input className="field-login"
+            type="confirm-password"
+            name="confirm-password"
+            value={passwordConfirm}
+            onChange={(e) => { setPasswordConfirm(e.target.value); }}
         />
 
         <div className="label-login">I'm not a bot</div>
