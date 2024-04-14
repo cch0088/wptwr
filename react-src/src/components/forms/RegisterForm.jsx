@@ -16,27 +16,34 @@ function RegisterForm({setForm, setBlockClose}) {
 
     const [register, { loading }] = useMutation(REGISTER_USER);
 
+    function resetForm() {
+        setBlockClose(false);
+        setIsHuman(false);
+    }
+
     function handleSubmit(e) {
         e.preventDefault();
 
         if (isHuman && username.length > 0 && password.length > 0 && validateEmail(email)) {
+            setBlockClose(true);
             register({
             variables: {
                 username,
                 email,
                 password
             }
-            })
-            .then((_status) => {
-                setBlockClose(loading);
-                setForm(0);
-            })
-            .catch((_error) => setMessage('Username or e-mail already taken.'));
+            }).then((_status) => { setForm(0); }).catch((_error) => {
+                resetForm();
+                setMessage('Username or e-mail already taken.')
+            });
         } else if (!validatePassword(password, passwordConfirm)) {
+            resetForm();
             setMessage('Passwords do not match.');
         } else if (!validateEmail(email)) {
+            resetForm();
             setMessage('Invalid e-mail provided.');
         } else {
+            resetForm();
             setMessage('Check that all fields are filled.');
         }
     }

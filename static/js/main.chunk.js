@@ -1371,9 +1371,14 @@ function RegisterForm({
   const [register, {
     loading
   }] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(_gql__WEBPACK_IMPORTED_MODULE_4__["REGISTER_USER"]);
+  function resetForm() {
+    setBlockClose(false);
+    setIsHuman(false);
+  }
   function handleSubmit(e) {
     e.preventDefault();
     if (isHuman && username.length > 0 && password.length > 0 && Object(_lib_validation__WEBPACK_IMPORTED_MODULE_3__["validateEmail"])(email)) {
+      setBlockClose(true);
       register({
         variables: {
           username,
@@ -1381,14 +1386,19 @@ function RegisterForm({
           password
         }
       }).then(_status => {
-        setBlockClose(loading);
         setForm(0);
-      }).catch(_error => setMessage('Username or e-mail already taken.'));
+      }).catch(_error => {
+        resetForm();
+        setMessage('Username or e-mail already taken.');
+      });
     } else if (!Object(_lib_validation__WEBPACK_IMPORTED_MODULE_3__["validatePassword"])(password, passwordConfirm)) {
+      resetForm();
       setMessage('Passwords do not match.');
     } else if (!Object(_lib_validation__WEBPACK_IMPORTED_MODULE_3__["validateEmail"])(email)) {
+      resetForm();
       setMessage('Invalid e-mail provided.');
     } else {
+      resetForm();
       setMessage('Check that all fields are filled.');
     }
   }
@@ -1397,7 +1407,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 53,
       columnNumber: 9
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1405,7 +1415,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 54,
       columnNumber: 13
     }
   }, "Sending E-mail..."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_spinners__WEBPACK_IMPORTED_MODULE_5__["BarLoader"], {
@@ -1413,7 +1423,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 55,
       columnNumber: 13
     }
   })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -1421,7 +1431,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51,
+      lineNumber: 58,
       columnNumber: 9
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1429,7 +1439,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52,
+      lineNumber: 59,
       columnNumber: 13
     }
   }, "SIGN UP"), message ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1437,7 +1447,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 61,
       columnNumber: 26
     }
   }, message) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1445,7 +1455,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56,
+      lineNumber: 63,
       columnNumber: 13
     }
   }, "Username or Nickname"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1459,7 +1469,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
+      lineNumber: 65,
       columnNumber: 13
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1467,7 +1477,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
+      lineNumber: 72,
       columnNumber: 13
     }
   }, "E-mail"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1481,7 +1491,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67,
+      lineNumber: 74,
       columnNumber: 13
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1489,7 +1499,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74,
+      lineNumber: 81,
       columnNumber: 13
     }
   }, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1503,7 +1513,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76,
+      lineNumber: 83,
       columnNumber: 13
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_password_strength_bar__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -1514,7 +1524,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83,
+      lineNumber: 90,
       columnNumber: 13
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1522,7 +1532,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 96,
+      lineNumber: 103,
       columnNumber: 13
     }
   }, "Confirm Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1536,7 +1546,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 98,
+      lineNumber: 105,
       columnNumber: 13
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1544,7 +1554,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 105,
+      lineNumber: 112,
       columnNumber: 13
     }
   }, "I'm not a bot"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1556,7 +1566,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 107,
+      lineNumber: 114,
       columnNumber: 13
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1571,7 +1581,7 @@ function RegisterForm({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 114,
+      lineNumber: 121,
       columnNumber: 13
     }
   })));
@@ -3312,5 +3322,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",1]]]);
+},[[0,"runtime-main",0]]]);
 //# sourceMappingURL=main.chunk.js.map
