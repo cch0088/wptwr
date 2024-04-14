@@ -41,7 +41,7 @@ return (<form id="site-form">
 
         {(message) ? <div className='error-label'>{message}</div> : null}
 
-        <div className="label-login">Username</div>
+        <div className="label-login">Username or Nickname</div>
 
         <input className="field-login"
             type="text"

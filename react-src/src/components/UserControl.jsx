@@ -14,6 +14,7 @@ function UserControl() {
 
     const modal = useSelector(state => state.modal.value);
     const [form, setForm] = useState(0);
+    const [blockClose, setBlockClose] = useState(false);
 
     const dispatch = useDispatch();
     const {loggedIn, loading} = useAuth();
@@ -31,10 +32,10 @@ function UserControl() {
 
 return (
         <div id="usercontrol">
-            { form === 0 && modal.show && <Modal children={ <ConfirmForm /> }/> }
-            { form === 1 && modal.show && <Modal children={ <LoginForm setForm={setForm} /> }/> }
-            { form === 2 && modal.show && <Modal children={ <RegisterForm setForm={setForm} /> }/> }
-            { form === 3 && modal.show && <Modal children={ <ResetByEmailForm setForm={setForm} /> }/> }
+            { form === 0 && modal.show && <Modal children={ <ConfirmForm /> } disableClose={false} /> }
+            { form === 1 && modal.show && <Modal children={ <LoginForm setForm={setForm} /> } disableClose={false} /> }
+            { form === 2 && modal.show && <Modal children={ <RegisterForm setForm={setForm} setBlockClose={setBlockClose} /> } disableClose={blockClose} /> }
+            { form === 3 && modal.show && <Modal children={ <ResetByEmailForm setForm={setForm} /> } disableClose={false} /> }
             {
                 (!loggedIn && !loading) &&
                 <>

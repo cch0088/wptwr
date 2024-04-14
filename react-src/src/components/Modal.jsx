@@ -3,12 +3,12 @@ import React from 'react';
 import { closeModal } from '../features/ModalSlice';
 import { useDispatch } from 'react-redux';
 
-function Modal({children}) 
+function Modal({children, disableClose}) 
 {
     const dispatch = useDispatch();
 
     const handleClose = (e) => {
-        if (e.target.className === "modal-bg") { dispatch(closeModal()); }
+        if (e.target.className === "modal-bg" && !disableClose) { dispatch(closeModal()); }
     };
 
     return (
