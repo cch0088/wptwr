@@ -55,7 +55,7 @@ function PasswordForm({pkey, login}) {
 
         <input className="field-login"
             type="password"
-            name="password"
+            name="confirm-password"
             value={passwordConfirm}
             onChange={(e) => { setPasswordConfirm(e.target.value); }}
         />
