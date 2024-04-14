@@ -5,7 +5,7 @@ import { validateEmail, validatePassword } from '../../lib/validation';
 import { REGISTER_USER } from '../../gql';
 import { BarLoader } from 'react-spinners';
 
-function RegisterForm({setForm}) {
+function RegisterForm({setForm, setBlockClose}) {
 
     const [message, setMessage] = useState(null);
     const [username, setUsername] = useState('');
@@ -27,7 +27,10 @@ function RegisterForm({setForm}) {
                 password
             }
             })
-            .then((_status) => setForm(0))
+            .then((_status) => {
+                setBlockClose(loading);
+                setForm(0);
+            })
             .catch((_error) => setMessage('Username or e-mail already taken.'));
         } else if (!validatePassword(password, passwordConfirm)) {
             setMessage('Passwords do not match.');
