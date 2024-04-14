@@ -96,7 +96,7 @@ return (<>
             <div className="label-login">Confirm Password</div>
 
             <input className="field-login"
-                type="confirm-password"
+                type="password"
                 name="confirm-password"
                 value={passwordConfirm}
                 onChange={(e) => { setPasswordConfirm(e.target.value); }}
@@ -115,7 +115,7 @@ return (<>
                 type="submit"
                 name="register"
                 value="Sign Up"
-                disabled={!isHuman || loading}
+                disabled={!(isHuman && username.length > 0 && password.length > 0 && email.length > 0) || loading}
                 onClick={(e) => { handleSubmit(e); }}
             />
         </form>}

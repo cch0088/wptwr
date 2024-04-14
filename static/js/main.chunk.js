@@ -1280,7 +1280,7 @@ function PasswordForm({
   }, "Confirm Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     className: "field-login",
     type: "password",
-    name: "password",
+    name: "confirm-password",
     value: passwordConfirm,
     onChange: e => {
       setPasswordConfirm(e.target.value);
@@ -1527,7 +1527,7 @@ function RegisterForm({
     }
   }, "Confirm Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     className: "field-login",
-    type: "confirm-password",
+    type: "password",
     name: "confirm-password",
     value: passwordConfirm,
     onChange: e => {
@@ -1564,7 +1564,7 @@ function RegisterForm({
     type: "submit",
     name: "register",
     value: "Sign Up",
-    disabled: !isHuman || loading,
+    disabled: !(isHuman && username.length > 0 && password.length > 0 && email.length > 0) || loading,
     onClick: e => {
       handleSubmit(e);
     },
@@ -3312,5 +3312,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",0]]]);
+},[[0,"runtime-main",1]]]);
 //# sourceMappingURL=main.chunk.js.map
