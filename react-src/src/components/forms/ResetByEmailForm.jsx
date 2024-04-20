@@ -36,11 +36,11 @@ function ResetByEmailForm({setForm}) {
 
         <div className="label-login">E-mail</div>
 
-        <input className="field-login" 
+        <input className="field-login"
             type="email"
             name="email"
             value={email}
-            onChange={(e) => { setEmail(e.target.value); }}
+            onChange={(e) => { setEmail(e.target.value) }}
         />
 
         <div className="label-login">I'm not a bot</div>
@@ -56,7 +56,7 @@ function ResetByEmailForm({setForm}) {
             type="submit"
             name="send"
             value="Request"
-            onClick={(e) => { handleSubmit(e); }}
+            onClick={(e) => { handleSubmit(e) }}
             disabled={!isHuman || loading}
         />
     </form>)
