@@ -4,7 +4,7 @@ import { validateEmail } from '../../lib/validation';
 import { SEND_PASSWORD_RESET_EMAIL } from '../../gql';
 import Loading from './Loading';
 
-export default function ResetByEmailForm({setForm}) {
+export default function ResetByEmailForm({setForm, setBlockClose}) {
 
     const [message, setMessage] = useState(null);
     const [email, setEmail] = useState('');
@@ -16,6 +16,7 @@ export default function ResetByEmailForm({setForm}) {
         e.preventDefault();
 
         if (validateEmail(email)) {
+            setBlockClose(true);
             sendPasswordResetEmail({
                 variables: {
                   username: email,
@@ -60,7 +61,7 @@ export default function ResetByEmailForm({setForm}) {
                 name="send"
                 value="Request"
                 onClick={(e) => { handleSubmit(e) }}
-                disabled={!isHuman || loading}
+                disabled={!isHuman || !email.length > 0 || loading}
             />
         </form>
     }</>);
