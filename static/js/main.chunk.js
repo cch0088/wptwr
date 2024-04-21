@@ -871,7 +871,7 @@ function UserControl() {
         columnNumber: 61
       }
     }),
-    disableClose: true,
+    disableClose: blockClose,
     __self: this,
     __source: {
       fileName: _jsxFileName,

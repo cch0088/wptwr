@@ -8,7 +8,7 @@ export default function Modal({children, disableClose})
     const dispatch = useDispatch();
 
     const handleClose = (e) => {
-        if (e.target.className === "modal-bg" && !disableClose) { dispatch(closeModal()); }
+        if (e.target.className === "modal-bg" && !disableClose) { dispatch(closeModal()) }
     };
 
     return (
