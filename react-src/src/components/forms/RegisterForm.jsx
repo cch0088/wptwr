@@ -32,7 +32,7 @@ function RegisterForm({setForm, setBlockClose}) {
                 email,
                 password
             }
-            }).then((_status) => { setForm(0); }).catch((_error) => {
+            }).then((_status) => { setForm(4) }).catch((_error) => {
                 resetForm();
                 setMessage('Username or e-mail already taken.')
             });
@@ -62,11 +62,11 @@ return (<>
 
             <div className="label-login">Username or Nickname</div>
 
-            <input className="field-login" 
+            <input className="field-login"
                 type="text"
                 name="username"
                 value={username}
-                onChange={(e) => { setUsername(e.target.value); }}
+                onChange={(e) => { setUsername(e.target.value) }}
             />
 
             <div className="label-login">E-mail</div>
@@ -75,7 +75,7 @@ return (<>
                 type="email"
                 name="email"
                 value={email}
-                onChange={(e) => { setEmail(e.target.value); }}
+                onChange={(e) => { setEmail(e.target.value) }}
             />
 
             <div className="label-login">Password</div>
@@ -84,7 +84,7 @@ return (<>
                 type="password"
                 name="password"
                 value={password}
-                onChange={(e) => { setPassword(e.target.value); }}
+                onChange={(e) => { setPassword(e.target.value) }}
             />
 
             <PasswordStrengthBar
@@ -106,7 +106,7 @@ return (<>
                 type="password"
                 name="confirm-password"
                 value={passwordConfirm}
-                onChange={(e) => { setPasswordConfirm(e.target.value); }}
+                onChange={(e) => { setPasswordConfirm(e.target.value) }}
             />
 
             <div className="label-login">I'm not a bot</div>
@@ -123,7 +123,7 @@ return (<>
                 name="register"
                 value="Sign Up"
                 disabled={!(isHuman && username.length > 0 && password.length > 0 && email.length > 0) || loading}
-                onClick={(e) => { handleSubmit(e); }}
+                onClick={(e) => { handleSubmit(e) }}
             />
         </form>}
     </>)

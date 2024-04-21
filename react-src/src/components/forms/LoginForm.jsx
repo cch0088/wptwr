@@ -47,7 +47,7 @@ return (<form id="site-form">
             type="text"
             name="username"
             value={username}
-            onChange={(e) => { setUsername(e.target.value); }}
+            onChange={(e) => { setUsername(e.target.value) }}
         />
 
         <div className="label-login">Password</div>
@@ -56,7 +56,7 @@ return (<form id="site-form">
             type="password"
             name="password"
             value={password}
-            onChange={(e) => { setPassword(e.target.value); }}
+            onChange={(e) => { setPassword(e.target.value) }}
         />
 
         <span className="link-label" onClick={() => { setForm(3) }}>Forgot Password</span>
@@ -65,7 +65,7 @@ return (<form id="site-form">
             type="submit"
             name="login"
             value="Sign In"
-            onClick={(e) => { handleLogin(e); }}
+            onClick={(e) => { handleLogin(e) }}
             disabled={loading}
         />
 

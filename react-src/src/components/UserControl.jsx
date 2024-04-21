@@ -7,6 +7,7 @@ import useAuth, { GET_USER } from '../hooks/useAuth';
 import { useMutation } from '@apollo/client';
 import RegisterForm from './forms/RegisterForm';
 import ConfirmForm from './forms/ConfirmForm';
+import ConfirmFormRegister from './forms/ConfirmFormRegister';
 import ResetByEmailForm from './forms/ResetByEmailForm';
 import { LOG_OUT } from '../gql';
 
@@ -36,6 +37,7 @@ return (
             { form === 1 && modal.show && <Modal children={ <LoginForm setForm={setForm} /> } disableClose={false} /> }
             { form === 2 && modal.show && <Modal children={ <RegisterForm setForm={setForm} setBlockClose={setBlockClose} /> } disableClose={blockClose} /> }
             { form === 3 && modal.show && <Modal children={ <ResetByEmailForm setForm={setForm} /> } disableClose={false} /> }
+            { form === 4 && modal.show && <Modal children={ <ConfirmFormRegister /> } disableClose={false} /> }
             {
                 (!loggedIn && !loading) &&
                 <>
