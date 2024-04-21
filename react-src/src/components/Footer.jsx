@@ -2,7 +2,7 @@ import React from "react";
 import logo from '../logo.svg';
 import logotext from '../logotext.svg';
 
-function Footer() {
+export default function Footer() {
 
 return (
         <div className="footer-row">
@@ -13,4 +13,3 @@ return (
         </div>
     )
 }
-export default Footer;

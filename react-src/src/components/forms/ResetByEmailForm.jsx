@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { validateEmail } from '../../lib/validation';
 import { SEND_PASSWORD_RESET_EMAIL } from '../../gql';
+import Loading from './Loading';
 
-function ResetByEmailForm({setForm}) {
+export default function ResetByEmailForm({setForm}) {
 
     const [message, setMessage] = useState(null);
     const [email, setEmail] = useState('');
@@ -29,37 +30,38 @@ function ResetByEmailForm({setForm}) {
         }
     }
 
-    return (<form id="site-form">
-        <div className="title-label">PASSWORD RESET</div>
+    return (<>
+    {loading ? <Loading /> :
+        <form id="site-form">
+            <div className="title-label">PASSWORD RESET</div>
 
-        {(message) ? <div className='error-label'>{message}</div> : null}
+            {(message) ? <div className='error-label'>{message}</div> : null}
 
-        <div className="label-login">E-mail</div>
+            <div className="label-login">E-mail</div>
 
-        <input className="field-login"
-            type="email"
-            name="email"
-            value={email}
-            onChange={(e) => { setEmail(e.target.value) }}
-        />
+            <input className="field-login"
+                type="email"
+                name="email"
+                value={email}
+                onChange={(e) => { setEmail(e.target.value) }}
+            />
 
-        <div className="label-login">I'm not a bot</div>
+            <div className="label-login">I'm not a bot</div>
 
-        <input className="human-check"
-            type="checkbox"
-            name="human"
-            value="human"
-            onChange={(e) => setIsHuman(e.target.checked)}
-        />
+            <input className="human-check"
+                type="checkbox"
+                name="human"
+                value="human"
+                onChange={(e) => setIsHuman(e.target.checked)}
+            />
 
-        <input className="button"
-            type="submit"
-            name="send"
-            value="Request"
-            onClick={(e) => { handleSubmit(e) }}
-            disabled={!isHuman || loading}
-        />
-    </form>)
+            <input className="button"
+                type="submit"
+                name="send"
+                value="Request"
+                onClick={(e) => { handleSubmit(e) }}
+                disabled={!isHuman || loading}
+            />
+        </form>
+    }</>);
 }
-
-export default ResetByEmailForm;

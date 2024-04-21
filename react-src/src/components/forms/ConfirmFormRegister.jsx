@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function ConfirmFormRegister() {
+export default function ConfirmFormRegister() {
 
     const navigate = useNavigate();
 
@@ -16,5 +16,3 @@ function ConfirmFormRegister() {
     />
     </form>)
 }
-
-export default ConfirmFormRegister;

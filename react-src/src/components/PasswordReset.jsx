@@ -5,7 +5,7 @@ import { getRoot } from "../lib/validation";
 import Modal from "./Modal";
 import PasswordForm from "./forms/PasswordForm";
 
-function PasswordReset({currentUrl}) {
+export default function PasswordReset({currentUrl}) {
     const navigate = useNavigate();
 
     const [key, setKey] = useState();
@@ -27,4 +27,3 @@ function PasswordReset({currentUrl}) {
             <Modal children={ <PasswordForm pkey={key} login={user} /> } />
         )
 }
-export default PasswordReset;

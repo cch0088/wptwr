@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { getRoot } from "../lib/validation";
 import { WP_ROOT } from "../config";
 
-function Header() {
+export default function Header() {
     const navigate = useNavigate();
 
 return (
@@ -15,4 +15,3 @@ return (
     </div>
     )
 }
-export default Header;

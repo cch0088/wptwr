@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { closeModal } from '../../features/ModalSlice';
 
-function ConfirmForm() {
+export default function ConfirmForm() {
 
     const dispatch = useDispatch();
 
@@ -17,5 +17,3 @@ function ConfirmForm() {
     />
     </form>)
 }
-
-export default ConfirmForm;
