@@ -5,7 +5,7 @@ import { validateEmail, validatePassword } from '../../lib/validation';
 import { REGISTER_USER } from '../../gql';
 import Loading from './Loading';
 
-function RegisterForm({setForm, setBlockClose}) {
+export default function RegisterForm({setForm, setBlockClose}) {
 
     const [message, setMessage] = useState(null);
     const [username, setUsername] = useState('');
@@ -123,5 +123,3 @@ return (<>
         </form>}
     </>)
 }
-
-export default RegisterForm;

@@ -3,7 +3,7 @@ import React from 'react';
 import { closeModal } from '../features/ModalSlice';
 import { useDispatch } from 'react-redux';
 
-function Modal({children, disableClose}) 
+export default function Modal({children, disableClose})
 {
     const dispatch = useDispatch();
 
@@ -18,5 +18,3 @@ function Modal({children, disableClose})
             </section>
         </div>);
 };
-
-export default Modal;

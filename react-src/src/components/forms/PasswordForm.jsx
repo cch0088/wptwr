@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { WP_ROOT } from '../../config';
 import { RESET_PASSWORD } from '../../gql';
 
-function PasswordForm({pkey, login}) {
+export default function PasswordForm({pkey, login}) {
     const navigate = useNavigate();
 
     const [message, setMessage] = useState(null);
@@ -84,5 +84,3 @@ function PasswordForm({pkey, login}) {
         <span className="link-label" onClick={() => { navigate(getRoot(WP_ROOT)) }}>Cancel</span>
     </form>)
 }
-
-export default PasswordForm;

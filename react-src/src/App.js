@@ -13,7 +13,7 @@ import { ApolloProvider } from "@apollo/client";
 import { client } from "./lib/apolloClient";
 import { AuthProvider } from "./hooks/useAuth";
 
-function App() {
+export default function App() {
   const currentUrl = window.location.href;
 
   return (
@@ -35,5 +35,3 @@ function App() {
     </ApolloProvider>
   );
 }
-
-export default App;

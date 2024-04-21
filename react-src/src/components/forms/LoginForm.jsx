@@ -5,7 +5,7 @@ import { GET_USER } from '../../hooks/useAuth';
 import { closeModal } from '../../features/ModalSlice';
 import { LOG_IN } from '../../gql';
 
-function LoginForm({setForm}) {
+export default function LoginForm({setForm}) {
 
     const dispatch = useDispatch();
 
@@ -72,5 +72,3 @@ return (<form id="site-form">
         <span className="link-label" onClick={() => { setForm(2) }}>Create Account</span>
     </form>)
 }
-
-export default LoginForm;

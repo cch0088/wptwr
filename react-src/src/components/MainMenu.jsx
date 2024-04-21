@@ -4,7 +4,7 @@ import { getContent } from "../features/PageServices";
 import { pushContent } from "../features/ContentSlice";
 import { WP_UPLOADS } from "../config";
 
-function MainMenu({route}) {
+export default function MainMenu({route}) {
 
     const dispatch = useDispatch();
     const menu = useSelector(state => state.content.value);
@@ -36,5 +36,3 @@ function MainMenu({route}) {
         </div>
     )
 }
-
-export default MainMenu;

@@ -1,5 +1,4 @@
-function PageServices() {}
-export default PageServices;
+export default function PageServices() {}
 
 export async function getContent(fromUrl) {
     try {

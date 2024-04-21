@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 import { validateEmail } from '../../lib/validation';
 import { SEND_PASSWORD_RESET_EMAIL } from '../../gql';
 
-function ResetByEmailForm({setForm}) {
+export default function ResetByEmailForm({setForm}) {
 
     const [message, setMessage] = useState(null);
     const [email, setEmail] = useState('');
@@ -61,5 +61,3 @@ function ResetByEmailForm({setForm}) {
         />
     </form>)
 }
-
-export default ResetByEmailForm;

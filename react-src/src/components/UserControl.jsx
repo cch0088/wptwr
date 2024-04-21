@@ -11,7 +11,7 @@ import ConfirmFormRegister from './forms/ConfirmFormRegister';
 import ResetByEmailForm from './forms/ResetByEmailForm';
 import { LOG_OUT } from '../gql';
 
-function UserControl() {
+export default function UserControl() {
 
     const modal = useSelector(state => state.modal.value);
     const [form, setForm] = useState(0);
@@ -71,4 +71,3 @@ return (
         </div>
     )
 }
-export default UserControl;
