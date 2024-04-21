@@ -36,7 +36,8 @@ export default function LoginForm({setForm}) {
         }
     }
 
-return (<form id="site-form">
+return (
+    <form id="site-form">
         <div className="title-label">SIGN IN</div>
 
         {(message) ? <div className='error-label'>{message}</div> : null}
@@ -70,5 +71,6 @@ return (<form id="site-form">
         />
 
         <span className="link-label" onClick={() => { setForm(2) }}>Create Account</span>
-    </form>)
+    </form>
+    );
 }

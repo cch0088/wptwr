@@ -5,6 +5,7 @@ import { getRoot, validatePassword } from '../../lib/validation';
 import { useNavigate } from 'react-router-dom';
 import { WP_ROOT } from '../../config';
 import { RESET_PASSWORD } from '../../gql';
+import Loading from './Loading';
 
 export default function PasswordForm({pkey, login}) {
     const navigate = useNavigate();
@@ -35,7 +36,9 @@ export default function PasswordForm({pkey, login}) {
         }
     }
 
-    return (<form id="site-form">
+    return (<>
+    {loading ? <Loading /> :
+    <form id="site-form">
         <div className="title-label">PASSWORD RESET</div>
 
         {(message) ? <div className='error-label'>{message}</div> : null}
@@ -82,5 +85,6 @@ export default function PasswordForm({pkey, login}) {
         />
 
         <span className="link-label" onClick={() => { navigate(getRoot(WP_ROOT)) }}>Cancel</span>
-    </form>)
+    </form>
+    }</>);
 }
