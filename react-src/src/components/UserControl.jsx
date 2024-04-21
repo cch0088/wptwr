@@ -37,7 +37,7 @@ return (
             { form === 1 && modal.show && <Modal children={ <LoginForm setForm={setForm} /> } disableClose={false} /> }
             { form === 2 && modal.show && <Modal children={ <RegisterForm setForm={setForm} setBlockClose={setBlockClose} /> } disableClose={blockClose} /> }
             { form === 3 && modal.show && <Modal children={ <ResetByEmailForm setForm={setForm} /> } disableClose={false} /> }
-            { form === 4 && modal.show && <Modal children={ <ConfirmFormRegister /> } disableClose={false} /> }
+            { form === 4 && modal.show && <Modal children={ <ConfirmFormRegister /> } disableClose={true} /> }
             {
                 (!loggedIn && !loading) &&
                 <>

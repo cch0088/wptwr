@@ -3,7 +3,7 @@ import PasswordStrengthBar from 'react-password-strength-bar';
 import { useMutation } from '@apollo/client';
 import { validateEmail, validatePassword } from '../../lib/validation';
 import { REGISTER_USER } from '../../gql';
-import { BarLoader } from 'react-spinners';
+import Loading from './Loading';
 
 function RegisterForm({setForm, setBlockClose}) {
 
@@ -49,12 +49,7 @@ function RegisterForm({setForm, setBlockClose}) {
     }
 
 return (<>
-        {loading ?
-        <form id="site-form">
-            <div className="label-login">Sending E-mail...</div>
-            <BarLoader color="#52bfd9" />
-        </form>
-        :
+        {loading ? <Loading /> :
         <form id="site-form">
             <div className="title-label">SIGN UP</div>
 
