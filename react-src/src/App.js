@@ -13,6 +13,7 @@ import { ApolloProvider } from "@apollo/client";
 import { client } from "./lib/apolloClient";
 import { AuthProvider } from "./hooks/useAuth";
 import Profile from "./components/user/Profile";
+import Generic from "./components/Generic";
 
 export default function App() {
   const currentUrl = window.location.href;
@@ -29,6 +30,7 @@ export default function App() {
               <Route path={`${nav.UI_FORUM_THREADS}/:fromUrlCategoryId`} element={<ForumTopicList />} />
               <Route path={`${nav.UI_FORUM_TOPIC}/:fromUrlPostId`} element={<ForumTopic />} />
               <Route path={`${nav.UI_ACCOUNT}`} element={<Profile />} />
+              <Route path={`${nav.UI_PRIVACY}`} element={<Generic slug={nav.UI_PRIVACY_SLUG} />} />
               <Route path="*" element={<NoPage />} />
             </Route>
           </Routes>
