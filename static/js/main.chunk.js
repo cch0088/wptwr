@@ -386,14 +386,22 @@ const Generic = ({
     });
   }, [dispatch, route]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    dangerouslySetInnerHTML: Object(_lib_convert__WEBPACK_IMPORTED_MODULE_1__["renderHTML"])(markup[0].content.rendered),
+    className: "forum-list-container",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 21,
       columnNumber: 9
     }
-  });
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    dangerouslySetInnerHTML: Object(_lib_convert__WEBPACK_IMPORTED_MODULE_1__["renderHTML"])(markup[0].content.rendered),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22,
+      columnNumber: 13
+    }
+  }));
 };
 /* harmony default export */ __webpack_exports__["default"] = (Generic);
 
@@ -3596,5 +3604,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",0]]]);
+},[[0,"runtime-main",1]]]);
 //# sourceMappingURL=main.chunk.js.map

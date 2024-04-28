@@ -18,7 +18,9 @@ const Generic = ({slug}) => {
     },[dispatch, route]);
 
     return(
-        <div dangerouslySetInnerHTML={renderHTML(markup[0].content.rendered)} />
+        <div className="forum-list-container">
+            <div dangerouslySetInnerHTML={renderHTML(markup[0].content.rendered)} />
+        </div>
     )};
 
 export default Generic;
