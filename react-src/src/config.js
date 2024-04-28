@@ -25,7 +25,8 @@ export const UI_FORUM_THREADS = getRoot(WP_ROOT) + "forum/threads";
 export const UI_FORUM_TOPIC = getRoot(WP_ROOT) + "forum/threads/post";
 
 // Privacy policy page
-export const UI_PRIVACY = getRoot(WP_ROOT) + "privacy-policy";
+export const UI_PRIVACY_SLUG = "privacy-policy";
+export const UI_PRIVACY = getRoot(WP_ROOT) + UI_PRIVACY_SLUG;
 
 // Contact form page
 export const UI_CONTACT = getRoot(WP_ROOT) + "contact-form";

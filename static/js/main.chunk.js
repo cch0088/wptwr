@@ -38,7 +38,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_apolloClient__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./lib/apolloClient */ "./src/lib/apolloClient.jsx");
 /* harmony import */ var _hooks_useAuth__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./hooks/useAuth */ "./src/hooks/useAuth.jsx");
 /* harmony import */ var _components_user_Profile__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/user/Profile */ "./src/components/user/Profile.jsx");
+/* harmony import */ var _components_Generic__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/Generic */ "./src/components/Generic.jsx");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/App.js";
+
 
 
 
@@ -61,28 +63,28 @@ function App() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 22,
       columnNumber: 5
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_hooks_useAuth__WEBPACK_IMPORTED_MODULE_13__["AuthProvider"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22,
+      lineNumber: 23,
       columnNumber: 7
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["BrowserRouter"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
+      lineNumber: 24,
       columnNumber: 9
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Routes"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 25,
       columnNumber: 11
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
@@ -91,14 +93,14 @@ function App() {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25,
+        lineNumber: 26,
         columnNumber: 48
       }
     }),
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 26,
       columnNumber: 13
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
@@ -107,25 +109,8 @@ function App() {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26,
-        columnNumber: 37
-      }
-    }),
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 26,
-      columnNumber: 15
-    }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-    path: "set-password",
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PasswordReset__WEBPACK_IMPORTED_MODULE_7__["default"], {
-      currentUrl: currentUrl,
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
         lineNumber: 27,
-        columnNumber: 51
+        columnNumber: 37
       }
     }),
     __self: this,
@@ -135,14 +120,14 @@ function App() {
       columnNumber: 15
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-    exact: true,
-    path: _config__WEBPACK_IMPORTED_MODULE_2__["UI_FORUM"],
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forum_ForumSite__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    path: "set-password",
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PasswordReset__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      currentUrl: currentUrl,
       __self: this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 28,
-        columnNumber: 57
+        columnNumber: 51
       }
     }),
     __self: this,
@@ -152,13 +137,14 @@ function App() {
       columnNumber: 15
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-    path: `${_config__WEBPACK_IMPORTED_MODULE_2__["UI_FORUM_THREADS"]}/:fromUrlCategoryId`,
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forum_ForumTopicList__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    exact: true,
+    path: _config__WEBPACK_IMPORTED_MODULE_2__["UI_FORUM"],
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forum_ForumSite__WEBPACK_IMPORTED_MODULE_8__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 29,
-        columnNumber: 83
+        columnNumber: 57
       }
     }),
     __self: this,
@@ -168,13 +154,13 @@ function App() {
       columnNumber: 15
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-    path: `${_config__WEBPACK_IMPORTED_MODULE_2__["UI_FORUM_TOPIC"]}/:fromUrlPostId`,
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forum_ForumTopic__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    path: `${_config__WEBPACK_IMPORTED_MODULE_2__["UI_FORUM_THREADS"]}/:fromUrlCategoryId`,
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forum_ForumTopicList__WEBPACK_IMPORTED_MODULE_9__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 30,
-        columnNumber: 77
+        columnNumber: 83
       }
     }),
     __self: this,
@@ -184,13 +170,13 @@ function App() {
       columnNumber: 15
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-    path: `${_config__WEBPACK_IMPORTED_MODULE_2__["UI_ACCOUNT"]}`,
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_user_Profile__WEBPACK_IMPORTED_MODULE_14__["default"], {
+    path: `${_config__WEBPACK_IMPORTED_MODULE_2__["UI_FORUM_TOPIC"]}/:fromUrlPostId`,
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forum_ForumTopic__WEBPACK_IMPORTED_MODULE_10__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 31,
-        columnNumber: 58
+        columnNumber: 77
       }
     }),
     __self: this,
@@ -200,19 +186,52 @@ function App() {
       columnNumber: 15
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-    path: "*",
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_NoPage__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    path: `${_config__WEBPACK_IMPORTED_MODULE_2__["UI_ACCOUNT"]}`,
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_user_Profile__WEBPACK_IMPORTED_MODULE_14__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 32,
-        columnNumber: 40
+        columnNumber: 58
       }
     }),
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 32,
+      columnNumber: 15
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    path: `${_config__WEBPACK_IMPORTED_MODULE_2__["UI_PRIVACY"]}`,
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Generic__WEBPACK_IMPORTED_MODULE_15__["default"], {
+      slug: _config__WEBPACK_IMPORTED_MODULE_2__["UI_PRIVACY_SLUG"],
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 33,
+        columnNumber: 58
+      }
+    }),
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33,
+      columnNumber: 15
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    path: "*",
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_NoPage__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 34,
+        columnNumber: 40
+      }
+    }),
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34,
       columnNumber: 15
     }
   }))))));
@@ -329,6 +348,54 @@ function Footer() {
     }
   }, "Privacy Policy")));
 }
+
+/***/ }),
+
+/***/ "./src/components/Generic.jsx":
+/*!************************************!*\
+  !*** ./src/components/Generic.jsx ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _lib_convert__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../lib/convert */ "./src/lib/convert.jsx");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config */ "./src/config.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _features_ContentSlice__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../features/ContentSlice */ "./src/features/ContentSlice.jsx");
+/* harmony import */ var _features_PageServices__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../features/PageServices */ "./src/features/PageServices.jsx");
+var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/Generic.jsx";
+
+
+
+
+
+
+const Generic = ({
+  slug
+}) => {
+  const route = _config__WEBPACK_IMPORTED_MODULE_2__["API_PAGES"] + slug;
+  const markup = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useSelector"])(state => state.content.value);
+  const dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useDispatch"])();
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    Object(_features_PageServices__WEBPACK_IMPORTED_MODULE_5__["getContent"])(route).then(object => {
+      dispatch(Object(_features_ContentSlice__WEBPACK_IMPORTED_MODULE_4__["pushContent"])(object));
+    });
+  }, [dispatch, route]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    dangerouslySetInnerHTML: Object(_lib_convert__WEBPACK_IMPORTED_MODULE_1__["renderHTML"])(markup[0].content.rendered),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 9
+    }
+  });
+};
+/* harmony default export */ __webpack_exports__["default"] = (Generic);
 
 /***/ }),
 
@@ -783,16 +850,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _features_ModalSlice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../features/ModalSlice */ "./src/features/ModalSlice.jsx");
-/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Modal */ "./src/components/Modal.jsx");
-/* harmony import */ var _forms_LoginForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./forms/LoginForm */ "./src/components/forms/LoginForm.jsx");
-/* harmony import */ var _hooks_useAuth__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../hooks/useAuth */ "./src/hooks/useAuth.jsx");
-/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
-/* harmony import */ var _forms_RegisterForm__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./forms/RegisterForm */ "./src/components/forms/RegisterForm.jsx");
-/* harmony import */ var _forms_ConfirmForm__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./forms/ConfirmForm */ "./src/components/forms/ConfirmForm.jsx");
-/* harmony import */ var _forms_ConfirmFormRegister__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./forms/ConfirmFormRegister */ "./src/components/forms/ConfirmFormRegister.jsx");
-/* harmony import */ var _forms_ResetByEmailForm__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./forms/ResetByEmailForm */ "./src/components/forms/ResetByEmailForm.jsx");
-/* harmony import */ var _gql__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../gql */ "./src/gql.js");
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../config */ "./src/config.js");
+/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
+/* harmony import */ var _gql__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../gql */ "./src/gql.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../config */ "./src/config.js");
+/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Modal */ "./src/components/Modal.jsx");
+/* harmony import */ var _forms_LoginForm__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./forms/LoginForm */ "./src/components/forms/LoginForm.jsx");
+/* harmony import */ var _hooks_useAuth__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../hooks/useAuth */ "./src/hooks/useAuth.jsx");
+/* harmony import */ var _forms_RegisterForm__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./forms/RegisterForm */ "./src/components/forms/RegisterForm.jsx");
+/* harmony import */ var _forms_ConfirmForm__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./forms/ConfirmForm */ "./src/components/forms/ConfirmForm.jsx");
+/* harmony import */ var _forms_ConfirmFormRegister__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./forms/ConfirmFormRegister */ "./src/components/forms/ConfirmFormRegister.jsx");
+/* harmony import */ var _forms_ResetByEmailForm__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./forms/ResetByEmailForm */ "./src/components/forms/ResetByEmailForm.jsx");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/UserControl.jsx";
 
 
@@ -816,10 +883,10 @@ function UserControl() {
     loggedIn,
     loading,
     user
-  } = Object(_hooks_useAuth__WEBPACK_IMPORTED_MODULE_5__["default"])();
-  const [logOut] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_6__["useMutation"])(_gql__WEBPACK_IMPORTED_MODULE_11__["LOG_OUT"], {
+  } = Object(_hooks_useAuth__WEBPACK_IMPORTED_MODULE_8__["default"])();
+  const [logOut] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(_gql__WEBPACK_IMPORTED_MODULE_4__["LOG_OUT"], {
     refetchQueries: [{
-      query: _gql__WEBPACK_IMPORTED_MODULE_11__["GET_USER"]
+      query: _gql__WEBPACK_IMPORTED_MODULE_4__["GET_USER"]
     }]
   });
   const openForm = i => {
@@ -834,8 +901,8 @@ function UserControl() {
       lineNumber: 36,
       columnNumber: 9
     }
-  }, form === 0 && modal.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    children: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_ConfirmForm__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }, form === 0 && modal.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    children: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_ConfirmForm__WEBPACK_IMPORTED_MODULE_10__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
@@ -850,8 +917,8 @@ function UserControl() {
       lineNumber: 37,
       columnNumber: 43
     }
-  }), form === 1 && modal.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    children: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_LoginForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), form === 1 && modal.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    children: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_LoginForm__WEBPACK_IMPORTED_MODULE_7__["default"], {
       setForm: setForm,
       __self: this,
       __source: {
@@ -867,8 +934,8 @@ function UserControl() {
       lineNumber: 38,
       columnNumber: 43
     }
-  }), form === 2 && modal.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    children: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_RegisterForm__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }), form === 2 && modal.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    children: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_RegisterForm__WEBPACK_IMPORTED_MODULE_9__["default"], {
       setForm: setForm,
       setBlockClose: setBlockClose,
       __self: this,
@@ -885,8 +952,8 @@ function UserControl() {
       lineNumber: 39,
       columnNumber: 43
     }
-  }), form === 3 && modal.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    children: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_ResetByEmailForm__WEBPACK_IMPORTED_MODULE_10__["default"], {
+  }), form === 3 && modal.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    children: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_ResetByEmailForm__WEBPACK_IMPORTED_MODULE_12__["default"], {
       setForm: setForm,
       setBlockClose: setBlockClose,
       __self: this,
@@ -903,8 +970,8 @@ function UserControl() {
       lineNumber: 40,
       columnNumber: 43
     }
-  }), form === 4 && modal.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    children: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_ConfirmFormRegister__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }), form === 4 && modal.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    children: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_ConfirmFormRegister__WEBPACK_IMPORTED_MODULE_11__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
@@ -961,7 +1028,7 @@ function UserControl() {
     }
   }, "\uD83D\uDC64"), " Log In")), loggedIn && !loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "userbutton",
-    href: _config__WEBPACK_IMPORTED_MODULE_12__["UI_ACCOUNT"],
+    href: _config__WEBPACK_IMPORTED_MODULE_5__["UI_ACCOUNT"],
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -2076,9 +2143,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var _gql__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../gql */ "./src/gql.js");
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../config */ "./src/config.js");
-/* harmony import */ var _ForumTopicContainer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ForumTopicContainer */ "./src/components/forum/ForumTopicContainer.jsx");
-/* harmony import */ var _hooks_useAuth__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../hooks/useAuth */ "./src/hooks/useAuth.jsx");
+/* harmony import */ var _lib_convert__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib/convert */ "./src/lib/convert.jsx");
+/* harmony import */ var _ForumTopicContainer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ForumTopicContainer */ "./src/components/forum/ForumTopicContainer.jsx");
+/* harmony import */ var _hooks_useAuth__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../hooks/useAuth */ "./src/hooks/useAuth.jsx");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/forum/ForumTopic.jsx";
+
 
 
 
@@ -2089,7 +2158,7 @@ var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-sr
 function ForumTopic() {
   const {
     loggedIn
-  } = Object(_hooks_useAuth__WEBPACK_IMPORTED_MODULE_6__["default"])();
+  } = Object(_hooks_useAuth__WEBPACK_IMPORTED_MODULE_7__["default"])();
   const {
     fromUrlPostId
   } = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["useParams"])();
@@ -2110,11 +2179,6 @@ function ForumTopic() {
   const [sendReply, {
     loading: replyLoading
   }] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_1__["useMutation"])(_gql__WEBPACK_IMPORTED_MODULE_3__["FORUM_REPLY"]);
-  const renderHTML = content => {
-    return {
-      __html: content
-    };
-  };
   const navigate = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["useNavigate"])();
   const submitReply = () => {
     sendReply({
@@ -2132,7 +2196,7 @@ function ForumTopic() {
     }
     // eslint-disable-next-line
   }, [error, data]);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ForumTopicContainer__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ForumTopicContainer__WEBPACK_IMPORTED_MODULE_6__["default"], {
     postLoading: postLoading,
     topic: topic,
     error: error,
@@ -2145,11 +2209,11 @@ function ForumTopic() {
     setContent: setContent,
     submitReply: submitReply,
     replyDisabled: !loggedIn,
-    renderHTML: renderHTML,
+    renderHTML: _lib_convert__WEBPACK_IMPORTED_MODULE_5__["renderHTML"],
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 44,
       columnNumber: 9
     }
   });
@@ -2721,7 +2785,7 @@ function Profile() {
 /*!***********************!*\
   !*** ./src/config.js ***!
   \***********************/
-/*! exports provided: WP_ROOT, GRAPHQL_URI, WP_UPLOADS, API_PAGES, API_POSTS, API_USERS, API_CATEGORIES, UI_ACCOUNT, UI_ACCOUNT_DELETE, UI_FORUM, UI_FORUM_THREADS, UI_FORUM_TOPIC, UI_PRIVACY, UI_CONTACT */
+/*! exports provided: WP_ROOT, GRAPHQL_URI, WP_UPLOADS, API_PAGES, API_POSTS, API_USERS, API_CATEGORIES, UI_ACCOUNT, UI_ACCOUNT_DELETE, UI_FORUM, UI_FORUM_THREADS, UI_FORUM_TOPIC, UI_PRIVACY_SLUG, UI_PRIVACY, UI_CONTACT */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2738,6 +2802,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_FORUM", function() { return UI_FORUM; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_FORUM_THREADS", function() { return UI_FORUM_THREADS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_FORUM_TOPIC", function() { return UI_FORUM_TOPIC; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_PRIVACY_SLUG", function() { return UI_PRIVACY_SLUG; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_PRIVACY", function() { return UI_PRIVACY; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_CONTACT", function() { return UI_CONTACT; });
 /* harmony import */ var _lib_validation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/validation */ "./src/lib/validation.jsx");
@@ -2768,7 +2833,8 @@ const UI_FORUM_THREADS = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["ge
 const UI_FORUM_TOPIC = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "forum/threads/post";
 
 // Privacy policy page
-const UI_PRIVACY = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "privacy-policy";
+const UI_PRIVACY_SLUG = "privacy-policy";
+const UI_PRIVACY = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + UI_PRIVACY_SLUG;
 
 // Contact form page
 const UI_CONTACT = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "contact-form";
@@ -3333,6 +3399,24 @@ const client = new _apollo_client__WEBPACK_IMPORTED_MODULE_0__["ApolloClient"]({
 
 /***/ }),
 
+/***/ "./src/lib/convert.jsx":
+/*!*****************************!*\
+  !*** ./src/lib/convert.jsx ***!
+  \*****************************/
+/*! exports provided: renderHTML */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "renderHTML", function() { return renderHTML; });
+const renderHTML = content => {
+  return {
+    __html: content
+  };
+};
+
+/***/ }),
+
 /***/ "./src/lib/validation.jsx":
 /*!********************************!*\
   !*** ./src/lib/validation.jsx ***!
@@ -3512,5 +3596,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",1]]]);
+},[[0,"runtime-main",0]]]);
 //# sourceMappingURL=main.chunk.js.map

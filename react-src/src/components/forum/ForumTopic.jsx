@@ -3,12 +3,12 @@ import { useMutation, useQuery } from "@apollo/client";
 import { useNavigate, useParams } from "react-router-dom";
 import { FORUM_GET_POSTS, FORUM_REPLY } from "../../gql";
 import { UI_FORUM } from "../../config";
+import { renderHTML } from "../../lib/convert";
 import ForumTopicContainer from "./ForumTopicContainer";
 import useAuth from "../../hooks/useAuth";
 
 function ForumTopic() {
     const { loggedIn } = useAuth();
-
     const { fromUrlPostId } = useParams();
     const postId = Number(fromUrlPostId.replace(':', ''));
 
@@ -19,10 +19,6 @@ function ForumTopic() {
 
     const { loading: postLoading, error, data } = useQuery(FORUM_GET_POSTS, { variables: { postId } });
     const [sendReply, { loading: replyLoading }] = useMutation(FORUM_REPLY);
-
-    const renderHTML = (content) => {
-        return { __html: content };
-    };
 
     const navigate = useNavigate();
 

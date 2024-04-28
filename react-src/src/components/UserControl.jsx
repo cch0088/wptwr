@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { openModal } from '../features/ModalSlice';
+import { useMutation } from '@apollo/client';
+import { GET_USER, LOG_OUT } from '../gql';
+import { UI_ACCOUNT } from '../config';
 import Modal from './Modal';
 import LoginForm from './forms/LoginForm';
 import useAuth from '../hooks/useAuth';
-import { useMutation } from '@apollo/client';
 import RegisterForm from './forms/RegisterForm';
 import ConfirmForm from './forms/ConfirmForm';
 import ConfirmFormRegister from './forms/ConfirmFormRegister';
 import ResetByEmailForm from './forms/ResetByEmailForm';
-import { GET_USER, LOG_OUT } from '../gql';
-import { UI_ACCOUNT } from '../config';
 
 export default function UserControl() {
 
