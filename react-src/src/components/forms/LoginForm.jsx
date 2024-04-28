@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useMutation } from '@apollo/client';
-import { GET_USER } from '../../hooks/useAuth';
 import { closeModal } from '../../features/ModalSlice';
-import { LOG_IN } from '../../gql';
+import { GET_USER, LOG_IN } from '../../gql';
 
 export default function LoginForm({setForm}) {
 

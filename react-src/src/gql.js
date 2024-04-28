@@ -11,6 +11,19 @@ export const LOG_OUT = gql`
         { status }
     }`;
 
+export const GET_USER = gql`
+    query getUser {
+        viewer {
+        id
+        databaseId
+        username
+        firstName
+        lastName
+        email
+        capabilities
+        }
+    }`;
+
 export const REGISTER_USER = gql`
     mutation registerUser(
         $username: String!
@@ -22,6 +35,17 @@ export const REGISTER_USER = gql`
             username: $username
             email: $email
             password: $password
+            }
+        ) { user { databaseId } }
+    }`;
+
+export const DELETE_USER = gql`
+    mutation deleteUser(
+        $id: ID!
+    ) {
+        deleteUser(
+            input: {
+                id: $id
             }
         ) { user { databaseId } }
     }`;

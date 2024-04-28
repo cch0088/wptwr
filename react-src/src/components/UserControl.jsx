@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { openModal } from '../features/ModalSlice';
 import Modal from './Modal';
 import LoginForm from './forms/LoginForm';
-import useAuth, { GET_USER } from '../hooks/useAuth';
+import useAuth from '../hooks/useAuth';
 import { useMutation } from '@apollo/client';
 import RegisterForm from './forms/RegisterForm';
 import ConfirmForm from './forms/ConfirmForm';
 import ConfirmFormRegister from './forms/ConfirmFormRegister';
 import ResetByEmailForm from './forms/ResetByEmailForm';
-import { LOG_OUT } from '../gql';
+import { GET_USER, LOG_OUT } from '../gql';
+import { UI_ACCOUNT } from '../config';
 
 export default function UserControl() {
 
@@ -52,9 +53,9 @@ return (
             {
                 (loggedIn && !loading) &&
                 <>
-                    {/* <a className="userbutton" href={UI_ACCOUNT}>
+                    <a className="userbutton" href={UI_ACCOUNT}>
                         <span role="img" aria-label="head">👤</span> Account
-                    </a> */}
+                    </a>
                     <span className="userbutton" onClick={() => { logOut() }}>
                         <span role="img" aria-label="door">🚪</span> Log Out
                     </span>
