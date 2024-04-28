@@ -1,19 +1,19 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { UI_ACCOUNT_DELETE } from "../../config";
+import useAuth from "../../hooks/useAuth";
 
 export default function Profile() {
-const user = useSelector(state => state.user.value);
 
-//TODO: Insert link to delete me plugin
+const {user, loggedIn} = useAuth();
 
 return (
-        <div>
-            <p>Welcome {user.username}</p>
-            <input className="button"
-                type="submit"
-                name="delete"
-                value="Delete Me"
-            />
-        </div>
+    <>
+        {loggedIn &&
+            <div className="slide">
+                <p>Welcome {user.username}</p>
+                <a href={UI_ACCOUNT_DELETE}>Delete my account...</a>
+            </div>
+        }
+    </>
     )
 }

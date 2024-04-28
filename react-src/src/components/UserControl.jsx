@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { openModal } from '../features/ModalSlice';
 import Modal from './Modal';
@@ -11,7 +11,6 @@ import ConfirmFormRegister from './forms/ConfirmFormRegister';
 import ResetByEmailForm from './forms/ResetByEmailForm';
 import { GET_USER, LOG_OUT } from '../gql';
 import { UI_ACCOUNT } from '../config';
-import { pushUserDetails } from '../features/UserSlice';
 
 export default function UserControl() {
 
@@ -20,18 +19,12 @@ export default function UserControl() {
     const [blockClose, setBlockClose] = useState(false);
 
     const dispatch = useDispatch();
-    const {loggedIn, loading, user} = useAuth();
+    const {loggedIn, loading} = useAuth();
 
     const [logOut] = useMutation(LOG_OUT, {
         refetchQueries: [
             { query: GET_USER }
         ],
-    });
-
-    useEffect(() => {
-        if (loggedIn) {
-            dispatch(pushUserDetails(user));
-        }
     });
 
     const openForm = (i) => {
