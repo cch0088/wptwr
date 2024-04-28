@@ -19,7 +19,7 @@ export default function UserControl() {
     const [blockClose, setBlockClose] = useState(false);
 
     const dispatch = useDispatch();
-    const {loggedIn, loading} = useAuth();
+    const {loggedIn, loading, user} = useAuth();
 
     const [logOut] = useMutation(LOG_OUT, {
         refetchQueries: [
@@ -54,7 +54,7 @@ return (
                 (loggedIn && !loading) &&
                 <>
                     <a className="userbutton" href={UI_ACCOUNT}>
-                        <span role="img" aria-label="head">👤</span> Account
+                        <span role="img" aria-label="head">👤</span> {user.username}
                     </a>
                     <span className="userbutton" onClick={() => { logOut() }}>
                         <span role="img" aria-label="door">🚪</span> Log Out

@@ -23,3 +23,9 @@ export const UI_ACCOUNT_DELETE = getRoot(WP_ROOT) + "wp-admin/options.php?page=p
 export const UI_FORUM = getRoot(WP_ROOT) + "forum";
 export const UI_FORUM_THREADS = getRoot(WP_ROOT) + "forum/threads";
 export const UI_FORUM_TOPIC = getRoot(WP_ROOT) + "forum/threads/post";
+
+// Privacy policy page
+export const UI_PRIVACY = getRoot(WP_ROOT) + "privacy-policy";
+
+// Contact form page
+export const UI_CONTACT = getRoot(WP_ROOT) + "contact-form";

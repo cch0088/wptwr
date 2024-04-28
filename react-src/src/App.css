@@ -186,11 +186,19 @@ code {
   z-index: 2;
 }
 
+.footer-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
 .footer-button {
   border: 1px solid;
   border-radius: 16px;
-  padding: 5px 20px 5px 20px;
+  padding: 5px 10px 5px 10px;
+  margin: 2px;
   text-decoration: none;
+  font-size: small;
+  text-align: center;
   color: white;
 }
 
