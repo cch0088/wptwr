@@ -22,13 +22,39 @@ function ForumTopic() {
 
     const navigate = useNavigate();
 
+    const insertReply = (content) => {
+        const newPost = {
+            __typename: "PostToCommentConnectionEdge",
+            node: {
+                __typename: "Comment",
+                databaseId: 0,
+                content,
+                date: "2024-03-31 12:52:34",
+                author: {
+                    __typename: "CommentToCommenterConnectionEdge",
+                    node: {
+                        __typename: "User",
+                        name: "loggedinusername",
+                        avatar: {
+                            "__typename": "Avatar",
+                            "url": "https://secure.gravatar.com/avatar/ca73d1432f9b2bf71ce39ecea5756c11?s=96&d=mm&r=g"
+                        }
+                    }
+                }
+            }
+        };
+        const edges = [ ...topic.comments.edges, newPost ];
+        const comments = { ...topic.comments, edges };
+        setTopic({...topic, comments});
+    }
+
     const submitReply = () => {
         sendReply({
             variables: {
                 commentOn: postId,
                 content,
             }
-        }).then(!replyLoading && navigate(0));
+        }).then(!replyLoading && insertReply(content));
     }
 
     useEffect(() => {

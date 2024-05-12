@@ -2188,13 +2188,44 @@ function ForumTopic() {
     loading: replyLoading
   }] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_1__["useMutation"])(_gql__WEBPACK_IMPORTED_MODULE_3__["FORUM_REPLY"]);
   const navigate = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["useNavigate"])();
+  const insertReply = content => {
+    const newPost = {
+      __typename: "PostToCommentConnectionEdge",
+      node: {
+        __typename: "Comment",
+        databaseId: 0,
+        content,
+        date: "2024-03-31 12:52:34",
+        author: {
+          __typename: "CommentToCommenterConnectionEdge",
+          node: {
+            __typename: "User",
+            name: "loggedinusername",
+            avatar: {
+              "__typename": "Avatar",
+              "url": "https://secure.gravatar.com/avatar/ca73d1432f9b2bf71ce39ecea5756c11?s=96&d=mm&r=g"
+            }
+          }
+        }
+      }
+    };
+    const edges = [...topic.comments.edges, newPost];
+    const comments = {
+      ...topic.comments,
+      edges
+    };
+    setTopic({
+      ...topic,
+      comments
+    });
+  };
   const submitReply = () => {
     sendReply({
       variables: {
         commentOn: postId,
         content
       }
-    }).then(!replyLoading && navigate(0));
+    }).then(!replyLoading && insertReply(content));
   };
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     if (error) {
@@ -2221,7 +2252,7 @@ function ForumTopic() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
+      lineNumber: 70,
       columnNumber: 9
     }
   });
@@ -3604,5 +3635,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",1]]]);
+},[[0,"runtime-main",0]]]);
 //# sourceMappingURL=main.chunk.js.map
