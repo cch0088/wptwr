@@ -330,15 +330,6 @@ function Footer() {
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "footer-button",
-    href: _config__WEBPACK_IMPORTED_MODULE_3__["UI_CONTACT"],
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 14,
-      columnNumber: 17
-    }
-  }, "Contact"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    className: "footer-button",
     href: _config__WEBPACK_IMPORTED_MODULE_3__["UI_PRIVACY"],
     __self: this,
     __source: {
@@ -3652,5 +3643,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",1]]]);
+},[[0,"runtime-main",0]]]);
 //# sourceMappingURL=main.chunk.js.map
