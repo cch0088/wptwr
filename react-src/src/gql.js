@@ -14,13 +14,16 @@ export const LOG_OUT = gql`
 export const GET_USER = gql`
     query getUser {
         viewer {
-        id
-        databaseId
-        username
-        firstName
-        lastName
-        email
-        capabilities
+            id
+            databaseId
+            username
+            firstName
+            lastName
+            email
+            capabilities
+            avatar {
+                url
+            }
         }
     }`;
 

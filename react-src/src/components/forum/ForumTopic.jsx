@@ -8,11 +8,12 @@ import ForumTopicContainer from "./ForumTopicContainer";
 import useAuth from "../../hooks/useAuth";
 
 function ForumTopic() {
-    const { loggedIn } = useAuth();
+    const { loggedIn, user } = useAuth();
     const { fromUrlPostId } = useParams();
     const postId = Number(fromUrlPostId.replace(':', ''));
 
     const [replyOpen, setReplyOpen] = useState(false);
+    const [replyDisabled, setReplyDisabled] = useState(false);
     const [content, setContent] = useState('');
     const [title, setTitle] = useState('');
     const [topic, setTopic] = useState();
@@ -29,16 +30,13 @@ function ForumTopic() {
                 __typename: "Comment",
                 databaseId: 0,
                 content,
-                date: "2024-03-31 12:52:34",
+                date: new Date(),
                 author: {
                     __typename: "CommentToCommenterConnectionEdge",
                     node: {
                         __typename: "User",
-                        name: "loggedinusername",
-                        avatar: {
-                            "__typename": "Avatar",
-                            "url": "https://secure.gravatar.com/avatar/ca73d1432f9b2bf71ce39ecea5756c11?s=96&d=mm&r=g"
-                        }
+                        name: user.username,
+                        avatar: user.avatar
                     }
                 }
             }
@@ -49,6 +47,8 @@ function ForumTopic() {
     }
 
     const submitReply = () => {
+        setReplyOpen(false);
+        setReplyDisabled(true);
         sendReply({
             variables: {
                 commentOn: postId,
@@ -69,6 +69,7 @@ function ForumTopic() {
     return (
         <ForumTopicContainer
             postLoading={postLoading}
+            loggedIn={loggedIn}
             topic={topic}
             error={error}
             replyOpen={replyOpen}
@@ -79,7 +80,7 @@ function ForumTopic() {
             setReplyOpen={setReplyOpen}
             setContent={setContent}
             submitReply={submitReply}
-            replyDisabled={!loggedIn}
+            replyDisabled={!loggedIn || replyDisabled}
             renderHTML={renderHTML}
         />
     );

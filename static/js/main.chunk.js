@@ -2165,13 +2165,15 @@ var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-sr
 
 function ForumTopic() {
   const {
-    loggedIn
+    loggedIn,
+    user
   } = Object(_hooks_useAuth__WEBPACK_IMPORTED_MODULE_7__["default"])();
   const {
     fromUrlPostId
   } = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["useParams"])();
   const postId = Number(fromUrlPostId.replace(':', ''));
   const [replyOpen, setReplyOpen] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const [replyDisabled, setReplyDisabled] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
   const [content, setContent] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   const [title, setTitle] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   const [topic, setTopic] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
@@ -2195,16 +2197,13 @@ function ForumTopic() {
         __typename: "Comment",
         databaseId: 0,
         content,
-        date: "2024-03-31 12:52:34",
+        date: new Date(),
         author: {
           __typename: "CommentToCommenterConnectionEdge",
           node: {
             __typename: "User",
-            name: "loggedinusername",
-            avatar: {
-              "__typename": "Avatar",
-              "url": "https://secure.gravatar.com/avatar/ca73d1432f9b2bf71ce39ecea5756c11?s=96&d=mm&r=g"
-            }
+            name: user.username,
+            avatar: user.avatar
           }
         }
       }
@@ -2220,6 +2219,8 @@ function ForumTopic() {
     });
   };
   const submitReply = () => {
+    setReplyOpen(false);
+    setReplyDisabled(true);
     sendReply({
       variables: {
         commentOn: postId,
@@ -2237,6 +2238,7 @@ function ForumTopic() {
   }, [error, data]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ForumTopicContainer__WEBPACK_IMPORTED_MODULE_6__["default"], {
     postLoading: postLoading,
+    loggedIn: loggedIn,
     topic: topic,
     error: error,
     replyOpen: replyOpen,
@@ -2247,7 +2249,7 @@ function ForumTopic() {
     setReplyOpen: setReplyOpen,
     setContent: setContent,
     submitReply: submitReply,
-    replyDisabled: !loggedIn,
+    replyDisabled: !loggedIn || replyDisabled,
     renderHTML: _lib_convert__WEBPACK_IMPORTED_MODULE_5__["renderHTML"],
     __self: this,
     __source: {
@@ -2284,6 +2286,7 @@ var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-sr
 
 const ForumTopicContainer = ({
   postLoading,
+  loggedIn,
   topic,
   error,
   replyOpen,
@@ -2299,7 +2302,7 @@ const ForumTopicContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 19,
+    lineNumber: 20,
     columnNumber: 5
   }
 }, postLoading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2307,14 +2310,14 @@ const ForumTopicContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 21,
+    lineNumber: 22,
     columnNumber: 13
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 22,
+    lineNumber: 23,
     columnNumber: 17
   }
 }, "Loading...")), topic && !error && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2322,7 +2325,7 @@ const ForumTopicContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 27,
+    lineNumber: 28,
     columnNumber: 13
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2330,7 +2333,7 @@ const ForumTopicContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 28,
+    lineNumber: 29,
     columnNumber: 17
   }
 }, topic.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2338,7 +2341,7 @@ const ForumTopicContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 29,
+    lineNumber: 30,
     columnNumber: 17
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2346,7 +2349,7 @@ const ForumTopicContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 30,
+    lineNumber: 31,
     columnNumber: 21
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -2355,7 +2358,7 @@ const ForumTopicContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 31,
+    lineNumber: 32,
     columnNumber: 25
   }
 }), topic.author.node.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2363,7 +2366,7 @@ const ForumTopicContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 34,
+    lineNumber: 35,
     columnNumber: 21
   }
 }, "Post #1 on ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_3__["getDateFromString"])(topic.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2371,7 +2374,7 @@ const ForumTopicContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 35,
+    lineNumber: 36,
     columnNumber: 21
   }
 })), topic.comments.edges.map((post, count) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2380,7 +2383,7 @@ const ForumTopicContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 38,
+    lineNumber: 39,
     columnNumber: 21
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2388,7 +2391,7 @@ const ForumTopicContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 39,
+    lineNumber: 40,
     columnNumber: 25
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -2397,7 +2400,7 @@ const ForumTopicContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 40,
+    lineNumber: 41,
     columnNumber: 29
   }
 }), post.node.author.node.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2405,7 +2408,7 @@ const ForumTopicContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 43,
+    lineNumber: 44,
     columnNumber: 25
   }
 }, "Post #", count + 2, " on ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_3__["getDateFromString"])(post.node.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2413,15 +2416,22 @@ const ForumTopicContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 44,
+    lineNumber: 45,
     columnNumber: 25
   }
-})))), !replyOpen ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, replyDisabled ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+})))), !replyOpen ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, replyDisabled ? loggedIn ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 53,
-    columnNumber: 27
+    lineNumber: 55,
+    columnNumber: 31
+  }
+}, "You replied to this post.") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 56,
+    columnNumber: 31
   }
 }, "You must be logged in to post a reply.") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
   className: "forum-button",
@@ -2429,7 +2439,7 @@ const ForumTopicContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 54,
+    lineNumber: 57,
     columnNumber: 27
   }
 }, "Add reply")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2437,7 +2447,7 @@ const ForumTopicContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 58,
+    lineNumber: 61,
     columnNumber: 21
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_quill__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -2447,7 +2457,7 @@ const ForumTopicContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 59,
+    lineNumber: 62,
     columnNumber: 25
   }
 })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -2457,10 +2467,10 @@ const ForumTopicContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 65,
+    lineNumber: 68,
     columnNumber: 21
   }
-}, "Send reply"))));
+}, "Add reply"))));
 /* harmony default export */ __webpack_exports__["default"] = (ForumTopicContainer);
 
 /***/ }),
@@ -3176,13 +3186,16 @@ const LOG_OUT = _apollo_client__WEBPACK_IMPORTED_MODULE_0__["gql"]`
 const GET_USER = _apollo_client__WEBPACK_IMPORTED_MODULE_0__["gql"]`
     query getUser {
         viewer {
-        id
-        databaseId
-        username
-        firstName
-        lastName
-        email
-        capabilities
+            id
+            databaseId
+            username
+            firstName
+            lastName
+            email
+            capabilities
+            avatar {
+                url
+            }
         }
     }`;
 const REGISTER_USER = _apollo_client__WEBPACK_IMPORTED_MODULE_0__["gql"]`
@@ -3635,5 +3648,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",0]]]);
+},[[0,"runtime-main",1]]]);
 //# sourceMappingURL=main.chunk.js.map

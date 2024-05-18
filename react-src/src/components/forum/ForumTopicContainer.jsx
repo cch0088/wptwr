@@ -5,6 +5,7 @@ import { getDateFromString } from "../../lib/validation";
 
 const ForumTopicContainer = ({
     postLoading,
+    loggedIn,
     topic,
     error,
     replyOpen,
@@ -50,7 +51,9 @@ const ForumTopicContainer = ({
                 ? <>
                     {
                         replyDisabled
-                        ? <div>You must be logged in to post a reply.</div>
+                        ? loggedIn
+                            ? <div>You replied to this post.</div>
+                            : <div>You must be logged in to post a reply.</div>
                         : <button className="forum-button" onClick={() => setReplyOpen(true)}>Add reply</button>
                     }
                 </>
@@ -67,7 +70,7 @@ const ForumTopicContainer = ({
                         || content === "<p><br></p>"
                         || !content
                         || replyDisabled
-                    } onClick={() => submitReply()}>Send reply</button>
+                    } onClick={() => submitReply()}>Add reply</button>
                 </>
             }
         </>
