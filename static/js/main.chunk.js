@@ -3502,14 +3502,16 @@ const getRoot = wp_root_const => {
     return wp_root_const;
   }
 };
-const getDateFromString = date => {
+const getDateFromString = (date, tzString = 'America/New_York') => {
   const formatted = Intl.DateTimeFormat("en-US", {
     year: "numeric",
     day: "2-digit",
     month: "long",
     hour: "2-digit",
     minute: "2-digit"
-  }).format(new Date(date));
+  }).format(new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {
+    timeZone: tzString
+  })));
   return formatted;
 };
 
