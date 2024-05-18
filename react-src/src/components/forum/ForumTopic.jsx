@@ -13,10 +13,11 @@ function ForumTopic() {
     const postId = Number(fromUrlPostId.replace(':', ''));
 
     const [replyOpen, setReplyOpen] = useState(false);
-    const [replyDisabled, setReplyDisabled] = useState(false);
+    const [replyDisabled, setReplyDisabled] = useState(true);
     const [content, setContent] = useState('');
     const [title, setTitle] = useState('');
     const [topic, setTopic] = useState();
+    const [replyAuthor, setReplyAuthor] = useState();
 
     const { loading: postLoading, error, data } = useQuery(FORUM_GET_POSTS, { variables: { postId } });
     const [sendReply, { loading: replyLoading }] = useMutation(FORUM_REPLY);
@@ -60,8 +61,13 @@ function ForumTopic() {
     useEffect(() => {
         if (error) {
             navigate(UI_FORUM);
-        } else {
-            data && setTopic(data.posts.nodes[0]);
+        } else if (data) {
+            setTopic(data.posts.nodes[0])
+            setReplyAuthor(data.posts.nodes[0].comments.edges.slice(-1)[0].node.author.node.name);
+        }
+
+        if (user && replyAuthor === user.name) {
+            setReplyDisabled(true);
         }
         // eslint-disable-next-line
     },[error, data])
@@ -72,14 +78,14 @@ function ForumTopic() {
             loggedIn={loggedIn}
             topic={topic}
             error={error}
-            replyOpen={replyOpen}
             content={content}
-            replyLoading={replyLoading}
             title={title}
             setTitle={setTitle}
             setReplyOpen={setReplyOpen}
             setContent={setContent}
             submitReply={submitReply}
+            replyOpen={replyOpen}
+            replyLoading={replyLoading}
             replyDisabled={!loggedIn || replyDisabled}
             renderHTML={renderHTML}
         />

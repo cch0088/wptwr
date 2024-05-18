@@ -2173,10 +2173,11 @@ function ForumTopic() {
   } = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["useParams"])();
   const postId = Number(fromUrlPostId.replace(':', ''));
   const [replyOpen, setReplyOpen] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
-  const [replyDisabled, setReplyDisabled] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const [replyDisabled, setReplyDisabled] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true);
   const [content, setContent] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   const [title, setTitle] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   const [topic, setTopic] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
+  const [replyAuthor, setReplyAuthor] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
   const {
     loading: postLoading,
     error,
@@ -2231,8 +2232,12 @@ function ForumTopic() {
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     if (error) {
       navigate(_config__WEBPACK_IMPORTED_MODULE_4__["UI_FORUM"]);
-    } else {
-      data && setTopic(data.posts.nodes[0]);
+    } else if (data) {
+      setTopic(data.posts.nodes[0]);
+      setReplyAuthor(data.posts.nodes[0].comments.edges.slice(-1)[0].node.author.node.name);
+    }
+    if (user && replyAuthor === user.name) {
+      setReplyDisabled(true);
     }
     // eslint-disable-next-line
   }, [error, data]);
@@ -2241,20 +2246,20 @@ function ForumTopic() {
     loggedIn: loggedIn,
     topic: topic,
     error: error,
-    replyOpen: replyOpen,
     content: content,
-    replyLoading: replyLoading,
     title: title,
     setTitle: setTitle,
     setReplyOpen: setReplyOpen,
     setContent: setContent,
     submitReply: submitReply,
+    replyOpen: replyOpen,
+    replyLoading: replyLoading,
     replyDisabled: !loggedIn || replyDisabled,
     renderHTML: _lib_convert__WEBPACK_IMPORTED_MODULE_5__["renderHTML"],
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70,
+      lineNumber: 76,
       columnNumber: 9
     }
   });
@@ -3648,5 +3653,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",1]]]);
+},[[0,"runtime-main",0]]]);
 //# sourceMappingURL=main.chunk.js.map
