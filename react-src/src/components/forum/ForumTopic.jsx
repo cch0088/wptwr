@@ -13,11 +13,11 @@ function ForumTopic() {
     const postId = Number(fromUrlPostId.replace(':', ''));
 
     const [replyOpen, setReplyOpen] = useState(false);
-    const [replyDisabled, setReplyDisabled] = useState(true);
+    const [lastReplyAuthor, setLastReplyAuthor] = useState();
+    const [replyDisabled, setReplyDisabled] = useState(false);
     const [content, setContent] = useState('');
     const [title, setTitle] = useState('');
     const [topic, setTopic] = useState();
-    const [replyAuthor, setReplyAuthor] = useState();
 
     const { loading: postLoading, error, data } = useQuery(FORUM_GET_POSTS, { variables: { postId } });
     const [sendReply, { loading: replyLoading }] = useMutation(FORUM_REPLY);
@@ -62,15 +62,13 @@ function ForumTopic() {
         if (error) {
             navigate(UI_FORUM);
         } else if (data) {
-            setTopic(data.posts.nodes[0])
-            setReplyAuthor(data.posts.nodes[0].comments.edges.slice(-1)[0].node.author.node.name);
+            setTopic(data.posts.nodes[0]);
+            data.posts.nodes[0].comments.edges.length > 0
+                ? setLastReplyAuthor(data.posts.nodes[0].comments.edges.slice(-1)[0].node.author.node.name)
+                : setLastReplyAuthor(data.posts.nodes[0].author.node.name);
+            setReplyDisabled(user && (user.username === lastReplyAuthor));
         }
-
-        if (user && replyAuthor === user.name) {
-            setReplyDisabled(true);
-        }
-        // eslint-disable-next-line
-    },[error, data])
+    },[error, data, lastReplyAuthor, navigate, user])
 
     return (
         <ForumTopicContainer

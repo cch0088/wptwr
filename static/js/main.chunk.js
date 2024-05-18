@@ -2173,11 +2173,11 @@ function ForumTopic() {
   } = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["useParams"])();
   const postId = Number(fromUrlPostId.replace(':', ''));
   const [replyOpen, setReplyOpen] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
-  const [replyDisabled, setReplyDisabled] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true);
+  const [lastReplyAuthor, setLastReplyAuthor] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
+  const [replyDisabled, setReplyDisabled] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
   const [content, setContent] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   const [title, setTitle] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
   const [topic, setTopic] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
-  const [replyAuthor, setReplyAuthor] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
   const {
     loading: postLoading,
     error,
@@ -2234,13 +2234,10 @@ function ForumTopic() {
       navigate(_config__WEBPACK_IMPORTED_MODULE_4__["UI_FORUM"]);
     } else if (data) {
       setTopic(data.posts.nodes[0]);
-      setReplyAuthor(data.posts.nodes[0].comments.edges.slice(-1)[0].node.author.node.name);
+      data.posts.nodes[0].comments.edges.length > 0 ? setLastReplyAuthor(data.posts.nodes[0].comments.edges.slice(-1)[0].node.author.node.name) : setLastReplyAuthor(data.posts.nodes[0].author.node.name);
+      setReplyDisabled(user && user.username === lastReplyAuthor);
     }
-    if (user && replyAuthor === user.name) {
-      setReplyDisabled(true);
-    }
-    // eslint-disable-next-line
-  }, [error, data]);
+  }, [error, data, lastReplyAuthor, navigate, user]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ForumTopicContainer__WEBPACK_IMPORTED_MODULE_6__["default"], {
     postLoading: postLoading,
     loggedIn: loggedIn,
@@ -2259,7 +2256,7 @@ function ForumTopic() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76,
+      lineNumber: 74,
       columnNumber: 9
     }
   });
@@ -3655,5 +3652,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",0]]]);
+},[[0,"runtime-main",1]]]);
 //# sourceMappingURL=main.chunk.js.map
