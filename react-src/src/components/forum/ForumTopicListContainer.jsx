@@ -23,9 +23,13 @@ const ForumTopicListContainer = ({
 (
     <div className="forum-list-container">
         <div className="forum-section">
-            <div className="forum-category">{category.categoryName}</div>
+            <div className="forum-category">
+                {newTopicOpen
+                    ? 'New topic in ' + category.categoryName
+                    : category.categoryName}
+            </div>
             <div>{heading}</div>
-            {topic.map((topic) => (
+            {!newTopicOpen && topic.map((topic) => (
                 <div key={topic.postId}
                     id={topic.postId}
                     className="forum-topic"
@@ -55,6 +59,7 @@ const ForumTopicListContainer = ({
             <input className="new-topic-title"
                 type="text"
                 name="title"
+                placeholder="Topic title"
                 value={title}
                 onChange={(e) => { setTitle(e.target.value); }}
             />
@@ -73,6 +78,7 @@ const ForumTopicListContainer = ({
                 || !title
                 || newTopicDisabled
             } onClick={() => handleNewTopic()} className="forum-button">Add topic</button>
+            <button onClick={() => setNewTopicOpen(false)} className="forum-button right-offset">Cancel</button>
         </>
         )}
     </div>

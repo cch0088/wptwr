@@ -2687,14 +2687,14 @@ const ForumTopicListContainer = ({
     lineNumber: 26,
     columnNumber: 13
   }
-}, category.categoryName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+}, newTopicOpen ? 'New topic in ' + category.categoryName : category.categoryName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 27,
+    lineNumber: 31,
     columnNumber: 13
   }
-}, heading), topic.map(topic => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+}, heading), !newTopicOpen && topic.map(topic => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   key: topic.postId,
   id: topic.postId,
   className: "forum-topic",
@@ -2702,7 +2702,7 @@ const ForumTopicListContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 29,
+    lineNumber: 33,
     columnNumber: 17
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -2712,7 +2712,7 @@ const ForumTopicListContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 34,
+    lineNumber: 38,
     columnNumber: 21
   }
 }, "\uD83D\uDDE8\uFE0F"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2720,7 +2720,7 @@ const ForumTopicListContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 35,
+    lineNumber: 39,
     columnNumber: 21
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2728,7 +2728,7 @@ const ForumTopicListContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 36,
+    lineNumber: 40,
     columnNumber: 25
   }
 }, topic.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2736,14 +2736,14 @@ const ForumTopicListContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 37,
+    lineNumber: 41,
     columnNumber: 25
   }
 }, "By ", topic.author.node.name, " on ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_3__["getDateFromString"])(topic.date)))))), !error && !loading && (!newTopicOpen ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, newTopicDisabled ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 49,
+    lineNumber: 53,
     columnNumber: 15
   }
 }, "You must be logged in to create a new topic.") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -2752,7 +2752,7 @@ const ForumTopicListContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 50,
+    lineNumber: 54,
     columnNumber: 15
   }
 }, "New topic")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2760,13 +2760,14 @@ const ForumTopicListContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 54,
+    lineNumber: 58,
     columnNumber: 13
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
   className: "new-topic-title",
   type: "text",
   name: "title",
+  placeholder: "Topic title",
   value: title,
   onChange: e => {
     setTitle(e.target.value);
@@ -2774,7 +2775,7 @@ const ForumTopicListContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 55,
+    lineNumber: 59,
     columnNumber: 13
   }
 })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2782,7 +2783,7 @@ const ForumTopicListContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 62,
+    lineNumber: 67,
     columnNumber: 13
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_quill__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -2792,7 +2793,7 @@ const ForumTopicListContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 63,
+    lineNumber: 68,
     columnNumber: 17
   }
 })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -2802,10 +2803,19 @@ const ForumTopicListContainer = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 69,
+    lineNumber: 74,
     columnNumber: 13
   }
-}, "Add topic"))));
+}, "Add topic"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  onClick: () => setNewTopicOpen(false),
+  className: "forum-button right-offset",
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 81,
+    columnNumber: 13
+  }
+}, "Cancel"))));
 /* harmony default export */ __webpack_exports__["default"] = (ForumTopicListContainer);
 
 /***/ }),

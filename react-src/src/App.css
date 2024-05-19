@@ -332,6 +332,10 @@ code {
   font-size: large;
 }
 
+.right-offset {
+  float: right;
+}
+
 .human-check {
   height: 24px;
   width: 24px;
