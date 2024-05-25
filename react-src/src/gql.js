@@ -102,14 +102,7 @@ export const FORUM_NEW_TOPIC = gql`
             status: PUBLISH
         } ) {
         post {
-            id
-            title
-            date
-            author {
-                node {
-                    name
-                }
-            }
+            postId
         } }
 }`;
 

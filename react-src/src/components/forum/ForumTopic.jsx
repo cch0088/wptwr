@@ -44,7 +44,7 @@ function ForumTopic() {
         };
         const edges = [ ...topic.comments.edges, newPost ];
         const comments = { ...topic.comments, edges };
-        setTopic({...topic, comments});
+        !replyLoading && setTopic({...topic, comments});
     }
 
     const submitReply = () => {
@@ -55,8 +55,7 @@ function ForumTopic() {
                 commentOn: postId,
                 content,
             }
-        });
-        insertReply(content);
+        }).then(() => insertReply(content));
     }
 
     useEffect(() => {

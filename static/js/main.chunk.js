@@ -2243,7 +2243,7 @@ function ForumTopic() {
       ...topic.comments,
       edges
     };
-    setTopic({
+    !replyLoading && setTopic({
       ...topic,
       comments
     });
@@ -2256,8 +2256,7 @@ function ForumTopic() {
         commentOn: postId,
         content
       }
-    });
-    insertReply(content);
+    }).then(() => insertReply(content));
   };
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     if (error) {
@@ -2286,7 +2285,7 @@ function ForumTopic() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75,
+      lineNumber: 74,
       columnNumber: 9
     }
   });
@@ -2609,7 +2608,6 @@ function ForumTopicList() {
     };
     setTopic([...topic, newPost]);
   };
-  console.log(topic);
   const handleNewTopic = () => {
     addNewTopic({
       variables: {
@@ -2617,9 +2615,8 @@ function ForumTopicList() {
         title,
         content
       }
-    });
+    }).then(newPost => insertTopic(newPost.data.createPost.post.postId, title));
     setNewTopicOpen(false);
-    insertTopic(0, title);
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ForumTopicListContainer__WEBPACK_IMPORTED_MODULE_6__["default"], {
     category: category,
@@ -2640,7 +2637,7 @@ function ForumTopicList() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 95,
+      lineNumber: 94,
       columnNumber: 9
     }
   });
@@ -3332,14 +3329,7 @@ const FORUM_NEW_TOPIC = _apollo_client__WEBPACK_IMPORTED_MODULE_0__["gql"]`
             status: PUBLISH
         } ) {
         post {
-            id
-            title
-            date
-            author {
-                node {
-                    name
-                }
-            }
+            postId
         } }
 }`;
 const FORUM_GET_POSTS = _apollo_client__WEBPACK_IMPORTED_MODULE_0__["gql"]`

@@ -84,9 +84,10 @@ function ForumTopicList() {
                 title,
                 content
             }
-        });
+        }).then((newPost) =>
+            insertTopic(newPost.data.createPost.post.postId, title)
+        );
         setNewTopicOpen(false);
-        insertTopic(0, title);
     }
 
     return (
