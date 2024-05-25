@@ -10,7 +10,7 @@ import { getContent } from '../../features/PageServices';
 import useAuth from '../../hooks/useAuth';
 
 function ForumTopicList() {
-    const { loggedIn } = useAuth();
+    const { loggedIn, user } = useAuth();
 
     const { fromUrlCategoryId } = useParams();
     const categoryId = Number(fromUrlCategoryId.replace(':', ''));
@@ -58,6 +58,25 @@ function ForumTopicList() {
         navigate(`${UI_FORUM_TOPIC}/:${postId}`);
     }
 
+    const insertTopic = (postId, title) => {
+        const newPost = {
+            __typename: "Post",
+            postId,
+            title,
+            date: new Date(),
+            author: {
+            __typename: "NodeWithAuthorToUserConnectionEdge",
+                node: {
+                    __typename: "User",
+                    name: user.username
+                }
+            },
+            "isSticky": false,
+            "editingLockedBy": null
+        };
+        setTopic([...topic, newPost]);
+    }
+
     const handleNewTopic = () => {
         addNewTopic({
             variables: {
@@ -65,7 +84,9 @@ function ForumTopicList() {
                 title,
                 content
             }
-        }).then(!newTopicLoading && navigate(0));
+        });
+        setNewTopicOpen(false);
+        insertTopic(0, title);
     }
 
     return (

@@ -2256,7 +2256,8 @@ function ForumTopic() {
         commentOn: postId,
         content
       }
-    }).then(!replyLoading && insertReply(content));
+    });
+    insertReply(content);
   };
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     if (error) {
@@ -2285,7 +2286,7 @@ function ForumTopic() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74,
+      lineNumber: 75,
       columnNumber: 9
     }
   });
@@ -2539,7 +2540,8 @@ var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-sr
 
 function ForumTopicList() {
   const {
-    loggedIn
+    loggedIn,
+    user
   } = Object(_hooks_useAuth__WEBPACK_IMPORTED_MODULE_9__["default"])();
   const {
     fromUrlCategoryId
@@ -2589,6 +2591,25 @@ function ForumTopicList() {
   const handleNavigation = postId => {
     navigate(`${_config__WEBPACK_IMPORTED_MODULE_4__["UI_FORUM_TOPIC"]}/:${postId}`);
   };
+  const insertTopic = (postId, title) => {
+    const newPost = {
+      __typename: "Post",
+      postId,
+      title,
+      date: new Date(),
+      author: {
+        __typename: "NodeWithAuthorToUserConnectionEdge",
+        node: {
+          __typename: "User",
+          name: user.username
+        }
+      },
+      "isSticky": false,
+      "editingLockedBy": null
+    };
+    setTopic([...topic, newPost]);
+  };
+  console.log(topic);
   const handleNewTopic = () => {
     addNewTopic({
       variables: {
@@ -2596,7 +2617,9 @@ function ForumTopicList() {
         title,
         content
       }
-    }).then(!newTopicLoading && navigate(0));
+    });
+    setNewTopicOpen(false);
+    insertTopic(0, title);
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ForumTopicListContainer__WEBPACK_IMPORTED_MODULE_6__["default"], {
     category: category,
@@ -2617,7 +2640,7 @@ function ForumTopicList() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72,
+      lineNumber: 95,
       columnNumber: 9
     }
   });
@@ -3691,5 +3714,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",0]]]);
+},[[0,"runtime-main",1]]]);
 //# sourceMappingURL=main.chunk.js.map

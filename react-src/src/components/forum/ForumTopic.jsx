@@ -55,7 +55,8 @@ function ForumTopic() {
                 commentOn: postId,
                 content,
             }
-        }).then(!replyLoading && insertReply(content));
+        });
+        insertReply(content);
     }
 
     useEffect(() => {
