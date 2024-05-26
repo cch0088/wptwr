@@ -42,11 +42,8 @@ return (
             {
                 (!loggedIn && !loading) &&
                 <>
-                    <span className="userbutton" onClick={() => { openForm(2) }}>
-                        <span role="img" aria-label="new">🆕</span> Sign Up
-                    </span>
                     <span className="userbutton" onClick={() => { openForm(1) }}>
-                        <span role="img" aria-label="head">👤</span> Log In
+                        <span role="img" aria-label="head">👤</span> Log In or Sign Up
                     </span>
                 </>
             }

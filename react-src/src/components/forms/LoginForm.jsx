@@ -37,7 +37,7 @@ export default function LoginForm({setForm}) {
 
 return (
     <form id="site-form">
-        <div className="title-label">SIGN IN</div>
+        <div className="title-label">LOG IN</div>
 
         {(message) ? <div className='error-label'>{message}</div> : null}
 

@@ -90,9 +90,7 @@ code {
   color: white;
   margin: 8px 4px 8px 4px;
   padding: 6px 8px 6px 8px;
-  width: 160px;
   text-decoration: none;
-  text-align: center;
 }
 
 #usercontrol > .userbutton:hover {
@@ -430,7 +428,7 @@ code {
 
 @media screen and (max-width: 750px) {
   #usercontrol {
-    width: 180px;
+    width: 12rem;
   }
 
   #usercontrol > .userbutton {
