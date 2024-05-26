@@ -1026,7 +1026,7 @@ function UserControl() {
   }), !loggedIn && !loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "userbutton",
     onClick: () => {
-      openForm(2);
+      openForm(1);
     },
     __self: this,
     __source: {
@@ -1036,40 +1036,20 @@ function UserControl() {
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     role: "img",
-    "aria-label": "new",
+    "aria-label": "head",
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 46,
       columnNumber: 25
     }
-  }, "\uD83C\uDD95"), " Sign Up"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "userbutton",
-    onClick: () => {
-      openForm(1);
-    },
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 48,
-      columnNumber: 21
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    role: "img",
-    "aria-label": "head",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 49,
-      columnNumber: 25
-    }
-  }, "\uD83D\uDC64"), " Log In")), loggedIn && !loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  }, "\uD83D\uDC64"), " Log In or Sign Up")), loggedIn && !loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "userbutton",
     href: _config__WEBPACK_IMPORTED_MODULE_5__["UI_ACCOUNT"],
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56,
+      lineNumber: 53,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -1078,7 +1058,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57,
+      lineNumber: 54,
       columnNumber: 25
     }
   }, "\uD83D\uDC64"), " ", user.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -1089,7 +1069,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59,
+      lineNumber: 56,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -1098,7 +1078,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 60,
+      lineNumber: 57,
       columnNumber: 25
     }
   }, "\uD83D\uDEAA"), " Log Out")), loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -1106,7 +1086,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67,
+      lineNumber: 64,
       columnNumber: 21
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -1115,7 +1095,7 @@ function UserControl() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68,
+      lineNumber: 65,
       columnNumber: 25
     }
   }, "\u23F3"), " Loading...")));
@@ -1342,7 +1322,7 @@ function LoginForm({
       lineNumber: 40,
       columnNumber: 9
     }
-  }, "SIGN IN"), message ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "LOG IN"), message ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "error-label",
     __self: this,
     __source: {
@@ -2227,7 +2207,6 @@ function ForumTopic() {
         __typename: "Comment",
         databaseId: 0,
         content,
-        date: new Date(),
         author: {
           __typename: "CommentToCommenterConnectionEdge",
           node: {
@@ -2285,7 +2264,7 @@ function ForumTopic() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74,
+      lineNumber: 73,
       columnNumber: 9
     }
   });
@@ -2400,7 +2379,7 @@ const ForumTopicContainer = ({
     lineNumber: 35,
     columnNumber: 21
   }
-}, "Post #1 on ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_3__["getDateFromString"])(topic.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+}, "Post #1 ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_3__["getDateFromString"])(topic.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   dangerouslySetInnerHTML: renderHTML(topic.content),
   __self: undefined,
   __source: {
@@ -2442,7 +2421,7 @@ const ForumTopicContainer = ({
     lineNumber: 44,
     columnNumber: 25
   }
-}, "Post #", count + 2, " on ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_3__["getDateFromString"])(post.node.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+}, "Post #", count + 2, " ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_3__["getDateFromString"])(post.node.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   dangerouslySetInnerHTML: renderHTML(post.node.content),
   __self: undefined,
   __source: {
@@ -2595,7 +2574,6 @@ function ForumTopicList() {
       __typename: "Post",
       postId,
       title,
-      date: new Date(),
       author: {
         __typename: "NodeWithAuthorToUserConnectionEdge",
         node: {
@@ -2637,7 +2615,7 @@ function ForumTopicList() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 94,
+      lineNumber: 93,
       columnNumber: 9
     }
   });
@@ -2759,7 +2737,7 @@ const ForumTopicListContainer = ({
     lineNumber: 41,
     columnNumber: 25
   }
-}, "By ", topic.author.node.name, " on ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_3__["getDateFromString"])(topic.date)))))), !error && !loading && (!newTopicOpen ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, newTopicDisabled ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+}, "By ", topic.author.node.name, " ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_3__["getDateFromString"])(topic.date)))))), !error && !loading && (!newTopicOpen ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, newTopicDisabled ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
@@ -3551,17 +3529,19 @@ const getRoot = wp_root_const => {
     return wp_root_const;
   }
 };
-const getDateFromString = (date, tzString = 'America/New_York') => {
-  const formatted = Intl.DateTimeFormat("en-US", {
-    year: "numeric",
-    day: "2-digit",
-    month: "long",
-    hour: "2-digit",
-    minute: "2-digit"
-  }).format(new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {
-    timeZone: tzString
-  })));
-  return formatted;
+const getDateFromString = (date, locale = 'en-US', timeZone = 'America/New_York') => {
+  if (date) {
+    return "on " + new Date(date).toLocaleString(locale, {
+      timeZone,
+      year: 'numeric',
+      day: '2-digit',
+      month: 'long',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  } else {
+    return "just now";
+  }
 };
 
 /***/ }),

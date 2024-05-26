@@ -32,7 +32,7 @@ const ForumTopicContainer = ({
                         <img alt="avatar" src={topic.author.node.avatar.url} />
                         {topic.author.node.name}
                     </div>
-                    <div className="forum-post-info">Post #1 on {getDateFromString(topic.date)}</div>
+                    <div className="forum-post-info">Post #1 {getDateFromString(topic.date)}</div>
                     <div dangerouslySetInnerHTML={renderHTML(topic.content)} />
                 </div>
                 {topic.comments.edges.map((post, count) => (
@@ -41,7 +41,7 @@ const ForumTopicContainer = ({
                             <img alt="avatar" src={post.node.author.node.avatar.url} />
                             {post.node.author.node.name}
                         </div>
-                        <div className="forum-post-info">Post #{count + 2} on {getDateFromString(post.node.date)}</div>
+                        <div className="forum-post-info">Post #{count + 2} {getDateFromString(post.node.date)}</div>
                         <div dangerouslySetInnerHTML={renderHTML(post.node.content)} />
                     </div>
                 ))}

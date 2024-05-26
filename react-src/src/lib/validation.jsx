@@ -16,21 +16,19 @@ export const getRoot = (wp_root_const) => {
     }
 }
 
-export const getDateFromString = (date, tzString = 'America/New_York') => {
-    const formatted = Intl.DateTimeFormat("en-US", {
-        year: "numeric",
-        day: "2-digit",
-        month: "long",
-        hour: "2-digit",
-        minute: "2-digit"
-      })
-      .format(new Date((
-        typeof date === "string"
-        ? new Date(date)
-        : date)
-        .toLocaleString(
-            "en-US", {timeZone: tzString}
-        )
-    ));
-    return formatted;
+export const getDateFromString = (date, locale = 'en-US', timeZone = 'America/New_York') => {
+    if (date) {
+        return "on " + new Date(date).toLocaleString(locale,
+            {
+                timeZone,
+                year: 'numeric',
+                day: '2-digit',
+                month: 'long',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+    }
+    else {
+        return "just now";
+    }
 }

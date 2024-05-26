@@ -22,7 +22,7 @@
     <link rel="apple-touch-icon" href="<?php echo $TEMPLATE_PATH; ?>/logo192.png" />
     <link rel="manifest" href="<?php echo $TEMPLATE_PATH; ?>/manifest.json" />
     <title>Travel with Reason</title>
-<link href="/WordPress/wp-content/themes/wptwr/static/css/1.chunk.css?f839da8800a3401dd3b2" rel="stylesheet"><link href="/WordPress/wp-content/themes/wptwr/static/css/main.chunk.css?f839da8800a3401dd3b2" rel="stylesheet"></head>
+<link href="/WordPress/wp-content/themes/wptwr/static/css/1.chunk.css?fbf4686dde51198f940f" rel="stylesheet"><link href="/WordPress/wp-content/themes/wptwr/static/css/main.chunk.css?fbf4686dde51198f940f" rel="stylesheet"></head>
     <body>
     <noscript>
         You need to enable JavaScript to run this app.
@@ -31,5 +31,5 @@
     <!--
         This PHP file is a template.
     -->
-    <script src="/WordPress/wp-content/themes/wptwr/static/js/bundle.js?f839da8800a3401dd3b2"></script><script src="/WordPress/wp-content/themes/wptwr/static/js/1.chunk.js?f839da8800a3401dd3b2"></script><script src="/WordPress/wp-content/themes/wptwr/static/js/main.chunk.js?f839da8800a3401dd3b2"></script></body>
+    <script src="/WordPress/wp-content/themes/wptwr/static/js/bundle.js?fbf4686dde51198f940f"></script><script src="/WordPress/wp-content/themes/wptwr/static/js/1.chunk.js?fbf4686dde51198f940f"></script><script src="/WordPress/wp-content/themes/wptwr/static/js/main.chunk.js?fbf4686dde51198f940f"></script></body>
 </html>

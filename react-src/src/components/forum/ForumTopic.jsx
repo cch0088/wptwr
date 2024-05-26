@@ -31,7 +31,6 @@ function ForumTopic() {
                 __typename: "Comment",
                 databaseId: 0,
                 content,
-                date: new Date(),
                 author: {
                     __typename: "CommentToCommenterConnectionEdge",
                     node: {

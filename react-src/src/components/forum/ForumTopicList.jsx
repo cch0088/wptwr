@@ -63,9 +63,8 @@ function ForumTopicList() {
             __typename: "Post",
             postId,
             title,
-            date: new Date(),
             author: {
-            __typename: "NodeWithAuthorToUserConnectionEdge",
+                __typename: "NodeWithAuthorToUserConnectionEdge",
                 node: {
                     __typename: "User",
                     name: user.username

@@ -39,7 +39,7 @@ const ForumTopicListContainer = ({
                     <div className="forum-topic-node">
                         <div className="forum-topic-name">{topic.title}</div>
                         <div className="forum-topic-description">
-                            By {topic.author.node.name} on {getDateFromString(topic.date)}
+                            By {topic.author.node.name} {getDateFromString(topic.date)}
                         </div>
                     </div>
                 </div>
