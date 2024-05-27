@@ -576,17 +576,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _MainMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MainMenu */ "./src/components/MainMenu.jsx");
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config */ "./src/config.js");
+/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
+/* harmony import */ var _gql__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../gql */ "./src/gql.js");
+/* harmony import */ var _lib_validation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../lib/validation */ "./src/lib/validation.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/Main.jsx";
+
+
+
+
 
 
 
 function Main() {
   const menuRoute = _config__WEBPACK_IMPORTED_MODULE_2__["API_PAGES"] + "main-menu";
+  const {
+    loading,
+    error,
+    data
+  } = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(_gql__WEBPACK_IMPORTED_MODULE_4__["LATEST_POSTS"]);
+  const navigate = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["useNavigate"])();
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8,
+      lineNumber: 16,
       columnNumber: 9
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -594,52 +608,14 @@ function Main() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
+      lineNumber: 17,
       columnNumber: 13
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
-      columnNumber: 41
-    }
-  }, "Website is under construction")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "heading-container",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 10,
-      columnNumber: 13
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 10,
-      columnNumber: 41
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "forum",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 10,
-      columnNumber: 45
-    }
-  }, "Community Forum"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "heading-container",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 11,
-      columnNumber: 13
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 11,
+      lineNumber: 17,
       columnNumber: 41
     }
   }, "Categories")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MainMenu__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -647,10 +623,85 @@ function Main() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12,
+      lineNumber: 18,
       columnNumber: 13
     }
-  }));
+  }), !error && !loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "heading-container",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 17
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 45
+    }
+  }, "Latest Posts")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "forum-section",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22,
+      columnNumber: 17
+    }
+  }, data.posts.edges.map(post => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    key: post.node.databaseId,
+    className: "forum-recent",
+    onClick: () => navigate(Object(_lib_validation__WEBPACK_IMPORTED_MODULE_5__["getRoot"])(_config__WEBPACK_IMPORTED_MODULE_2__["WP_ROOT"]) + post.node.uri.slice(1, -1)),
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "bubble",
+    role: "img",
+    "aria-label": "topic",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25,
+      columnNumber: 25
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    alt: "avatar",
+    src: post.node.author.node.avatar.url,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26,
+      columnNumber: 29
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 28,
+      columnNumber: 25
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "forum-topic-name",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29,
+      columnNumber: 29
+    }
+  }, post.node.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "forum-topic-description",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30,
+      columnNumber: 29
+    }
+  }, "By ", post.node.author.node.name, " ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_5__["getDateFromString"])(post.node.date))))))));
 }
 
 /***/ }),
@@ -2041,7 +2092,6 @@ const ForumListContainer = ({
         columnNumber: 41
       }
     }, "\uD83D\uDDE8\uFE0F"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "forum-topic-node",
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
@@ -2714,7 +2764,6 @@ const ForumTopicListContainer = ({
     columnNumber: 21
   }
 }, "\uD83D\uDDE8\uFE0F"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-  className: "forum-topic-node",
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
@@ -3195,7 +3244,7 @@ async function getContent(fromUrl) {
 /*!********************!*\
   !*** ./src/gql.js ***!
   \********************/
-/*! exports provided: LOG_IN, LOG_OUT, GET_USER, REGISTER_USER, DELETE_USER, RESET_PASSWORD, SEND_PASSWORD_RESET_EMAIL, TOPIC_LIST, FORUM_NEW_TOPIC, FORUM_GET_POSTS, FORUM_REPLY */
+/*! exports provided: LOG_IN, LOG_OUT, GET_USER, REGISTER_USER, DELETE_USER, RESET_PASSWORD, SEND_PASSWORD_RESET_EMAIL, TOPIC_LIST, FORUM_NEW_TOPIC, FORUM_GET_POSTS, FORUM_REPLY, LATEST_POSTS */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3211,6 +3260,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FORUM_NEW_TOPIC", function() { return FORUM_NEW_TOPIC; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FORUM_GET_POSTS", function() { return FORUM_GET_POSTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FORUM_REPLY", function() { return FORUM_REPLY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LATEST_POSTS", function() { return LATEST_POSTS; });
 /* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
 
 const LOG_IN = _apollo_client__WEBPACK_IMPORTED_MODULE_0__["gql"]`
@@ -3338,6 +3388,27 @@ mutation setReply($commentOn: Int!, $content: String!) {
     {
         clientMutationId
         success
+    }
+}`;
+const LATEST_POSTS = _apollo_client__WEBPACK_IMPORTED_MODULE_0__["gql"]`
+query GetPosts {
+posts(first: 3) {
+        edges {
+            node {
+                title
+                date
+                databaseId
+                uri
+                author {
+                    node {
+                        name
+                        avatar {
+                            url
+                        }
+                    }
+                }
+            }
+        }
     }
 }`;
 

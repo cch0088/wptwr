@@ -36,7 +36,7 @@ const ForumTopicListContainer = ({
                     onClick={() => handleNavigation(topic.postId)}
                 >
                     <span className="bubble" role="img" aria-label="topic">🗨️</span>
-                    <div className="forum-topic-node">
+                    <div>
                         <div className="forum-topic-name">{topic.title}</div>
                         <div className="forum-topic-description">
                             By {topic.author.node.name} {getDateFromString(topic.date)}

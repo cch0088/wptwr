@@ -137,3 +137,25 @@ mutation setReply($commentOn: Int!, $content: String!) {
         success
     }
 }`;
+
+export const LATEST_POSTS = gql`
+query GetPosts {
+posts(first: 3) {
+        edges {
+            node {
+                title
+                date
+                databaseId
+                uri
+                author {
+                    node {
+                        name
+                        avatar {
+                            url
+                        }
+                    }
+                }
+            }
+        }
+    }
+}`;

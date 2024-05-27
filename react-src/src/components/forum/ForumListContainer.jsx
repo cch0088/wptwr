@@ -20,7 +20,7 @@ const ForumListContainer = ({
                                         onClick={() => handleNavigation(i.id)}
                                     >
                                         <span className="bubble" role="img" aria-label="topic">🗨️</span>
-                                        <div className="forum-topic-node">
+                                        <div>
                                             <div className="forum-topic-name">{i.name}</div>
                                             <div className="forum-topic-description">{i.description}</div>
                                         </div>
