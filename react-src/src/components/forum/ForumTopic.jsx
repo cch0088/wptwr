@@ -63,9 +63,9 @@ function ForumTopic() {
         } else if (data) {
             setTopic(data.posts.nodes[0]);
             data.posts.nodes[0].comments.edges.length > 0
-                ? setLastReplyAuthor(data.posts.nodes[0].comments.edges.slice(-1)[0].node.author.node.name)
-                : setLastReplyAuthor(data.posts.nodes[0].author.node.name);
-            setReplyDisabled(user && (user.username === lastReplyAuthor));
+                ? setLastReplyAuthor(data.posts.nodes[0].comments.edges.slice(-1)[0].node.author.node.databaseId)
+                : setLastReplyAuthor(data.posts.nodes[0].author.node.databaseId);
+            setReplyDisabled(user && (user.databaseId === lastReplyAuthor));
         }
     },[error, data, lastReplyAuthor, navigate, user])
 

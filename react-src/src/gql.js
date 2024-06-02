@@ -82,9 +82,9 @@ query getPostsByCategory(
             postId
             title
             date
-            author { node { name } }
+            author { node { databaseId name } }
             isSticky
-            editingLockedBy { node { name } }
+            editingLockedBy { node { databaseId name } }
         }
     }
 }`;
@@ -114,6 +114,7 @@ query getPostById($postId: Int!) {
         title
         content
         author { node {
+            databaseId
             name
             avatar { url } } }
         date
@@ -123,6 +124,7 @@ query getPostById($postId: Int!) {
             content
             date
             author { node {
+                databaseId
                 name
                 avatar { url } } } } } } } } }`;
 
@@ -140,7 +142,7 @@ mutation setReply($commentOn: Int!, $content: String!) {
 
 export const LATEST_POSTS = gql`
 query GetPosts {
-posts(first: 3) {
+posts(first: 5, where: {categoryName: "all"}) {
         edges {
             node {
                 title
@@ -149,6 +151,7 @@ posts(first: 3) {
                 uri
                 author {
                     node {
+                        databaseId
                         name
                         avatar {
                             url
