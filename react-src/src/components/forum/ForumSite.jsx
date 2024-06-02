@@ -28,7 +28,6 @@ function ForumSite() {
                 name: item.name,
                 slug: item.slug,
                 description: item.description,
-                link: item.link,
                 parent: item.parent
             })
         }

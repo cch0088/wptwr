@@ -11,7 +11,7 @@ export const WP_UPLOADS = getRoot(WP_ROOT) + "wp-content/uploads";
 export const API_PAGES = getRoot(WP_ROOT) + "wp-json/wp/v2/pages/?slug=";
 export const API_POSTS = getRoot(WP_ROOT) + "wp-json/wp/v2/posts/";
 export const API_USERS = getRoot(WP_ROOT) + "wp-json/wp/v2/users/";
-export const API_CATEGORIES = getRoot(WP_ROOT) + "wp-json/wp/v2/categories";
+export const API_CATEGORIES = getRoot(WP_ROOT) + "wp-json/wp/v2/categories?per_page=100";
 
 // User accounts page
 export const UI_ACCOUNT = getRoot(WP_ROOT) + "user";
