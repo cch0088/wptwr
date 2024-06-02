@@ -1,9 +1,9 @@
 {
   "files": {
-    "static/css/1.chunk.css": "/WordPress/wp-content/themes/wptwr/static/css/1.chunk.css",
-    "static/js/1.chunk.js": "/WordPress/wp-content/themes/wptwr/static/js/1.chunk.js",
-    "static/css/1.chunk.css.map": "/WordPress/wp-content/themes/wptwr/static/css/1.chunk.css.map",
-    "static/js/1.chunk.js.map": "/WordPress/wp-content/themes/wptwr/static/js/1.chunk.js.map",
+    "static/css/0.chunk.css": "/WordPress/wp-content/themes/wptwr/static/css/0.chunk.css",
+    "static/js/0.chunk.js": "/WordPress/wp-content/themes/wptwr/static/js/0.chunk.js",
+    "static/css/0.chunk.css.map": "/WordPress/wp-content/themes/wptwr/static/css/0.chunk.css.map",
+    "static/js/0.chunk.js.map": "/WordPress/wp-content/themes/wptwr/static/js/0.chunk.js.map",
     "main.css": "/WordPress/wp-content/themes/wptwr/static/css/main.chunk.css",
     "main.js": "/WordPress/wp-content/themes/wptwr/static/js/main.chunk.js",
     "main.css.map": "/WordPress/wp-content/themes/wptwr/static/css/main.chunk.css.map",
@@ -11,13 +11,14 @@
     "runtime-main.js": "/WordPress/wp-content/themes/wptwr/static/js/bundle.js",
     "runtime-main.js.map": "/WordPress/wp-content/themes/wptwr/static/js/bundle.js.map",
     "index.php": "/WordPress/wp-content/themes/wptwr/index.php",
+    "static/media/App.css": "/WordPress/wp-content/themes/wptwr/static/media/banner.94cfa30c.jpg",
     "static/media/logo.svg": "/WordPress/wp-content/themes/wptwr/static/media/logo.e9286273.svg",
     "static/media/logotext.svg": "/WordPress/wp-content/themes/wptwr/static/media/logotext.1ad91849.svg"
   },
   "entrypoints": [
     "static/js/bundle.js",
-    "static/css/1.chunk.css",
-    "static/js/1.chunk.js",
+    "static/css/0.chunk.css",
+    "static/js/0.chunk.js",
     "static/css/main.chunk.css",
     "static/js/main.chunk.js"
   ]

@@ -14,7 +14,7 @@ export default function Main() {
 
     return (
         <div>
-            <div id="heading-container"><h2>Categories</h2></div>
+            <div id="heading-container"><h2>Quick Links</h2></div>
             <MainMenu route={menuRoute} />
             {!error && !loading &&
             <>

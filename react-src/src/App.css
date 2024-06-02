@@ -120,7 +120,7 @@ code {
 
 #card-container {
   display: grid;
-  grid-template-columns: repeat(3, 24em);
+  grid-template-columns: auto;
   gap: 4px;
   justify-content: center;
 }
@@ -437,7 +437,7 @@ code {
   }
 
   #card-container {
-    grid-template-columns: auto auto;
+    grid-template-columns: auto;
   }
 }
 
