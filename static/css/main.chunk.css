@@ -445,10 +445,6 @@ code {
 }
 
 @media screen and (max-width: 750px) {
-  #usercontrol {
-    width: 12rem;
-  }
-
   #usercontrol > .userbutton {
     position: relative;
     top: 10px;
