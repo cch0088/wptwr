@@ -24,6 +24,9 @@ export const UI_FORUM = getRoot(WP_ROOT) + "forum";
 export const UI_FORUM_THREADS = getRoot(WP_ROOT) + "forum/threads";
 export const UI_FORUM_TOPIC = getRoot(WP_ROOT) + "forum/threads/post";
 
+// Meetup pages
+export const UI_MEETUPS = getRoot(WP_ROOT) + "meetups";
+
 // Privacy policy page
 export const UI_PRIVACY_SLUG = "privacy-policy";
 export const UI_PRIVACY = getRoot(WP_ROOT) + UI_PRIVACY_SLUG;
