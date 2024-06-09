@@ -1184,33 +1184,134 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return EventSite; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _apollo_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/client */ "./node_modules/@apollo/client/index.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../config */ "./src/config.js");
+/* harmony import */ var _gql__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../gql */ "./src/gql.js");
+/* harmony import */ var _hooks_useAuth__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../hooks/useAuth */ "./src/hooks/useAuth.jsx");
+/* harmony import */ var _NewEventForm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./NewEventForm */ "./src/components/events/NewEventForm.jsx");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/events/EventSite.jsx";
 
-function EventSite() {
-  // Fields for creating new event:
-  // Title
-  // Description
-  // Date
-  // Duration
-  // Location
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "forum-list-container",
+
+
+
+
+function EventSite() {
+  const {
+    loggedIn,
+    user
+  } = Object(_hooks_useAuth__WEBPACK_IMPORTED_MODULE_4__["default"])();
+  const {
+    loading,
+    error,
+    data
+  } = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_1__["useQuery"])(_gql__WEBPACK_IMPORTED_MODULE_3__["EVENTS_LIST"], {
+    variables: {
+      categoryName: _config__WEBPACK_IMPORTED_MODULE_2__["EVENTS_CATEGORY"]
+    }
+  });
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_NewEventForm__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    loading: loading,
+    error: error,
+    data: data,
+    loggedIn: loggedIn,
+    user: user,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12,
+      lineNumber: 17,
       columnNumber: 9
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 13,
-      columnNumber: 13
-    }
-  }, "Create a new event"));
+  });
 }
+
+/***/ }),
+
+/***/ "./src/components/events/NewEventForm.jsx":
+/*!************************************************!*\
+  !*** ./src/components/events/NewEventForm.jsx ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _lib_validation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../lib/validation */ "./src/lib/validation.jsx");
+/* harmony import */ var _lib_convert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib/convert */ "./src/lib/convert.jsx");
+var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/events/NewEventForm.jsx";
+
+// import ReactQuill from 'react-quill';
+// import 'react-quill/dist/quill.snow.css';
+
+
+
+// Fields for creating new event:
+// Title
+// Description
+// Category
+// Date
+// Duration
+// Location
+
+const NewEventForm = ({
+  loading,
+  error,
+  data,
+  loggedIn,
+  user
+}) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  className: "forum-list-container",
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 23,
+    columnNumber: 5
+  }
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  className: "forum-section",
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 24,
+    columnNumber: 9
+  }
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  className: "forum-category",
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 25,
+    columnNumber: 13
+  }
+}, !loading && !error && data.posts.nodes.map((post, count) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  key: post.postId,
+  className: "forum-post",
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 27,
+    columnNumber: 21
+  }
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  className: "forum-post-info",
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 28,
+    columnNumber: 25
+  }
+}, "Event #", count + 1, " created by ", post.author.node.name, " ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_1__["getDateFromString"])(post.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  dangerouslySetInnerHTML: Object(_lib_convert__WEBPACK_IMPORTED_MODULE_2__["renderHTML"])(post.content),
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 29,
+    columnNumber: 25
+  }
+}))))));
+/* harmony default export */ __webpack_exports__["default"] = (NewEventForm);
 
 /***/ }),
 
@@ -2981,7 +3082,7 @@ function Profile() {
 /*!***********************!*\
   !*** ./src/config.js ***!
   \***********************/
-/*! exports provided: WP_ROOT, GRAPHQL_URI, WP_UPLOADS, API_PAGES, API_POSTS, API_USERS, API_CATEGORIES, UI_ACCOUNT, UI_ACCOUNT_DELETE, UI_FORUM, UI_FORUM_THREADS, UI_FORUM_TOPIC, UI_EVENTS, UI_PRIVACY_SLUG, UI_PRIVACY, UI_CONTACT */
+/*! exports provided: WP_ROOT, GRAPHQL_URI, WP_UPLOADS, API_PAGES, API_POSTS, API_USERS, API_CATEGORIES, UI_ACCOUNT, UI_ACCOUNT_DELETE, UI_FORUM, UI_FORUM_THREADS, UI_FORUM_TOPIC, EVENTS_CATEGORY, UI_EVENTS, UI_PRIVACY_SLUG, UI_PRIVACY, UI_CONTACT */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2998,6 +3099,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_FORUM", function() { return UI_FORUM; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_FORUM_THREADS", function() { return UI_FORUM_THREADS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_FORUM_TOPIC", function() { return UI_FORUM_TOPIC; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EVENTS_CATEGORY", function() { return EVENTS_CATEGORY; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_EVENTS", function() { return UI_EVENTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_PRIVACY_SLUG", function() { return UI_PRIVACY_SLUG; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_PRIVACY", function() { return UI_PRIVACY; });
@@ -3030,6 +3132,7 @@ const UI_FORUM_THREADS = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["ge
 const UI_FORUM_TOPIC = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "forum/threads/post";
 
 // Events pages
+const EVENTS_CATEGORY = "events";
 const UI_EVENTS = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "events";
 
 // Privacy policy page
@@ -3307,7 +3410,7 @@ async function getContent(fromUrl) {
 /*!********************!*\
   !*** ./src/gql.js ***!
   \********************/
-/*! exports provided: LOG_IN, LOG_OUT, GET_USER, REGISTER_USER, DELETE_USER, RESET_PASSWORD, SEND_PASSWORD_RESET_EMAIL, TOPIC_LIST, FORUM_NEW_TOPIC, FORUM_GET_POSTS, FORUM_REPLY, LATEST_POSTS */
+/*! exports provided: LOG_IN, LOG_OUT, GET_USER, REGISTER_USER, DELETE_USER, RESET_PASSWORD, SEND_PASSWORD_RESET_EMAIL, TOPIC_LIST, EVENTS_LIST, FORUM_NEW_TOPIC, FORUM_GET_POSTS, FORUM_REPLY, LATEST_POSTS */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3320,6 +3423,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RESET_PASSWORD", function() { return RESET_PASSWORD; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEND_PASSWORD_RESET_EMAIL", function() { return SEND_PASSWORD_RESET_EMAIL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TOPIC_LIST", function() { return TOPIC_LIST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EVENTS_LIST", function() { return EVENTS_LIST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FORUM_NEW_TOPIC", function() { return FORUM_NEW_TOPIC; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FORUM_GET_POSTS", function() { return FORUM_GET_POSTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FORUM_REPLY", function() { return FORUM_REPLY; });
@@ -3401,6 +3505,23 @@ query getPostsByCategory(
             postId
             title
             date
+            author { node { databaseId name } }
+            isSticky
+            editingLockedBy { node { databaseId name } }
+        }
+    }
+}`;
+const EVENTS_LIST = _apollo_client__WEBPACK_IMPORTED_MODULE_0__["gql"]`
+query getPostsByCategory(
+        $categoryName: String!
+    )
+{
+    posts(where: {categoryName: $categoryName}) {
+        nodes {
+            postId
+            title
+            date
+            content
             author { node { databaseId name } }
             isSticky
             editingLockedBy { node { databaseId name } }

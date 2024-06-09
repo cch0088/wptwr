@@ -89,6 +89,24 @@ query getPostsByCategory(
     }
 }`;
 
+export const EVENTS_LIST = gql`
+query getPostsByCategory(
+        $categoryName: String!
+    )
+{
+    posts(where: {categoryName: $categoryName}) {
+        nodes {
+            postId
+            title
+            date
+            content
+            author { node { databaseId name } }
+            isSticky
+            editingLockedBy { node { databaseId name } }
+        }
+    }
+}`;
+
 export const FORUM_NEW_TOPIC = gql`
     mutation newPost($slug: String!, $title: String!, $content: String!) {
         createPost(

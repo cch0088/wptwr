@@ -25,6 +25,7 @@ export const UI_FORUM_THREADS = getRoot(WP_ROOT) + "forum/threads";
 export const UI_FORUM_TOPIC = getRoot(WP_ROOT) + "forum/threads/post";
 
 // Events pages
+export const EVENTS_CATEGORY = "events";
 export const UI_EVENTS = getRoot(WP_ROOT) + "events";
 
 // Privacy policy page
