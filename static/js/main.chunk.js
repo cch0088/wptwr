@@ -39,7 +39,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _hooks_useAuth__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./hooks/useAuth */ "./src/hooks/useAuth.jsx");
 /* harmony import */ var _components_user_Profile__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/user/Profile */ "./src/components/user/Profile.jsx");
 /* harmony import */ var _components_Generic__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/Generic */ "./src/components/Generic.jsx");
-/* harmony import */ var _components_meetups_MeetupSite__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/meetups/MeetupSite */ "./src/components/meetups/MeetupSite.jsx");
+/* harmony import */ var _components_events_EventSite__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/events/EventSite */ "./src/components/events/EventSite.jsx");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/App.js";
 
 
@@ -188,13 +188,13 @@ function App() {
       columnNumber: 15
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-    path: `${_config__WEBPACK_IMPORTED_MODULE_2__["UI_MEETUPS"]}`,
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_meetups_MeetupSite__WEBPACK_IMPORTED_MODULE_16__["default"], {
+    path: `${_config__WEBPACK_IMPORTED_MODULE_2__["UI_EVENTS"]}`,
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_events_EventSite__WEBPACK_IMPORTED_MODULE_16__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 33,
-        columnNumber: 58
+        columnNumber: 57
       }
     }),
     __self: this,
@@ -1168,6 +1168,41 @@ function UserControl() {
       columnNumber: 25
     }
   }, "\u23F3"), " Loading...")));
+}
+
+/***/ }),
+
+/***/ "./src/components/events/EventSite.jsx":
+/*!*********************************************!*\
+  !*** ./src/components/events/EventSite.jsx ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return EventSite; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/events/EventSite.jsx";
+
+function EventSite() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "forum-list-container",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 13
+    }
+  }, "Create a new event"));
 }
 
 /***/ }),
@@ -2884,41 +2919,6 @@ const ForumTopicListContainer = ({
 
 /***/ }),
 
-/***/ "./src/components/meetups/MeetupSite.jsx":
-/*!***********************************************!*\
-  !*** ./src/components/meetups/MeetupSite.jsx ***!
-  \***********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MeetupSite; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/meetups/MeetupSite.jsx";
-
-function MeetupSite() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "forum-list-container",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 5,
-      columnNumber: 9
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 6,
-      columnNumber: 13
-    }
-  }, "Create a new Meetup"));
-}
-
-/***/ }),
-
 /***/ "./src/components/user/Profile.jsx":
 /*!*****************************************!*\
   !*** ./src/components/user/Profile.jsx ***!
@@ -2974,7 +2974,7 @@ function Profile() {
 /*!***********************!*\
   !*** ./src/config.js ***!
   \***********************/
-/*! exports provided: WP_ROOT, GRAPHQL_URI, WP_UPLOADS, API_PAGES, API_POSTS, API_USERS, API_CATEGORIES, UI_ACCOUNT, UI_ACCOUNT_DELETE, UI_FORUM, UI_FORUM_THREADS, UI_FORUM_TOPIC, UI_MEETUPS, UI_PRIVACY_SLUG, UI_PRIVACY, UI_CONTACT */
+/*! exports provided: WP_ROOT, GRAPHQL_URI, WP_UPLOADS, API_PAGES, API_POSTS, API_USERS, API_CATEGORIES, UI_ACCOUNT, UI_ACCOUNT_DELETE, UI_FORUM, UI_FORUM_THREADS, UI_FORUM_TOPIC, UI_EVENTS, UI_PRIVACY_SLUG, UI_PRIVACY, UI_CONTACT */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2991,7 +2991,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_FORUM", function() { return UI_FORUM; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_FORUM_THREADS", function() { return UI_FORUM_THREADS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_FORUM_TOPIC", function() { return UI_FORUM_TOPIC; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_MEETUPS", function() { return UI_MEETUPS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_EVENTS", function() { return UI_EVENTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_PRIVACY_SLUG", function() { return UI_PRIVACY_SLUG; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_PRIVACY", function() { return UI_PRIVACY; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_CONTACT", function() { return UI_CONTACT; });
@@ -3022,8 +3022,8 @@ const UI_FORUM = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])
 const UI_FORUM_THREADS = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "forum/threads";
 const UI_FORUM_TOPIC = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "forum/threads/post";
 
-// Meetup pages
-const UI_MEETUPS = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "meetups";
+// Events pages
+const UI_EVENTS = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "events";
 
 // Privacy policy page
 const UI_PRIVACY_SLUG = "privacy-policy";
@@ -3814,5 +3814,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",0]]]);
+},[[0,"runtime-main",1]]]);
 //# sourceMappingURL=main.chunk.js.map
