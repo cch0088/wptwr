@@ -1197,9 +1197,9 @@ var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-sr
 
 
 function EventSite() {
+  const [newEventOpen, setNewEventOpen] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
   const {
-    loggedIn,
-    user
+    loggedIn
   } = Object(_hooks_useAuth__WEBPACK_IMPORTED_MODULE_4__["default"])();
   const {
     loading,
@@ -1215,11 +1215,12 @@ function EventSite() {
     error: error,
     data: data,
     loggedIn: loggedIn,
-    user: user,
+    newEventOpen: newEventOpen,
+    setNewEventOpen: setNewEventOpen,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17,
+      lineNumber: 18,
       columnNumber: 9
     }
   });
@@ -1238,52 +1239,67 @@ function EventSite() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _lib_validation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../lib/validation */ "./src/lib/validation.jsx");
-/* harmony import */ var _lib_convert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib/convert */ "./src/lib/convert.jsx");
+/* harmony import */ var react_quill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-quill */ "./node_modules/react-quill/lib/index.js");
+/* harmony import */ var react_quill__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_quill__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_quill_dist_quill_snow_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-quill/dist/quill.snow.css */ "./node_modules/react-quill/dist/quill.snow.css");
+/* harmony import */ var react_quill_dist_quill_snow_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_quill_dist_quill_snow_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _lib_validation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib/validation */ "./src/lib/validation.jsx");
+/* harmony import */ var _lib_convert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib/convert */ "./src/lib/convert.jsx");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/events/NewEventForm.jsx";
 
-// import ReactQuill from 'react-quill';
-// import 'react-quill/dist/quill.snow.css';
 
 
 
-// Fields for creating new event:
-// Title
-// Description
-// Category
-// Date
-// Duration
-// Location
 
 const NewEventForm = ({
   loading,
   error,
   data,
   loggedIn,
-  user
+  newEventOpen,
+  title,
+  content,
+  category,
+  date,
+  duration,
+  location,
+  setTitle,
+  setContent,
+  setCategory,
+  setDuration,
+  setLocation,
+  setNewEventOpen
 }) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   className: "forum-list-container",
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 23,
+    lineNumber: 27,
     columnNumber: 5
   }
-}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+}, newEventOpen ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  className: "forum-category",
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 30,
+    columnNumber: 13
+  }
+}, "Add a new event") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   className: "forum-section",
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 24,
-    columnNumber: 9
+    lineNumber: 32,
+    columnNumber: 13
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   className: "forum-category",
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 25,
-    columnNumber: 13
+    lineNumber: 33,
+    columnNumber: 17
   }
 }, !loading && !error && data.posts.nodes.map((post, count) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   key: post.postId,
@@ -1291,26 +1307,161 @@ const NewEventForm = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 27,
-    columnNumber: 21
+    lineNumber: 35,
+    columnNumber: 25
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   className: "forum-post-info",
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 28,
-    columnNumber: 25
+    lineNumber: 36,
+    columnNumber: 29
   }
-}, "Event #", count + 1, " created by ", post.author.node.name, " ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_1__["getDateFromString"])(post.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-  dangerouslySetInnerHTML: Object(_lib_convert__WEBPACK_IMPORTED_MODULE_2__["renderHTML"])(post.content),
+}, "Event #", count + 1, " created by ", post.author.node.name, " ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_3__["getDateFromString"])(post.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  dangerouslySetInnerHTML: Object(_lib_convert__WEBPACK_IMPORTED_MODULE_4__["renderHTML"])(post.content),
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 29,
+    lineNumber: 37,
+    columnNumber: 29
+  }
+}))))), loggedIn ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, " ", newEventOpen ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  id: "new-topic-container",
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 47,
+    columnNumber: 21
+  }
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  className: "new-topic-title",
+  type: "text",
+  name: "title",
+  placeholder: "Event title",
+  value: title,
+  onChange: e => {
+    setTitle(e.target.value);
+  },
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 48,
+    columnNumber: 21
+  }
+})), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  id: "new-topic-container",
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 56,
+    columnNumber: 21
+  }
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  className: "new-topic-title",
+  type: "text",
+  name: "category",
+  placeholder: "Event category",
+  value: title,
+  onChange: e => {
+    setCategory(e.target.value);
+  },
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 57,
+    columnNumber: 21
+  }
+})), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  id: "new-topic-container",
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 65,
+    columnNumber: 21
+  }
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  className: "new-topic-title",
+  type: "text",
+  name: "duration",
+  placeholder: "Event duration",
+  value: title,
+  onChange: e => {
+    setDuration(e.target.value);
+  },
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 66,
+    columnNumber: 21
+  }
+})), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  id: "new-topic-container",
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 74,
+    columnNumber: 21
+  }
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  className: "new-topic-title",
+  type: "text",
+  name: "location",
+  placeholder: "Event location",
+  value: title,
+  onChange: e => {
+    setLocation(e.target.value);
+  },
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 75,
+    columnNumber: 21
+  }
+})), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  id: "text-editor-container",
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 83,
+    columnNumber: 21
+  }
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_quill__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  theme: "snow",
+  value: content,
+  onChange: setContent,
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 84,
     columnNumber: 25
   }
-}))))));
+})), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  className: "forum-button",
+  onClick: () => setNewEventOpen(false),
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 90,
+    columnNumber: 21
+  }
+}, "New event")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  className: "forum-button",
+  onClick: () => setNewEventOpen(true),
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 92,
+    columnNumber: 19
+  }
+}, "New event")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 95,
+    columnNumber: 11
+  }
+}, "You must be logged in to create an event."));
 /* harmony default export */ __webpack_exports__["default"] = (NewEventForm);
 
 /***/ }),
@@ -3942,5 +4093,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",0]]]);
+},[[0,"runtime-main",1]]]);
 //# sourceMappingURL=main.chunk.js.map

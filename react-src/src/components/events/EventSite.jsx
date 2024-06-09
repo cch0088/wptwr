@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { EVENTS_CATEGORY } from '../../config';
 import { EVENTS_LIST } from '../../gql';
@@ -6,7 +6,8 @@ import useAuth from '../../hooks/useAuth';
 import NewEventForm from './NewEventForm';
 
 export default function EventSite() {
-    const { loggedIn, user } = useAuth();
+    const [newEventOpen, setNewEventOpen] = useState(false);
+    const { loggedIn } = useAuth();
     const { loading, error, data } = useQuery(EVENTS_LIST, {
         variables: {
             categoryName: EVENTS_CATEGORY
@@ -19,7 +20,8 @@ export default function EventSite() {
             error={error}
             data={data}
             loggedIn={loggedIn}
-            user={user}
+            newEventOpen={newEventOpen}
+            setNewEventOpen={setNewEventOpen}
         />
     );
 }
