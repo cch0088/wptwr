@@ -121,9 +121,9 @@ code {
 
 #card-container {
   display: grid;
-  grid-template-columns: auto;
-  grid-gap: 4px;
-  gap: 4px;
+  grid-template-columns: repeat(2, auto);
+  grid-gap: 16px;
+  gap: 16px;
   justify-content: center;
 }
 

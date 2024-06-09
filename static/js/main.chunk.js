@@ -39,7 +39,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _hooks_useAuth__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./hooks/useAuth */ "./src/hooks/useAuth.jsx");
 /* harmony import */ var _components_user_Profile__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/user/Profile */ "./src/components/user/Profile.jsx");
 /* harmony import */ var _components_Generic__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/Generic */ "./src/components/Generic.jsx");
+/* harmony import */ var _components_meetups_MeetupSite__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/meetups/MeetupSite */ "./src/components/meetups/MeetupSite.jsx");
 var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/App.js";
+
 
 
 
@@ -63,28 +65,28 @@ function App() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22,
+      lineNumber: 23,
       columnNumber: 5
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_hooks_useAuth__WEBPACK_IMPORTED_MODULE_13__["AuthProvider"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
+      lineNumber: 24,
       columnNumber: 7
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["BrowserRouter"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 25,
       columnNumber: 9
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Routes"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 26,
       columnNumber: 11
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
@@ -93,14 +95,14 @@ function App() {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26,
+        lineNumber: 27,
         columnNumber: 48
       }
     }),
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 27,
       columnNumber: 13
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
@@ -109,25 +111,8 @@ function App() {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27,
-        columnNumber: 37
-      }
-    }),
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 27,
-      columnNumber: 15
-    }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-    path: "set-password",
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PasswordReset__WEBPACK_IMPORTED_MODULE_7__["default"], {
-      currentUrl: currentUrl,
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
         lineNumber: 28,
-        columnNumber: 51
+        columnNumber: 37
       }
     }),
     __self: this,
@@ -137,14 +122,14 @@ function App() {
       columnNumber: 15
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-    exact: true,
-    path: _config__WEBPACK_IMPORTED_MODULE_2__["UI_FORUM"],
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forum_ForumSite__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    path: "set-password",
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PasswordReset__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      currentUrl: currentUrl,
       __self: this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 29,
-        columnNumber: 57
+        columnNumber: 51
       }
     }),
     __self: this,
@@ -154,13 +139,14 @@ function App() {
       columnNumber: 15
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-    path: `${_config__WEBPACK_IMPORTED_MODULE_2__["UI_FORUM_THREADS"]}/:fromUrlCategoryId`,
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forum_ForumTopicList__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    exact: true,
+    path: _config__WEBPACK_IMPORTED_MODULE_2__["UI_FORUM"],
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forum_ForumSite__WEBPACK_IMPORTED_MODULE_8__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 30,
-        columnNumber: 83
+        columnNumber: 57
       }
     }),
     __self: this,
@@ -170,13 +156,13 @@ function App() {
       columnNumber: 15
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-    path: `${_config__WEBPACK_IMPORTED_MODULE_2__["UI_FORUM_TOPIC"]}/:fromUrlPostId`,
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forum_ForumTopic__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    path: `${_config__WEBPACK_IMPORTED_MODULE_2__["UI_FORUM_THREADS"]}/:fromUrlCategoryId`,
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forum_ForumTopicList__WEBPACK_IMPORTED_MODULE_9__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 31,
-        columnNumber: 77
+        columnNumber: 83
       }
     }),
     __self: this,
@@ -186,13 +172,13 @@ function App() {
       columnNumber: 15
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-    path: `${_config__WEBPACK_IMPORTED_MODULE_2__["UI_ACCOUNT"]}`,
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_user_Profile__WEBPACK_IMPORTED_MODULE_14__["default"], {
+    path: `${_config__WEBPACK_IMPORTED_MODULE_2__["UI_FORUM_TOPIC"]}/:fromUrlPostId`,
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forum_ForumTopic__WEBPACK_IMPORTED_MODULE_10__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 32,
-        columnNumber: 58
+        columnNumber: 77
       }
     }),
     __self: this,
@@ -202,9 +188,8 @@ function App() {
       columnNumber: 15
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-    path: `${_config__WEBPACK_IMPORTED_MODULE_2__["UI_PRIVACY"]}`,
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Generic__WEBPACK_IMPORTED_MODULE_15__["default"], {
-      slug: _config__WEBPACK_IMPORTED_MODULE_2__["UI_PRIVACY_SLUG"],
+    path: `${_config__WEBPACK_IMPORTED_MODULE_2__["UI_MEETUPS"]}`,
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_meetups_MeetupSite__WEBPACK_IMPORTED_MODULE_16__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
@@ -219,19 +204,52 @@ function App() {
       columnNumber: 15
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-    path: "*",
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_NoPage__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    path: `${_config__WEBPACK_IMPORTED_MODULE_2__["UI_ACCOUNT"]}`,
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_user_Profile__WEBPACK_IMPORTED_MODULE_14__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 34,
-        columnNumber: 40
+        columnNumber: 58
       }
     }),
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 34,
+      columnNumber: 15
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    path: `${_config__WEBPACK_IMPORTED_MODULE_2__["UI_PRIVACY"]}`,
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Generic__WEBPACK_IMPORTED_MODULE_15__["default"], {
+      slug: _config__WEBPACK_IMPORTED_MODULE_2__["UI_PRIVACY_SLUG"],
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 35,
+        columnNumber: 58
+      }
+    }),
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35,
+      columnNumber: 15
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    path: "*",
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_NoPage__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 36,
+        columnNumber: 40
+      }
+    }),
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36,
       columnNumber: 15
     }
   }))))));
@@ -2866,6 +2884,41 @@ const ForumTopicListContainer = ({
 
 /***/ }),
 
+/***/ "./src/components/meetups/MeetupSite.jsx":
+/*!***********************************************!*\
+  !*** ./src/components/meetups/MeetupSite.jsx ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MeetupSite; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-src/src/components/meetups/MeetupSite.jsx";
+
+function MeetupSite() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "forum-list-container",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 13
+    }
+  }, "Create a new Meetup"));
+}
+
+/***/ }),
+
 /***/ "./src/components/user/Profile.jsx":
 /*!*****************************************!*\
   !*** ./src/components/user/Profile.jsx ***!
@@ -2921,7 +2974,7 @@ function Profile() {
 /*!***********************!*\
   !*** ./src/config.js ***!
   \***********************/
-/*! exports provided: WP_ROOT, GRAPHQL_URI, WP_UPLOADS, API_PAGES, API_POSTS, API_USERS, API_CATEGORIES, UI_ACCOUNT, UI_ACCOUNT_DELETE, UI_FORUM, UI_FORUM_THREADS, UI_FORUM_TOPIC, UI_PRIVACY_SLUG, UI_PRIVACY, UI_CONTACT */
+/*! exports provided: WP_ROOT, GRAPHQL_URI, WP_UPLOADS, API_PAGES, API_POSTS, API_USERS, API_CATEGORIES, UI_ACCOUNT, UI_ACCOUNT_DELETE, UI_FORUM, UI_FORUM_THREADS, UI_FORUM_TOPIC, UI_MEETUPS, UI_PRIVACY_SLUG, UI_PRIVACY, UI_CONTACT */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2938,6 +2991,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_FORUM", function() { return UI_FORUM; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_FORUM_THREADS", function() { return UI_FORUM_THREADS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_FORUM_TOPIC", function() { return UI_FORUM_TOPIC; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_MEETUPS", function() { return UI_MEETUPS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_PRIVACY_SLUG", function() { return UI_PRIVACY_SLUG; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_PRIVACY", function() { return UI_PRIVACY; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UI_CONTACT", function() { return UI_CONTACT; });
@@ -2967,6 +3021,9 @@ const UI_ACCOUNT_DELETE = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["g
 const UI_FORUM = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "forum";
 const UI_FORUM_THREADS = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "forum/threads";
 const UI_FORUM_TOPIC = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "forum/threads/post";
+
+// Meetup pages
+const UI_MEETUPS = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "meetups";
 
 // Privacy policy page
 const UI_PRIVACY_SLUG = "privacy-policy";
