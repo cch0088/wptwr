@@ -23,8 +23,7 @@ const NewEventForm = ({
     setDuration,
     setLocation,
     setNewEventOpen,
-    handleNewEvent,
-    newEventLoading
+    handleNewEvent
 }) =>
 (
     <div className="forum-list-container">

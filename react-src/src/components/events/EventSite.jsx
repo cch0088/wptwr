@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { EVENTS_CATEGORY } from '../../config';
 import { EVENTS_LIST, NEW_EVENT } from '../../gql';
@@ -23,7 +23,11 @@ export default function EventSite() {
         }
     });
 
-    const [addNewEvent, { loading: newEventLoading } ] = useMutation(NEW_EVENT);
+    const [addNewEvent] = useMutation(NEW_EVENT);
+
+    useEffect(() => {
+        setEventData(data);
+    }, [data]);
 
     const insertEvent = (postId, title) => {
         const newEvent = {
@@ -60,7 +64,7 @@ export default function EventSite() {
         <NewEventForm
             loading={loading}
             error={error}
-            data={data}
+            data={eventData}
             loggedIn={loggedIn}
             newEventOpen={newEventOpen}
             title={title}
@@ -77,7 +81,6 @@ export default function EventSite() {
             setLocation={setLocation}
             setNewEventOpen={setNewEventOpen}
             handleNewEvent={handleNewEvent}
-            newEventLoading={newEventLoading}
         />
     );
 }
