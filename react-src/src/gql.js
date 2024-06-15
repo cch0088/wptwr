@@ -107,6 +107,23 @@ query getPostsByCategory(
     }
 }`;
 
+export const NEW_EVENT = gql`
+    mutation newPost($slug: String!, $title: String!, $content: String!) {
+        createPost(
+        input: {
+            clientMutationId: "CreatePost",
+            title: $title,
+            content: $content,
+            categories: {
+                nodes: {slug: $slug}
+            },
+            status: PUBLISH
+        } ) {
+        post {
+            postId
+        } }
+}`;
+
 export const FORUM_NEW_TOPIC = gql`
     mutation newPost($slug: String!, $title: String!, $content: String!) {
         createPost(

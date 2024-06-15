@@ -16,12 +16,15 @@ const NewEventForm = ({
     date,
     duration,
     location,
+    setDate,
     setTitle,
     setContent,
     setCategory,
     setDuration,
     setLocation,
-    setNewEventOpen
+    setNewEventOpen,
+    handleNewEvent,
+    newEventLoading
 }) =>
 (
     <div className="forum-list-container">
@@ -58,7 +61,7 @@ const NewEventForm = ({
                         type="text"
                         name="category"
                         placeholder="Event category"
-                        value={title}
+                        value={category}
                         onChange={(e) => { setCategory(e.target.value); }}
                     />
                     </div>
@@ -67,7 +70,7 @@ const NewEventForm = ({
                         type="text"
                         name="duration"
                         placeholder="Event duration"
-                        value={title}
+                        value={duration}
                         onChange={(e) => { setDuration(e.target.value); }}
                     />
                     </div>
@@ -76,8 +79,17 @@ const NewEventForm = ({
                         type="text"
                         name="location"
                         placeholder="Event location"
-                        value={title}
+                        value={location}
                         onChange={(e) => { setLocation(e.target.value); }}
+                    />
+                    </div>
+                    <div id="new-topic-container">
+                    <input className="new-topic-title"
+                        type="text"
+                        name="date"
+                        placeholder="Event date"
+                        value={date}
+                        onChange={(e) => { setDate(e.target.value); }}
                     />
                     </div>
                     <div id="text-editor-container">
@@ -87,7 +99,7 @@ const NewEventForm = ({
                             onChange={setContent}
                         />
                     </div>
-                    <button className="forum-button" onClick={() => setNewEventOpen(false)}>New event</button>
+                    <button className="forum-button" onClick={() => handleNewEvent()}>New event</button>
                 </>
                 : <button className="forum-button" onClick={() => setNewEventOpen(true)}>New event</button>
             }
