@@ -1227,6 +1227,7 @@ function EventSite() {
       __typename: "Post",
       postId,
       title,
+      content,
       author: {
         __typename: "NodeWithAuthorToUserConnectionEdge",
         node: {
@@ -1237,7 +1238,11 @@ function EventSite() {
       "isSticky": false,
       "editingLockedBy": null
     };
-    setEventData([...eventData, newEvent]);
+    setEventData({
+      posts: {
+        nodes: [...eventData.posts.nodes, newEvent]
+      }
+    });
   };
   const handleNewEvent = () => {
     addNewEvent({
@@ -1246,7 +1251,7 @@ function EventSite() {
         title,
         content
       }
-    }).then(newPost => insertEvent(newPost.data.createPost.post.postId, title));
+    }).then(submitNewEvent => insertEvent(submitNewEvent.data.createPost.post.postId, title));
     setNewEventOpen(false);
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_NewEventForm__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -1272,7 +1277,7 @@ function EventSite() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64,
+      lineNumber: 65,
       columnNumber: 9
     }
   });
@@ -3360,7 +3365,7 @@ const UI_FORUM_THREADS = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["ge
 const UI_FORUM_TOPIC = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "forum/threads/post";
 
 // Events pages
-const EVENTS_CATEGORY = "events";
+const EVENTS_CATEGORY = "events-sub";
 const UI_EVENTS = Object(_lib_validation__WEBPACK_IMPORTED_MODULE_0__["getRoot"])(WP_ROOT) + "events";
 
 // Privacy policy page
@@ -4187,5 +4192,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",1]]]);
+},[[0,"runtime-main",0]]]);
 //# sourceMappingURL=main.chunk.js.map

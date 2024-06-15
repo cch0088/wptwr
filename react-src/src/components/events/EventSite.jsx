@@ -34,6 +34,7 @@ export default function EventSite() {
             __typename: "Post",
             postId,
             title,
+            content,
             author: {
                 __typename: "NodeWithAuthorToUserConnectionEdge",
                 node: {
@@ -44,7 +45,7 @@ export default function EventSite() {
             "isSticky": false,
             "editingLockedBy": null
         };
-        setEventData([...eventData, newEvent]);
+        setEventData({ posts: { nodes: [ ...eventData.posts.nodes, newEvent ] } });
     }
 
     const handleNewEvent = () => {
@@ -54,8 +55,8 @@ export default function EventSite() {
                 title,
                 content
             }
-        }).then((newPost) =>
-            insertEvent(newPost.data.createPost.post.postId, title)
+        }).then((submitNewEvent) =>
+            insertEvent(submitNewEvent.data.createPost.post.postId, title)
         );
         setNewEventOpen(false);
     }
