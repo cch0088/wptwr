@@ -33,7 +33,7 @@ const NewEventForm = ({
         :
             <div className="forum-section">
                 <div className="forum-category">
-                    {!loading && !error && data.posts.nodes.map((post, count) => (
+                    {!loading && !error && data && data.posts.nodes.map((post, count) => (
                         <div key={post.postId} className="forum-post">
                             <div className="forum-post-info">Event #{count + 1} created by {post.author.node.name} {getDateFromString(post.date)}</div>
                             <div dangerouslySetInnerHTML={renderHTML(post.content)} />

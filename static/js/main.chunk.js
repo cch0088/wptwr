@@ -1198,8 +1198,16 @@ var _jsxFileName = "/opt/lampp/htdocs/WordPress/wp-content/themes/wptwr/react-sr
 
 function EventSite() {
   const [newEventOpen, setNewEventOpen] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const [eventData, setEventData] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
+  const [date, setDate] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
+  const [title, setTitle] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
+  const [content, setContent] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
+  const [category, setCategory] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
+  const [duration, setDuration] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
+  const [location, setLocation] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
   const {
-    loggedIn
+    loggedIn,
+    user
   } = Object(_hooks_useAuth__WEBPACK_IMPORTED_MODULE_4__["default"])();
   const {
     loading,
@@ -1210,17 +1218,61 @@ function EventSite() {
       categoryName: _config__WEBPACK_IMPORTED_MODULE_2__["EVENTS_CATEGORY"]
     }
   });
+  const [addNewEvent] = Object(_apollo_client__WEBPACK_IMPORTED_MODULE_1__["useMutation"])(_gql__WEBPACK_IMPORTED_MODULE_3__["NEW_EVENT"]);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    setEventData(data);
+  }, [data]);
+  const insertEvent = (postId, title) => {
+    const newEvent = {
+      __typename: "Post",
+      postId,
+      title,
+      author: {
+        __typename: "NodeWithAuthorToUserConnectionEdge",
+        node: {
+          __typename: "User",
+          name: user.username
+        }
+      },
+      "isSticky": false,
+      "editingLockedBy": null
+    };
+    setEventData([...eventData, newEvent]);
+  };
+  const handleNewEvent = () => {
+    addNewEvent({
+      variables: {
+        slug: _config__WEBPACK_IMPORTED_MODULE_2__["EVENTS_CATEGORY"],
+        title,
+        content
+      }
+    }).then(newPost => insertEvent(newPost.data.createPost.post.postId, title));
+    setNewEventOpen(false);
+  };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_NewEventForm__WEBPACK_IMPORTED_MODULE_5__["default"], {
     loading: loading,
     error: error,
-    data: data,
+    data: eventData,
     loggedIn: loggedIn,
     newEventOpen: newEventOpen,
+    title: title,
+    content: content,
+    category: category,
+    date: date,
+    duration: duration,
+    location: location,
+    setTitle: setTitle,
+    setDate: setDate,
+    setContent: setContent,
+    setCategory: setCategory,
+    setDuration: setDuration,
+    setLocation: setLocation,
     setNewEventOpen: setNewEventOpen,
+    handleNewEvent: handleNewEvent,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18,
+      lineNumber: 64,
       columnNumber: 9
     }
   });
@@ -1263,18 +1315,20 @@ const NewEventForm = ({
   date,
   duration,
   location,
+  setDate,
   setTitle,
   setContent,
   setCategory,
   setDuration,
   setLocation,
-  setNewEventOpen
+  setNewEventOpen,
+  handleNewEvent
 }) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   className: "forum-list-container",
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 27,
+    lineNumber: 29,
     columnNumber: 5
   }
 }, newEventOpen ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1282,7 +1336,7 @@ const NewEventForm = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 30,
+    lineNumber: 32,
     columnNumber: 13
   }
 }, "Add a new event") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1290,7 +1344,7 @@ const NewEventForm = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 32,
+    lineNumber: 34,
     columnNumber: 13
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1298,16 +1352,16 @@ const NewEventForm = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 33,
+    lineNumber: 35,
     columnNumber: 17
   }
-}, !loading && !error && data.posts.nodes.map((post, count) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+}, !loading && !error && data && data.posts.nodes.map((post, count) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   key: post.postId,
   className: "forum-post",
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 35,
+    lineNumber: 37,
     columnNumber: 25
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1315,7 +1369,7 @@ const NewEventForm = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 36,
+    lineNumber: 38,
     columnNumber: 29
   }
 }, "Event #", count + 1, " created by ", post.author.node.name, " ", Object(_lib_validation__WEBPACK_IMPORTED_MODULE_3__["getDateFromString"])(post.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1323,7 +1377,7 @@ const NewEventForm = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 37,
+    lineNumber: 39,
     columnNumber: 29
   }
 }))))), loggedIn ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, " ", newEventOpen ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1331,7 +1385,7 @@ const NewEventForm = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 47,
+    lineNumber: 49,
     columnNumber: 21
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1346,7 +1400,7 @@ const NewEventForm = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 48,
+    lineNumber: 50,
     columnNumber: 21
   }
 })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1354,7 +1408,7 @@ const NewEventForm = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 56,
+    lineNumber: 58,
     columnNumber: 21
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1362,14 +1416,14 @@ const NewEventForm = ({
   type: "text",
   name: "category",
   placeholder: "Event category",
-  value: title,
+  value: category,
   onChange: e => {
     setCategory(e.target.value);
   },
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 57,
+    lineNumber: 59,
     columnNumber: 21
   }
 })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1377,7 +1431,7 @@ const NewEventForm = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 65,
+    lineNumber: 67,
     columnNumber: 21
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1385,14 +1439,14 @@ const NewEventForm = ({
   type: "text",
   name: "duration",
   placeholder: "Event duration",
-  value: title,
+  value: duration,
   onChange: e => {
     setDuration(e.target.value);
   },
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 66,
+    lineNumber: 68,
     columnNumber: 21
   }
 })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1400,7 +1454,7 @@ const NewEventForm = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 74,
+    lineNumber: 76,
     columnNumber: 21
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1408,14 +1462,37 @@ const NewEventForm = ({
   type: "text",
   name: "location",
   placeholder: "Event location",
-  value: title,
+  value: location,
   onChange: e => {
     setLocation(e.target.value);
   },
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 75,
+    lineNumber: 77,
+    columnNumber: 21
+  }
+})), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  id: "new-topic-container",
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 85,
+    columnNumber: 21
+  }
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  className: "new-topic-title",
+  type: "text",
+  name: "date",
+  placeholder: "Event date",
+  value: date,
+  onChange: e => {
+    setDate(e.target.value);
+  },
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 86,
     columnNumber: 21
   }
 })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1423,7 +1500,7 @@ const NewEventForm = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 83,
+    lineNumber: 94,
     columnNumber: 21
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_quill__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -1433,16 +1510,16 @@ const NewEventForm = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 84,
+    lineNumber: 95,
     columnNumber: 25
   }
 })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
   className: "forum-button",
-  onClick: () => setNewEventOpen(false),
+  onClick: () => handleNewEvent(),
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 90,
+    lineNumber: 101,
     columnNumber: 21
   }
 }, "New event")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1451,14 +1528,14 @@ const NewEventForm = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 92,
+    lineNumber: 103,
     columnNumber: 19
   }
 }, "New event")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 95,
+    lineNumber: 106,
     columnNumber: 11
   }
 }, "You must be logged in to create an event."));
@@ -3561,7 +3638,7 @@ async function getContent(fromUrl) {
 /*!********************!*\
   !*** ./src/gql.js ***!
   \********************/
-/*! exports provided: LOG_IN, LOG_OUT, GET_USER, REGISTER_USER, DELETE_USER, RESET_PASSWORD, SEND_PASSWORD_RESET_EMAIL, TOPIC_LIST, EVENTS_LIST, FORUM_NEW_TOPIC, FORUM_GET_POSTS, FORUM_REPLY, LATEST_POSTS */
+/*! exports provided: LOG_IN, LOG_OUT, GET_USER, REGISTER_USER, DELETE_USER, RESET_PASSWORD, SEND_PASSWORD_RESET_EMAIL, TOPIC_LIST, EVENTS_LIST, NEW_EVENT, FORUM_NEW_TOPIC, FORUM_GET_POSTS, FORUM_REPLY, LATEST_POSTS */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3575,6 +3652,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEND_PASSWORD_RESET_EMAIL", function() { return SEND_PASSWORD_RESET_EMAIL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TOPIC_LIST", function() { return TOPIC_LIST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EVENTS_LIST", function() { return EVENTS_LIST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NEW_EVENT", function() { return NEW_EVENT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FORUM_NEW_TOPIC", function() { return FORUM_NEW_TOPIC; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FORUM_GET_POSTS", function() { return FORUM_GET_POSTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FORUM_REPLY", function() { return FORUM_REPLY; });
@@ -3678,6 +3756,22 @@ query getPostsByCategory(
             editingLockedBy { node { databaseId name } }
         }
     }
+}`;
+const NEW_EVENT = _apollo_client__WEBPACK_IMPORTED_MODULE_0__["gql"]`
+    mutation newPost($slug: String!, $title: String!, $content: String!) {
+        createPost(
+        input: {
+            clientMutationId: "CreatePost",
+            title: $title,
+            content: $content,
+            categories: {
+                nodes: {slug: $slug}
+            },
+            status: PUBLISH
+        } ) {
+        post {
+            postId
+        } }
 }`;
 const FORUM_NEW_TOPIC = _apollo_client__WEBPACK_IMPORTED_MODULE_0__["gql"]`
     mutation newPost($slug: String!, $title: String!, $content: String!) {
