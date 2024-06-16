@@ -99,6 +99,7 @@ const NewEventForm = ({
                         />
                     </div>
                     <button className="forum-button" onClick={() => handleNewEvent()}>New event</button>
+                    <button className="forum-button right-offset" onClick={() => setNewEventOpen(false)}>Cancel</button>
                 </>
                 : <button className="forum-button" onClick={() => setNewEventOpen(true)}>New event</button>
             }
