@@ -98,10 +98,27 @@ const NewEventForm = ({
                             onChange={setContent}
                         />
                     </div>
-                    <button className="forum-button" onClick={() => handleNewEvent()}>New event</button>
+                    <button className="forum-button"
+                        onClick={() => handleNewEvent()}
+                        disabled={
+                            !title
+                            || !category
+                            || !duration
+                            || !location
+                            || !date
+                            || !content}>New event
+                    </button>
                     <button className="forum-button right-offset" onClick={() => setNewEventOpen(false)}>Cancel</button>
                 </>
-                : <button className="forum-button" onClick={() => setNewEventOpen(true)}>New event</button>
+                :
+                <>
+                    {!loading && !error && data
+                        && (data.posts.nodes.length === 0)
+                        && <div className="forum-category">
+                        Nothing to show here... Add an event!
+                    </div>}
+                    <button className="forum-button" onClick={() => setNewEventOpen(true)}>New event</button>
+                </>
             }
         </>
         : <div>You must be logged in to create an event.</div>}

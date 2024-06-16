@@ -45,7 +45,7 @@ export default function EventSite() {
             "isSticky": false,
             "editingLockedBy": null
         };
-        setEventData({ posts: { nodes: [ ...eventData.posts.nodes, newEvent ] } });
+        setEventData({ posts: { nodes: [ newEvent, ...eventData.posts.nodes ] } });
     }
 
     const handleNewEvent = () => {

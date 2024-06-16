@@ -1240,7 +1240,7 @@ function EventSite() {
     };
     setEventData({
       posts: {
-        nodes: [...eventData.posts.nodes, newEvent]
+        nodes: [newEvent, ...eventData.posts.nodes]
       }
     });
   };
@@ -1521,26 +1521,44 @@ const NewEventForm = ({
 })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
   className: "forum-button",
   onClick: () => handleNewEvent(),
+  disabled: !title || !category || !duration || !location || !date || !content,
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
     lineNumber: 101,
     columnNumber: 21
   }
-}, "New event")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+}, "New event"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  className: "forum-button right-offset",
+  onClick: () => setNewEventOpen(false),
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 111,
+    columnNumber: 21
+  }
+}, "Cancel")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, !loading && !error && data && data.posts.nodes.length === 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  className: "forum-category",
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 117,
+    columnNumber: 28
+  }
+}, "Nothing to show here... Add an event!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
   className: "forum-button",
   onClick: () => setNewEventOpen(true),
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 103,
-    columnNumber: 19
+    lineNumber: 120,
+    columnNumber: 21
   }
-}, "New event")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+}, "New event"))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 106,
+    lineNumber: 124,
     columnNumber: 11
   }
 }, "You must be logged in to create an event."));
@@ -4192,5 +4210,5 @@ module.exports = __webpack_require__(/*! /opt/lampp/htdocs/WordPress/wp-content/
 
 /***/ })
 
-},[[0,"runtime-main",0]]]);
+},[[0,"runtime-main",1]]]);
 //# sourceMappingURL=main.chunk.js.map
