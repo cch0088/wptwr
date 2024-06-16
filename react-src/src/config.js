@@ -1,7 +1,7 @@
 import { getRoot } from "./lib/validation";
 
 // Use forward slash (/) if root is same as site
-export const WP_ROOT = "WordPress";
+export const WP_ROOT = "/";
 
 // GraphQL defaults
 export const GRAPHQL_URI = getRoot(WP_ROOT) + "graphql";
